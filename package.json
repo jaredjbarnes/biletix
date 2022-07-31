@@ -1,0 +1,45 @@
+{
+  "name": "biletix",
+  "version": "1.0.0",
+  "description": "biletix",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "esbuild src/index.tsx --bundle --outfile=dist/index.js",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jaredjbarnes/biletix.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jaredjbarnes/biletix/issues"
+  },
+  "homepage": "https://github.com/jaredjbarnes/biletix#readme",
+  "dependencies": {
+    "clsx": "^1.2.1",
+    "ergo-hex": "0.0.2",
+    "esbuild": "^0.14.49",
+    "motion-ux": "^7.2.12",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-jss": "^10.9.1",
+    "rxjs": "^7.5.6"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.18.9",
+    "@storybook/addon-actions": "^6.5.9",
+    "@storybook/addon-essentials": "^6.5.9",
+    "@storybook/addon-interactions": "^6.5.9",
+    "@storybook/addon-links": "^6.5.9",
+    "@storybook/builder-webpack4": "^6.5.9",
+    "@storybook/manager-webpack4": "^6.5.9",
+    "@storybook/react": "^6.5.9",
+    "@storybook/testing-library": "^0.0.13",
+    "babel-loader": "^8.2.5",
+    "jest": "^28.1.3"
+  }
+}
