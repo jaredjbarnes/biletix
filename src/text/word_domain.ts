@@ -1,8 +1,28 @@
-import React from "react";
-import { ObservableValue} from "ergo-hex";
+import { CharacterDomain } from "./character_domain";
 
+export class WordDomain {
+  private _characters: CharacterDomain[];
 
+  get characters() {
+    return this._characters;
+  }
 
-export class TextDomain {
-  private _style = new ObservableValue<React.CSSProperties>({});
+  constructor(text: string) {
+    const parts = text.trim().split("");
+    const length = parts.length;
+    const partDelay = 30;
+    const maxTime = length * partDelay;
+    this._characters = parts.map(
+      (c, index) =>
+        new CharacterDomain(c, index * partDelay, maxTime - index * partDelay)
+    );
+  }
+
+  show() {
+    this._characters.forEach((c) => c.show());
+  }
+
+  hide() {
+    this._characters.forEach((c) => c.hide());
+  }
 }

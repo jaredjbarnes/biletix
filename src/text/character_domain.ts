@@ -9,7 +9,8 @@ import { createAnimation, easings, Motion } from "motion-ux";
 
 export class CharacterDomain {
   private _character: string;
-  private _delay: number;
+  private _showDelay: number;
+  private _hideDelay: number;
   private _delayedPromise: WeakPromise<void> = WeakPromise.resolve();
   private _motion: Motion<{ opacity: number; scale: number }>;
   private _style: ObservableValue<React.CSSProperties> = new ObservableValue({
@@ -21,6 +22,7 @@ export class CharacterDomain {
     opacity: 0,
     transformOrigin: "center bottom",
     fontSize: "50px",
+    fontFamily: "Arial"
   } as React.CSSProperties);
 
   get character() {
@@ -31,9 +33,10 @@ export class CharacterDomain {
     return this._style;
   }
 
-  constructor(character: string, delay: number) {
+  constructor(character: string, showDelay = 0, hideDelay = 0) {
     this._character = character;
-    this._delay = delay;
+    this._showDelay = showDelay;
+    this._hideDelay = hideDelay;
 
     this._motion = new Motion((animation) => {
       this._style.transformValue((style) => {
@@ -55,16 +58,16 @@ export class CharacterDomain {
   async show() {
     try {
       this._delayedPromise.cancel(0);
-      this._delayedPromise = delay(this._delay);
+      this._delayedPromise = delay(this._showDelay);
       await this._delayedPromise;
 
       this._motion.segueTo(
         createAnimation({
           opacity: 1,
           scale: {
-            from: 0.25,
+            from: 0,
             "40%": {
-              value: 1.5,
+              value: 1.25,
               easeIn: "quad",
               easeOut: "quad",
             },
@@ -74,7 +77,7 @@ export class CharacterDomain {
             },
           },
         }),
-        500
+        400
       );
     } catch (error) {}
   }
@@ -82,7 +85,7 @@ export class CharacterDomain {
   async hide() {
     try {
       this._delayedPromise.cancel(0);
-      this._delayedPromise = delay(this._delay);
+      this._delayedPromise = delay(this._hideDelay);
       await this._delayedPromise;
 
       this._motion.segueTo(
@@ -94,7 +97,7 @@ export class CharacterDomain {
           scale: {
             from: 1,
             "40%": {
-              value: 1.5,
+              value: 1.25,
               easeIn: "quad",
               easeOut: "quad",
             },
@@ -104,7 +107,7 @@ export class CharacterDomain {
             },
           },
         }),
-        500
+        400
       );
     } catch (error) {}
   }
