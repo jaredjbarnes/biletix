@@ -1,5 +1,5 @@
 import { useAsyncValueEffect } from "ergo-hex";
-import React, { PointerEventHandler, useRef, useState } from "react";
+import React, { PointerEventHandler, useEffect, useRef, useState } from "react";
 import { VirtualizedScrollerDomain } from "./virtualized_scroller_domain";
 
 export interface VirtualizedScrollerProps {
@@ -18,6 +18,7 @@ export function VirtualizedScroller({
       new VirtualizedScrollerDomain(requestAnimationFrame, cancelAnimationFrame)
   );
   const divRef = useRef<HTMLDivElement | null>(null);
+  const isDownRef = useRef<boolean>(false);
   const contentRef = useRef<HTMLDivElement | null>(null);
 
   useAsyncValueEffect((y) => {
@@ -28,26 +29,56 @@ export function VirtualizedScroller({
     }
   }, domain.offsetY);
 
+  function startDrag(e: React.PointerEvent) {
+    const id = e.pointerId;
+    const div = divRef.current;
+
+    if (div != null) {
+      function move(e: PointerEvent) {
+        if (id === e.pointerId) {
+          domain.pointerMove(e.clientY);
+        }
+      }
+
+      function end(e: PointerEvent) {
+        if (id === e.pointerId) {
+          domain.pointerEnd(e.clientY);
+        }
+
+        div?.removeEventListener("pointermove", move);
+        div?.removeEventListener("pointerup", end);
+        div?.removeEventListener("pointerleave", end);
+      }
+
+      div.addEventListener("pointermove", move);
+      div.addEventListener("pointerup", end);
+      div.addEventListener("pointerleave", end);
+    }
+    domain.pointerStart(e.clientY);
+    e.stopPropagation();
+    e.preventDefault;
+  }
+
+  useEffect(() => {
+    const div = divRef.current;
+
+    if (div != null) {
+      function cancel(e) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+      div.addEventListener("touchstart", cancel, { passive: false });
+
+      return () => {
+        div.removeEventListener("touchstart", cancel);
+      };
+    }
+  }, []);
+
   return (
     <div
       ref={divRef}
-      onTouchMove={(e) => {
-        e.stopPropagation();
-        e.preventDefault;
-      }}
-      onPointerDown={(e) => {
-        document.body.style.overflow = "hidden";
-        domain.pointerStart(e.clientY);
-      }}
-      onPointerMove={(e) => {
-        domain.pointerMove(e.clientY);
-      }}
-      onPointerLeave={(e) => {
-        domain.pointerEnd(e.clientY);
-      }}
-      onPointerUp={(e) => {
-        domain.pointerEnd(e.clientY);
-      }}
+      onPointerDown={startDrag}
       style={{ ...style, position: "relative", overflow: "hidden" }}
       className={className}
     >

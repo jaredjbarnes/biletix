@@ -66,7 +66,6 @@ export class VirtualizedScrollerDomain {
     if (this._maxDistanceMoved > 5) {
       this._requestAnimationId = requestAnimationFrame(() => {
         this.settle();
-        console.log(this._deltaY, this._offsetY.getValue());
       });
     }
   }
@@ -80,8 +79,6 @@ export class VirtualizedScrollerDomain {
       this._requestAnimationId = requestAnimationFrame(() => {
         this.settle();
       });
-    } else {
-      console.log(this._offsetY.getValue());
     }
   }
 
