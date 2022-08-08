@@ -1,33 +1,36 @@
 import { useAsyncValueEffect } from "ergo-hex";
-import React, { PointerEventHandler, useEffect, useRef, useState } from "react";
+import React, {
+  PointerEventHandler,
+  useEffect,
+  useLayoutEffect,
+  useRef,
+  useState,
+} from "react";
 import { VirtualizedScrollerDomain } from "./virtualized_scroller_domain";
 
 export interface VirtualizedScrollerProps {
   style?: React.CSSProperties;
   className?: string;
   children?: React.ReactNode;
+  domain: VirtualizedScrollerDomain;
 }
 
 export function VirtualizedScroller({
   style,
   className,
   children,
+  domain,
 }: VirtualizedScrollerProps) {
-  const [domain] = useState(
-    () =>
-      new VirtualizedScrollerDomain(requestAnimationFrame, cancelAnimationFrame)
-  );
   const divRef = useRef<HTMLDivElement | null>(null);
-  const isDownRef = useRef<boolean>(false);
   const contentRef = useRef<HTMLDivElement | null>(null);
 
-  useAsyncValueEffect((y) => {
+  useAsyncValueEffect((offset) => {
     const content = contentRef.current;
 
     if (content != null) {
-      content.style.transform = `translate(0px, ${y}px)`;
+      content.style.transform = `translate(${offset.x}px, ${offset.y}px)`;
     }
-  }, domain.offsetY);
+  }, domain.offsetBroadcast);
 
   function startDrag(e: React.PointerEvent) {
     const id = e.pointerId;
@@ -36,7 +39,7 @@ export function VirtualizedScroller({
     if (div != null) {
       function move(e: PointerEvent) {
         if (id === e.pointerId) {
-          domain.pointerMove(e.clientY);
+          domain.pointerMove(e.clientX, e.clientY);
         }
       }
 
@@ -54,7 +57,7 @@ export function VirtualizedScroller({
       div.addEventListener("pointerup", end);
       div.addEventListener("pointerleave", end);
     }
-    domain.pointerStart(e.clientY);
+    domain.pointerStart(e.clientX, e.clientY);
     e.stopPropagation();
     e.preventDefault;
   }
