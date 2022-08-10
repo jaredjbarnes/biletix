@@ -40,19 +40,27 @@ export class VirtualizedScrollerDomain {
   }
 
   get top() {
-    return this._offset.getValue().y;
+    return -this._offset.getValue().y;
   }
 
   get left() {
-    return this._offset.getValue().x;
+    return -this._offset.getValue().x;
   }
 
   get right() {
-    return this._offset.getValue().x + this._size.getValue().width;
+    return this.left + this._size.getValue().width;
   }
 
   get bottom() {
-    return this._offset.getValue().y + this._size.getValue().height;
+    return this.top + this._size.getValue().height;
+  }
+
+  get width() {
+    return this._size.getValue().width;
+  }
+
+  get height() {
+    return this._size.getValue().height;
   }
 
   constructor(
@@ -147,6 +155,10 @@ export class VirtualizedScrollerDomain {
   }
 
   setSize(width: number, height: number) {
+    if (this.width == width && this.height === height) {
+      return;
+    }
+
     this._size.transformValue((s) => {
       s.width = width;
       s.height = height;
