@@ -41,7 +41,7 @@ export function Baseline() {
             backgroundColor: "red",
           };
 
-          children.push(<div style={style}>{x}</div>);
+          children.push(<div key={x} style={style}>{x}</div>);
         }
 
         return children;

@@ -112,7 +112,12 @@ export function VirtualizedScroller({
     <div
       ref={divRef}
       onPointerDown={startDrag}
-      style={{ ...style, position: "relative", overflow: "hidden" }}
+      style={{
+        ...style,
+        position: "relative",
+        overflow: "hidden",
+        userSelect: "none",
+      }}
       className={className}
     >
       <div
@@ -122,6 +127,7 @@ export function VirtualizedScroller({
           width: "100%",
           height: "1px",
           overflow: "visible",
+          userSelect: "none",
         }}
       >
         {children(domain)}
