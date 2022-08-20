@@ -10,6 +10,11 @@ interface Size {
   height: number;
 }
 
+type ScrollHandler =
+  | ((domain: VirtualizedScrollerDomain) => void)
+  | null
+  | undefined;
+
 export class VirtualizedScrollerDomain {
   private _offset = new ObservableValue<Position>({
     x: 0,
@@ -19,17 +24,18 @@ export class VirtualizedScrollerDomain {
     width: 0,
     height: 0,
   });
+  private _isScrolling = false;
   private _isXDisabled = false;
   private _isYDisabled = false;
   private _requestAnimationId = 0;
   private _lastTime = 0;
+  private _lastInteraction;
   private _lastOffset: Position = { x: 0, y: 0 };
   private _startOffset: Position = { x: 0, y: 0 };
   private _deltaOffset: Position = { x: 0, y: 0 };
   private _deltaOffsetHistory = new Array<Position>(3);
   private _requestAnimationFrame;
   private _cancelAnimationFrame;
-  private _maxDistanceMoved = 0;
 
   get offsetBroadcast(): ReadonlyObservableValue<Position> {
     return this._offset;
@@ -63,6 +69,14 @@ export class VirtualizedScrollerDomain {
     return this._size.getValue().height;
   }
 
+  get lastInteraction() {
+    return this._lastInteraction;
+  }
+
+  onScrollStart: ScrollHandler;
+  onScroll: ScrollHandler;
+  onScrollEnd: ScrollHandler;
+
   constructor(
     requestAnimationFrame: (callback: () => void) => number,
     cancelAnimationFrame: (id: number) => void
@@ -78,7 +92,7 @@ export class VirtualizedScrollerDomain {
     cancelAnimationFrame(this._requestAnimationId);
 
     this._lastTime = Date.now();
-    this._maxDistanceMoved = 0;
+    this._lastInteraction = Date.now();
     this._lastOffset.x = x;
     this._startOffset.x = x;
     this._lastOffset.y = y;
@@ -88,6 +102,9 @@ export class VirtualizedScrollerDomain {
       p.x = 0;
       p.y = 0;
     });
+
+    this._isScrolling = true;
+    this.onScrollStart && this.onScrollStart(this);
   }
 
   pointerMove(x: number, y: number) {
@@ -99,6 +116,7 @@ export class VirtualizedScrollerDomain {
       return;
     }
 
+    const onScroll = this.onScroll;
     const deltaY = y - this._lastOffset.y;
     const deltaX = x - this._lastOffset.x;
     this._lastTime = now;
@@ -131,9 +149,12 @@ export class VirtualizedScrollerDomain {
       v.y += this._isYDisabled ? 0 : averageY;
       return v;
     });
+
+    onScroll && onScroll(this);
   }
 
   pointerEnd() {
+    this._lastInteraction = Date.now();
     const deltaX = this._deltaOffset.x;
     const deltaY = this._deltaOffset.y;
     const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
@@ -142,11 +163,28 @@ export class VirtualizedScrollerDomain {
       this._requestAnimationId = requestAnimationFrame(() => {
         this.settle();
       });
+    } else {
+      this.stop();
     }
   }
 
+  stop() {
+    if (this._isScrolling) {
+      this._isScrolling = false;
+      this.onScrollEnd && this.onScrollEnd(this);
+    }
+
+    const cancelAnimationFrame = this._cancelAnimationFrame;
+    cancelAnimationFrame(this._requestAnimationId);
+    this._deltaOffset = { x: 0, y: 0 };
+    this._deltaOffsetHistory.forEach((p) => {
+      p.x = 0;
+      p.y = 0;
+    });
+  }
+
   scrollTo() {
-    this._cancelAnimationFrame(this._requestAnimationId);
+    // TODO
   }
 
   setSize(width: number, height: number) {
@@ -178,6 +216,7 @@ export class VirtualizedScrollerDomain {
   }
 
   private settle() {
+    this._lastInteraction = Date.now();
     this._deltaOffset.y = this._deltaOffset.y * 0.97;
     this._deltaOffset.x = this._deltaOffset.x * 0.97;
     const requestAnimationFrame = this._requestAnimationFrame;
@@ -187,16 +226,20 @@ export class VirtualizedScrollerDomain {
         this._deltaOffset.y * this._deltaOffset.y
     );
 
-    if (distanceTraveled > 0.01) {
+    if (distanceTraveled > 0.1) {
       this._offset.transformValue((v) => {
         v.x += this._isXDisabled ? 0 : this._deltaOffset.x;
         v.y += this._isYDisabled ? 0 : this._deltaOffset.y;
         return v;
       });
 
+      this.onScroll && this.onScroll(this);
+
       this._requestAnimationId = requestAnimationFrame(() => {
         this.settle();
       });
+    } else {
+      this.stop();
     }
   }
 }

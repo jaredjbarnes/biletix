@@ -24,8 +24,22 @@ export function Baseline() {
   return (
     <VirtualizedScroller
       style={{ width: "300px", height: "600px", border: "3px solid black" }}
-      domain={domain}
-      movementThreshold={HEIGHT_AND_PADDING}
+      enableXScrolling={false}
+      renderThreshold={HEIGHT_AND_PADDING}
+      onScrollStart={()=>{console.log("start");}}
+      onScroll={()=>{console.log("scroll");}}
+      onScrollEnd={()=>{console.log("end");}}
+      onTap={(e) => {
+        const target = e.target as HTMLElement | null;
+
+        if (target != null) {
+          const element = target.closest("[data-id]");
+
+          if (element != null) {
+            console.log(element.getAttribute("data-id"));
+          }
+        }
+      }}
     >
       {(domain) => {
         const startIndex = Math.floor(domain.top / HEIGHT_AND_PADDING) - 1;
@@ -41,7 +55,11 @@ export function Baseline() {
             backgroundColor: "red",
           };
 
-          children.push(<div key={x} style={style}>{x}</div>);
+          children.push(
+            <div key={x} style={style} data-id={x}>
+              {x}
+            </div>
+          );
         }
 
         return children;
