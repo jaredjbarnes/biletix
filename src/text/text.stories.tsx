@@ -9,7 +9,7 @@ export default {
 
 export function Default() {
   const [domain] = useState(() => {
-    return new TextDomain("Ferhangi \n Seyler \n Greg");
+    return new TextDomain("Ferhangi \n Seyler \n Florin");
   });
   return (
     <div>

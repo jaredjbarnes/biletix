@@ -44,7 +44,7 @@ const monthMap = [
   "SEP",
   "OCT",
   "NOV",
-  "DEV",
+  "DEC",
 ];
 
 export interface SideDateProps {

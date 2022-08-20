@@ -104,15 +104,6 @@ export class VirtualizedScrollerDomain {
     this._lastTime = now;
     this._lastOffset.y = y;
     this._lastOffset.x = x;
-
-    const distanceX = Math.abs(x - this._startOffset.x);
-    const distanceY = Math.abs(y - this._startOffset.y);
-
-    this._maxDistanceMoved = Math.max(
-      this._maxDistanceMoved,
-      Math.sqrt(distanceX * distanceX + distanceY * distanceY)
-    );
-
     let totalX = 0;
     let totalY = 0;
 
@@ -142,8 +133,12 @@ export class VirtualizedScrollerDomain {
     });
   }
 
-  pointerEnd(y: number) {
-    if (this._maxDistanceMoved > 5) {
+  pointerEnd() {
+    const deltaX = this._deltaOffset.x;
+    const deltaY = this._deltaOffset.y;
+    const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
+
+    if (distance > 6) {
       this._requestAnimationId = requestAnimationFrame(() => {
         this.settle();
       });

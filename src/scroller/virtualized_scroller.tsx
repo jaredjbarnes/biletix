@@ -1,6 +1,14 @@
-import { useAsyncValue, useAsyncValueEffect, useUpdate } from "ergo-hex";
-import React, { useCallback, useEffect, useRef, useState } from "react";
+import { useAsyncValueEffect } from "ergo-hex";
+import React, {
+  useEffect,
+  useLayoutEffect,
+  useRef,
+  useState,
+} from "react";
 import { VirtualizedScrollerDomain } from "./virtualized_scroller_domain";
+import "hammerjs";
+
+declare var Hammer: any;
 
 export interface VirtualizedScrollerProps {
   style?: React.CSSProperties;
@@ -35,38 +43,36 @@ export function VirtualizedScroller({
     }
   }, domain.offsetBroadcast);
 
-  const startDrag = useCallback(
-    function startDrag(e: React.PointerEvent) {
-      const id = e.pointerId;
-      const div = divRef.current;
+  useLayoutEffect(() => {
+    const stage = divRef.current;
+    if (stage != null) {
+      const manager = new Hammer.Manager(stage);
+      manager.add(
+        new Hammer.Pan({ direction: Hammer.DIRECTION_ALL, threshold: 0 })
+      );
 
-      if (div != null) {
-        function move(e: PointerEvent) {
-          if (id === e.pointerId) {
-            domain.pointerMove(e.clientX, e.clientY);
-          }
-        }
+      manager.on("panstart", (e) => {
+        domain.pointerStart(e.center.x, e.center.y);
+      });
 
-        function end(e: PointerEvent) {
-          if (id === e.pointerId) {
-            domain.pointerEnd(e.clientY);
-          }
+      manager.on("panmove", (e) => {
+        domain.pointerMove(e.center.x, e.center.y);
+      });
 
-          div?.removeEventListener("pointermove", move);
-          div?.removeEventListener("pointerup", end);
-          div?.removeEventListener("pointerleave", end);
-        }
+      manager.on("panend", (e) => {
+        domain.pointerEnd();
+      });
 
-        div.addEventListener("pointermove", move);
-        div.addEventListener("pointerup", end);
-        div.addEventListener("pointerleave", end);
-      }
-      domain.pointerStart(e.clientX, e.clientY);
-      e.stopPropagation();
-      e.preventDefault;
-    },
-    [domain]
-  );
+      manager.on("pancancel", (e) => {
+        domain.pointerEnd();
+      });
+
+      return () => {
+        manager.stop();
+        manager.destroy();
+      };
+    }
+  }, [domain]);
 
   useEffect(() => {
     const div = divRef.current;
@@ -111,7 +117,10 @@ export function VirtualizedScroller({
   return (
     <div
       ref={divRef}
-      onPointerDown={startDrag}
+      onPointerDown={(e) => {
+        domain.pointerStart(e.clientX, e.clientY);
+        domain.pointerEnd();
+      }}
       style={{
         ...style,
         position: "relative",

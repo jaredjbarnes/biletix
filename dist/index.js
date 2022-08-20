@@ -23,7 +23,7 @@
 
   // node_modules/react/cjs/react.development.js
   var require_react_development = __commonJS({
-    "node_modules/react/cjs/react.development.js"(exports, module) {
+    "node_modules/react/cjs/react.development.js"(exports, module2) {
       "use strict";
       if (true) {
         (function() {
@@ -411,7 +411,7 @@
               }
             }
           }
-          var ReactElement = function(type, key, ref, self, source, owner, props) {
+          var ReactElement = function(type, key, ref, self2, source, owner, props) {
             var element = {
               $$typeof: REACT_ELEMENT_TYPE,
               type,
@@ -432,7 +432,7 @@
                 configurable: false,
                 enumerable: false,
                 writable: false,
-                value: self
+                value: self2
               });
               Object.defineProperty(element, "_source", {
                 configurable: false,
@@ -447,12 +447,12 @@
             }
             return element;
           };
-          function createElement(type, config, children) {
+          function createElement2(type, config, children) {
             var propName;
             var props = {};
             var key = null;
             var ref = null;
-            var self = null;
+            var self2 = null;
             var source = null;
             if (config != null) {
               if (hasValidRef(config)) {
@@ -467,7 +467,7 @@
                 }
                 key = "" + config.key;
               }
-              self = config.__self === void 0 ? null : config.__self;
+              self2 = config.__self === void 0 ? null : config.__self;
               source = config.__source === void 0 ? null : config.__source;
               for (propName in config) {
                 if (hasOwnProperty.call(config, propName) && !RESERVED_PROPS.hasOwnProperty(propName)) {
@@ -509,7 +509,7 @@
                 }
               }
             }
-            return ReactElement(type, key, ref, self, source, ReactCurrentOwner.current, props);
+            return ReactElement(type, key, ref, self2, source, ReactCurrentOwner.current, props);
           }
           function cloneAndReplaceKey(oldElement, newKey) {
             var newElement = ReactElement(oldElement.type, newKey, oldElement.ref, oldElement._self, oldElement._source, oldElement._owner, oldElement.props);
@@ -523,7 +523,7 @@
             var props = assign({}, element.props);
             var key = element.key;
             var ref = element.ref;
-            var self = element._self;
+            var self2 = element._self;
             var source = element._source;
             var owner = element._owner;
             if (config != null) {
@@ -561,20 +561,20 @@
               }
               props.children = childArray;
             }
-            return ReactElement(element.type, key, ref, self, source, owner, props);
+            return ReactElement(element.type, key, ref, self2, source, owner, props);
           }
           function isValidElement(object) {
             return typeof object === "object" && object !== null && object.$$typeof === REACT_ELEMENT_TYPE;
           }
           var SEPARATOR = ".";
           var SUBSEPARATOR = ":";
-          function escape(key) {
-            var escapeRegex = /[=:]/g;
+          function escape2(key) {
+            var escapeRegex2 = /[=:]/g;
             var escaperLookup = {
               "=": "=0",
               ":": "=2"
             };
-            var escapedString = key.replace(escapeRegex, function(match) {
+            var escapedString = key.replace(escapeRegex2, function(match) {
               return escaperLookup[match];
             });
             return "$" + escapedString;
@@ -584,14 +584,14 @@
           function escapeUserProvidedKey(text) {
             return text.replace(userProvidedKeyEscapeRegex, "$&/");
           }
-          function getElementKey(element, index) {
+          function getElementKey(element, index4) {
             if (typeof element === "object" && element !== null && element.key != null) {
               {
                 checkKeyStringCoercion(element.key);
               }
-              return escape("" + element.key);
+              return escape2("" + element.key);
             }
-            return index.toString(36);
+            return index4.toString(36);
           }
           function mapIntoArray(children, array, escapedPrefix, nameSoFar, callback) {
             var type = typeof children;
@@ -684,12 +684,12 @@
             if (children == null) {
               return children;
             }
-            var result = [];
+            var result2 = [];
             var count = 0;
-            mapIntoArray(children, result, "", "", function(child) {
+            mapIntoArray(children, result2, "", "", function(child) {
               return func.call(context, child, count++);
             });
-            return result;
+            return result2;
           }
           function countChildren(children) {
             var n = 0;
@@ -714,7 +714,7 @@
             }
             return children;
           }
-          function createContext(defaultValue) {
+          function createContext3(defaultValue) {
             var context = {
               $$typeof: REACT_CONTEXT_TYPE,
               _currentValue: defaultValue,
@@ -891,7 +891,7 @@
             }
             return lazyType;
           }
-          function forwardRef(render) {
+          function forwardRef2(render) {
             {
               if (render != null && render.$$typeof === REACT_MEMO_TYPE) {
                 error("forwardRef requires a render function but received a `memo` component. Instead of forwardRef(memo(...)), use memo(forwardRef(...)).");
@@ -986,7 +986,7 @@
             }
             return dispatcher;
           }
-          function useContext(Context) {
+          function useContext2(Context) {
             var dispatcher = resolveDispatcher();
             {
               if (Context._context !== void 0) {
@@ -1000,43 +1000,43 @@
             }
             return dispatcher.useContext(Context);
           }
-          function useState(initialState) {
+          function useState4(initialState) {
             var dispatcher = resolveDispatcher();
             return dispatcher.useState(initialState);
           }
-          function useReducer(reducer, initialArg, init) {
+          function useReducer2(reducer, initialArg, init) {
             var dispatcher = resolveDispatcher();
             return dispatcher.useReducer(reducer, initialArg, init);
           }
-          function useRef(initialValue) {
+          function useRef4(initialValue) {
             var dispatcher = resolveDispatcher();
             return dispatcher.useRef(initialValue);
           }
-          function useEffect(create, deps) {
+          function useEffect3(create5, deps) {
             var dispatcher = resolveDispatcher();
-            return dispatcher.useEffect(create, deps);
+            return dispatcher.useEffect(create5, deps);
           }
-          function useInsertionEffect(create, deps) {
+          function useInsertionEffect2(create5, deps) {
             var dispatcher = resolveDispatcher();
-            return dispatcher.useInsertionEffect(create, deps);
+            return dispatcher.useInsertionEffect(create5, deps);
           }
-          function useLayoutEffect(create, deps) {
+          function useLayoutEffect4(create5, deps) {
             var dispatcher = resolveDispatcher();
-            return dispatcher.useLayoutEffect(create, deps);
+            return dispatcher.useLayoutEffect(create5, deps);
           }
           function useCallback(callback, deps) {
             var dispatcher = resolveDispatcher();
             return dispatcher.useCallback(callback, deps);
           }
-          function useMemo(create, deps) {
+          function useMemo2(create5, deps) {
             var dispatcher = resolveDispatcher();
-            return dispatcher.useMemo(create, deps);
+            return dispatcher.useMemo(create5, deps);
           }
-          function useImperativeHandle(ref, create, deps) {
+          function useImperativeHandle(ref, create5, deps) {
             var dispatcher = resolveDispatcher();
-            return dispatcher.useImperativeHandle(ref, create, deps);
+            return dispatcher.useImperativeHandle(ref, create5, deps);
           }
-          function useDebugValue(value, formatterFn) {
+          function useDebugValue2(value, formatterFn) {
             {
               var dispatcher = resolveDispatcher();
               return dispatcher.useDebugValue(value, formatterFn);
@@ -1137,18 +1137,18 @@
             }
           }
           var ReactCurrentDispatcher$1 = ReactSharedInternals.ReactCurrentDispatcher;
-          var prefix;
+          var prefix2;
           function describeBuiltInComponentFrame(name, source, ownerFn) {
             {
-              if (prefix === void 0) {
+              if (prefix2 === void 0) {
                 try {
                   throw Error();
                 } catch (x) {
                   var match = x.stack.trim().match(/\n( *(at )?)/);
-                  prefix = match && match[1] || "";
+                  prefix2 = match && match[1] || "";
                 }
               }
-              return "\n" + prefix + name;
+              return "\n" + prefix2 + name;
             }
           }
           var reentry = false;
@@ -1523,7 +1523,7 @@
                 error("React.createElement: type is invalid -- expected a string (for built-in components) or a class/function (for composite components) but got: %s.%s", typeString, info);
               }
             }
-            var element = createElement.apply(this, arguments);
+            var element = createElement2.apply(this, arguments);
             if (element == null) {
               return element;
             }
@@ -1597,8 +1597,8 @@
             if (enqueueTaskImpl === null) {
               try {
                 var requireString = ("require" + Math.random()).slice(0, 7);
-                var nodeRequire = module && module[requireString];
-                enqueueTaskImpl = nodeRequire.call(module, "timers").setImmediate;
+                var nodeRequire = module2 && module2[requireString];
+                enqueueTaskImpl = nodeRequire.call(module2, "timers").setImmediate;
               } catch (_err) {
                 enqueueTaskImpl = function(callback) {
                   {
@@ -1627,10 +1627,10 @@
                 ReactCurrentActQueue.current = [];
               }
               var prevIsBatchingLegacy = ReactCurrentActQueue.isBatchingLegacy;
-              var result;
+              var result2;
               try {
                 ReactCurrentActQueue.isBatchingLegacy = true;
-                result = callback();
+                result2 = callback();
                 if (!prevIsBatchingLegacy && ReactCurrentActQueue.didScheduleLegacyUpdate) {
                   var queue = ReactCurrentActQueue.current;
                   if (queue !== null) {
@@ -1644,8 +1644,8 @@
               } finally {
                 ReactCurrentActQueue.isBatchingLegacy = prevIsBatchingLegacy;
               }
-              if (result !== null && typeof result === "object" && typeof result.then === "function") {
-                var thenableResult = result;
+              if (result2 !== null && typeof result2 === "object" && typeof result2.then === "function") {
+                var thenableResult = result2;
                 var wasAwaited = false;
                 var thenable = {
                   then: function(resolve, reject) {
@@ -1676,7 +1676,7 @@
                 }
                 return thenable;
               } else {
-                var returnValue = result;
+                var returnValue = result2;
                 popActScope(prevActScopeDepth);
                 if (actScopeDepth === 0) {
                   var _queue = ReactCurrentActQueue.current;
@@ -1778,29 +1778,29 @@
           exports.Suspense = REACT_SUSPENSE_TYPE;
           exports.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED = ReactSharedInternals;
           exports.cloneElement = cloneElement$1;
-          exports.createContext = createContext;
+          exports.createContext = createContext3;
           exports.createElement = createElement$1;
           exports.createFactory = createFactory;
           exports.createRef = createRef;
-          exports.forwardRef = forwardRef;
+          exports.forwardRef = forwardRef2;
           exports.isValidElement = isValidElement;
           exports.lazy = lazy;
           exports.memo = memo;
           exports.startTransition = startTransition;
           exports.unstable_act = act;
           exports.useCallback = useCallback;
-          exports.useContext = useContext;
-          exports.useDebugValue = useDebugValue;
+          exports.useContext = useContext2;
+          exports.useDebugValue = useDebugValue2;
           exports.useDeferredValue = useDeferredValue;
-          exports.useEffect = useEffect;
+          exports.useEffect = useEffect3;
           exports.useId = useId;
           exports.useImperativeHandle = useImperativeHandle;
-          exports.useInsertionEffect = useInsertionEffect;
-          exports.useLayoutEffect = useLayoutEffect;
-          exports.useMemo = useMemo;
-          exports.useReducer = useReducer;
-          exports.useRef = useRef;
-          exports.useState = useState;
+          exports.useInsertionEffect = useInsertionEffect2;
+          exports.useLayoutEffect = useLayoutEffect4;
+          exports.useMemo = useMemo2;
+          exports.useReducer = useReducer2;
+          exports.useRef = useRef4;
+          exports.useState = useState4;
           exports.useSyncExternalStore = useSyncExternalStore;
           exports.useTransition = useTransition;
           exports.version = ReactVersion;
@@ -1814,12 +1814,12 @@
 
   // node_modules/react/index.js
   var require_react = __commonJS({
-    "node_modules/react/index.js"(exports, module) {
+    "node_modules/react/index.js"(exports, module2) {
       "use strict";
       if (false) {
-        module.exports = null;
+        module2.exports = null;
       } else {
-        module.exports = require_react_development();
+        module2.exports = require_react_development();
       }
     }
   });
@@ -1838,9 +1838,9 @@
           var enableProfiling = false;
           var frameYieldMs = 5;
           function push(heap, node) {
-            var index = heap.length;
+            var index4 = heap.length;
             heap.push(node);
-            siftUp(heap, node, index);
+            siftUp(heap, node, index4);
           }
           function peek(heap) {
             return heap.length === 0 ? null : heap[0];
@@ -1858,42 +1858,42 @@
             return first;
           }
           function siftUp(heap, node, i) {
-            var index = i;
-            while (index > 0) {
-              var parentIndex = index - 1 >>> 1;
+            var index4 = i;
+            while (index4 > 0) {
+              var parentIndex = index4 - 1 >>> 1;
               var parent = heap[parentIndex];
               if (compare(parent, node) > 0) {
                 heap[parentIndex] = node;
-                heap[index] = parent;
-                index = parentIndex;
+                heap[index4] = parent;
+                index4 = parentIndex;
               } else {
                 return;
               }
             }
           }
           function siftDown(heap, node, i) {
-            var index = i;
+            var index4 = i;
             var length = heap.length;
             var halfLength = length >>> 1;
-            while (index < halfLength) {
-              var leftIndex = (index + 1) * 2 - 1;
+            while (index4 < halfLength) {
+              var leftIndex = (index4 + 1) * 2 - 1;
               var left = heap[leftIndex];
               var rightIndex = leftIndex + 1;
               var right = heap[rightIndex];
               if (compare(left, node) < 0) {
                 if (rightIndex < length && compare(right, left) < 0) {
-                  heap[index] = right;
+                  heap[index4] = right;
                   heap[rightIndex] = node;
-                  index = rightIndex;
+                  index4 = rightIndex;
                 } else {
-                  heap[index] = left;
+                  heap[index4] = left;
                   heap[leftIndex] = node;
-                  index = leftIndex;
+                  index4 = leftIndex;
                 }
               } else if (rightIndex < length && compare(right, node) < 0) {
-                heap[index] = right;
+                heap[index4] = right;
                 heap[rightIndex] = node;
-                index = rightIndex;
+                index4 = rightIndex;
               } else {
                 return;
               }
@@ -1908,7 +1908,7 @@
           var NormalPriority = 3;
           var LowPriority = 4;
           var IdlePriority = 5;
-          function markTaskErrored(task, ms) {
+          function markTaskErrored(task, ms2) {
           }
           var hasPerformanceNow = typeof performance === "object" && typeof performance.now === "function";
           if (hasPerformanceNow) {
@@ -2093,9 +2093,9 @@
             var currentTime = exports.unstable_now();
             var startTime2;
             if (typeof options === "object" && options !== null) {
-              var delay = options.delay;
-              if (typeof delay === "number" && delay > 0) {
-                startTime2 = currentTime + delay;
+              var delay2 = options.delay;
+              if (typeof delay2 === "number" && delay2 > 0) {
+                startTime2 = currentTime + delay2;
               } else {
                 startTime2 = currentTime;
               }
@@ -2237,10 +2237,10 @@
               schedulePerformWorkUntilDeadline();
             }
           }
-          function requestHostTimeout(callback, ms) {
+          function requestHostTimeout(callback, ms2) {
             taskTimeoutID = localSetTimeout(function() {
               callback(exports.unstable_now());
-            }, ms);
+            }, ms2);
           }
           function cancelHostTimeout() {
             localClearTimeout(taskTimeoutID);
@@ -2276,12 +2276,12 @@
 
   // node_modules/scheduler/index.js
   var require_scheduler = __commonJS({
-    "node_modules/scheduler/index.js"(exports, module) {
+    "node_modules/scheduler/index.js"(exports, module2) {
       "use strict";
       if (false) {
-        module.exports = null;
+        module2.exports = null;
       } else {
-        module.exports = require_scheduler_development();
+        module2.exports = require_scheduler_development();
       }
     }
   });
@@ -2296,9 +2296,9 @@
           if (typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ !== "undefined" && typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart === "function") {
             __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart(new Error());
           }
-          var React2 = require_react();
+          var React7 = require_react();
           var Scheduler = require_scheduler();
-          var ReactSharedInternals = React2.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
+          var ReactSharedInternals = React7.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
           var suppressWarning = false;
           function setSuppressWarning(newSuppressWarning) {
             {
@@ -2527,8 +2527,8 @@
                 if (propertyInfo !== null) {
                   return !propertyInfo.acceptsBooleans;
                 } else {
-                  var prefix2 = name.toLowerCase().slice(0, 5);
-                  return prefix2 !== "data-" && prefix2 !== "aria-";
+                  var prefix3 = name.toLowerCase().slice(0, 5);
+                  return prefix3 !== "data-" && prefix3 !== "aria-";
                 }
               }
               default:
@@ -3121,18 +3121,18 @@
             }
           }
           var ReactCurrentDispatcher = ReactSharedInternals.ReactCurrentDispatcher;
-          var prefix;
+          var prefix2;
           function describeBuiltInComponentFrame(name, source, ownerFn) {
             {
-              if (prefix === void 0) {
+              if (prefix2 === void 0) {
                 try {
                   throw Error();
                 } catch (x) {
                   var match = x.stack.trim().match(/\n( *(at )?)/);
-                  prefix = match && match[1] || "";
+                  prefix2 = match && match[1] || "";
                 }
               }
-              return "\n" + prefix + name;
+              return "\n" + prefix2 + name;
             }
           }
           var reentry = false;
@@ -3819,7 +3819,7 @@
             {
               if (props.value == null) {
                 if (typeof props.children === "object" && props.children !== null) {
-                  React2.Children.forEach(props.children, function(child) {
+                  React7.Children.forEach(props.children, function(child) {
                     if (child == null) {
                       return;
                     }
@@ -4211,13 +4211,13 @@
             strokeOpacity: true,
             strokeWidth: true
           };
-          function prefixKey(prefix2, key) {
-            return prefix2 + key.charAt(0).toUpperCase() + key.substring(1);
+          function prefixKey(prefix3, key) {
+            return prefix3 + key.charAt(0).toUpperCase() + key.substring(1);
           }
           var prefixes = ["Webkit", "ms", "Moz", "O"];
           Object.keys(isUnitlessNumber).forEach(function(prop) {
-            prefixes.forEach(function(prefix2) {
-              isUnitlessNumber[prefixKey(prefix2, prop)] = isUnitlessNumber[prop];
+            prefixes.forEach(function(prefix3) {
+              isUnitlessNumber[prefixKey(prefix3, prop)] = isUnitlessNumber[prop];
             });
           });
           function dangerousStyleValue(name, value, isCustomProperty) {
@@ -4233,10 +4233,10 @@
             }
             return ("" + value).trim();
           }
-          var uppercasePattern = /([A-Z])/g;
-          var msPattern = /^ms-/;
-          function hyphenateStyleName(name) {
-            return name.replace(uppercasePattern, "-$1").toLowerCase().replace(msPattern, "-ms-");
+          var uppercasePattern2 = /([A-Z])/g;
+          var msPattern2 = /^ms-/;
+          function hyphenateStyleName2(name) {
+            return name.replace(uppercasePattern2, "-$1").toLowerCase().replace(msPattern2, "-ms-");
           }
           var warnValidStyle = function() {
           };
@@ -4249,7 +4249,7 @@
             var warnedStyleValues = {};
             var warnedForNaNValue = false;
             var warnedForInfinityValue = false;
-            var camelize = function(string) {
+            var camelize2 = function(string) {
               return string.replace(hyphenPattern, function(_, character) {
                 return character.toUpperCase();
               });
@@ -4262,7 +4262,7 @@
               error(
                 "Unsupported style property %s. Did you mean %s?",
                 name,
-                camelize(name.replace(msPattern$1, "ms-"))
+                camelize2(name.replace(msPattern$1, "ms-"))
               );
             };
             var warnBadVendoredStyleName = function(name) {
@@ -4322,7 +4322,7 @@
                 var styleValue = styles[styleName];
                 if (styleValue != null) {
                   var isCustomProperty = styleName.indexOf("--") === 0;
-                  serialized += delimiter + (isCustomProperty ? styleName : hyphenateStyleName(styleName)) + ":";
+                  serialized += delimiter + (isCustomProperty ? styleName : hyphenateStyleName2(styleName)) + ":";
                   serialized += dangerousStyleValue(styleName, styleValue, isCustomProperty);
                   delimiter = ";";
                 }
@@ -5730,7 +5730,7 @@
           var cancelCallback = Scheduler.unstable_cancelCallback;
           var shouldYield = Scheduler.unstable_shouldYield;
           var requestPaint = Scheduler.unstable_requestPaint;
-          var now = Scheduler.unstable_now;
+          var now2 = Scheduler.unstable_now;
           var getCurrentPriorityLevel = Scheduler.unstable_getCurrentPriorityLevel;
           var ImmediatePriority = Scheduler.unstable_ImmediatePriority;
           var UserBlockingPriority = Scheduler.unstable_UserBlockingPriority;
@@ -5778,11 +5778,11 @@
               return false;
             }
           }
-          function onScheduleRoot(root3, children) {
+          function onScheduleRoot(root4, children) {
             {
               if (injectedHook && typeof injectedHook.onScheduleFiberRoot === "function") {
                 try {
-                  injectedHook.onScheduleFiberRoot(rendererID, root3, children);
+                  injectedHook.onScheduleFiberRoot(rendererID, root4, children);
                 } catch (err) {
                   if (!hasLoggedError) {
                     hasLoggedError = true;
@@ -5792,10 +5792,10 @@
               }
             }
           }
-          function onCommitRoot(root3, eventPriority) {
+          function onCommitRoot(root4, eventPriority) {
             if (injectedHook && typeof injectedHook.onCommitFiberRoot === "function") {
               try {
-                var didError = (root3.current.flags & DidCapture) === DidCapture;
+                var didError = (root4.current.flags & DidCapture) === DidCapture;
                 if (enableProfilerTimer) {
                   var schedulerPriority;
                   switch (eventPriority) {
@@ -5815,9 +5815,9 @@
                       schedulerPriority = NormalPriority;
                       break;
                   }
-                  injectedHook.onCommitFiberRoot(rendererID, root3, schedulerPriority, didError);
+                  injectedHook.onCommitFiberRoot(rendererID, root4, schedulerPriority, didError);
                 } else {
-                  injectedHook.onCommitFiberRoot(rendererID, root3, void 0, didError);
+                  injectedHook.onCommitFiberRoot(rendererID, root4, void 0, didError);
                 }
               } catch (err) {
                 {
@@ -5829,10 +5829,10 @@
               }
             }
           }
-          function onPostCommitRoot(root3) {
+          function onPostCommitRoot(root4) {
             if (injectedHook && typeof injectedHook.onPostCommitFiberRoot === "function") {
               try {
-                injectedHook.onPostCommitFiberRoot(rendererID, root3);
+                injectedHook.onPostCommitFiberRoot(rendererID, root4);
               } catch (err) {
                 {
                   if (!hasLoggedError) {
@@ -5884,7 +5884,7 @@
             {
               var map = /* @__PURE__ */ new Map();
               var lane = 1;
-              for (var index2 = 0; index2 < TotalLanes; index2++) {
+              for (var index5 = 0; index5 < TotalLanes; index5++) {
                 var label = getLabelForLane(lane);
                 map.set(lane, label);
                 lane *= 2;
@@ -6208,14 +6208,14 @@
                 return lanes;
             }
           }
-          function getNextLanes(root3, wipLanes) {
-            var pendingLanes = root3.pendingLanes;
+          function getNextLanes(root4, wipLanes) {
+            var pendingLanes = root4.pendingLanes;
             if (pendingLanes === NoLanes) {
               return NoLanes;
             }
             var nextLanes = NoLanes;
-            var suspendedLanes = root3.suspendedLanes;
-            var pingedLanes = root3.pingedLanes;
+            var suspendedLanes = root4.suspendedLanes;
+            var pingedLanes = root4.pingedLanes;
             var nonIdlePendingLanes = pendingLanes & NonIdleLanes;
             if (nonIdlePendingLanes !== NoLanes) {
               var nonIdleUnblockedLanes = nonIdlePendingLanes & ~suspendedLanes;
@@ -6250,26 +6250,26 @@
             if ((nextLanes & InputContinuousLane) !== NoLanes) {
               nextLanes |= pendingLanes & DefaultLane;
             }
-            var entangledLanes = root3.entangledLanes;
+            var entangledLanes = root4.entangledLanes;
             if (entangledLanes !== NoLanes) {
-              var entanglements = root3.entanglements;
+              var entanglements = root4.entanglements;
               var lanes = nextLanes & entangledLanes;
               while (lanes > 0) {
-                var index2 = pickArbitraryLaneIndex(lanes);
-                var lane = 1 << index2;
-                nextLanes |= entanglements[index2];
+                var index5 = pickArbitraryLaneIndex(lanes);
+                var lane = 1 << index5;
+                nextLanes |= entanglements[index5];
                 lanes &= ~lane;
               }
             }
             return nextLanes;
           }
-          function getMostRecentEventTime(root3, lanes) {
-            var eventTimes = root3.eventTimes;
+          function getMostRecentEventTime(root4, lanes) {
+            var eventTimes = root4.eventTimes;
             var mostRecentEventTime = NoTimestamp;
             while (lanes > 0) {
-              var index2 = pickArbitraryLaneIndex(lanes);
-              var lane = 1 << index2;
-              var eventTime = eventTimes[index2];
+              var index5 = pickArbitraryLaneIndex(lanes);
+              var lane = 1 << index5;
+              var eventTime = eventTimes[index5];
               if (eventTime > mostRecentEventTime) {
                 mostRecentEventTime = eventTime;
               }
@@ -6321,31 +6321,31 @@
                 return NoTimestamp;
             }
           }
-          function markStarvedLanesAsExpired(root3, currentTime) {
-            var pendingLanes = root3.pendingLanes;
-            var suspendedLanes = root3.suspendedLanes;
-            var pingedLanes = root3.pingedLanes;
-            var expirationTimes = root3.expirationTimes;
+          function markStarvedLanesAsExpired(root4, currentTime) {
+            var pendingLanes = root4.pendingLanes;
+            var suspendedLanes = root4.suspendedLanes;
+            var pingedLanes = root4.pingedLanes;
+            var expirationTimes = root4.expirationTimes;
             var lanes = pendingLanes;
             while (lanes > 0) {
-              var index2 = pickArbitraryLaneIndex(lanes);
-              var lane = 1 << index2;
-              var expirationTime = expirationTimes[index2];
+              var index5 = pickArbitraryLaneIndex(lanes);
+              var lane = 1 << index5;
+              var expirationTime = expirationTimes[index5];
               if (expirationTime === NoTimestamp) {
                 if ((lane & suspendedLanes) === NoLanes || (lane & pingedLanes) !== NoLanes) {
-                  expirationTimes[index2] = computeExpirationTime(lane, currentTime);
+                  expirationTimes[index5] = computeExpirationTime(lane, currentTime);
                 }
               } else if (expirationTime <= currentTime) {
-                root3.expiredLanes |= lane;
+                root4.expiredLanes |= lane;
               }
               lanes &= ~lane;
             }
           }
-          function getHighestPriorityPendingLanes(root3) {
-            return getHighestPriorityLanes(root3.pendingLanes);
+          function getHighestPriorityPendingLanes(root4) {
+            return getHighestPriorityLanes(root4.pendingLanes);
           }
-          function getLanesToRetrySynchronouslyOnError(root3) {
-            var everythingButOffscreen = root3.pendingLanes & ~OffscreenLane;
+          function getLanesToRetrySynchronouslyOnError(root4) {
+            var everythingButOffscreen = root4.pendingLanes & ~OffscreenLane;
             if (everythingButOffscreen !== NoLanes) {
               return everythingButOffscreen;
             }
@@ -6370,12 +6370,12 @@
           function includesOnlyTransitions(lanes) {
             return (lanes & TransitionLanes) === lanes;
           }
-          function includesBlockingLane(root3, lanes) {
+          function includesBlockingLane(root4, lanes) {
             var SyncDefaultLanes = InputContinuousHydrationLane | InputContinuousLane | DefaultHydrationLane | DefaultLane;
             return (lanes & SyncDefaultLanes) !== NoLanes;
           }
-          function includesExpiredLane(root3, lanes) {
-            return (lanes & root3.expiredLanes) !== NoLanes;
+          function includesExpiredLane(root4, lanes) {
+            return (lanes & root4.expiredLanes) !== NoLanes;
           }
           function isTransitionLane(lane) {
             return (lane & TransitionLanes) !== NoLanes;
@@ -6436,66 +6436,66 @@
             }
             return laneMap;
           }
-          function markRootUpdated(root3, updateLane, eventTime) {
-            root3.pendingLanes |= updateLane;
+          function markRootUpdated(root4, updateLane, eventTime) {
+            root4.pendingLanes |= updateLane;
             if (updateLane !== IdleLane) {
-              root3.suspendedLanes = NoLanes;
-              root3.pingedLanes = NoLanes;
+              root4.suspendedLanes = NoLanes;
+              root4.pingedLanes = NoLanes;
             }
-            var eventTimes = root3.eventTimes;
-            var index2 = laneToIndex(updateLane);
-            eventTimes[index2] = eventTime;
+            var eventTimes = root4.eventTimes;
+            var index5 = laneToIndex(updateLane);
+            eventTimes[index5] = eventTime;
           }
-          function markRootSuspended(root3, suspendedLanes) {
-            root3.suspendedLanes |= suspendedLanes;
-            root3.pingedLanes &= ~suspendedLanes;
-            var expirationTimes = root3.expirationTimes;
+          function markRootSuspended(root4, suspendedLanes) {
+            root4.suspendedLanes |= suspendedLanes;
+            root4.pingedLanes &= ~suspendedLanes;
+            var expirationTimes = root4.expirationTimes;
             var lanes = suspendedLanes;
             while (lanes > 0) {
-              var index2 = pickArbitraryLaneIndex(lanes);
-              var lane = 1 << index2;
-              expirationTimes[index2] = NoTimestamp;
+              var index5 = pickArbitraryLaneIndex(lanes);
+              var lane = 1 << index5;
+              expirationTimes[index5] = NoTimestamp;
               lanes &= ~lane;
             }
           }
-          function markRootPinged(root3, pingedLanes, eventTime) {
-            root3.pingedLanes |= root3.suspendedLanes & pingedLanes;
+          function markRootPinged(root4, pingedLanes, eventTime) {
+            root4.pingedLanes |= root4.suspendedLanes & pingedLanes;
           }
-          function markRootFinished(root3, remainingLanes) {
-            var noLongerPendingLanes = root3.pendingLanes & ~remainingLanes;
-            root3.pendingLanes = remainingLanes;
-            root3.suspendedLanes = NoLanes;
-            root3.pingedLanes = NoLanes;
-            root3.expiredLanes &= remainingLanes;
-            root3.mutableReadLanes &= remainingLanes;
-            root3.entangledLanes &= remainingLanes;
-            var entanglements = root3.entanglements;
-            var eventTimes = root3.eventTimes;
-            var expirationTimes = root3.expirationTimes;
+          function markRootFinished(root4, remainingLanes) {
+            var noLongerPendingLanes = root4.pendingLanes & ~remainingLanes;
+            root4.pendingLanes = remainingLanes;
+            root4.suspendedLanes = NoLanes;
+            root4.pingedLanes = NoLanes;
+            root4.expiredLanes &= remainingLanes;
+            root4.mutableReadLanes &= remainingLanes;
+            root4.entangledLanes &= remainingLanes;
+            var entanglements = root4.entanglements;
+            var eventTimes = root4.eventTimes;
+            var expirationTimes = root4.expirationTimes;
             var lanes = noLongerPendingLanes;
             while (lanes > 0) {
-              var index2 = pickArbitraryLaneIndex(lanes);
-              var lane = 1 << index2;
-              entanglements[index2] = NoLanes;
-              eventTimes[index2] = NoTimestamp;
-              expirationTimes[index2] = NoTimestamp;
+              var index5 = pickArbitraryLaneIndex(lanes);
+              var lane = 1 << index5;
+              entanglements[index5] = NoLanes;
+              eventTimes[index5] = NoTimestamp;
+              expirationTimes[index5] = NoTimestamp;
               lanes &= ~lane;
             }
           }
-          function markRootEntangled(root3, entangledLanes) {
-            var rootEntangledLanes = root3.entangledLanes |= entangledLanes;
-            var entanglements = root3.entanglements;
+          function markRootEntangled(root4, entangledLanes) {
+            var rootEntangledLanes = root4.entangledLanes |= entangledLanes;
+            var entanglements = root4.entanglements;
             var lanes = rootEntangledLanes;
             while (lanes) {
-              var index2 = pickArbitraryLaneIndex(lanes);
-              var lane = 1 << index2;
-              if (lane & entangledLanes | entanglements[index2] & entangledLanes) {
-                entanglements[index2] |= entangledLanes;
+              var index5 = pickArbitraryLaneIndex(lanes);
+              var lane = 1 << index5;
+              if (lane & entangledLanes | entanglements[index5] & entangledLanes) {
+                entanglements[index5] |= entangledLanes;
               }
               lanes &= ~lane;
             }
           }
-          function getBumpedLaneForHydration(root3, renderLanes2) {
+          function getBumpedLaneForHydration(root4, renderLanes2) {
             var renderLane = getHighestPriorityLane(renderLanes2);
             var lane;
             switch (renderLane) {
@@ -6535,34 +6535,34 @@
                 lane = NoLane;
                 break;
             }
-            if ((lane & (root3.suspendedLanes | renderLanes2)) !== NoLane) {
+            if ((lane & (root4.suspendedLanes | renderLanes2)) !== NoLane) {
               return NoLane;
             }
             return lane;
           }
-          function addFiberToLanesMap(root3, fiber, lanes) {
+          function addFiberToLanesMap(root4, fiber, lanes) {
             if (!isDevToolsPresent) {
               return;
             }
-            var pendingUpdatersLaneMap = root3.pendingUpdatersLaneMap;
+            var pendingUpdatersLaneMap = root4.pendingUpdatersLaneMap;
             while (lanes > 0) {
-              var index2 = laneToIndex(lanes);
-              var lane = 1 << index2;
-              var updaters = pendingUpdatersLaneMap[index2];
+              var index5 = laneToIndex(lanes);
+              var lane = 1 << index5;
+              var updaters = pendingUpdatersLaneMap[index5];
               updaters.add(fiber);
               lanes &= ~lane;
             }
           }
-          function movePendingFibersToMemoized(root3, lanes) {
+          function movePendingFibersToMemoized(root4, lanes) {
             if (!isDevToolsPresent) {
               return;
             }
-            var pendingUpdatersLaneMap = root3.pendingUpdatersLaneMap;
-            var memoizedUpdaters = root3.memoizedUpdaters;
+            var pendingUpdatersLaneMap = root4.pendingUpdatersLaneMap;
+            var memoizedUpdaters = root4.memoizedUpdaters;
             while (lanes > 0) {
-              var index2 = laneToIndex(lanes);
-              var lane = 1 << index2;
-              var updaters = pendingUpdatersLaneMap[index2];
+              var index5 = laneToIndex(lanes);
+              var lane = 1 << index5;
+              var updaters = pendingUpdatersLaneMap[index5];
               if (updaters.size > 0) {
                 updaters.forEach(function(fiber) {
                   var alternate = fiber.alternate;
@@ -6575,7 +6575,7 @@
               lanes &= ~lane;
             }
           }
-          function getTransitionsForLanes(root3, lanes) {
+          function getTransitionsForLanes(root4, lanes) {
             {
               return null;
             }
@@ -6622,8 +6622,8 @@
             }
             return IdleEventPriority;
           }
-          function isRootDehydrated(root3) {
-            var currentState = root3.current.memoizedState;
+          function isRootDehydrated(root4) {
+            var currentState = root4.current.memoizedState;
             return currentState.isDehydrated;
           }
           var _attemptSynchronousHydration;
@@ -6793,8 +6793,8 @@
                     return;
                   }
                 } else if (tag === HostRoot) {
-                  var root3 = nearestMounted.stateNode;
-                  if (isRootDehydrated(root3)) {
+                  var root4 = nearestMounted.stateNode;
+                  if (isRootDehydrated(root4)) {
                     queuedTarget.blockedOn = getContainerFromFiber(nearestMounted);
                     return;
                   }
@@ -7028,8 +7028,8 @@
                   }
                   targetInst = null;
                 } else if (tag === HostRoot) {
-                  var root3 = nearestMounted.stateNode;
-                  if (isRootDehydrated(root3)) {
+                  var root4 = nearestMounted.stateNode;
+                  if (isRootDehydrated(root4)) {
                     return getContainerFromFiber(nearestMounted);
                   }
                   targetInst = null;
@@ -7156,16 +7156,16 @@
             });
             return listener;
           }
-          var root2 = null;
+          var root3 = null;
           var startText = null;
           var fallbackText = null;
           function initialize(nativeEventTarget) {
-            root2 = nativeEventTarget;
+            root3 = nativeEventTarget;
             startText = getText();
             return true;
           }
           function reset() {
-            root2 = null;
+            root3 = null;
             startText = null;
             fallbackText = null;
           }
@@ -7195,10 +7195,10 @@
             return fallbackText;
           }
           function getText() {
-            if ("value" in root2) {
-              return root2.value;
+            if ("value" in root3) {
+              return root3.value;
             }
-            return root2.textContent;
+            return root3.textContent;
           }
           function getEventCharCode(nativeEvent) {
             var charCode;
@@ -7991,8 +7991,8 @@
               node = node.parentNode;
             }
           }
-          function getNodeForCharacterOffset(root3, offset) {
-            var node = getLeafNode(root3);
+          function getNodeForCharacterOffset(root4, offset) {
+            var node = getLeafNode(root4);
             var nodeStart = 0;
             var nodeEnd = 0;
             while (node) {
@@ -8887,10 +8887,10 @@
           function getOwnerDocumentFromRootContainer(rootContainerElement) {
             return rootContainerElement.nodeType === DOCUMENT_NODE ? rootContainerElement : rootContainerElement.ownerDocument;
           }
-          function noop() {
+          function noop2() {
           }
           function trapClickOnNonInteractiveElement(node) {
-            node.onclick = noop;
+            node.onclick = noop2;
           }
           function setInitialDOMProperties(tag, domElement, rootContainerElement, nextProps, isCustomComponentTag) {
             for (var propKey in nextProps) {
@@ -8952,7 +8952,7 @@
               }
             }
           }
-          function createElement(type, props, rootContainerElement, parentNamespace) {
+          function createElement2(type, props, rootContainerElement, parentNamespace) {
             var isCustomComponentTag;
             var ownerDocument = getOwnerDocumentFromRootContainer(rootContainerElement);
             var domElement;
@@ -9744,8 +9744,8 @@
               case DOCUMENT_NODE:
               case DOCUMENT_FRAGMENT_NODE: {
                 type = nodeType === DOCUMENT_NODE ? "#document" : "#fragment";
-                var root3 = rootContainerInstance.documentElement;
-                namespace = root3 ? root3.namespaceURI : getChildNamespace(null, "");
+                var root4 = rootContainerInstance.documentElement;
+                namespace = root4 ? root4.namespaceURI : getChildNamespace(null, "");
                 break;
               }
               default: {
@@ -9804,7 +9804,7 @@
               }
               parentNamespace = hostContextDev.namespace;
             }
-            var domElement = createElement(type, props, rootContainerInstance, parentNamespace);
+            var domElement = createElement2(type, props, rootContainerInstance, parentNamespace);
             precacheFiberNode(internalInstanceHandle, domElement);
             updateFiberProps(domElement, props);
             return domElement;
@@ -10364,36 +10364,36 @@
           {
             fiberStack = [];
           }
-          var index = -1;
+          var index4 = -1;
           function createCursor(defaultValue) {
             return {
               current: defaultValue
             };
           }
           function pop(cursor, fiber) {
-            if (index < 0) {
+            if (index4 < 0) {
               {
                 error("Unexpected pop.");
               }
               return;
             }
             {
-              if (fiber !== fiberStack[index]) {
+              if (fiber !== fiberStack[index4]) {
                 error("Unexpected Fiber popped.");
               }
             }
-            cursor.current = valueStack[index];
-            valueStack[index] = null;
+            cursor.current = valueStack[index4];
+            valueStack[index4] = null;
             {
-              fiberStack[index] = null;
+              fiberStack[index4] = null;
             }
-            index--;
+            index4--;
           }
           function push(cursor, value, fiber) {
-            index++;
-            valueStack[index] = cursor.current;
+            index4++;
+            valueStack[index4] = cursor.current;
             {
-              fiberStack[index] = fiber;
+              fiberStack[index4] = fiber;
             }
             cursor.current = value;
           }
@@ -10640,7 +10640,7 @@
             treeForkProvider = workInProgress2;
             treeForkCount = totalChildren;
           }
-          function pushTreeId(workInProgress2, totalChildren, index2) {
+          function pushTreeId(workInProgress2, totalChildren, index5) {
             warnIfNotHydrating();
             idStack[idStackIndex++] = treeContextId;
             idStack[idStackIndex++] = treeContextOverflow;
@@ -10650,7 +10650,7 @@
             var baseOverflow = treeContextOverflow;
             var baseLength = getBitLength(baseIdWithLeadingBit) - 1;
             var baseId = baseIdWithLeadingBit & ~(1 << baseLength);
-            var slot = index2 + 1;
+            var slot = index5 + 1;
             var length = getBitLength(totalChildren) + baseLength;
             if (length > 30) {
               var numberOfOverflowBits = baseLength - baseLength % 5;
@@ -11617,8 +11617,8 @@
               parent = parent.return;
             }
             if (node.tag === HostRoot) {
-              var root3 = node.stateNode;
-              return root3;
+              var root4 = node.stateNode;
+              return root4;
             } else {
               return null;
             }
@@ -11699,7 +11699,7 @@
               return enqueueConcurrentClassUpdate(fiber, sharedQueue, update, lane);
             }
           }
-          function entangleTransitions(root3, fiber, lane) {
+          function entangleTransitions(root4, fiber, lane) {
             var updateQueue = fiber.updateQueue;
             if (updateQueue === null) {
               return;
@@ -11707,10 +11707,10 @@
             var sharedQueue = updateQueue.shared;
             if (isTransitionLane(lane)) {
               var queueLanes = sharedQueue.lanes;
-              queueLanes = intersectLanes(queueLanes, root3.pendingLanes);
+              queueLanes = intersectLanes(queueLanes, root4.pendingLanes);
               var newQueueLanes = mergeLanes(queueLanes, lane);
               sharedQueue.lanes = newQueueLanes;
-              markRootEntangled(root3, newQueueLanes);
+              markRootEntangled(root4, newQueueLanes);
             }
           }
           function enqueueCapturedUpdate(workInProgress2, capturedUpdate) {
@@ -11980,7 +11980,7 @@
             }
           }
           var fakeInternalInstance = {};
-          var emptyRefsObject = new React2.Component().refs;
+          var emptyRefsObject = new React7.Component().refs;
           var didWarnAboutStateAssignmentForComponent;
           var didWarnAboutUninitializedState;
           var didWarnAboutGetSnapshotBeforeUpdateWithoutDidUpdate;
@@ -12063,10 +12063,10 @@
                 }
                 update.callback = callback;
               }
-              var root3 = enqueueUpdate(fiber, update, lane);
-              if (root3 !== null) {
-                scheduleUpdateOnFiber(root3, fiber, lane, eventTime);
-                entangleTransitions(root3, fiber, lane);
+              var root4 = enqueueUpdate(fiber, update, lane);
+              if (root4 !== null) {
+                scheduleUpdateOnFiber(root4, fiber, lane, eventTime);
+                entangleTransitions(root4, fiber, lane);
               }
               {
                 markStateUpdateScheduled(fiber, lane);
@@ -12085,10 +12085,10 @@
                 }
                 update.callback = callback;
               }
-              var root3 = enqueueUpdate(fiber, update, lane);
-              if (root3 !== null) {
-                scheduleUpdateOnFiber(root3, fiber, lane, eventTime);
-                entangleTransitions(root3, fiber, lane);
+              var root4 = enqueueUpdate(fiber, update, lane);
+              if (root4 !== null) {
+                scheduleUpdateOnFiber(root4, fiber, lane, eventTime);
+                entangleTransitions(root4, fiber, lane);
               }
               {
                 markStateUpdateScheduled(fiber, lane);
@@ -12106,10 +12106,10 @@
                 }
                 update.callback = callback;
               }
-              var root3 = enqueueUpdate(fiber, update, lane);
-              if (root3 !== null) {
-                scheduleUpdateOnFiber(root3, fiber, lane, eventTime);
-                entangleTransitions(root3, fiber, lane);
+              var root4 = enqueueUpdate(fiber, update, lane);
+              if (root4 !== null) {
+                scheduleUpdateOnFiber(root4, fiber, lane, eventTime);
+                entangleTransitions(root4, fiber, lane);
               }
               {
                 markForceUpdateScheduled(fiber, lane);
@@ -13452,13 +13452,13 @@
             }
             workInProgressSources.length = 0;
           }
-          function registerMutableSourceForHydration(root3, mutableSource) {
+          function registerMutableSourceForHydration(root4, mutableSource) {
             var getVersion = mutableSource._getVersion;
             var version = getVersion(mutableSource._source);
-            if (root3.mutableSourceEagerHydrationData == null) {
-              root3.mutableSourceEagerHydrationData = [mutableSource, version];
+            if (root4.mutableSourceEagerHydrationData == null) {
+              root4.mutableSourceEagerHydrationData = [mutableSource, version];
             } else {
-              root3.mutableSourceEagerHydrationData.push(mutableSource, version);
+              root4.mutableSourceEagerHydrationData.push(mutableSource, version);
             }
           }
           var ReactCurrentDispatcher$1 = ReactSharedInternals.ReactCurrentDispatcher, ReactCurrentBatchConfig$2 = ReactSharedInternals.ReactCurrentBatchConfig;
@@ -13919,11 +13919,11 @@
                   }
                 }
               }
-              var root3 = getWorkInProgressRoot();
-              if (root3 === null) {
+              var root4 = getWorkInProgressRoot();
+              if (root4 === null) {
                 throw new Error("Expected a work-in-progress root. This is a bug in React. Please file an issue.");
               }
-              if (!includesBlockingLane(root3, renderLanes)) {
+              if (!includesBlockingLane(root4, renderLanes)) {
                 pushStoreConsistencyCheck(fiber, getSnapshot, nextSnapshot);
               }
             }
@@ -13962,11 +13962,11 @@
             if (inst.getSnapshot !== getSnapshot || snapshotChanged || workInProgressHook !== null && workInProgressHook.memoizedState.tag & HasEffect) {
               fiber.flags |= Passive;
               pushEffect(HasEffect | Passive$1, updateStoreInstance.bind(null, fiber, inst, nextSnapshot, getSnapshot), void 0, null);
-              var root3 = getWorkInProgressRoot();
-              if (root3 === null) {
+              var root4 = getWorkInProgressRoot();
+              if (root4 === null) {
                 throw new Error("Expected a work-in-progress root. This is a bug in React. Please file an issue.");
               }
-              if (!includesBlockingLane(root3, renderLanes)) {
+              if (!includesBlockingLane(root4, renderLanes)) {
                 pushStoreConsistencyCheck(fiber, getSnapshot, nextSnapshot);
               }
             }
@@ -14018,9 +14018,9 @@
             }
           }
           function forceStoreRerender(fiber) {
-            var root3 = enqueueConcurrentRenderForLane(fiber, SyncLane);
-            if (root3 !== null) {
-              scheduleUpdateOnFiber(root3, fiber, SyncLane, NoTimestamp);
+            var root4 = enqueueConcurrentRenderForLane(fiber, SyncLane);
+            if (root4 !== null) {
+              scheduleUpdateOnFiber(root4, fiber, SyncLane, NoTimestamp);
             }
           }
           function mountState(initialState) {
@@ -14047,10 +14047,10 @@
           function rerenderState(initialState) {
             return rerenderReducer(basicStateReducer);
           }
-          function pushEffect(tag, create, destroy, deps) {
+          function pushEffect(tag, create5, destroy, deps) {
             var effect = {
               tag,
-              create,
+              create: create5,
               destroy,
               deps,
               next: null
@@ -14087,13 +14087,13 @@
             var hook = updateWorkInProgressHook();
             return hook.memoizedState;
           }
-          function mountEffectImpl(fiberFlags, hookFlags, create, deps) {
+          function mountEffectImpl(fiberFlags, hookFlags, create5, deps) {
             var hook = mountWorkInProgressHook();
             var nextDeps = deps === void 0 ? null : deps;
             currentlyRenderingFiber$1.flags |= fiberFlags;
-            hook.memoizedState = pushEffect(HasEffect | hookFlags, create, void 0, nextDeps);
+            hook.memoizedState = pushEffect(HasEffect | hookFlags, create5, void 0, nextDeps);
           }
-          function updateEffectImpl(fiberFlags, hookFlags, create, deps) {
+          function updateEffectImpl(fiberFlags, hookFlags, create5, deps) {
             var hook = updateWorkInProgressHook();
             var nextDeps = deps === void 0 ? null : deps;
             var destroy = void 0;
@@ -14103,31 +14103,31 @@
               if (nextDeps !== null) {
                 var prevDeps = prevEffect.deps;
                 if (areHookInputsEqual(nextDeps, prevDeps)) {
-                  hook.memoizedState = pushEffect(hookFlags, create, destroy, nextDeps);
+                  hook.memoizedState = pushEffect(hookFlags, create5, destroy, nextDeps);
                   return;
                 }
               }
             }
             currentlyRenderingFiber$1.flags |= fiberFlags;
-            hook.memoizedState = pushEffect(HasEffect | hookFlags, create, destroy, nextDeps);
+            hook.memoizedState = pushEffect(HasEffect | hookFlags, create5, destroy, nextDeps);
           }
-          function mountEffect(create, deps) {
+          function mountEffect(create5, deps) {
             if ((currentlyRenderingFiber$1.mode & StrictEffectsMode) !== NoMode) {
-              return mountEffectImpl(MountPassiveDev | Passive | PassiveStatic, Passive$1, create, deps);
+              return mountEffectImpl(MountPassiveDev | Passive | PassiveStatic, Passive$1, create5, deps);
             } else {
-              return mountEffectImpl(Passive | PassiveStatic, Passive$1, create, deps);
+              return mountEffectImpl(Passive | PassiveStatic, Passive$1, create5, deps);
             }
           }
-          function updateEffect(create, deps) {
-            return updateEffectImpl(Passive, Passive$1, create, deps);
+          function updateEffect(create5, deps) {
+            return updateEffectImpl(Passive, Passive$1, create5, deps);
           }
-          function mountInsertionEffect(create, deps) {
-            return mountEffectImpl(Update, Insertion, create, deps);
+          function mountInsertionEffect(create5, deps) {
+            return mountEffectImpl(Update, Insertion, create5, deps);
           }
-          function updateInsertionEffect(create, deps) {
-            return updateEffectImpl(Update, Insertion, create, deps);
+          function updateInsertionEffect(create5, deps) {
+            return updateEffectImpl(Update, Insertion, create5, deps);
           }
-          function mountLayoutEffect(create, deps) {
+          function mountLayoutEffect(create5, deps) {
             var fiberFlags = Update;
             {
               fiberFlags |= LayoutStatic;
@@ -14135,15 +14135,15 @@
             if ((currentlyRenderingFiber$1.mode & StrictEffectsMode) !== NoMode) {
               fiberFlags |= MountLayoutDev;
             }
-            return mountEffectImpl(fiberFlags, Layout, create, deps);
+            return mountEffectImpl(fiberFlags, Layout, create5, deps);
           }
-          function updateLayoutEffect(create, deps) {
-            return updateEffectImpl(Update, Layout, create, deps);
+          function updateLayoutEffect(create5, deps) {
+            return updateEffectImpl(Update, Layout, create5, deps);
           }
-          function imperativeHandleEffect(create, ref) {
+          function imperativeHandleEffect(create5, ref) {
             if (typeof ref === "function") {
               var refCallback = ref;
-              var _inst = create();
+              var _inst = create5();
               refCallback(_inst);
               return function() {
                 refCallback(null);
@@ -14155,17 +14155,17 @@
                   error("Expected useImperativeHandle() first argument to either be a ref callback or React.createRef() object. Instead received: %s.", "an object with keys {" + Object.keys(refObject).join(", ") + "}");
                 }
               }
-              var _inst2 = create();
+              var _inst2 = create5();
               refObject.current = _inst2;
               return function() {
                 refObject.current = null;
               };
             }
           }
-          function mountImperativeHandle(ref, create, deps) {
+          function mountImperativeHandle(ref, create5, deps) {
             {
-              if (typeof create !== "function") {
-                error("Expected useImperativeHandle() second argument to be a function that creates a handle. Instead received: %s.", create !== null ? typeof create : "null");
+              if (typeof create5 !== "function") {
+                error("Expected useImperativeHandle() second argument to be a function that creates a handle. Instead received: %s.", create5 !== null ? typeof create5 : "null");
               }
             }
             var effectDeps = deps !== null && deps !== void 0 ? deps.concat([ref]) : null;
@@ -14176,16 +14176,16 @@
             if ((currentlyRenderingFiber$1.mode & StrictEffectsMode) !== NoMode) {
               fiberFlags |= MountLayoutDev;
             }
-            return mountEffectImpl(fiberFlags, Layout, imperativeHandleEffect.bind(null, create, ref), effectDeps);
+            return mountEffectImpl(fiberFlags, Layout, imperativeHandleEffect.bind(null, create5, ref), effectDeps);
           }
-          function updateImperativeHandle(ref, create, deps) {
+          function updateImperativeHandle(ref, create5, deps) {
             {
-              if (typeof create !== "function") {
-                error("Expected useImperativeHandle() second argument to be a function that creates a handle. Instead received: %s.", create !== null ? typeof create : "null");
+              if (typeof create5 !== "function") {
+                error("Expected useImperativeHandle() second argument to be a function that creates a handle. Instead received: %s.", create5 !== null ? typeof create5 : "null");
               }
             }
             var effectDeps = deps !== null && deps !== void 0 ? deps.concat([ref]) : null;
-            return updateEffectImpl(Update, Layout, imperativeHandleEffect.bind(null, create, ref), effectDeps);
+            return updateEffectImpl(Update, Layout, imperativeHandleEffect.bind(null, create5, ref), effectDeps);
           }
           function mountDebugValue(value, formatterFn) {
           }
@@ -14328,8 +14328,8 @@
           }
           function mountId() {
             var hook = mountWorkInProgressHook();
-            var root3 = getWorkInProgressRoot();
-            var identifierPrefix = root3.identifierPrefix;
+            var root4 = getWorkInProgressRoot();
+            var identifierPrefix = root4.identifierPrefix;
             var id;
             if (getIsHydrating()) {
               var treeId = getTreeId();
@@ -14368,11 +14368,11 @@
             if (isRenderPhaseUpdate(fiber)) {
               enqueueRenderPhaseUpdate(queue, update);
             } else {
-              var root3 = enqueueConcurrentHookUpdate(fiber, queue, update, lane);
-              if (root3 !== null) {
+              var root4 = enqueueConcurrentHookUpdate(fiber, queue, update, lane);
+              if (root4 !== null) {
                 var eventTime = requestEventTime();
-                scheduleUpdateOnFiber(root3, fiber, lane, eventTime);
-                entangleTransitionUpdate(root3, queue, lane);
+                scheduleUpdateOnFiber(root4, fiber, lane, eventTime);
+                entangleTransitionUpdate(root4, queue, lane);
               }
             }
             markUpdateInDevTools(fiber, lane);
@@ -14420,11 +14420,11 @@
                   }
                 }
               }
-              var root3 = enqueueConcurrentHookUpdate(fiber, queue, update, lane);
-              if (root3 !== null) {
+              var root4 = enqueueConcurrentHookUpdate(fiber, queue, update, lane);
+              if (root4 !== null) {
                 var eventTime = requestEventTime();
-                scheduleUpdateOnFiber(root3, fiber, lane, eventTime);
-                entangleTransitionUpdate(root3, queue, lane);
+                scheduleUpdateOnFiber(root4, fiber, lane, eventTime);
+                entangleTransitionUpdate(root4, queue, lane);
               }
             }
             markUpdateInDevTools(fiber, lane);
@@ -14444,13 +14444,13 @@
             }
             queue.pending = update;
           }
-          function entangleTransitionUpdate(root3, queue, lane) {
+          function entangleTransitionUpdate(root4, queue, lane) {
             if (isTransitionLane(lane)) {
               var queueLanes = queue.lanes;
-              queueLanes = intersectLanes(queueLanes, root3.pendingLanes);
+              queueLanes = intersectLanes(queueLanes, root4.pendingLanes);
               var newQueueLanes = mergeLanes(queueLanes, lane);
               queue.lanes = newQueueLanes;
-              markRootEntangled(root3, newQueueLanes);
+              markRootEntangled(root4, newQueueLanes);
             }
           }
           function markUpdateInDevTools(fiber, lane, action) {
@@ -14507,38 +14507,38 @@
                 mountHookTypesDev();
                 return readContext(context);
               },
-              useEffect: function(create, deps) {
+              useEffect: function(create5, deps) {
                 currentHookNameInDev = "useEffect";
                 mountHookTypesDev();
                 checkDepsAreArrayDev(deps);
-                return mountEffect(create, deps);
+                return mountEffect(create5, deps);
               },
-              useImperativeHandle: function(ref, create, deps) {
+              useImperativeHandle: function(ref, create5, deps) {
                 currentHookNameInDev = "useImperativeHandle";
                 mountHookTypesDev();
                 checkDepsAreArrayDev(deps);
-                return mountImperativeHandle(ref, create, deps);
+                return mountImperativeHandle(ref, create5, deps);
               },
-              useInsertionEffect: function(create, deps) {
+              useInsertionEffect: function(create5, deps) {
                 currentHookNameInDev = "useInsertionEffect";
                 mountHookTypesDev();
                 checkDepsAreArrayDev(deps);
-                return mountInsertionEffect(create, deps);
+                return mountInsertionEffect(create5, deps);
               },
-              useLayoutEffect: function(create, deps) {
+              useLayoutEffect: function(create5, deps) {
                 currentHookNameInDev = "useLayoutEffect";
                 mountHookTypesDev();
                 checkDepsAreArrayDev(deps);
-                return mountLayoutEffect(create, deps);
+                return mountLayoutEffect(create5, deps);
               },
-              useMemo: function(create, deps) {
+              useMemo: function(create5, deps) {
                 currentHookNameInDev = "useMemo";
                 mountHookTypesDev();
                 checkDepsAreArrayDev(deps);
                 var prevDispatcher = ReactCurrentDispatcher$1.current;
                 ReactCurrentDispatcher$1.current = InvalidNestedHooksDispatcherOnMountInDEV;
                 try {
-                  return mountMemo(create, deps);
+                  return mountMemo(create5, deps);
                 } finally {
                   ReactCurrentDispatcher$1.current = prevDispatcher;
                 }
@@ -14616,33 +14616,33 @@
                 updateHookTypesDev();
                 return readContext(context);
               },
-              useEffect: function(create, deps) {
+              useEffect: function(create5, deps) {
                 currentHookNameInDev = "useEffect";
                 updateHookTypesDev();
-                return mountEffect(create, deps);
+                return mountEffect(create5, deps);
               },
-              useImperativeHandle: function(ref, create, deps) {
+              useImperativeHandle: function(ref, create5, deps) {
                 currentHookNameInDev = "useImperativeHandle";
                 updateHookTypesDev();
-                return mountImperativeHandle(ref, create, deps);
+                return mountImperativeHandle(ref, create5, deps);
               },
-              useInsertionEffect: function(create, deps) {
+              useInsertionEffect: function(create5, deps) {
                 currentHookNameInDev = "useInsertionEffect";
                 updateHookTypesDev();
-                return mountInsertionEffect(create, deps);
+                return mountInsertionEffect(create5, deps);
               },
-              useLayoutEffect: function(create, deps) {
+              useLayoutEffect: function(create5, deps) {
                 currentHookNameInDev = "useLayoutEffect";
                 updateHookTypesDev();
-                return mountLayoutEffect(create, deps);
+                return mountLayoutEffect(create5, deps);
               },
-              useMemo: function(create, deps) {
+              useMemo: function(create5, deps) {
                 currentHookNameInDev = "useMemo";
                 updateHookTypesDev();
                 var prevDispatcher = ReactCurrentDispatcher$1.current;
                 ReactCurrentDispatcher$1.current = InvalidNestedHooksDispatcherOnMountInDEV;
                 try {
-                  return mountMemo(create, deps);
+                  return mountMemo(create5, deps);
                 } finally {
                   ReactCurrentDispatcher$1.current = prevDispatcher;
                 }
@@ -14720,33 +14720,33 @@
                 updateHookTypesDev();
                 return readContext(context);
               },
-              useEffect: function(create, deps) {
+              useEffect: function(create5, deps) {
                 currentHookNameInDev = "useEffect";
                 updateHookTypesDev();
-                return updateEffect(create, deps);
+                return updateEffect(create5, deps);
               },
-              useImperativeHandle: function(ref, create, deps) {
+              useImperativeHandle: function(ref, create5, deps) {
                 currentHookNameInDev = "useImperativeHandle";
                 updateHookTypesDev();
-                return updateImperativeHandle(ref, create, deps);
+                return updateImperativeHandle(ref, create5, deps);
               },
-              useInsertionEffect: function(create, deps) {
+              useInsertionEffect: function(create5, deps) {
                 currentHookNameInDev = "useInsertionEffect";
                 updateHookTypesDev();
-                return updateInsertionEffect(create, deps);
+                return updateInsertionEffect(create5, deps);
               },
-              useLayoutEffect: function(create, deps) {
+              useLayoutEffect: function(create5, deps) {
                 currentHookNameInDev = "useLayoutEffect";
                 updateHookTypesDev();
-                return updateLayoutEffect(create, deps);
+                return updateLayoutEffect(create5, deps);
               },
-              useMemo: function(create, deps) {
+              useMemo: function(create5, deps) {
                 currentHookNameInDev = "useMemo";
                 updateHookTypesDev();
                 var prevDispatcher = ReactCurrentDispatcher$1.current;
                 ReactCurrentDispatcher$1.current = InvalidNestedHooksDispatcherOnUpdateInDEV;
                 try {
-                  return updateMemo(create, deps);
+                  return updateMemo(create5, deps);
                 } finally {
                   ReactCurrentDispatcher$1.current = prevDispatcher;
                 }
@@ -14824,33 +14824,33 @@
                 updateHookTypesDev();
                 return readContext(context);
               },
-              useEffect: function(create, deps) {
+              useEffect: function(create5, deps) {
                 currentHookNameInDev = "useEffect";
                 updateHookTypesDev();
-                return updateEffect(create, deps);
+                return updateEffect(create5, deps);
               },
-              useImperativeHandle: function(ref, create, deps) {
+              useImperativeHandle: function(ref, create5, deps) {
                 currentHookNameInDev = "useImperativeHandle";
                 updateHookTypesDev();
-                return updateImperativeHandle(ref, create, deps);
+                return updateImperativeHandle(ref, create5, deps);
               },
-              useInsertionEffect: function(create, deps) {
+              useInsertionEffect: function(create5, deps) {
                 currentHookNameInDev = "useInsertionEffect";
                 updateHookTypesDev();
-                return updateInsertionEffect(create, deps);
+                return updateInsertionEffect(create5, deps);
               },
-              useLayoutEffect: function(create, deps) {
+              useLayoutEffect: function(create5, deps) {
                 currentHookNameInDev = "useLayoutEffect";
                 updateHookTypesDev();
-                return updateLayoutEffect(create, deps);
+                return updateLayoutEffect(create5, deps);
               },
-              useMemo: function(create, deps) {
+              useMemo: function(create5, deps) {
                 currentHookNameInDev = "useMemo";
                 updateHookTypesDev();
                 var prevDispatcher = ReactCurrentDispatcher$1.current;
                 ReactCurrentDispatcher$1.current = InvalidNestedHooksDispatcherOnRerenderInDEV;
                 try {
-                  return updateMemo(create, deps);
+                  return updateMemo(create5, deps);
                 } finally {
                   ReactCurrentDispatcher$1.current = prevDispatcher;
                 }
@@ -14931,38 +14931,38 @@
                 mountHookTypesDev();
                 return readContext(context);
               },
-              useEffect: function(create, deps) {
+              useEffect: function(create5, deps) {
                 currentHookNameInDev = "useEffect";
                 warnInvalidHookAccess();
                 mountHookTypesDev();
-                return mountEffect(create, deps);
+                return mountEffect(create5, deps);
               },
-              useImperativeHandle: function(ref, create, deps) {
+              useImperativeHandle: function(ref, create5, deps) {
                 currentHookNameInDev = "useImperativeHandle";
                 warnInvalidHookAccess();
                 mountHookTypesDev();
-                return mountImperativeHandle(ref, create, deps);
+                return mountImperativeHandle(ref, create5, deps);
               },
-              useInsertionEffect: function(create, deps) {
+              useInsertionEffect: function(create5, deps) {
                 currentHookNameInDev = "useInsertionEffect";
                 warnInvalidHookAccess();
                 mountHookTypesDev();
-                return mountInsertionEffect(create, deps);
+                return mountInsertionEffect(create5, deps);
               },
-              useLayoutEffect: function(create, deps) {
+              useLayoutEffect: function(create5, deps) {
                 currentHookNameInDev = "useLayoutEffect";
                 warnInvalidHookAccess();
                 mountHookTypesDev();
-                return mountLayoutEffect(create, deps);
+                return mountLayoutEffect(create5, deps);
               },
-              useMemo: function(create, deps) {
+              useMemo: function(create5, deps) {
                 currentHookNameInDev = "useMemo";
                 warnInvalidHookAccess();
                 mountHookTypesDev();
                 var prevDispatcher = ReactCurrentDispatcher$1.current;
                 ReactCurrentDispatcher$1.current = InvalidNestedHooksDispatcherOnMountInDEV;
                 try {
-                  return mountMemo(create, deps);
+                  return mountMemo(create5, deps);
                 } finally {
                   ReactCurrentDispatcher$1.current = prevDispatcher;
                 }
@@ -15052,38 +15052,38 @@
                 updateHookTypesDev();
                 return readContext(context);
               },
-              useEffect: function(create, deps) {
+              useEffect: function(create5, deps) {
                 currentHookNameInDev = "useEffect";
                 warnInvalidHookAccess();
                 updateHookTypesDev();
-                return updateEffect(create, deps);
+                return updateEffect(create5, deps);
               },
-              useImperativeHandle: function(ref, create, deps) {
+              useImperativeHandle: function(ref, create5, deps) {
                 currentHookNameInDev = "useImperativeHandle";
                 warnInvalidHookAccess();
                 updateHookTypesDev();
-                return updateImperativeHandle(ref, create, deps);
+                return updateImperativeHandle(ref, create5, deps);
               },
-              useInsertionEffect: function(create, deps) {
+              useInsertionEffect: function(create5, deps) {
                 currentHookNameInDev = "useInsertionEffect";
                 warnInvalidHookAccess();
                 updateHookTypesDev();
-                return updateInsertionEffect(create, deps);
+                return updateInsertionEffect(create5, deps);
               },
-              useLayoutEffect: function(create, deps) {
+              useLayoutEffect: function(create5, deps) {
                 currentHookNameInDev = "useLayoutEffect";
                 warnInvalidHookAccess();
                 updateHookTypesDev();
-                return updateLayoutEffect(create, deps);
+                return updateLayoutEffect(create5, deps);
               },
-              useMemo: function(create, deps) {
+              useMemo: function(create5, deps) {
                 currentHookNameInDev = "useMemo";
                 warnInvalidHookAccess();
                 updateHookTypesDev();
                 var prevDispatcher = ReactCurrentDispatcher$1.current;
                 ReactCurrentDispatcher$1.current = InvalidNestedHooksDispatcherOnUpdateInDEV;
                 try {
-                  return updateMemo(create, deps);
+                  return updateMemo(create5, deps);
                 } finally {
                   ReactCurrentDispatcher$1.current = prevDispatcher;
                 }
@@ -15173,38 +15173,38 @@
                 updateHookTypesDev();
                 return readContext(context);
               },
-              useEffect: function(create, deps) {
+              useEffect: function(create5, deps) {
                 currentHookNameInDev = "useEffect";
                 warnInvalidHookAccess();
                 updateHookTypesDev();
-                return updateEffect(create, deps);
+                return updateEffect(create5, deps);
               },
-              useImperativeHandle: function(ref, create, deps) {
+              useImperativeHandle: function(ref, create5, deps) {
                 currentHookNameInDev = "useImperativeHandle";
                 warnInvalidHookAccess();
                 updateHookTypesDev();
-                return updateImperativeHandle(ref, create, deps);
+                return updateImperativeHandle(ref, create5, deps);
               },
-              useInsertionEffect: function(create, deps) {
+              useInsertionEffect: function(create5, deps) {
                 currentHookNameInDev = "useInsertionEffect";
                 warnInvalidHookAccess();
                 updateHookTypesDev();
-                return updateInsertionEffect(create, deps);
+                return updateInsertionEffect(create5, deps);
               },
-              useLayoutEffect: function(create, deps) {
+              useLayoutEffect: function(create5, deps) {
                 currentHookNameInDev = "useLayoutEffect";
                 warnInvalidHookAccess();
                 updateHookTypesDev();
-                return updateLayoutEffect(create, deps);
+                return updateLayoutEffect(create5, deps);
               },
-              useMemo: function(create, deps) {
+              useMemo: function(create5, deps) {
                 currentHookNameInDev = "useMemo";
                 warnInvalidHookAccess();
                 updateHookTypesDev();
                 var prevDispatcher = ReactCurrentDispatcher$1.current;
                 ReactCurrentDispatcher$1.current = InvalidNestedHooksDispatcherOnUpdateInDEV;
                 try {
-                  return updateMemo(create, deps);
+                  return updateMemo(create5, deps);
                 } finally {
                   ReactCurrentDispatcher$1.current = prevDispatcher;
                 }
@@ -15338,8 +15338,8 @@
               while (parentFiber !== null) {
                 switch (parentFiber.tag) {
                   case HostRoot:
-                    var root3 = parentFiber.stateNode;
-                    root3.effectDuration += elapsedTime;
+                    var root4 = parentFiber.stateNode;
+                    root4.effectDuration += elapsedTime;
                     return;
                   case Profiler:
                     var parentStateNode = parentFiber.stateNode;
@@ -15358,9 +15358,9 @@
               while (parentFiber !== null) {
                 switch (parentFiber.tag) {
                   case HostRoot:
-                    var root3 = parentFiber.stateNode;
-                    if (root3 !== null) {
-                      root3.passiveEffectDuration += elapsedTime;
+                    var root4 = parentFiber.stateNode;
+                    if (root4 !== null) {
+                      root4.passiveEffectDuration += elapsedTime;
                     }
                     return;
                   case Profiler:
@@ -15499,11 +15499,11 @@
             }
             return update;
           }
-          function attachPingListener(root3, wakeable, lanes) {
-            var pingCache = root3.pingCache;
+          function attachPingListener(root4, wakeable, lanes) {
+            var pingCache = root4.pingCache;
             var threadIDs;
             if (pingCache === null) {
-              pingCache = root3.pingCache = new PossiblyWeakMap$1();
+              pingCache = root4.pingCache = new PossiblyWeakMap$1();
               threadIDs = /* @__PURE__ */ new Set();
               pingCache.set(wakeable, threadIDs);
             } else {
@@ -15515,16 +15515,16 @@
             }
             if (!threadIDs.has(lanes)) {
               threadIDs.add(lanes);
-              var ping = pingSuspendedRoot.bind(null, root3, wakeable, lanes);
+              var ping = pingSuspendedRoot.bind(null, root4, wakeable, lanes);
               {
                 if (isDevToolsPresent) {
-                  restorePendingUpdaters(root3, lanes);
+                  restorePendingUpdaters(root4, lanes);
                 }
               }
               wakeable.then(ping, ping);
             }
           }
-          function attachRetryListener(suspenseBoundary, root3, wakeable, lanes) {
+          function attachRetryListener(suspenseBoundary, root4, wakeable, lanes) {
             var wakeables = suspenseBoundary.updateQueue;
             if (wakeables === null) {
               var updateQueue = /* @__PURE__ */ new Set();
@@ -15558,7 +15558,7 @@
             } while (node !== null);
             return null;
           }
-          function markSuspenseBoundaryShouldCapture(suspenseBoundary, returnFiber, sourceFiber, root3, rootRenderLanes) {
+          function markSuspenseBoundaryShouldCapture(suspenseBoundary, returnFiber, sourceFiber, root4, rootRenderLanes) {
             if ((suspenseBoundary.mode & ConcurrentMode) === NoMode) {
               if (suspenseBoundary === returnFiber) {
                 suspenseBoundary.flags |= ShouldCapture;
@@ -15584,11 +15584,11 @@
             suspenseBoundary.lanes = rootRenderLanes;
             return suspenseBoundary;
           }
-          function throwException(root3, returnFiber, sourceFiber, value, rootRenderLanes) {
+          function throwException(root4, returnFiber, sourceFiber, value, rootRenderLanes) {
             sourceFiber.flags |= Incomplete;
             {
               if (isDevToolsPresent) {
-                restorePendingUpdaters(root3, rootRenderLanes);
+                restorePendingUpdaters(root4, rootRenderLanes);
               }
             }
             if (value !== null && typeof value === "object" && typeof value.then === "function") {
@@ -15602,15 +15602,15 @@
               var suspenseBoundary = getNearestSuspenseBoundaryToCapture(returnFiber);
               if (suspenseBoundary !== null) {
                 suspenseBoundary.flags &= ~ForceClientRender;
-                markSuspenseBoundaryShouldCapture(suspenseBoundary, returnFiber, sourceFiber, root3, rootRenderLanes);
+                markSuspenseBoundaryShouldCapture(suspenseBoundary, returnFiber, sourceFiber, root4, rootRenderLanes);
                 if (suspenseBoundary.mode & ConcurrentMode) {
-                  attachPingListener(root3, wakeable, rootRenderLanes);
+                  attachPingListener(root4, wakeable, rootRenderLanes);
                 }
-                attachRetryListener(suspenseBoundary, root3, wakeable);
+                attachRetryListener(suspenseBoundary, root4, wakeable);
                 return;
               } else {
                 if (!includesSyncLane(rootRenderLanes)) {
-                  attachPingListener(root3, wakeable, rootRenderLanes);
+                  attachPingListener(root4, wakeable, rootRenderLanes);
                   renderDidSuspendDelayIfPossible();
                   return;
                 }
@@ -15625,7 +15625,7 @@
                   if ((_suspenseBoundary.flags & ShouldCapture) === NoFlags) {
                     _suspenseBoundary.flags |= ForceClientRender;
                   }
-                  markSuspenseBoundaryShouldCapture(_suspenseBoundary, returnFiber, sourceFiber, root3, rootRenderLanes);
+                  markSuspenseBoundaryShouldCapture(_suspenseBoundary, returnFiber, sourceFiber, root4, rootRenderLanes);
                   queueHydrationError(createCapturedValueAtFiber(value, sourceFiber));
                   return;
                 }
@@ -16111,13 +16111,13 @@
             return workInProgress2.child;
           }
           function pushHostRootContext(workInProgress2) {
-            var root3 = workInProgress2.stateNode;
-            if (root3.pendingContext) {
-              pushTopLevelContextObject(workInProgress2, root3.pendingContext, root3.pendingContext !== root3.context);
-            } else if (root3.context) {
-              pushTopLevelContextObject(workInProgress2, root3.context, false);
+            var root4 = workInProgress2.stateNode;
+            if (root4.pendingContext) {
+              pushTopLevelContextObject(workInProgress2, root4.pendingContext, root4.pendingContext !== root4.context);
+            } else if (root4.context) {
+              pushTopLevelContextObject(workInProgress2, root4.context, false);
             }
-            pushHostContainer(workInProgress2, root3.containerInfo);
+            pushHostContainer(workInProgress2, root4.containerInfo);
           }
           function updateHostRoot(current2, workInProgress2, renderLanes2) {
             pushHostRootContext(workInProgress2);
@@ -16130,7 +16130,7 @@
             cloneUpdateQueue(current2, workInProgress2);
             processUpdateQueue(workInProgress2, nextProps, null, renderLanes2);
             var nextState = workInProgress2.memoizedState;
-            var root3 = workInProgress2.stateNode;
+            var root4 = workInProgress2.stateNode;
             var nextChildren = nextState.element;
             if (prevState.isDehydrated) {
               var overrideState = {
@@ -16692,14 +16692,14 @@
               }
               var hasContextChanged2 = includesSomeLane(renderLanes2, current2.childLanes);
               if (didReceiveUpdate || hasContextChanged2) {
-                var root3 = getWorkInProgressRoot();
-                if (root3 !== null) {
-                  var attemptHydrationAtLane = getBumpedLaneForHydration(root3, renderLanes2);
+                var root4 = getWorkInProgressRoot();
+                if (root4 !== null) {
+                  var attemptHydrationAtLane = getBumpedLaneForHydration(root4, renderLanes2);
                   if (attemptHydrationAtLane !== NoLane && attemptHydrationAtLane !== suspenseState.retryLane) {
                     suspenseState.retryLane = attemptHydrationAtLane;
                     var eventTime = NoTimestamp;
                     enqueueConcurrentRenderForLane(current2, attemptHydrationAtLane);
-                    scheduleUpdateOnFiber(root3, current2, attemptHydrationAtLane, eventTime);
+                    scheduleUpdateOnFiber(root4, current2, attemptHydrationAtLane, eventTime);
                   }
                 }
                 renderDidSuspendDelayIfPossible();
@@ -16826,13 +16826,13 @@
               }
             }
           }
-          function validateSuspenseListNestedChild(childSlot, index2) {
+          function validateSuspenseListNestedChild(childSlot, index5) {
             {
               var isAnArray = isArray(childSlot);
               var isIterable = !isAnArray && typeof getIteratorFn(childSlot) === "function";
               if (isAnArray || isIterable) {
                 var type = isAnArray ? "array" : "iterable";
-                error("A nested %s was passed to row #%s in <SuspenseList />. Wrap it in an additional SuspenseList to configure its revealOrder: <SuspenseList revealOrder=...> ... <SuspenseList revealOrder=...>{%s}</SuspenseList> ... </SuspenseList>", type, index2, type);
+                error("A nested %s was passed to row #%s in <SuspenseList />. Wrap it in an additional SuspenseList to configure its revealOrder: <SuspenseList revealOrder=...> ... <SuspenseList revealOrder=...>{%s}</SuspenseList> ... </SuspenseList>", type, index5, type);
                 return false;
               }
             }
@@ -17138,7 +17138,7 @@
             switch (workInProgress2.tag) {
               case HostRoot:
                 pushHostRootContext(workInProgress2);
-                var root3 = workInProgress2.stateNode;
+                var root4 = workInProgress2.stateNode;
                 resetHydrationState();
                 break;
               case HostComponent:
@@ -17781,7 +17781,7 @@
                         row = row.sibling;
                       }
                     }
-                    if (renderState.tail !== null && now() > getRenderTargetTime()) {
+                    if (renderState.tail !== null && now2() > getRenderTargetTime()) {
                       workInProgress2.flags |= DidCapture;
                       didSuspendAlready = true;
                       cutOffTailIfNeeded(renderState, false);
@@ -17806,7 +17806,7 @@
                         bubbleProperties(workInProgress2);
                         return null;
                       }
-                    } else if (now() * 2 - renderState.renderingStartTime > getRenderTargetTime() && renderLanes2 !== OffscreenLane) {
+                    } else if (now2() * 2 - renderState.renderingStartTime > getRenderTargetTime() && renderLanes2 !== OffscreenLane) {
                       workInProgress2.flags |= DidCapture;
                       didSuspendAlready = true;
                       cutOffTailIfNeeded(renderState, false);
@@ -17830,7 +17830,7 @@
                   var next = renderState.tail;
                   renderState.rendering = next;
                   renderState.tail = next.sibling;
-                  renderState.renderingStartTime = now();
+                  renderState.renderingStartTime = now2();
                   next.sibling = null;
                   var suspenseContext = suspenseStackCursor.current;
                   if (didSuspendAlready) {
@@ -17901,7 +17901,7 @@
                 return null;
               }
               case HostRoot: {
-                var root3 = workInProgress2.stateNode;
+                var root4 = workInProgress2.stateNode;
                 popHostContainer(workInProgress2);
                 popTopLevelContextObject(workInProgress2);
                 resetWorkInProgressVersions();
@@ -17967,7 +17967,7 @@
                 break;
               }
               case HostRoot: {
-                var root3 = interruptedWork.stateNode;
+                var root4 = interruptedWork.stateNode;
                 popHostContainer(interruptedWork);
                 popTopLevelContextObject(interruptedWork);
                 resetWorkInProgressVersions();
@@ -18094,8 +18094,8 @@
           }
           var focusedInstanceHandle = null;
           var shouldFireAfterActiveInstanceBlur = false;
-          function commitBeforeMutationEffects(root3, firstChild) {
-            focusedInstanceHandle = prepareForCommit(root3.containerInfo);
+          function commitBeforeMutationEffects(root4, firstChild) {
+            focusedInstanceHandle = prepareForCommit(root4.containerInfo);
             nextEffect = firstChild;
             commitBeforeMutationEffects_begin();
             var shouldFire = shouldFireAfterActiveInstanceBlur;
@@ -18174,8 +18174,8 @@
                 }
                 case HostRoot: {
                   {
-                    var root3 = finishedWork.stateNode;
-                    clearContainer(root3.containerInfo);
+                    var root4 = finishedWork.stateNode;
+                    clearContainer(root4.containerInfo);
                   }
                   break;
                 }
@@ -18248,13 +18248,13 @@
                       markComponentLayoutEffectMountStarted(finishedWork);
                     }
                   }
-                  var create = effect.create;
+                  var create5 = effect.create;
                   {
                     if ((flags & Insertion) !== NoFlags$1) {
                       setIsRunningInsertionEffect(true);
                     }
                   }
-                  effect.destroy = create();
+                  effect.destroy = create5();
                   {
                     if ((flags & Insertion) !== NoFlags$1) {
                       setIsRunningInsertionEffect(false);
@@ -18316,8 +18316,8 @@
                       while (parentFiber !== null) {
                         switch (parentFiber.tag) {
                           case HostRoot:
-                            var root3 = parentFiber.stateNode;
-                            root3.passiveEffectDuration += passiveEffectDuration;
+                            var root4 = parentFiber.stateNode;
+                            root4.passiveEffectDuration += passiveEffectDuration;
                             break outer;
                           case Profiler:
                             var parentStateNode = parentFiber.stateNode;
@@ -18476,8 +18476,8 @@
                         while (parentFiber !== null) {
                           switch (parentFiber.tag) {
                             case HostRoot:
-                              var root3 = parentFiber.stateNode;
-                              root3.effectDuration += effectDuration;
+                              var root4 = parentFiber.stateNode;
+                              root4.effectDuration += effectDuration;
                               break outer;
                             case Profiler:
                               var parentStateNode = parentFiber.stateNode;
@@ -18796,7 +18796,7 @@
           }
           var hostParent = null;
           var hostParentIsContainer = false;
-          function commitDeletionEffects(root3, returnFiber, deletedFiber) {
+          function commitDeletionEffects(root4, returnFiber, deletedFiber) {
             {
               var parent = returnFiber;
               findParent:
@@ -18823,7 +18823,7 @@
               if (hostParent === null) {
                 throw new Error("Expected to find a host parent. This error is likely caused by a bug in React. Please file an issue.");
               }
-              commitDeletionEffectsOnFiber(root3, returnFiber, deletedFiber);
+              commitDeletionEffectsOnFiber(root4, returnFiber, deletedFiber);
               hostParent = null;
               hostParentIsContainer = false;
             }
@@ -19002,22 +19002,22 @@
               });
             }
           }
-          function commitMutationEffects(root3, finishedWork, committedLanes) {
+          function commitMutationEffects(root4, finishedWork, committedLanes) {
             inProgressLanes = committedLanes;
-            inProgressRoot = root3;
+            inProgressRoot = root4;
             setCurrentFiber(finishedWork);
-            commitMutationEffectsOnFiber(finishedWork, root3);
+            commitMutationEffectsOnFiber(finishedWork, root4);
             setCurrentFiber(finishedWork);
             inProgressLanes = null;
             inProgressRoot = null;
           }
-          function recursivelyTraverseMutationEffects(root3, parentFiber, lanes) {
+          function recursivelyTraverseMutationEffects(root4, parentFiber, lanes) {
             var deletions = parentFiber.deletions;
             if (deletions !== null) {
               for (var i = 0; i < deletions.length; i++) {
                 var childToDelete = deletions[i];
                 try {
-                  commitDeletionEffects(root3, parentFiber, childToDelete);
+                  commitDeletionEffects(root4, parentFiber, childToDelete);
                 } catch (error2) {
                   captureCommitPhaseError(childToDelete, parentFiber, error2);
                 }
@@ -19028,13 +19028,13 @@
               var child = parentFiber.child;
               while (child !== null) {
                 setCurrentFiber(child);
-                commitMutationEffectsOnFiber(child, root3);
+                commitMutationEffectsOnFiber(child, root4);
                 child = child.sibling;
               }
             }
             setCurrentFiber(prevDebugFiber);
           }
-          function commitMutationEffectsOnFiber(finishedWork, root3, lanes) {
+          function commitMutationEffectsOnFiber(finishedWork, root4, lanes) {
             var current2 = finishedWork.alternate;
             var flags = finishedWork.flags;
             switch (finishedWork.tag) {
@@ -19042,7 +19042,7 @@
               case ForwardRef:
               case MemoComponent:
               case SimpleMemoComponent: {
-                recursivelyTraverseMutationEffects(root3, finishedWork);
+                recursivelyTraverseMutationEffects(root4, finishedWork);
                 commitReconciliationEffects(finishedWork);
                 if (flags & Update) {
                   try {
@@ -19070,7 +19070,7 @@
                 return;
               }
               case ClassComponent: {
-                recursivelyTraverseMutationEffects(root3, finishedWork);
+                recursivelyTraverseMutationEffects(root4, finishedWork);
                 commitReconciliationEffects(finishedWork);
                 if (flags & Ref) {
                   if (current2 !== null) {
@@ -19080,7 +19080,7 @@
                 return;
               }
               case HostComponent: {
-                recursivelyTraverseMutationEffects(root3, finishedWork);
+                recursivelyTraverseMutationEffects(root4, finishedWork);
                 commitReconciliationEffects(finishedWork);
                 if (flags & Ref) {
                   if (current2 !== null) {
@@ -19117,7 +19117,7 @@
                 return;
               }
               case HostText: {
-                recursivelyTraverseMutationEffects(root3, finishedWork);
+                recursivelyTraverseMutationEffects(root4, finishedWork);
                 commitReconciliationEffects(finishedWork);
                 if (flags & Update) {
                   {
@@ -19137,7 +19137,7 @@
                 return;
               }
               case HostRoot: {
-                recursivelyTraverseMutationEffects(root3, finishedWork);
+                recursivelyTraverseMutationEffects(root4, finishedWork);
                 commitReconciliationEffects(finishedWork);
                 if (flags & Update) {
                   {
@@ -19145,7 +19145,7 @@
                       var prevRootState = current2.memoizedState;
                       if (prevRootState.isDehydrated) {
                         try {
-                          commitHydratedContainer(root3.containerInfo);
+                          commitHydratedContainer(root4.containerInfo);
                         } catch (error2) {
                           captureCommitPhaseError(finishedWork, finishedWork.return, error2);
                         }
@@ -19156,12 +19156,12 @@
                 return;
               }
               case HostPortal: {
-                recursivelyTraverseMutationEffects(root3, finishedWork);
+                recursivelyTraverseMutationEffects(root4, finishedWork);
                 commitReconciliationEffects(finishedWork);
                 return;
               }
               case SuspenseComponent: {
-                recursivelyTraverseMutationEffects(root3, finishedWork);
+                recursivelyTraverseMutationEffects(root4, finishedWork);
                 commitReconciliationEffects(finishedWork);
                 var offscreenFiber = finishedWork.child;
                 if (offscreenFiber.flags & Visibility) {
@@ -19191,10 +19191,10 @@
                 if (finishedWork.mode & ConcurrentMode) {
                   var prevOffscreenSubtreeWasHidden = offscreenSubtreeWasHidden;
                   offscreenSubtreeWasHidden = prevOffscreenSubtreeWasHidden || _wasHidden;
-                  recursivelyTraverseMutationEffects(root3, finishedWork);
+                  recursivelyTraverseMutationEffects(root4, finishedWork);
                   offscreenSubtreeWasHidden = prevOffscreenSubtreeWasHidden;
                 } else {
-                  recursivelyTraverseMutationEffects(root3, finishedWork);
+                  recursivelyTraverseMutationEffects(root4, finishedWork);
                 }
                 commitReconciliationEffects(finishedWork);
                 if (flags & Visibility) {
@@ -19225,7 +19225,7 @@
                 return;
               }
               case SuspenseListComponent: {
-                recursivelyTraverseMutationEffects(root3, finishedWork);
+                recursivelyTraverseMutationEffects(root4, finishedWork);
                 commitReconciliationEffects(finishedWork);
                 if (flags & Update) {
                   attachSuspenseRetryListeners(finishedWork);
@@ -19236,7 +19236,7 @@
                 return;
               }
               default: {
-                recursivelyTraverseMutationEffects(root3, finishedWork);
+                recursivelyTraverseMutationEffects(root4, finishedWork);
                 commitReconciliationEffects(finishedWork);
                 return;
               }
@@ -19256,15 +19256,15 @@
               finishedWork.flags &= ~Hydrating;
             }
           }
-          function commitLayoutEffects(finishedWork, root3, committedLanes) {
+          function commitLayoutEffects(finishedWork, root4, committedLanes) {
             inProgressLanes = committedLanes;
-            inProgressRoot = root3;
+            inProgressRoot = root4;
             nextEffect = finishedWork;
-            commitLayoutEffects_begin(finishedWork, root3, committedLanes);
+            commitLayoutEffects_begin(finishedWork, root4, committedLanes);
             inProgressLanes = null;
             inProgressRoot = null;
           }
-          function commitLayoutEffects_begin(subtreeRoot, root3, committedLanes) {
+          function commitLayoutEffects_begin(subtreeRoot, root4, committedLanes) {
             var isModernRoot = (subtreeRoot.mode & ConcurrentMode) !== NoMode;
             while (nextEffect !== null) {
               var fiber = nextEffect;
@@ -19273,7 +19273,7 @@
                 var isHidden = fiber.memoizedState !== null;
                 var newOffscreenSubtreeIsHidden = isHidden || offscreenSubtreeIsHidden;
                 if (newOffscreenSubtreeIsHidden) {
-                  commitLayoutMountEffects_complete(subtreeRoot, root3, committedLanes);
+                  commitLayoutMountEffects_complete(subtreeRoot, root4, committedLanes);
                   continue;
                 } else {
                   var current2 = fiber.alternate;
@@ -19292,7 +19292,7 @@
                     nextEffect = child;
                     commitLayoutEffects_begin(
                       child,
-                      root3,
+                      root4,
                       committedLanes
                     );
                     child = child.sibling;
@@ -19300,7 +19300,7 @@
                   nextEffect = fiber;
                   offscreenSubtreeIsHidden = prevOffscreenSubtreeIsHidden;
                   offscreenSubtreeWasHidden = prevOffscreenSubtreeWasHidden;
-                  commitLayoutMountEffects_complete(subtreeRoot, root3, committedLanes);
+                  commitLayoutMountEffects_complete(subtreeRoot, root4, committedLanes);
                   continue;
                 }
               }
@@ -19308,18 +19308,18 @@
                 firstChild.return = fiber;
                 nextEffect = firstChild;
               } else {
-                commitLayoutMountEffects_complete(subtreeRoot, root3, committedLanes);
+                commitLayoutMountEffects_complete(subtreeRoot, root4, committedLanes);
               }
             }
           }
-          function commitLayoutMountEffects_complete(subtreeRoot, root3, committedLanes) {
+          function commitLayoutMountEffects_complete(subtreeRoot, root4, committedLanes) {
             while (nextEffect !== null) {
               var fiber = nextEffect;
               if ((fiber.flags & LayoutMask) !== NoFlags) {
                 var current2 = fiber.alternate;
                 setCurrentFiber(fiber);
                 try {
-                  commitLayoutEffectOnFiber(root3, current2, fiber, committedLanes);
+                  commitLayoutEffectOnFiber(root4, current2, fiber, committedLanes);
                 } catch (error2) {
                   captureCommitPhaseError(fiber, fiber.return, error2);
                 }
@@ -19446,11 +19446,11 @@
               nextEffect = fiber.return;
             }
           }
-          function commitPassiveMountEffects(root3, finishedWork, committedLanes, committedTransitions) {
+          function commitPassiveMountEffects(root4, finishedWork, committedLanes, committedTransitions) {
             nextEffect = finishedWork;
-            commitPassiveMountEffects_begin(finishedWork, root3, committedLanes, committedTransitions);
+            commitPassiveMountEffects_begin(finishedWork, root4, committedLanes, committedTransitions);
           }
-          function commitPassiveMountEffects_begin(subtreeRoot, root3, committedLanes, committedTransitions) {
+          function commitPassiveMountEffects_begin(subtreeRoot, root4, committedLanes, committedTransitions) {
             while (nextEffect !== null) {
               var fiber = nextEffect;
               var firstChild = fiber.child;
@@ -19458,17 +19458,17 @@
                 firstChild.return = fiber;
                 nextEffect = firstChild;
               } else {
-                commitPassiveMountEffects_complete(subtreeRoot, root3, committedLanes, committedTransitions);
+                commitPassiveMountEffects_complete(subtreeRoot, root4, committedLanes, committedTransitions);
               }
             }
           }
-          function commitPassiveMountEffects_complete(subtreeRoot, root3, committedLanes, committedTransitions) {
+          function commitPassiveMountEffects_complete(subtreeRoot, root4, committedLanes, committedTransitions) {
             while (nextEffect !== null) {
               var fiber = nextEffect;
               if ((fiber.flags & Passive) !== NoFlags) {
                 setCurrentFiber(fiber);
                 try {
-                  commitPassiveMountOnFiber(root3, fiber, committedLanes, committedTransitions);
+                  commitPassiveMountOnFiber(root4, fiber, committedLanes, committedTransitions);
                 } catch (error2) {
                   captureCommitPhaseError(fiber, fiber.return, error2);
                 }
@@ -19781,7 +19781,7 @@
           var RENDER_TIMEOUT_MS = 500;
           var workInProgressTransitions = null;
           function resetRenderTimer() {
-            workInProgressRootRenderTargetTime = now() + RENDER_TIMEOUT_MS;
+            workInProgressRootRenderTargetTime = now2() + RENDER_TIMEOUT_MS;
           }
           function getRenderTargetTime() {
             return workInProgressRootRenderTargetTime;
@@ -19810,12 +19810,12 @@
           }
           function requestEventTime() {
             if ((executionContext & (RenderContext | CommitContext)) !== NoContext) {
-              return now();
+              return now2();
             }
             if (currentEventTime !== NoTimestamp) {
               return currentEventTime;
             }
-            currentEventTime = now();
+            currentEventTime = now2();
             return currentEventTime;
           }
           function requestUpdateLane(fiber) {
@@ -19828,11 +19828,11 @@
             var isTransition = requestCurrentTransition() !== NoTransition;
             if (isTransition) {
               if (ReactCurrentBatchConfig$3.transition !== null) {
-                var transition = ReactCurrentBatchConfig$3.transition;
-                if (!transition._updatedFibers) {
-                  transition._updatedFibers = /* @__PURE__ */ new Set();
+                var transition2 = ReactCurrentBatchConfig$3.transition;
+                if (!transition2._updatedFibers) {
+                  transition2._updatedFibers = /* @__PURE__ */ new Set();
                 }
-                transition._updatedFibers.add(fiber);
+                transition2._updatedFibers.add(fiber);
               }
               if (currentEventTransitionLane === NoLane) {
                 currentEventTransitionLane = claimNextTransitionLane();
@@ -19853,7 +19853,7 @@
             }
             return claimNextRetryLane();
           }
-          function scheduleUpdateOnFiber(root3, fiber, lane, eventTime) {
+          function scheduleUpdateOnFiber(root4, fiber, lane, eventTime) {
             checkForNestedUpdates();
             {
               if (isRunningInsertionEffect) {
@@ -19865,54 +19865,54 @@
                 didScheduleUpdateDuringPassiveEffects = true;
               }
             }
-            markRootUpdated(root3, lane, eventTime);
-            if ((executionContext & RenderContext) !== NoLanes && root3 === workInProgressRoot) {
+            markRootUpdated(root4, lane, eventTime);
+            if ((executionContext & RenderContext) !== NoLanes && root4 === workInProgressRoot) {
               warnAboutRenderPhaseUpdatesInDEV(fiber);
             } else {
               {
                 if (isDevToolsPresent) {
-                  addFiberToLanesMap(root3, fiber, lane);
+                  addFiberToLanesMap(root4, fiber, lane);
                 }
               }
               warnIfUpdatesNotWrappedWithActDEV(fiber);
-              if (root3 === workInProgressRoot) {
+              if (root4 === workInProgressRoot) {
                 if ((executionContext & RenderContext) === NoContext) {
                   workInProgressRootInterleavedUpdatedLanes = mergeLanes(workInProgressRootInterleavedUpdatedLanes, lane);
                 }
                 if (workInProgressRootExitStatus === RootSuspendedWithDelay) {
-                  markRootSuspended$1(root3, workInProgressRootRenderLanes);
+                  markRootSuspended$1(root4, workInProgressRootRenderLanes);
                 }
               }
-              ensureRootIsScheduled(root3, eventTime);
+              ensureRootIsScheduled(root4, eventTime);
               if (lane === SyncLane && executionContext === NoContext && (fiber.mode & ConcurrentMode) === NoMode && !ReactCurrentActQueue$1.isBatchingLegacy) {
                 resetRenderTimer();
                 flushSyncCallbacksOnlyInLegacyMode();
               }
             }
           }
-          function scheduleInitialHydrationOnRoot(root3, lane, eventTime) {
-            var current2 = root3.current;
+          function scheduleInitialHydrationOnRoot(root4, lane, eventTime) {
+            var current2 = root4.current;
             current2.lanes = lane;
-            markRootUpdated(root3, lane, eventTime);
-            ensureRootIsScheduled(root3, eventTime);
+            markRootUpdated(root4, lane, eventTime);
+            ensureRootIsScheduled(root4, eventTime);
           }
           function isUnsafeClassRenderPhaseUpdate(fiber) {
             return (executionContext & RenderContext) !== NoContext;
           }
-          function ensureRootIsScheduled(root3, currentTime) {
-            var existingCallbackNode = root3.callbackNode;
-            markStarvedLanesAsExpired(root3, currentTime);
-            var nextLanes = getNextLanes(root3, root3 === workInProgressRoot ? workInProgressRootRenderLanes : NoLanes);
+          function ensureRootIsScheduled(root4, currentTime) {
+            var existingCallbackNode = root4.callbackNode;
+            markStarvedLanesAsExpired(root4, currentTime);
+            var nextLanes = getNextLanes(root4, root4 === workInProgressRoot ? workInProgressRootRenderLanes : NoLanes);
             if (nextLanes === NoLanes) {
               if (existingCallbackNode !== null) {
                 cancelCallback$1(existingCallbackNode);
               }
-              root3.callbackNode = null;
-              root3.callbackPriority = NoLane;
+              root4.callbackNode = null;
+              root4.callbackPriority = NoLane;
               return;
             }
             var newCallbackPriority = getHighestPriorityLane(nextLanes);
-            var existingCallbackPriority = root3.callbackPriority;
+            var existingCallbackPriority = root4.callbackPriority;
             if (existingCallbackPriority === newCallbackPriority && !(ReactCurrentActQueue$1.current !== null && existingCallbackNode !== fakeActCallbackNode)) {
               {
                 if (existingCallbackNode == null && existingCallbackPriority !== SyncLane) {
@@ -19926,13 +19926,13 @@
             }
             var newCallbackNode;
             if (newCallbackPriority === SyncLane) {
-              if (root3.tag === LegacyRoot) {
+              if (root4.tag === LegacyRoot) {
                 if (ReactCurrentActQueue$1.isBatchingLegacy !== null) {
                   ReactCurrentActQueue$1.didScheduleLegacyUpdate = true;
                 }
-                scheduleLegacySyncCallback(performSyncWorkOnRoot.bind(null, root3));
+                scheduleLegacySyncCallback(performSyncWorkOnRoot.bind(null, root4));
               } else {
-                scheduleSyncCallback(performSyncWorkOnRoot.bind(null, root3));
+                scheduleSyncCallback(performSyncWorkOnRoot.bind(null, root4));
               }
               {
                 if (ReactCurrentActQueue$1.current !== null) {
@@ -19965,12 +19965,12 @@
                   schedulerPriorityLevel = NormalPriority;
                   break;
               }
-              newCallbackNode = scheduleCallback$1(schedulerPriorityLevel, performConcurrentWorkOnRoot.bind(null, root3));
+              newCallbackNode = scheduleCallback$1(schedulerPriorityLevel, performConcurrentWorkOnRoot.bind(null, root4));
             }
-            root3.callbackPriority = newCallbackPriority;
-            root3.callbackNode = newCallbackNode;
+            root4.callbackPriority = newCallbackPriority;
+            root4.callbackNode = newCallbackNode;
           }
-          function performConcurrentWorkOnRoot(root3, didTimeout) {
+          function performConcurrentWorkOnRoot(root4, didTimeout) {
             {
               resetNestedUpdateFlag();
             }
@@ -19979,77 +19979,77 @@
             if ((executionContext & (RenderContext | CommitContext)) !== NoContext) {
               throw new Error("Should not already be working.");
             }
-            var originalCallbackNode = root3.callbackNode;
+            var originalCallbackNode = root4.callbackNode;
             var didFlushPassiveEffects = flushPassiveEffects();
             if (didFlushPassiveEffects) {
-              if (root3.callbackNode !== originalCallbackNode) {
+              if (root4.callbackNode !== originalCallbackNode) {
                 return null;
               }
             }
-            var lanes = getNextLanes(root3, root3 === workInProgressRoot ? workInProgressRootRenderLanes : NoLanes);
+            var lanes = getNextLanes(root4, root4 === workInProgressRoot ? workInProgressRootRenderLanes : NoLanes);
             if (lanes === NoLanes) {
               return null;
             }
-            var shouldTimeSlice = !includesBlockingLane(root3, lanes) && !includesExpiredLane(root3, lanes) && !didTimeout;
-            var exitStatus = shouldTimeSlice ? renderRootConcurrent(root3, lanes) : renderRootSync(root3, lanes);
+            var shouldTimeSlice = !includesBlockingLane(root4, lanes) && !includesExpiredLane(root4, lanes) && !didTimeout;
+            var exitStatus = shouldTimeSlice ? renderRootConcurrent(root4, lanes) : renderRootSync(root4, lanes);
             if (exitStatus !== RootInProgress) {
               if (exitStatus === RootErrored) {
-                var errorRetryLanes = getLanesToRetrySynchronouslyOnError(root3);
+                var errorRetryLanes = getLanesToRetrySynchronouslyOnError(root4);
                 if (errorRetryLanes !== NoLanes) {
                   lanes = errorRetryLanes;
-                  exitStatus = recoverFromConcurrentError(root3, errorRetryLanes);
+                  exitStatus = recoverFromConcurrentError(root4, errorRetryLanes);
                 }
               }
               if (exitStatus === RootFatalErrored) {
                 var fatalError = workInProgressRootFatalError;
-                prepareFreshStack(root3, NoLanes);
-                markRootSuspended$1(root3, lanes);
-                ensureRootIsScheduled(root3, now());
+                prepareFreshStack(root4, NoLanes);
+                markRootSuspended$1(root4, lanes);
+                ensureRootIsScheduled(root4, now2());
                 throw fatalError;
               }
               if (exitStatus === RootDidNotComplete) {
-                markRootSuspended$1(root3, lanes);
+                markRootSuspended$1(root4, lanes);
               } else {
-                var renderWasConcurrent = !includesBlockingLane(root3, lanes);
-                var finishedWork = root3.current.alternate;
+                var renderWasConcurrent = !includesBlockingLane(root4, lanes);
+                var finishedWork = root4.current.alternate;
                 if (renderWasConcurrent && !isRenderConsistentWithExternalStores(finishedWork)) {
-                  exitStatus = renderRootSync(root3, lanes);
+                  exitStatus = renderRootSync(root4, lanes);
                   if (exitStatus === RootErrored) {
-                    var _errorRetryLanes = getLanesToRetrySynchronouslyOnError(root3);
+                    var _errorRetryLanes = getLanesToRetrySynchronouslyOnError(root4);
                     if (_errorRetryLanes !== NoLanes) {
                       lanes = _errorRetryLanes;
-                      exitStatus = recoverFromConcurrentError(root3, _errorRetryLanes);
+                      exitStatus = recoverFromConcurrentError(root4, _errorRetryLanes);
                     }
                   }
                   if (exitStatus === RootFatalErrored) {
                     var _fatalError = workInProgressRootFatalError;
-                    prepareFreshStack(root3, NoLanes);
-                    markRootSuspended$1(root3, lanes);
-                    ensureRootIsScheduled(root3, now());
+                    prepareFreshStack(root4, NoLanes);
+                    markRootSuspended$1(root4, lanes);
+                    ensureRootIsScheduled(root4, now2());
                     throw _fatalError;
                   }
                 }
-                root3.finishedWork = finishedWork;
-                root3.finishedLanes = lanes;
-                finishConcurrentRender(root3, exitStatus, lanes);
+                root4.finishedWork = finishedWork;
+                root4.finishedLanes = lanes;
+                finishConcurrentRender(root4, exitStatus, lanes);
               }
             }
-            ensureRootIsScheduled(root3, now());
-            if (root3.callbackNode === originalCallbackNode) {
-              return performConcurrentWorkOnRoot.bind(null, root3);
+            ensureRootIsScheduled(root4, now2());
+            if (root4.callbackNode === originalCallbackNode) {
+              return performConcurrentWorkOnRoot.bind(null, root4);
             }
             return null;
           }
-          function recoverFromConcurrentError(root3, errorRetryLanes) {
+          function recoverFromConcurrentError(root4, errorRetryLanes) {
             var errorsFromFirstAttempt = workInProgressRootConcurrentErrors;
-            if (isRootDehydrated(root3)) {
-              var rootWorkInProgress = prepareFreshStack(root3, errorRetryLanes);
+            if (isRootDehydrated(root4)) {
+              var rootWorkInProgress = prepareFreshStack(root4, errorRetryLanes);
               rootWorkInProgress.flags |= ForceClientRender;
               {
-                errorHydratingContainer(root3.containerInfo);
+                errorHydratingContainer(root4.containerInfo);
               }
             }
-            var exitStatus = renderRootSync(root3, errorRetryLanes);
+            var exitStatus = renderRootSync(root4, errorRetryLanes);
             if (exitStatus !== RootErrored) {
               var errorsFromSecondAttempt = workInProgressRootRecoverableErrors;
               workInProgressRootRecoverableErrors = errorsFromFirstAttempt;
@@ -20066,58 +20066,58 @@
               workInProgressRootRecoverableErrors.push.apply(workInProgressRootRecoverableErrors, errors);
             }
           }
-          function finishConcurrentRender(root3, exitStatus, lanes) {
+          function finishConcurrentRender(root4, exitStatus, lanes) {
             switch (exitStatus) {
               case RootInProgress:
               case RootFatalErrored: {
                 throw new Error("Root did not complete. This is a bug in React.");
               }
               case RootErrored: {
-                commitRoot(root3, workInProgressRootRecoverableErrors, workInProgressTransitions);
+                commitRoot(root4, workInProgressRootRecoverableErrors, workInProgressTransitions);
                 break;
               }
               case RootSuspended: {
-                markRootSuspended$1(root3, lanes);
+                markRootSuspended$1(root4, lanes);
                 if (includesOnlyRetries(lanes) && !shouldForceFlushFallbacksInDEV()) {
-                  var msUntilTimeout = globalMostRecentFallbackTime + FALLBACK_THROTTLE_MS - now();
+                  var msUntilTimeout = globalMostRecentFallbackTime + FALLBACK_THROTTLE_MS - now2();
                   if (msUntilTimeout > 10) {
-                    var nextLanes = getNextLanes(root3, NoLanes);
+                    var nextLanes = getNextLanes(root4, NoLanes);
                     if (nextLanes !== NoLanes) {
                       break;
                     }
-                    var suspendedLanes = root3.suspendedLanes;
+                    var suspendedLanes = root4.suspendedLanes;
                     if (!isSubsetOfLanes(suspendedLanes, lanes)) {
                       var eventTime = requestEventTime();
-                      markRootPinged(root3, suspendedLanes);
+                      markRootPinged(root4, suspendedLanes);
                       break;
                     }
-                    root3.timeoutHandle = scheduleTimeout(commitRoot.bind(null, root3, workInProgressRootRecoverableErrors, workInProgressTransitions), msUntilTimeout);
+                    root4.timeoutHandle = scheduleTimeout(commitRoot.bind(null, root4, workInProgressRootRecoverableErrors, workInProgressTransitions), msUntilTimeout);
                     break;
                   }
                 }
-                commitRoot(root3, workInProgressRootRecoverableErrors, workInProgressTransitions);
+                commitRoot(root4, workInProgressRootRecoverableErrors, workInProgressTransitions);
                 break;
               }
               case RootSuspendedWithDelay: {
-                markRootSuspended$1(root3, lanes);
+                markRootSuspended$1(root4, lanes);
                 if (includesOnlyTransitions(lanes)) {
                   break;
                 }
                 if (!shouldForceFlushFallbacksInDEV()) {
-                  var mostRecentEventTime = getMostRecentEventTime(root3, lanes);
+                  var mostRecentEventTime = getMostRecentEventTime(root4, lanes);
                   var eventTimeMs = mostRecentEventTime;
-                  var timeElapsedMs = now() - eventTimeMs;
+                  var timeElapsedMs = now2() - eventTimeMs;
                   var _msUntilTimeout = jnd(timeElapsedMs) - timeElapsedMs;
                   if (_msUntilTimeout > 10) {
-                    root3.timeoutHandle = scheduleTimeout(commitRoot.bind(null, root3, workInProgressRootRecoverableErrors, workInProgressTransitions), _msUntilTimeout);
+                    root4.timeoutHandle = scheduleTimeout(commitRoot.bind(null, root4, workInProgressRootRecoverableErrors, workInProgressTransitions), _msUntilTimeout);
                     break;
                   }
                 }
-                commitRoot(root3, workInProgressRootRecoverableErrors, workInProgressTransitions);
+                commitRoot(root4, workInProgressRootRecoverableErrors, workInProgressTransitions);
                 break;
               }
               case RootCompleted: {
-                commitRoot(root3, workInProgressRootRecoverableErrors, workInProgressTransitions);
+                commitRoot(root4, workInProgressRootRecoverableErrors, workInProgressTransitions);
                 break;
               }
               default: {
@@ -20168,12 +20168,12 @@
             }
             return true;
           }
-          function markRootSuspended$1(root3, suspendedLanes) {
+          function markRootSuspended$1(root4, suspendedLanes) {
             suspendedLanes = removeLanes(suspendedLanes, workInProgressRootPingedLanes);
             suspendedLanes = removeLanes(suspendedLanes, workInProgressRootInterleavedUpdatedLanes);
-            markRootSuspended(root3, suspendedLanes);
+            markRootSuspended(root4, suspendedLanes);
           }
-          function performSyncWorkOnRoot(root3) {
+          function performSyncWorkOnRoot(root4) {
             {
               syncNestedUpdateFlag();
             }
@@ -20181,40 +20181,40 @@
               throw new Error("Should not already be working.");
             }
             flushPassiveEffects();
-            var lanes = getNextLanes(root3, NoLanes);
+            var lanes = getNextLanes(root4, NoLanes);
             if (!includesSomeLane(lanes, SyncLane)) {
-              ensureRootIsScheduled(root3, now());
+              ensureRootIsScheduled(root4, now2());
               return null;
             }
-            var exitStatus = renderRootSync(root3, lanes);
-            if (root3.tag !== LegacyRoot && exitStatus === RootErrored) {
-              var errorRetryLanes = getLanesToRetrySynchronouslyOnError(root3);
+            var exitStatus = renderRootSync(root4, lanes);
+            if (root4.tag !== LegacyRoot && exitStatus === RootErrored) {
+              var errorRetryLanes = getLanesToRetrySynchronouslyOnError(root4);
               if (errorRetryLanes !== NoLanes) {
                 lanes = errorRetryLanes;
-                exitStatus = recoverFromConcurrentError(root3, errorRetryLanes);
+                exitStatus = recoverFromConcurrentError(root4, errorRetryLanes);
               }
             }
             if (exitStatus === RootFatalErrored) {
               var fatalError = workInProgressRootFatalError;
-              prepareFreshStack(root3, NoLanes);
-              markRootSuspended$1(root3, lanes);
-              ensureRootIsScheduled(root3, now());
+              prepareFreshStack(root4, NoLanes);
+              markRootSuspended$1(root4, lanes);
+              ensureRootIsScheduled(root4, now2());
               throw fatalError;
             }
             if (exitStatus === RootDidNotComplete) {
               throw new Error("Root did not complete. This is a bug in React.");
             }
-            var finishedWork = root3.current.alternate;
-            root3.finishedWork = finishedWork;
-            root3.finishedLanes = lanes;
-            commitRoot(root3, workInProgressRootRecoverableErrors, workInProgressTransitions);
-            ensureRootIsScheduled(root3, now());
+            var finishedWork = root4.current.alternate;
+            root4.finishedWork = finishedWork;
+            root4.finishedLanes = lanes;
+            commitRoot(root4, workInProgressRootRecoverableErrors, workInProgressTransitions);
+            ensureRootIsScheduled(root4, now2());
             return null;
           }
-          function flushRoot(root3, lanes) {
+          function flushRoot(root4, lanes) {
             if (lanes !== NoLanes) {
-              markRootEntangled(root3, mergeLanes(lanes, SyncLane));
-              ensureRootIsScheduled(root3, now());
+              markRootEntangled(root4, mergeLanes(lanes, SyncLane));
+              ensureRootIsScheduled(root4, now2());
               if ((executionContext & (RenderContext | CommitContext)) === NoContext) {
                 resetRenderTimer();
                 flushSyncCallbacks();
@@ -20286,12 +20286,12 @@
             subtreeRenderLanes = subtreeRenderLanesCursor.current;
             pop(subtreeRenderLanesCursor, fiber);
           }
-          function prepareFreshStack(root3, lanes) {
-            root3.finishedWork = null;
-            root3.finishedLanes = NoLanes;
-            var timeoutHandle = root3.timeoutHandle;
+          function prepareFreshStack(root4, lanes) {
+            root4.finishedWork = null;
+            root4.finishedLanes = NoLanes;
+            var timeoutHandle = root4.timeoutHandle;
             if (timeoutHandle !== noTimeout) {
-              root3.timeoutHandle = noTimeout;
+              root4.timeoutHandle = noTimeout;
               cancelTimeout(timeoutHandle);
             }
             if (workInProgress !== null) {
@@ -20302,8 +20302,8 @@
                 interruptedWork = interruptedWork.return;
               }
             }
-            workInProgressRoot = root3;
-            var rootWorkInProgress = createWorkInProgress(root3.current, null);
+            workInProgressRoot = root4;
+            var rootWorkInProgress = createWorkInProgress(root4.current, null);
             workInProgress = rootWorkInProgress;
             workInProgressRootRenderLanes = subtreeRenderLanes = workInProgressRootIncludedLanes = lanes;
             workInProgressRootExitStatus = RootInProgress;
@@ -20319,7 +20319,7 @@
             }
             return rootWorkInProgress;
           }
-          function handleError(root3, thrownValue) {
+          function handleError(root4, thrownValue) {
             do {
               var erroredWork = workInProgress;
               try {
@@ -20345,7 +20345,7 @@
                     markComponentErrored(erroredWork, thrownValue, workInProgressRootRenderLanes);
                   }
                 }
-                throwException(root3, erroredWork.return, erroredWork, thrownValue, workInProgressRootRenderLanes);
+                throwException(root4, erroredWork.return, erroredWork, thrownValue, workInProgressRootRenderLanes);
                 completeUnitOfWork(erroredWork);
               } catch (yetAnotherThrownValue) {
                 thrownValue = yetAnotherThrownValue;
@@ -20373,7 +20373,7 @@
             ReactCurrentDispatcher$2.current = prevDispatcher;
           }
           function markCommitTimeOfFallback() {
-            globalMostRecentFallbackTime = now();
+            globalMostRecentFallbackTime = now2();
           }
           function markSkippedUpdateLanes(lane) {
             workInProgressRootSkippedLanes = mergeLanes(lane, workInProgressRootSkippedLanes);
@@ -20404,23 +20404,23 @@
           function renderHasNotSuspendedYet() {
             return workInProgressRootExitStatus === RootInProgress;
           }
-          function renderRootSync(root3, lanes) {
+          function renderRootSync(root4, lanes) {
             var prevExecutionContext = executionContext;
             executionContext |= RenderContext;
             var prevDispatcher = pushDispatcher();
-            if (workInProgressRoot !== root3 || workInProgressRootRenderLanes !== lanes) {
+            if (workInProgressRoot !== root4 || workInProgressRootRenderLanes !== lanes) {
               {
                 if (isDevToolsPresent) {
-                  var memoizedUpdaters = root3.memoizedUpdaters;
+                  var memoizedUpdaters = root4.memoizedUpdaters;
                   if (memoizedUpdaters.size > 0) {
-                    restorePendingUpdaters(root3, workInProgressRootRenderLanes);
+                    restorePendingUpdaters(root4, workInProgressRootRenderLanes);
                     memoizedUpdaters.clear();
                   }
-                  movePendingFibersToMemoized(root3, lanes);
+                  movePendingFibersToMemoized(root4, lanes);
                 }
               }
               workInProgressTransitions = getTransitionsForLanes();
-              prepareFreshStack(root3, lanes);
+              prepareFreshStack(root4, lanes);
             }
             {
               markRenderStarted(lanes);
@@ -20430,7 +20430,7 @@
                 workLoopSync();
                 break;
               } catch (thrownValue) {
-                handleError(root3, thrownValue);
+                handleError(root4, thrownValue);
               }
             } while (true);
             resetContextDependencies();
@@ -20451,24 +20451,24 @@
               performUnitOfWork(workInProgress);
             }
           }
-          function renderRootConcurrent(root3, lanes) {
+          function renderRootConcurrent(root4, lanes) {
             var prevExecutionContext = executionContext;
             executionContext |= RenderContext;
             var prevDispatcher = pushDispatcher();
-            if (workInProgressRoot !== root3 || workInProgressRootRenderLanes !== lanes) {
+            if (workInProgressRoot !== root4 || workInProgressRootRenderLanes !== lanes) {
               {
                 if (isDevToolsPresent) {
-                  var memoizedUpdaters = root3.memoizedUpdaters;
+                  var memoizedUpdaters = root4.memoizedUpdaters;
                   if (memoizedUpdaters.size > 0) {
-                    restorePendingUpdaters(root3, workInProgressRootRenderLanes);
+                    restorePendingUpdaters(root4, workInProgressRootRenderLanes);
                     memoizedUpdaters.clear();
                   }
-                  movePendingFibersToMemoized(root3, lanes);
+                  movePendingFibersToMemoized(root4, lanes);
                 }
               }
               workInProgressTransitions = getTransitionsForLanes();
               resetRenderTimer();
-              prepareFreshStack(root3, lanes);
+              prepareFreshStack(root4, lanes);
             }
             {
               markRenderStarted(lanes);
@@ -20478,7 +20478,7 @@
                 workLoopConcurrent();
                 break;
               } catch (thrownValue) {
-                handleError(root3, thrownValue);
+                handleError(root4, thrownValue);
               }
             } while (true);
             resetContextDependencies();
@@ -20582,20 +20582,20 @@
               workInProgressRootExitStatus = RootCompleted;
             }
           }
-          function commitRoot(root3, recoverableErrors, transitions) {
+          function commitRoot(root4, recoverableErrors, transitions) {
             var previousUpdateLanePriority = getCurrentUpdatePriority();
             var prevTransition = ReactCurrentBatchConfig$3.transition;
             try {
               ReactCurrentBatchConfig$3.transition = null;
               setCurrentUpdatePriority(DiscreteEventPriority);
-              commitRootImpl(root3, recoverableErrors, transitions, previousUpdateLanePriority);
+              commitRootImpl(root4, recoverableErrors, transitions, previousUpdateLanePriority);
             } finally {
               ReactCurrentBatchConfig$3.transition = prevTransition;
               setCurrentUpdatePriority(previousUpdateLanePriority);
             }
             return null;
           }
-          function commitRootImpl(root3, recoverableErrors, transitions, renderPriorityLevel) {
+          function commitRootImpl(root4, recoverableErrors, transitions, renderPriorityLevel) {
             do {
               flushPassiveEffects();
             } while (rootWithPendingPassiveEffects !== null);
@@ -20603,8 +20603,8 @@
             if ((executionContext & (RenderContext | CommitContext)) !== NoContext) {
               throw new Error("Should not already be working.");
             }
-            var finishedWork = root3.finishedWork;
-            var lanes = root3.finishedLanes;
+            var finishedWork = root4.finishedWork;
+            var lanes = root4.finishedLanes;
             {
               markCommitStarted(lanes);
             }
@@ -20620,16 +20620,16 @@
                 }
               }
             }
-            root3.finishedWork = null;
-            root3.finishedLanes = NoLanes;
-            if (finishedWork === root3.current) {
+            root4.finishedWork = null;
+            root4.finishedLanes = NoLanes;
+            if (finishedWork === root4.current) {
               throw new Error("Cannot commit the same tree as before. This error is likely caused by a bug in React. Please file an issue.");
             }
-            root3.callbackNode = null;
-            root3.callbackPriority = NoLane;
+            root4.callbackNode = null;
+            root4.callbackPriority = NoLane;
             var remainingLanes = mergeLanes(finishedWork.lanes, finishedWork.childLanes);
-            markRootFinished(root3, remainingLanes);
-            if (root3 === workInProgressRoot) {
+            markRootFinished(root4, remainingLanes);
+            if (root4 === workInProgressRoot) {
               workInProgressRoot = null;
               workInProgress = null;
               workInProgressRootRenderLanes = NoLanes;
@@ -20654,17 +20654,17 @@
               var prevExecutionContext = executionContext;
               executionContext |= CommitContext;
               ReactCurrentOwner$2.current = null;
-              var shouldFireAfterActiveInstanceBlur2 = commitBeforeMutationEffects(root3, finishedWork);
+              var shouldFireAfterActiveInstanceBlur2 = commitBeforeMutationEffects(root4, finishedWork);
               {
                 recordCommitTime();
               }
-              commitMutationEffects(root3, finishedWork, lanes);
-              resetAfterCommit(root3.containerInfo);
-              root3.current = finishedWork;
+              commitMutationEffects(root4, finishedWork, lanes);
+              resetAfterCommit(root4.containerInfo);
+              root4.current = finishedWork;
               {
                 markLayoutEffectsStarted(lanes);
               }
-              commitLayoutEffects(finishedWork, root3, lanes);
+              commitLayoutEffects(finishedWork, root4, lanes);
               {
                 markLayoutEffectsStopped();
               }
@@ -20673,7 +20673,7 @@
               setCurrentUpdatePriority(previousPriority);
               ReactCurrentBatchConfig$3.transition = prevTransition;
             } else {
-              root3.current = finishedWork;
+              root4.current = finishedWork;
               {
                 recordCommitTime();
               }
@@ -20681,7 +20681,7 @@
             var rootDidHavePassiveEffects = rootDoesHavePassiveEffects;
             if (rootDoesHavePassiveEffects) {
               rootDoesHavePassiveEffects = false;
-              rootWithPendingPassiveEffects = root3;
+              rootWithPendingPassiveEffects = root4;
               pendingPassiveEffectsLanes = lanes;
             } else {
               {
@@ -20689,27 +20689,27 @@
                 rootWithPassiveNestedUpdates = null;
               }
             }
-            remainingLanes = root3.pendingLanes;
+            remainingLanes = root4.pendingLanes;
             if (remainingLanes === NoLanes) {
               legacyErrorBoundariesThatAlreadyFailed = null;
             }
             {
               if (!rootDidHavePassiveEffects) {
-                commitDoubleInvokeEffectsInDEV(root3.current, false);
+                commitDoubleInvokeEffectsInDEV(root4.current, false);
               }
             }
             onCommitRoot(finishedWork.stateNode, renderPriorityLevel);
             {
               if (isDevToolsPresent) {
-                root3.memoizedUpdaters.clear();
+                root4.memoizedUpdaters.clear();
               }
             }
             {
               onCommitRoot$1();
             }
-            ensureRootIsScheduled(root3, now());
+            ensureRootIsScheduled(root4, now2());
             if (recoverableErrors !== null) {
-              var onRecoverableError = root3.onRecoverableError;
+              var onRecoverableError = root4.onRecoverableError;
               for (var i = 0; i < recoverableErrors.length; i++) {
                 var recoverableError = recoverableErrors[i];
                 var componentStack = recoverableError.stack;
@@ -20726,19 +20726,19 @@
               firstUncaughtError = null;
               throw error$1;
             }
-            if (includesSomeLane(pendingPassiveEffectsLanes, SyncLane) && root3.tag !== LegacyRoot) {
+            if (includesSomeLane(pendingPassiveEffectsLanes, SyncLane) && root4.tag !== LegacyRoot) {
               flushPassiveEffects();
             }
-            remainingLanes = root3.pendingLanes;
+            remainingLanes = root4.pendingLanes;
             if (includesSomeLane(remainingLanes, SyncLane)) {
               {
                 markNestedUpdateScheduled();
               }
-              if (root3 === rootWithNestedUpdates) {
+              if (root4 === rootWithNestedUpdates) {
                 nestedUpdateCount++;
               } else {
                 nestedUpdateCount = 0;
-                rootWithNestedUpdates = root3;
+                rootWithNestedUpdates = root4;
               }
             } else {
               nestedUpdateCount = 0;
@@ -20784,7 +20784,7 @@
             }
             var transitions = pendingPassiveTransitions;
             pendingPassiveTransitions = null;
-            var root3 = rootWithPendingPassiveEffects;
+            var root4 = rootWithPendingPassiveEffects;
             var lanes = pendingPassiveEffectsLanes;
             rootWithPendingPassiveEffects = null;
             pendingPassiveEffectsLanes = NoLanes;
@@ -20800,31 +20800,31 @@
             }
             var prevExecutionContext = executionContext;
             executionContext |= CommitContext;
-            commitPassiveUnmountEffects(root3.current);
-            commitPassiveMountEffects(root3, root3.current, lanes, transitions);
+            commitPassiveUnmountEffects(root4.current);
+            commitPassiveMountEffects(root4, root4.current, lanes, transitions);
             {
               var profilerEffects = pendingPassiveProfilerEffects;
               pendingPassiveProfilerEffects = [];
               for (var i = 0; i < profilerEffects.length; i++) {
                 var _fiber = profilerEffects[i];
-                commitPassiveEffectDurations(root3, _fiber);
+                commitPassiveEffectDurations(root4, _fiber);
               }
             }
             {
               markPassiveEffectsStopped();
             }
             {
-              commitDoubleInvokeEffectsInDEV(root3.current, true);
+              commitDoubleInvokeEffectsInDEV(root4.current, true);
             }
             executionContext = prevExecutionContext;
             flushSyncCallbacks();
             {
               if (didScheduleUpdateDuringPassiveEffects) {
-                if (root3 === rootWithPassiveNestedUpdates) {
+                if (root4 === rootWithPassiveNestedUpdates) {
                   nestedPassiveUpdateCount++;
                 } else {
                   nestedPassiveUpdateCount = 0;
-                  rootWithPassiveNestedUpdates = root3;
+                  rootWithPassiveNestedUpdates = root4;
                 }
               } else {
                 nestedPassiveUpdateCount = 0;
@@ -20832,9 +20832,9 @@
               isFlushingPassiveEffects = false;
               didScheduleUpdateDuringPassiveEffects = false;
             }
-            onPostCommitRoot(root3);
+            onPostCommitRoot(root4);
             {
-              var stateNode = root3.current.stateNode;
+              var stateNode = root4.current.stateNode;
               stateNode.effectDuration = 0;
               stateNode.passiveEffectDuration = 0;
             }
@@ -20860,11 +20860,11 @@
           function captureCommitPhaseErrorOnRoot(rootFiber, sourceFiber, error2) {
             var errorInfo = createCapturedValueAtFiber(error2, sourceFiber);
             var update = createRootErrorUpdate(rootFiber, errorInfo, SyncLane);
-            var root3 = enqueueUpdate(rootFiber, update, SyncLane);
+            var root4 = enqueueUpdate(rootFiber, update, SyncLane);
             var eventTime = requestEventTime();
-            if (root3 !== null) {
-              markRootUpdated(root3, SyncLane, eventTime);
-              ensureRootIsScheduled(root3, eventTime);
+            if (root4 !== null) {
+              markRootUpdated(root4, SyncLane, eventTime);
+              ensureRootIsScheduled(root4, eventTime);
             }
           }
           function captureCommitPhaseError(sourceFiber, nearestMountedAncestor, error$1) {
@@ -20890,11 +20890,11 @@
                 if (typeof ctor.getDerivedStateFromError === "function" || typeof instance.componentDidCatch === "function" && !isAlreadyFailedLegacyErrorBoundary(instance)) {
                   var errorInfo = createCapturedValueAtFiber(error$1, sourceFiber);
                   var update = createClassErrorUpdate(fiber, errorInfo, SyncLane);
-                  var root3 = enqueueUpdate(fiber, update, SyncLane);
+                  var root4 = enqueueUpdate(fiber, update, SyncLane);
                   var eventTime = requestEventTime();
-                  if (root3 !== null) {
-                    markRootUpdated(root3, SyncLane, eventTime);
-                    ensureRootIsScheduled(root3, eventTime);
+                  if (root4 !== null) {
+                    markRootUpdated(root4, SyncLane, eventTime);
+                    ensureRootIsScheduled(root4, eventTime);
                   }
                   return;
                 }
@@ -20905,32 +20905,32 @@
               error("Internal React error: Attempted to capture a commit phase error inside a detached tree. This indicates a bug in React. Likely causes include deleting the same fiber more than once, committing an already-finished tree, or an inconsistent return pointer.\n\nError message:\n\n%s", error$1);
             }
           }
-          function pingSuspendedRoot(root3, wakeable, pingedLanes) {
-            var pingCache = root3.pingCache;
+          function pingSuspendedRoot(root4, wakeable, pingedLanes) {
+            var pingCache = root4.pingCache;
             if (pingCache !== null) {
               pingCache.delete(wakeable);
             }
             var eventTime = requestEventTime();
-            markRootPinged(root3, pingedLanes);
-            warnIfSuspenseResolutionNotWrappedWithActDEV(root3);
-            if (workInProgressRoot === root3 && isSubsetOfLanes(workInProgressRootRenderLanes, pingedLanes)) {
-              if (workInProgressRootExitStatus === RootSuspendedWithDelay || workInProgressRootExitStatus === RootSuspended && includesOnlyRetries(workInProgressRootRenderLanes) && now() - globalMostRecentFallbackTime < FALLBACK_THROTTLE_MS) {
-                prepareFreshStack(root3, NoLanes);
+            markRootPinged(root4, pingedLanes);
+            warnIfSuspenseResolutionNotWrappedWithActDEV(root4);
+            if (workInProgressRoot === root4 && isSubsetOfLanes(workInProgressRootRenderLanes, pingedLanes)) {
+              if (workInProgressRootExitStatus === RootSuspendedWithDelay || workInProgressRootExitStatus === RootSuspended && includesOnlyRetries(workInProgressRootRenderLanes) && now2() - globalMostRecentFallbackTime < FALLBACK_THROTTLE_MS) {
+                prepareFreshStack(root4, NoLanes);
               } else {
                 workInProgressRootPingedLanes = mergeLanes(workInProgressRootPingedLanes, pingedLanes);
               }
             }
-            ensureRootIsScheduled(root3, eventTime);
+            ensureRootIsScheduled(root4, eventTime);
           }
           function retryTimedOutBoundary(boundaryFiber, retryLane) {
             if (retryLane === NoLane) {
               retryLane = requestRetryLane(boundaryFiber);
             }
             var eventTime = requestEventTime();
-            var root3 = enqueueConcurrentRenderForLane(boundaryFiber, retryLane);
-            if (root3 !== null) {
-              markRootUpdated(root3, retryLane, eventTime);
-              ensureRootIsScheduled(root3, eventTime);
+            var root4 = enqueueConcurrentRenderForLane(boundaryFiber, retryLane);
+            if (root4 !== null) {
+              markRootUpdated(root4, retryLane, eventTime);
+              ensureRootIsScheduled(root4, eventTime);
             }
           }
           function retryDehydratedSuspenseBoundary(boundaryFiber) {
@@ -21119,12 +21119,12 @@
               }
             }
           }
-          function restorePendingUpdaters(root3, lanes) {
+          function restorePendingUpdaters(root4, lanes) {
             {
               if (isDevToolsPresent) {
-                var memoizedUpdaters = root3.memoizedUpdaters;
+                var memoizedUpdaters = root4.memoizedUpdaters;
                 memoizedUpdaters.forEach(function(schedulingFiber) {
-                  addFiberToLanesMap(root3, schedulingFiber, lanes);
+                  addFiberToLanesMap(root4, schedulingFiber, lanes);
                 });
               }
             }
@@ -21182,9 +21182,9 @@
               }
             }
           }
-          function warnIfSuspenseResolutionNotWrappedWithActDEV(root3) {
+          function warnIfSuspenseResolutionNotWrappedWithActDEV(root4) {
             {
-              if (root3.tag !== LegacyRoot && isConcurrentActEnvironment() && ReactCurrentActQueue$1.current === null) {
+              if (root4.tag !== LegacyRoot && isConcurrentActEnvironment() && ReactCurrentActQueue$1.current === null) {
                 error("A suspended resource finished loading inside a test, but the event was not wrapped in act(...).\n\nWhen testing, code that resolves suspended data should be wrapped into act(...):\n\nact(() => {\n  /* finish loading suspended data */\n});\n/* assert on the output */\n\nThis ensures that you're testing the behavior the user would see in the browser. Learn more at https://reactjs.org/link/wrap-tests-with-act");
               }
             }
@@ -21308,7 +21308,7 @@
               failedBoundaries.add(fiber);
             }
           }
-          var scheduleRefresh = function(root3, update) {
+          var scheduleRefresh = function(root4, update) {
             {
               if (resolveFamily === null) {
                 return;
@@ -21316,18 +21316,18 @@
               var staleFamilies = update.staleFamilies, updatedFamilies = update.updatedFamilies;
               flushPassiveEffects();
               flushSync(function() {
-                scheduleFibersWithFamiliesRecursively(root3.current, updatedFamilies, staleFamilies);
+                scheduleFibersWithFamiliesRecursively(root4.current, updatedFamilies, staleFamilies);
               });
             }
           };
-          var scheduleRoot = function(root3, element) {
+          var scheduleRoot = function(root4, element) {
             {
-              if (root3.context !== emptyContextObject) {
+              if (root4.context !== emptyContextObject) {
                 return;
               }
               flushPassiveEffects();
               flushSync(function() {
-                updateContainer(element, root3, null, null);
+                updateContainer(element, root4, null, null);
               });
             }
           };
@@ -21386,13 +21386,13 @@
               }
             }
           }
-          var findHostInstancesForRefresh = function(root3, families) {
+          var findHostInstancesForRefresh = function(root4, families) {
             {
               var hostInstances = /* @__PURE__ */ new Set();
               var types = new Set(families.map(function(family) {
                 return family.current;
               }));
-              findHostInstancesForMatchingFibersRecursively(root3.current, types, hostInstances);
+              findHostInstancesForMatchingFibersRecursively(root4.current, types, hostInstances);
               return hostInstances;
             }
           };
@@ -21940,10 +21940,10 @@
             }
           }
           function createFiberRoot(containerInfo, tag, hydrate2, initialChildren, hydrationCallbacks, isStrictMode, concurrentUpdatesByDefaultOverride, identifierPrefix, onRecoverableError, transitionCallbacks) {
-            var root3 = new FiberRootNode(containerInfo, tag, hydrate2, identifierPrefix, onRecoverableError);
+            var root4 = new FiberRootNode(containerInfo, tag, hydrate2, identifierPrefix, onRecoverableError);
             var uninitializedFiber = createHostRootFiber(tag, isStrictMode);
-            root3.current = uninitializedFiber;
-            uninitializedFiber.stateNode = root3;
+            root4.current = uninitializedFiber;
+            uninitializedFiber.stateNode = root4;
             {
               var _initialState = {
                 element: initialChildren,
@@ -21955,7 +21955,7 @@
               uninitializedFiber.memoizedState = _initialState;
             }
             initializeUpdateQueue(uninitializedFiber);
-            return root3;
+            return root4;
           }
           var ReactVersion = "18.2.0";
           function createPortal(children, containerInfo, implementation) {
@@ -22037,16 +22037,16 @@
           }
           function createHydrationContainer(initialChildren, callback, containerInfo, tag, hydrationCallbacks, isStrictMode, concurrentUpdatesByDefaultOverride, identifierPrefix, onRecoverableError, transitionCallbacks) {
             var hydrate2 = true;
-            var root3 = createFiberRoot(containerInfo, tag, hydrate2, initialChildren, hydrationCallbacks, isStrictMode, concurrentUpdatesByDefaultOverride, identifierPrefix, onRecoverableError);
-            root3.context = getContextForSubtree(null);
-            var current2 = root3.current;
+            var root4 = createFiberRoot(containerInfo, tag, hydrate2, initialChildren, hydrationCallbacks, isStrictMode, concurrentUpdatesByDefaultOverride, identifierPrefix, onRecoverableError);
+            root4.context = getContextForSubtree(null);
+            var current2 = root4.current;
             var eventTime = requestEventTime();
             var lane = requestUpdateLane(current2);
             var update = createUpdate(eventTime, lane);
             update.callback = callback !== void 0 && callback !== null ? callback : null;
             enqueueUpdate(current2, update, lane);
-            scheduleInitialHydrationOnRoot(root3, lane, eventTime);
-            return root3;
+            scheduleInitialHydrationOnRoot(root4, lane, eventTime);
+            return root4;
           }
           function updateContainer(element, container, parentComponent, callback) {
             {
@@ -22083,10 +22083,10 @@
               }
               update.callback = callback;
             }
-            var root3 = enqueueUpdate(current$1, update, lane);
-            if (root3 !== null) {
-              scheduleUpdateOnFiber(root3, current$1, lane, eventTime);
-              entangleTransitions(root3, current$1, lane);
+            var root4 = enqueueUpdate(current$1, update, lane);
+            if (root4 !== null) {
+              scheduleUpdateOnFiber(root4, current$1, lane, eventTime);
+              entangleTransitions(root4, current$1, lane);
             }
             return lane;
           }
@@ -22105,19 +22105,19 @@
           function attemptSynchronousHydration$1(fiber) {
             switch (fiber.tag) {
               case HostRoot: {
-                var root3 = fiber.stateNode;
-                if (isRootDehydrated(root3)) {
-                  var lanes = getHighestPriorityPendingLanes(root3);
-                  flushRoot(root3, lanes);
+                var root4 = fiber.stateNode;
+                if (isRootDehydrated(root4)) {
+                  var lanes = getHighestPriorityPendingLanes(root4);
+                  flushRoot(root4, lanes);
                 }
                 break;
               }
               case SuspenseComponent: {
                 flushSync(function() {
-                  var root4 = enqueueConcurrentRenderForLane(fiber, SyncLane);
-                  if (root4 !== null) {
+                  var root5 = enqueueConcurrentRenderForLane(fiber, SyncLane);
+                  if (root5 !== null) {
                     var eventTime = requestEventTime();
-                    scheduleUpdateOnFiber(root4, fiber, SyncLane, eventTime);
+                    scheduleUpdateOnFiber(root5, fiber, SyncLane, eventTime);
                   }
                 });
                 var retryLane = SyncLane;
@@ -22144,10 +22144,10 @@
               return;
             }
             var lane = SelectiveHydrationLane;
-            var root3 = enqueueConcurrentRenderForLane(fiber, lane);
-            if (root3 !== null) {
+            var root4 = enqueueConcurrentRenderForLane(fiber, lane);
+            if (root4 !== null) {
               var eventTime = requestEventTime();
-              scheduleUpdateOnFiber(root3, fiber, lane, eventTime);
+              scheduleUpdateOnFiber(root4, fiber, lane, eventTime);
             }
             markRetryLaneIfNotHydrated(fiber, lane);
           }
@@ -22156,10 +22156,10 @@
               return;
             }
             var lane = requestUpdateLane(fiber);
-            var root3 = enqueueConcurrentRenderForLane(fiber, lane);
-            if (root3 !== null) {
+            var root4 = enqueueConcurrentRenderForLane(fiber, lane);
+            if (root4 !== null) {
               var eventTime = requestEventTime();
-              scheduleUpdateOnFiber(root3, fiber, lane, eventTime);
+              scheduleUpdateOnFiber(root4, fiber, lane, eventTime);
             }
             markRetryLaneIfNotHydrated(fiber, lane);
           }
@@ -22192,10 +22192,10 @@
           var setErrorHandler = null;
           var setSuspenseHandler = null;
           {
-            var copyWithDeleteImpl = function(obj, path, index2) {
-              var key = path[index2];
+            var copyWithDeleteImpl = function(obj, path, index5) {
+              var key = path[index5];
               var updated = isArray(obj) ? obj.slice() : assign({}, obj);
-              if (index2 + 1 === path.length) {
+              if (index5 + 1 === path.length) {
                 if (isArray(updated)) {
                   updated.splice(key, 1);
                 } else {
@@ -22203,17 +22203,17 @@
                 }
                 return updated;
               }
-              updated[key] = copyWithDeleteImpl(obj[key], path, index2 + 1);
+              updated[key] = copyWithDeleteImpl(obj[key], path, index5 + 1);
               return updated;
             };
             var copyWithDelete = function(obj, path) {
               return copyWithDeleteImpl(obj, path, 0);
             };
-            var copyWithRenameImpl = function(obj, oldPath, newPath, index2) {
-              var oldKey = oldPath[index2];
+            var copyWithRenameImpl = function(obj, oldPath, newPath, index5) {
+              var oldKey = oldPath[index5];
               var updated = isArray(obj) ? obj.slice() : assign({}, obj);
-              if (index2 + 1 === oldPath.length) {
-                var newKey = newPath[index2];
+              if (index5 + 1 === oldPath.length) {
+                var newKey = newPath[index5];
                 updated[newKey] = updated[oldKey];
                 if (isArray(updated)) {
                   updated.splice(oldKey, 1);
@@ -22225,7 +22225,7 @@
                   obj[oldKey],
                   oldPath,
                   newPath,
-                  index2 + 1
+                  index5 + 1
                 );
               }
               return updated;
@@ -22244,13 +22244,13 @@
               }
               return copyWithRenameImpl(obj, oldPath, newPath, 0);
             };
-            var copyWithSetImpl = function(obj, path, index2, value) {
-              if (index2 >= path.length) {
+            var copyWithSetImpl = function(obj, path, index5, value) {
+              if (index5 >= path.length) {
                 return value;
               }
-              var key = path[index2];
+              var key = path[index5];
               var updated = isArray(obj) ? obj.slice() : assign({}, obj);
-              updated[key] = copyWithSetImpl(obj[key], path, index2 + 1, value);
+              updated[key] = copyWithSetImpl(obj[key], path, index5 + 1, value);
               return updated;
             };
             var copyWithSet = function(obj, path, value) {
@@ -22271,9 +22271,9 @@
                 hook.memoizedState = newState;
                 hook.baseState = newState;
                 fiber.memoizedProps = assign({}, fiber.memoizedProps);
-                var root3 = enqueueConcurrentRenderForLane(fiber, SyncLane);
-                if (root3 !== null) {
-                  scheduleUpdateOnFiber(root3, fiber, SyncLane, NoTimestamp);
+                var root4 = enqueueConcurrentRenderForLane(fiber, SyncLane);
+                if (root4 !== null) {
+                  scheduleUpdateOnFiber(root4, fiber, SyncLane, NoTimestamp);
                 }
               }
             };
@@ -22284,9 +22284,9 @@
                 hook.memoizedState = newState;
                 hook.baseState = newState;
                 fiber.memoizedProps = assign({}, fiber.memoizedProps);
-                var root3 = enqueueConcurrentRenderForLane(fiber, SyncLane);
-                if (root3 !== null) {
-                  scheduleUpdateOnFiber(root3, fiber, SyncLane, NoTimestamp);
+                var root4 = enqueueConcurrentRenderForLane(fiber, SyncLane);
+                if (root4 !== null) {
+                  scheduleUpdateOnFiber(root4, fiber, SyncLane, NoTimestamp);
                 }
               }
             };
@@ -22297,9 +22297,9 @@
                 hook.memoizedState = newState;
                 hook.baseState = newState;
                 fiber.memoizedProps = assign({}, fiber.memoizedProps);
-                var root3 = enqueueConcurrentRenderForLane(fiber, SyncLane);
-                if (root3 !== null) {
-                  scheduleUpdateOnFiber(root3, fiber, SyncLane, NoTimestamp);
+                var root4 = enqueueConcurrentRenderForLane(fiber, SyncLane);
+                if (root4 !== null) {
+                  scheduleUpdateOnFiber(root4, fiber, SyncLane, NoTimestamp);
                 }
               }
             };
@@ -22308,9 +22308,9 @@
               if (fiber.alternate) {
                 fiber.alternate.pendingProps = fiber.pendingProps;
               }
-              var root3 = enqueueConcurrentRenderForLane(fiber, SyncLane);
-              if (root3 !== null) {
-                scheduleUpdateOnFiber(root3, fiber, SyncLane, NoTimestamp);
+              var root4 = enqueueConcurrentRenderForLane(fiber, SyncLane);
+              if (root4 !== null) {
+                scheduleUpdateOnFiber(root4, fiber, SyncLane, NoTimestamp);
               }
             };
             overridePropsDeletePath = function(fiber, path) {
@@ -22318,9 +22318,9 @@
               if (fiber.alternate) {
                 fiber.alternate.pendingProps = fiber.pendingProps;
               }
-              var root3 = enqueueConcurrentRenderForLane(fiber, SyncLane);
-              if (root3 !== null) {
-                scheduleUpdateOnFiber(root3, fiber, SyncLane, NoTimestamp);
+              var root4 = enqueueConcurrentRenderForLane(fiber, SyncLane);
+              if (root4 !== null) {
+                scheduleUpdateOnFiber(root4, fiber, SyncLane, NoTimestamp);
               }
             };
             overridePropsRenamePath = function(fiber, oldPath, newPath) {
@@ -22328,15 +22328,15 @@
               if (fiber.alternate) {
                 fiber.alternate.pendingProps = fiber.pendingProps;
               }
-              var root3 = enqueueConcurrentRenderForLane(fiber, SyncLane);
-              if (root3 !== null) {
-                scheduleUpdateOnFiber(root3, fiber, SyncLane, NoTimestamp);
+              var root4 = enqueueConcurrentRenderForLane(fiber, SyncLane);
+              if (root4 !== null) {
+                scheduleUpdateOnFiber(root4, fiber, SyncLane, NoTimestamp);
               }
             };
             scheduleUpdate = function(fiber) {
-              var root3 = enqueueConcurrentRenderForLane(fiber, SyncLane);
-              if (root3 !== null) {
-                scheduleUpdateOnFiber(root3, fiber, SyncLane, NoTimestamp);
+              var root4 = enqueueConcurrentRenderForLane(fiber, SyncLane);
+              if (root4 !== null) {
+                scheduleUpdateOnFiber(root4, fiber, SyncLane, NoTimestamp);
               }
             };
             setErrorHandler = function(newShouldErrorImpl) {
@@ -22394,8 +22394,8 @@
             this._internalRoot = internalRoot;
           }
           ReactDOMHydrationRoot.prototype.render = ReactDOMRoot.prototype.render = function(children) {
-            var root3 = this._internalRoot;
-            if (root3 === null) {
+            var root4 = this._internalRoot;
+            if (root4 === null) {
               throw new Error("Cannot update an unmounted root.");
             }
             {
@@ -22406,9 +22406,9 @@
               } else if (typeof arguments[1] !== "undefined") {
                 error("You passed a second argument to root.render(...) but it only accepts one argument.");
               }
-              var container = root3.containerInfo;
+              var container = root4.containerInfo;
               if (container.nodeType !== COMMENT_NODE) {
-                var hostInstance = findHostInstanceWithNoPortals(root3.current);
+                var hostInstance = findHostInstanceWithNoPortals(root4.current);
                 if (hostInstance) {
                   if (hostInstance.parentNode !== container) {
                     error("render(...): It looks like the React-rendered content of the root container was removed without using React. This is not supported and will cause errors. Instead, call root.unmount() to empty a root's container.");
@@ -22416,7 +22416,7 @@
                 }
               }
             }
-            updateContainer(children, root3, null, null);
+            updateContainer(children, root4, null, null);
           };
           ReactDOMHydrationRoot.prototype.unmount = ReactDOMRoot.prototype.unmount = function() {
             {
@@ -22424,17 +22424,17 @@
                 error("unmount(...): does not support a callback argument. To execute a side effect after rendering, declare it in a component body with useEffect().");
               }
             }
-            var root3 = this._internalRoot;
-            if (root3 !== null) {
+            var root4 = this._internalRoot;
+            if (root4 !== null) {
               this._internalRoot = null;
-              var container = root3.containerInfo;
+              var container = root4.containerInfo;
               {
                 if (isAlreadyRendering()) {
                   error("Attempted to synchronously unmount a root while React was already rendering. React cannot finish unmounting the root until the current render has completed, which may lead to a race condition.");
                 }
               }
               flushSync(function() {
-                updateContainer(null, root3, null, null);
+                updateContainer(null, root4, null, null);
               });
               unmarkContainerAsRoot(container);
             }
@@ -22472,11 +22472,11 @@
                 transitionCallbacks = options2.transitionCallbacks;
               }
             }
-            var root3 = createContainer(container, ConcurrentRoot, null, isStrictMode, concurrentUpdatesByDefaultOverride, identifierPrefix, onRecoverableError);
-            markContainerAsRoot(root3.current, container);
+            var root4 = createContainer(container, ConcurrentRoot, null, isStrictMode, concurrentUpdatesByDefaultOverride, identifierPrefix, onRecoverableError);
+            markContainerAsRoot(root4.current, container);
             var rootContainerElement = container.nodeType === COMMENT_NODE ? container.parentNode : container;
             listenToAllSupportedEvents(rootContainerElement);
-            return new ReactDOMRoot(root3);
+            return new ReactDOMRoot(root4);
           }
           function ReactDOMHydrationRoot(internalRoot) {
             this._internalRoot = internalRoot;
@@ -22514,16 +22514,16 @@
                 onRecoverableError = options2.onRecoverableError;
               }
             }
-            var root3 = createHydrationContainer(initialChildren, null, container, ConcurrentRoot, hydrationCallbacks, isStrictMode, concurrentUpdatesByDefaultOverride, identifierPrefix, onRecoverableError);
-            markContainerAsRoot(root3.current, container);
+            var root4 = createHydrationContainer(initialChildren, null, container, ConcurrentRoot, hydrationCallbacks, isStrictMode, concurrentUpdatesByDefaultOverride, identifierPrefix, onRecoverableError);
+            markContainerAsRoot(root4.current, container);
             listenToAllSupportedEvents(container);
             if (mutableSources) {
               for (var i = 0; i < mutableSources.length; i++) {
                 var mutableSource = mutableSources[i];
-                registerMutableSourceForHydration(root3, mutableSource);
+                registerMutableSourceForHydration(root4, mutableSource);
               }
             }
-            return new ReactDOMHydrationRoot(root3);
+            return new ReactDOMHydrationRoot(root4);
           }
           function isValidContainer(node) {
             return !!(node && (node.nodeType === ELEMENT_NODE || node.nodeType === DOCUMENT_NODE || node.nodeType === DOCUMENT_FRAGMENT_NODE || !disableCommentsAsDOMContainers));
@@ -22585,11 +22585,11 @@
               if (typeof callback === "function") {
                 var originalCallback = callback;
                 callback = function() {
-                  var instance = getPublicRootInstance(root3);
+                  var instance = getPublicRootInstance(root4);
                   originalCallback.call(instance);
                 };
               }
-              var root3 = createHydrationContainer(
+              var root4 = createHydrationContainer(
                 initialChildren,
                 callback,
                 container,
@@ -22600,12 +22600,12 @@
                 "",
                 noopOnRecoverableError
               );
-              container._reactRootContainer = root3;
-              markContainerAsRoot(root3.current, container);
+              container._reactRootContainer = root4;
+              markContainerAsRoot(root4.current, container);
               var rootContainerElement = container.nodeType === COMMENT_NODE ? container.parentNode : container;
               listenToAllSupportedEvents(rootContainerElement);
               flushSync();
-              return root3;
+              return root4;
             } else {
               var rootSibling;
               while (rootSibling = container.lastChild) {
@@ -22650,21 +22650,21 @@
               warnOnInvalidCallback$1(callback === void 0 ? null : callback, "render");
             }
             var maybeRoot = container._reactRootContainer;
-            var root3;
+            var root4;
             if (!maybeRoot) {
-              root3 = legacyCreateRootFromDOMContainer(container, children, parentComponent, callback, forceHydrate);
+              root4 = legacyCreateRootFromDOMContainer(container, children, parentComponent, callback, forceHydrate);
             } else {
-              root3 = maybeRoot;
+              root4 = maybeRoot;
               if (typeof callback === "function") {
                 var originalCallback = callback;
                 callback = function() {
-                  var instance = getPublicRootInstance(root3);
+                  var instance = getPublicRootInstance(root4);
                   originalCallback.call(instance);
                 };
               }
-              updateContainer(children, root3, parentComponent, callback);
+              updateContainer(children, root4, parentComponent, callback);
             }
-            return getPublicRootInstance(root3);
+            return getPublicRootInstance(root4);
           }
           function findDOMNode(componentOrElement) {
             {
@@ -22854,23 +22854,8207 @@
 
   // node_modules/react-dom/index.js
   var require_react_dom = __commonJS({
-    "node_modules/react-dom/index.js"(exports, module) {
+    "node_modules/react-dom/index.js"(exports, module2) {
       "use strict";
       if (false) {
         checkDCE();
-        module.exports = null;
+        module2.exports = null;
       } else {
-        module.exports = require_react_dom_development();
+        module2.exports = require_react_dom_development();
       }
     }
   });
 
+  // node_modules/react-is/cjs/react-is.development.js
+  var require_react_is_development = __commonJS({
+    "node_modules/react-is/cjs/react-is.development.js"(exports) {
+      "use strict";
+      if (true) {
+        (function() {
+          "use strict";
+          var hasSymbol = typeof Symbol === "function" && Symbol.for;
+          var REACT_ELEMENT_TYPE = hasSymbol ? Symbol.for("react.element") : 60103;
+          var REACT_PORTAL_TYPE = hasSymbol ? Symbol.for("react.portal") : 60106;
+          var REACT_FRAGMENT_TYPE = hasSymbol ? Symbol.for("react.fragment") : 60107;
+          var REACT_STRICT_MODE_TYPE = hasSymbol ? Symbol.for("react.strict_mode") : 60108;
+          var REACT_PROFILER_TYPE = hasSymbol ? Symbol.for("react.profiler") : 60114;
+          var REACT_PROVIDER_TYPE = hasSymbol ? Symbol.for("react.provider") : 60109;
+          var REACT_CONTEXT_TYPE = hasSymbol ? Symbol.for("react.context") : 60110;
+          var REACT_ASYNC_MODE_TYPE = hasSymbol ? Symbol.for("react.async_mode") : 60111;
+          var REACT_CONCURRENT_MODE_TYPE = hasSymbol ? Symbol.for("react.concurrent_mode") : 60111;
+          var REACT_FORWARD_REF_TYPE = hasSymbol ? Symbol.for("react.forward_ref") : 60112;
+          var REACT_SUSPENSE_TYPE = hasSymbol ? Symbol.for("react.suspense") : 60113;
+          var REACT_SUSPENSE_LIST_TYPE = hasSymbol ? Symbol.for("react.suspense_list") : 60120;
+          var REACT_MEMO_TYPE = hasSymbol ? Symbol.for("react.memo") : 60115;
+          var REACT_LAZY_TYPE = hasSymbol ? Symbol.for("react.lazy") : 60116;
+          var REACT_BLOCK_TYPE = hasSymbol ? Symbol.for("react.block") : 60121;
+          var REACT_FUNDAMENTAL_TYPE = hasSymbol ? Symbol.for("react.fundamental") : 60117;
+          var REACT_RESPONDER_TYPE = hasSymbol ? Symbol.for("react.responder") : 60118;
+          var REACT_SCOPE_TYPE = hasSymbol ? Symbol.for("react.scope") : 60119;
+          function isValidElementType(type) {
+            return typeof type === "string" || typeof type === "function" || type === REACT_FRAGMENT_TYPE || type === REACT_CONCURRENT_MODE_TYPE || type === REACT_PROFILER_TYPE || type === REACT_STRICT_MODE_TYPE || type === REACT_SUSPENSE_TYPE || type === REACT_SUSPENSE_LIST_TYPE || typeof type === "object" && type !== null && (type.$$typeof === REACT_LAZY_TYPE || type.$$typeof === REACT_MEMO_TYPE || type.$$typeof === REACT_PROVIDER_TYPE || type.$$typeof === REACT_CONTEXT_TYPE || type.$$typeof === REACT_FORWARD_REF_TYPE || type.$$typeof === REACT_FUNDAMENTAL_TYPE || type.$$typeof === REACT_RESPONDER_TYPE || type.$$typeof === REACT_SCOPE_TYPE || type.$$typeof === REACT_BLOCK_TYPE);
+          }
+          function typeOf(object) {
+            if (typeof object === "object" && object !== null) {
+              var $$typeof = object.$$typeof;
+              switch ($$typeof) {
+                case REACT_ELEMENT_TYPE:
+                  var type = object.type;
+                  switch (type) {
+                    case REACT_ASYNC_MODE_TYPE:
+                    case REACT_CONCURRENT_MODE_TYPE:
+                    case REACT_FRAGMENT_TYPE:
+                    case REACT_PROFILER_TYPE:
+                    case REACT_STRICT_MODE_TYPE:
+                    case REACT_SUSPENSE_TYPE:
+                      return type;
+                    default:
+                      var $$typeofType = type && type.$$typeof;
+                      switch ($$typeofType) {
+                        case REACT_CONTEXT_TYPE:
+                        case REACT_FORWARD_REF_TYPE:
+                        case REACT_LAZY_TYPE:
+                        case REACT_MEMO_TYPE:
+                        case REACT_PROVIDER_TYPE:
+                          return $$typeofType;
+                        default:
+                          return $$typeof;
+                      }
+                  }
+                case REACT_PORTAL_TYPE:
+                  return $$typeof;
+              }
+            }
+            return void 0;
+          }
+          var AsyncMode = REACT_ASYNC_MODE_TYPE;
+          var ConcurrentMode = REACT_CONCURRENT_MODE_TYPE;
+          var ContextConsumer = REACT_CONTEXT_TYPE;
+          var ContextProvider = REACT_PROVIDER_TYPE;
+          var Element = REACT_ELEMENT_TYPE;
+          var ForwardRef = REACT_FORWARD_REF_TYPE;
+          var Fragment = REACT_FRAGMENT_TYPE;
+          var Lazy = REACT_LAZY_TYPE;
+          var Memo = REACT_MEMO_TYPE;
+          var Portal = REACT_PORTAL_TYPE;
+          var Profiler = REACT_PROFILER_TYPE;
+          var StrictMode = REACT_STRICT_MODE_TYPE;
+          var Suspense = REACT_SUSPENSE_TYPE;
+          var hasWarnedAboutDeprecatedIsAsyncMode = false;
+          function isAsyncMode(object) {
+            {
+              if (!hasWarnedAboutDeprecatedIsAsyncMode) {
+                hasWarnedAboutDeprecatedIsAsyncMode = true;
+                console["warn"]("The ReactIs.isAsyncMode() alias has been deprecated, and will be removed in React 17+. Update your code to use ReactIs.isConcurrentMode() instead. It has the exact same API.");
+              }
+            }
+            return isConcurrentMode(object) || typeOf(object) === REACT_ASYNC_MODE_TYPE;
+          }
+          function isConcurrentMode(object) {
+            return typeOf(object) === REACT_CONCURRENT_MODE_TYPE;
+          }
+          function isContextConsumer(object) {
+            return typeOf(object) === REACT_CONTEXT_TYPE;
+          }
+          function isContextProvider(object) {
+            return typeOf(object) === REACT_PROVIDER_TYPE;
+          }
+          function isElement(object) {
+            return typeof object === "object" && object !== null && object.$$typeof === REACT_ELEMENT_TYPE;
+          }
+          function isForwardRef(object) {
+            return typeOf(object) === REACT_FORWARD_REF_TYPE;
+          }
+          function isFragment(object) {
+            return typeOf(object) === REACT_FRAGMENT_TYPE;
+          }
+          function isLazy(object) {
+            return typeOf(object) === REACT_LAZY_TYPE;
+          }
+          function isMemo(object) {
+            return typeOf(object) === REACT_MEMO_TYPE;
+          }
+          function isPortal(object) {
+            return typeOf(object) === REACT_PORTAL_TYPE;
+          }
+          function isProfiler(object) {
+            return typeOf(object) === REACT_PROFILER_TYPE;
+          }
+          function isStrictMode(object) {
+            return typeOf(object) === REACT_STRICT_MODE_TYPE;
+          }
+          function isSuspense(object) {
+            return typeOf(object) === REACT_SUSPENSE_TYPE;
+          }
+          exports.AsyncMode = AsyncMode;
+          exports.ConcurrentMode = ConcurrentMode;
+          exports.ContextConsumer = ContextConsumer;
+          exports.ContextProvider = ContextProvider;
+          exports.Element = Element;
+          exports.ForwardRef = ForwardRef;
+          exports.Fragment = Fragment;
+          exports.Lazy = Lazy;
+          exports.Memo = Memo;
+          exports.Portal = Portal;
+          exports.Profiler = Profiler;
+          exports.StrictMode = StrictMode;
+          exports.Suspense = Suspense;
+          exports.isAsyncMode = isAsyncMode;
+          exports.isConcurrentMode = isConcurrentMode;
+          exports.isContextConsumer = isContextConsumer;
+          exports.isContextProvider = isContextProvider;
+          exports.isElement = isElement;
+          exports.isForwardRef = isForwardRef;
+          exports.isFragment = isFragment;
+          exports.isLazy = isLazy;
+          exports.isMemo = isMemo;
+          exports.isPortal = isPortal;
+          exports.isProfiler = isProfiler;
+          exports.isStrictMode = isStrictMode;
+          exports.isSuspense = isSuspense;
+          exports.isValidElementType = isValidElementType;
+          exports.typeOf = typeOf;
+        })();
+      }
+    }
+  });
+
+  // node_modules/react-is/index.js
+  var require_react_is = __commonJS({
+    "node_modules/react-is/index.js"(exports, module2) {
+      "use strict";
+      if (false) {
+        module2.exports = null;
+      } else {
+        module2.exports = require_react_is_development();
+      }
+    }
+  });
+
+  // node_modules/hoist-non-react-statics/dist/hoist-non-react-statics.cjs.js
+  var require_hoist_non_react_statics_cjs = __commonJS({
+    "node_modules/hoist-non-react-statics/dist/hoist-non-react-statics.cjs.js"(exports, module2) {
+      "use strict";
+      var reactIs = require_react_is();
+      var REACT_STATICS = {
+        childContextTypes: true,
+        contextType: true,
+        contextTypes: true,
+        defaultProps: true,
+        displayName: true,
+        getDefaultProps: true,
+        getDerivedStateFromError: true,
+        getDerivedStateFromProps: true,
+        mixins: true,
+        propTypes: true,
+        type: true
+      };
+      var KNOWN_STATICS = {
+        name: true,
+        length: true,
+        prototype: true,
+        caller: true,
+        callee: true,
+        arguments: true,
+        arity: true
+      };
+      var FORWARD_REF_STATICS = {
+        "$$typeof": true,
+        render: true,
+        defaultProps: true,
+        displayName: true,
+        propTypes: true
+      };
+      var MEMO_STATICS = {
+        "$$typeof": true,
+        compare: true,
+        defaultProps: true,
+        displayName: true,
+        propTypes: true,
+        type: true
+      };
+      var TYPE_STATICS = {};
+      TYPE_STATICS[reactIs.ForwardRef] = FORWARD_REF_STATICS;
+      TYPE_STATICS[reactIs.Memo] = MEMO_STATICS;
+      function getStatics(component) {
+        if (reactIs.isMemo(component)) {
+          return MEMO_STATICS;
+        }
+        return TYPE_STATICS[component["$$typeof"]] || REACT_STATICS;
+      }
+      var defineProperty = Object.defineProperty;
+      var getOwnPropertyNames = Object.getOwnPropertyNames;
+      var getOwnPropertySymbols = Object.getOwnPropertySymbols;
+      var getOwnPropertyDescriptor = Object.getOwnPropertyDescriptor;
+      var getPrototypeOf = Object.getPrototypeOf;
+      var objectPrototype = Object.prototype;
+      function hoistNonReactStatics2(targetComponent, sourceComponent, blacklist) {
+        if (typeof sourceComponent !== "string") {
+          if (objectPrototype) {
+            var inheritedComponent = getPrototypeOf(sourceComponent);
+            if (inheritedComponent && inheritedComponent !== objectPrototype) {
+              hoistNonReactStatics2(targetComponent, inheritedComponent, blacklist);
+            }
+          }
+          var keys = getOwnPropertyNames(sourceComponent);
+          if (getOwnPropertySymbols) {
+            keys = keys.concat(getOwnPropertySymbols(sourceComponent));
+          }
+          var targetStatics = getStatics(targetComponent);
+          var sourceStatics = getStatics(sourceComponent);
+          for (var i = 0; i < keys.length; ++i) {
+            var key = keys[i];
+            if (!KNOWN_STATICS[key] && !(blacklist && blacklist[key]) && !(sourceStatics && sourceStatics[key]) && !(targetStatics && targetStatics[key])) {
+              var descriptor = getOwnPropertyDescriptor(sourceComponent, key);
+              try {
+                defineProperty(targetComponent, key, descriptor);
+              } catch (e) {
+              }
+            }
+          }
+        }
+        return targetComponent;
+      }
+      module2.exports = hoistNonReactStatics2;
+    }
+  });
+
+  // node_modules/object-assign/index.js
+  var require_object_assign = __commonJS({
+    "node_modules/object-assign/index.js"(exports, module2) {
+      "use strict";
+      var getOwnPropertySymbols = Object.getOwnPropertySymbols;
+      var hasOwnProperty = Object.prototype.hasOwnProperty;
+      var propIsEnumerable = Object.prototype.propertyIsEnumerable;
+      function toObject(val) {
+        if (val === null || val === void 0) {
+          throw new TypeError("Object.assign cannot be called with null or undefined");
+        }
+        return Object(val);
+      }
+      function shouldUseNative() {
+        try {
+          if (!Object.assign) {
+            return false;
+          }
+          var test1 = new String("abc");
+          test1[5] = "de";
+          if (Object.getOwnPropertyNames(test1)[0] === "5") {
+            return false;
+          }
+          var test2 = {};
+          for (var i = 0; i < 10; i++) {
+            test2["_" + String.fromCharCode(i)] = i;
+          }
+          var order2 = Object.getOwnPropertyNames(test2).map(function(n) {
+            return test2[n];
+          });
+          if (order2.join("") !== "0123456789") {
+            return false;
+          }
+          var test3 = {};
+          "abcdefghijklmnopqrst".split("").forEach(function(letter) {
+            test3[letter] = letter;
+          });
+          if (Object.keys(Object.assign({}, test3)).join("") !== "abcdefghijklmnopqrst") {
+            return false;
+          }
+          return true;
+        } catch (err) {
+          return false;
+        }
+      }
+      module2.exports = shouldUseNative() ? Object.assign : function(target, source) {
+        var from;
+        var to = toObject(target);
+        var symbols;
+        for (var s = 1; s < arguments.length; s++) {
+          from = Object(arguments[s]);
+          for (var key in from) {
+            if (hasOwnProperty.call(from, key)) {
+              to[key] = from[key];
+            }
+          }
+          if (getOwnPropertySymbols) {
+            symbols = getOwnPropertySymbols(from);
+            for (var i = 0; i < symbols.length; i++) {
+              if (propIsEnumerable.call(from, symbols[i])) {
+                to[symbols[i]] = from[symbols[i]];
+              }
+            }
+          }
+        }
+        return to;
+      };
+    }
+  });
+
+  // node_modules/prop-types/lib/ReactPropTypesSecret.js
+  var require_ReactPropTypesSecret = __commonJS({
+    "node_modules/prop-types/lib/ReactPropTypesSecret.js"(exports, module2) {
+      "use strict";
+      var ReactPropTypesSecret = "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED";
+      module2.exports = ReactPropTypesSecret;
+    }
+  });
+
+  // node_modules/prop-types/lib/has.js
+  var require_has = __commonJS({
+    "node_modules/prop-types/lib/has.js"(exports, module2) {
+      module2.exports = Function.call.bind(Object.prototype.hasOwnProperty);
+    }
+  });
+
+  // node_modules/prop-types/checkPropTypes.js
+  var require_checkPropTypes = __commonJS({
+    "node_modules/prop-types/checkPropTypes.js"(exports, module2) {
+      "use strict";
+      var printWarning = function() {
+      };
+      if (true) {
+        ReactPropTypesSecret = require_ReactPropTypesSecret();
+        loggedTypeFailures = {};
+        has = require_has();
+        printWarning = function(text) {
+          var message = "Warning: " + text;
+          if (typeof console !== "undefined") {
+            console.error(message);
+          }
+          try {
+            throw new Error(message);
+          } catch (x) {
+          }
+        };
+      }
+      var ReactPropTypesSecret;
+      var loggedTypeFailures;
+      var has;
+      function checkPropTypes(typeSpecs, values, location, componentName, getStack) {
+        if (true) {
+          for (var typeSpecName in typeSpecs) {
+            if (has(typeSpecs, typeSpecName)) {
+              var error;
+              try {
+                if (typeof typeSpecs[typeSpecName] !== "function") {
+                  var err = Error(
+                    (componentName || "React class") + ": " + location + " type `" + typeSpecName + "` is invalid; it must be a function, usually from the `prop-types` package, but received `" + typeof typeSpecs[typeSpecName] + "`.This often happens because of typos such as `PropTypes.function` instead of `PropTypes.func`."
+                  );
+                  err.name = "Invariant Violation";
+                  throw err;
+                }
+                error = typeSpecs[typeSpecName](values, typeSpecName, componentName, location, null, ReactPropTypesSecret);
+              } catch (ex) {
+                error = ex;
+              }
+              if (error && !(error instanceof Error)) {
+                printWarning(
+                  (componentName || "React class") + ": type specification of " + location + " `" + typeSpecName + "` is invalid; the type checker function must return `null` or an `Error` but returned a " + typeof error + ". You may have forgotten to pass an argument to the type checker creator (arrayOf, instanceOf, objectOf, oneOf, oneOfType, and shape all require an argument)."
+                );
+              }
+              if (error instanceof Error && !(error.message in loggedTypeFailures)) {
+                loggedTypeFailures[error.message] = true;
+                var stack = getStack ? getStack() : "";
+                printWarning(
+                  "Failed " + location + " type: " + error.message + (stack != null ? stack : "")
+                );
+              }
+            }
+          }
+        }
+      }
+      checkPropTypes.resetWarningCache = function() {
+        if (true) {
+          loggedTypeFailures = {};
+        }
+      };
+      module2.exports = checkPropTypes;
+    }
+  });
+
+  // node_modules/prop-types/factoryWithTypeCheckers.js
+  var require_factoryWithTypeCheckers = __commonJS({
+    "node_modules/prop-types/factoryWithTypeCheckers.js"(exports, module2) {
+      "use strict";
+      var ReactIs = require_react_is();
+      var assign = require_object_assign();
+      var ReactPropTypesSecret = require_ReactPropTypesSecret();
+      var has = require_has();
+      var checkPropTypes = require_checkPropTypes();
+      var printWarning = function() {
+      };
+      if (true) {
+        printWarning = function(text) {
+          var message = "Warning: " + text;
+          if (typeof console !== "undefined") {
+            console.error(message);
+          }
+          try {
+            throw new Error(message);
+          } catch (x) {
+          }
+        };
+      }
+      function emptyFunctionThatReturnsNull() {
+        return null;
+      }
+      module2.exports = function(isValidElement, throwOnDirectAccess) {
+        var ITERATOR_SYMBOL = typeof Symbol === "function" && Symbol.iterator;
+        var FAUX_ITERATOR_SYMBOL = "@@iterator";
+        function getIteratorFn(maybeIterable) {
+          var iteratorFn = maybeIterable && (ITERATOR_SYMBOL && maybeIterable[ITERATOR_SYMBOL] || maybeIterable[FAUX_ITERATOR_SYMBOL]);
+          if (typeof iteratorFn === "function") {
+            return iteratorFn;
+          }
+        }
+        var ANONYMOUS = "<<anonymous>>";
+        var ReactPropTypes = {
+          array: createPrimitiveTypeChecker("array"),
+          bigint: createPrimitiveTypeChecker("bigint"),
+          bool: createPrimitiveTypeChecker("boolean"),
+          func: createPrimitiveTypeChecker("function"),
+          number: createPrimitiveTypeChecker("number"),
+          object: createPrimitiveTypeChecker("object"),
+          string: createPrimitiveTypeChecker("string"),
+          symbol: createPrimitiveTypeChecker("symbol"),
+          any: createAnyTypeChecker(),
+          arrayOf: createArrayOfTypeChecker,
+          element: createElementTypeChecker(),
+          elementType: createElementTypeTypeChecker(),
+          instanceOf: createInstanceTypeChecker,
+          node: createNodeChecker(),
+          objectOf: createObjectOfTypeChecker,
+          oneOf: createEnumTypeChecker,
+          oneOfType: createUnionTypeChecker,
+          shape: createShapeTypeChecker,
+          exact: createStrictShapeTypeChecker
+        };
+        function is(x, y) {
+          if (x === y) {
+            return x !== 0 || 1 / x === 1 / y;
+          } else {
+            return x !== x && y !== y;
+          }
+        }
+        function PropTypeError(message, data) {
+          this.message = message;
+          this.data = data && typeof data === "object" ? data : {};
+          this.stack = "";
+        }
+        PropTypeError.prototype = Error.prototype;
+        function createChainableTypeChecker(validate) {
+          if (true) {
+            var manualPropTypeCallCache = {};
+            var manualPropTypeWarningCount = 0;
+          }
+          function checkType(isRequired, props, propName, componentName, location, propFullName, secret) {
+            componentName = componentName || ANONYMOUS;
+            propFullName = propFullName || propName;
+            if (secret !== ReactPropTypesSecret) {
+              if (throwOnDirectAccess) {
+                var err = new Error(
+                  "Calling PropTypes validators directly is not supported by the `prop-types` package. Use `PropTypes.checkPropTypes()` to call them. Read more at http://fb.me/use-check-prop-types"
+                );
+                err.name = "Invariant Violation";
+                throw err;
+              } else if (typeof console !== "undefined") {
+                var cacheKey = componentName + ":" + propName;
+                if (!manualPropTypeCallCache[cacheKey] && manualPropTypeWarningCount < 3) {
+                  printWarning(
+                    "You are manually calling a React.PropTypes validation function for the `" + propFullName + "` prop on `" + componentName + "`. This is deprecated and will throw in the standalone `prop-types` package. You may be seeing this warning due to a third-party PropTypes library. See https://fb.me/react-warning-dont-call-proptypes for details."
+                  );
+                  manualPropTypeCallCache[cacheKey] = true;
+                  manualPropTypeWarningCount++;
+                }
+              }
+            }
+            if (props[propName] == null) {
+              if (isRequired) {
+                if (props[propName] === null) {
+                  return new PropTypeError("The " + location + " `" + propFullName + "` is marked as required " + ("in `" + componentName + "`, but its value is `null`."));
+                }
+                return new PropTypeError("The " + location + " `" + propFullName + "` is marked as required in " + ("`" + componentName + "`, but its value is `undefined`."));
+              }
+              return null;
+            } else {
+              return validate(props, propName, componentName, location, propFullName);
+            }
+          }
+          var chainedCheckType = checkType.bind(null, false);
+          chainedCheckType.isRequired = checkType.bind(null, true);
+          return chainedCheckType;
+        }
+        function createPrimitiveTypeChecker(expectedType) {
+          function validate(props, propName, componentName, location, propFullName, secret) {
+            var propValue = props[propName];
+            var propType = getPropType(propValue);
+            if (propType !== expectedType) {
+              var preciseType = getPreciseType(propValue);
+              return new PropTypeError(
+                "Invalid " + location + " `" + propFullName + "` of type " + ("`" + preciseType + "` supplied to `" + componentName + "`, expected ") + ("`" + expectedType + "`."),
+                { expectedType }
+              );
+            }
+            return null;
+          }
+          return createChainableTypeChecker(validate);
+        }
+        function createAnyTypeChecker() {
+          return createChainableTypeChecker(emptyFunctionThatReturnsNull);
+        }
+        function createArrayOfTypeChecker(typeChecker) {
+          function validate(props, propName, componentName, location, propFullName) {
+            if (typeof typeChecker !== "function") {
+              return new PropTypeError("Property `" + propFullName + "` of component `" + componentName + "` has invalid PropType notation inside arrayOf.");
+            }
+            var propValue = props[propName];
+            if (!Array.isArray(propValue)) {
+              var propType = getPropType(propValue);
+              return new PropTypeError("Invalid " + location + " `" + propFullName + "` of type " + ("`" + propType + "` supplied to `" + componentName + "`, expected an array."));
+            }
+            for (var i = 0; i < propValue.length; i++) {
+              var error = typeChecker(propValue, i, componentName, location, propFullName + "[" + i + "]", ReactPropTypesSecret);
+              if (error instanceof Error) {
+                return error;
+              }
+            }
+            return null;
+          }
+          return createChainableTypeChecker(validate);
+        }
+        function createElementTypeChecker() {
+          function validate(props, propName, componentName, location, propFullName) {
+            var propValue = props[propName];
+            if (!isValidElement(propValue)) {
+              var propType = getPropType(propValue);
+              return new PropTypeError("Invalid " + location + " `" + propFullName + "` of type " + ("`" + propType + "` supplied to `" + componentName + "`, expected a single ReactElement."));
+            }
+            return null;
+          }
+          return createChainableTypeChecker(validate);
+        }
+        function createElementTypeTypeChecker() {
+          function validate(props, propName, componentName, location, propFullName) {
+            var propValue = props[propName];
+            if (!ReactIs.isValidElementType(propValue)) {
+              var propType = getPropType(propValue);
+              return new PropTypeError("Invalid " + location + " `" + propFullName + "` of type " + ("`" + propType + "` supplied to `" + componentName + "`, expected a single ReactElement type."));
+            }
+            return null;
+          }
+          return createChainableTypeChecker(validate);
+        }
+        function createInstanceTypeChecker(expectedClass) {
+          function validate(props, propName, componentName, location, propFullName) {
+            if (!(props[propName] instanceof expectedClass)) {
+              var expectedClassName = expectedClass.name || ANONYMOUS;
+              var actualClassName = getClassName(props[propName]);
+              return new PropTypeError("Invalid " + location + " `" + propFullName + "` of type " + ("`" + actualClassName + "` supplied to `" + componentName + "`, expected ") + ("instance of `" + expectedClassName + "`."));
+            }
+            return null;
+          }
+          return createChainableTypeChecker(validate);
+        }
+        function createEnumTypeChecker(expectedValues) {
+          if (!Array.isArray(expectedValues)) {
+            if (true) {
+              if (arguments.length > 1) {
+                printWarning(
+                  "Invalid arguments supplied to oneOf, expected an array, got " + arguments.length + " arguments. A common mistake is to write oneOf(x, y, z) instead of oneOf([x, y, z])."
+                );
+              } else {
+                printWarning("Invalid argument supplied to oneOf, expected an array.");
+              }
+            }
+            return emptyFunctionThatReturnsNull;
+          }
+          function validate(props, propName, componentName, location, propFullName) {
+            var propValue = props[propName];
+            for (var i = 0; i < expectedValues.length; i++) {
+              if (is(propValue, expectedValues[i])) {
+                return null;
+              }
+            }
+            var valuesString = JSON.stringify(expectedValues, function replacer(key, value) {
+              var type = getPreciseType(value);
+              if (type === "symbol") {
+                return String(value);
+              }
+              return value;
+            });
+            return new PropTypeError("Invalid " + location + " `" + propFullName + "` of value `" + String(propValue) + "` " + ("supplied to `" + componentName + "`, expected one of " + valuesString + "."));
+          }
+          return createChainableTypeChecker(validate);
+        }
+        function createObjectOfTypeChecker(typeChecker) {
+          function validate(props, propName, componentName, location, propFullName) {
+            if (typeof typeChecker !== "function") {
+              return new PropTypeError("Property `" + propFullName + "` of component `" + componentName + "` has invalid PropType notation inside objectOf.");
+            }
+            var propValue = props[propName];
+            var propType = getPropType(propValue);
+            if (propType !== "object") {
+              return new PropTypeError("Invalid " + location + " `" + propFullName + "` of type " + ("`" + propType + "` supplied to `" + componentName + "`, expected an object."));
+            }
+            for (var key in propValue) {
+              if (has(propValue, key)) {
+                var error = typeChecker(propValue, key, componentName, location, propFullName + "." + key, ReactPropTypesSecret);
+                if (error instanceof Error) {
+                  return error;
+                }
+              }
+            }
+            return null;
+          }
+          return createChainableTypeChecker(validate);
+        }
+        function createUnionTypeChecker(arrayOfTypeCheckers) {
+          if (!Array.isArray(arrayOfTypeCheckers)) {
+            true ? printWarning("Invalid argument supplied to oneOfType, expected an instance of array.") : void 0;
+            return emptyFunctionThatReturnsNull;
+          }
+          for (var i = 0; i < arrayOfTypeCheckers.length; i++) {
+            var checker = arrayOfTypeCheckers[i];
+            if (typeof checker !== "function") {
+              printWarning(
+                "Invalid argument supplied to oneOfType. Expected an array of check functions, but received " + getPostfixForTypeWarning(checker) + " at index " + i + "."
+              );
+              return emptyFunctionThatReturnsNull;
+            }
+          }
+          function validate(props, propName, componentName, location, propFullName) {
+            var expectedTypes = [];
+            for (var i2 = 0; i2 < arrayOfTypeCheckers.length; i2++) {
+              var checker2 = arrayOfTypeCheckers[i2];
+              var checkerResult = checker2(props, propName, componentName, location, propFullName, ReactPropTypesSecret);
+              if (checkerResult == null) {
+                return null;
+              }
+              if (checkerResult.data && has(checkerResult.data, "expectedType")) {
+                expectedTypes.push(checkerResult.data.expectedType);
+              }
+            }
+            var expectedTypesMessage = expectedTypes.length > 0 ? ", expected one of type [" + expectedTypes.join(", ") + "]" : "";
+            return new PropTypeError("Invalid " + location + " `" + propFullName + "` supplied to " + ("`" + componentName + "`" + expectedTypesMessage + "."));
+          }
+          return createChainableTypeChecker(validate);
+        }
+        function createNodeChecker() {
+          function validate(props, propName, componentName, location, propFullName) {
+            if (!isNode(props[propName])) {
+              return new PropTypeError("Invalid " + location + " `" + propFullName + "` supplied to " + ("`" + componentName + "`, expected a ReactNode."));
+            }
+            return null;
+          }
+          return createChainableTypeChecker(validate);
+        }
+        function invalidValidatorError(componentName, location, propFullName, key, type) {
+          return new PropTypeError(
+            (componentName || "React class") + ": " + location + " type `" + propFullName + "." + key + "` is invalid; it must be a function, usually from the `prop-types` package, but received `" + type + "`."
+          );
+        }
+        function createShapeTypeChecker(shapeTypes) {
+          function validate(props, propName, componentName, location, propFullName) {
+            var propValue = props[propName];
+            var propType = getPropType(propValue);
+            if (propType !== "object") {
+              return new PropTypeError("Invalid " + location + " `" + propFullName + "` of type `" + propType + "` " + ("supplied to `" + componentName + "`, expected `object`."));
+            }
+            for (var key in shapeTypes) {
+              var checker = shapeTypes[key];
+              if (typeof checker !== "function") {
+                return invalidValidatorError(componentName, location, propFullName, key, getPreciseType(checker));
+              }
+              var error = checker(propValue, key, componentName, location, propFullName + "." + key, ReactPropTypesSecret);
+              if (error) {
+                return error;
+              }
+            }
+            return null;
+          }
+          return createChainableTypeChecker(validate);
+        }
+        function createStrictShapeTypeChecker(shapeTypes) {
+          function validate(props, propName, componentName, location, propFullName) {
+            var propValue = props[propName];
+            var propType = getPropType(propValue);
+            if (propType !== "object") {
+              return new PropTypeError("Invalid " + location + " `" + propFullName + "` of type `" + propType + "` " + ("supplied to `" + componentName + "`, expected `object`."));
+            }
+            var allKeys = assign({}, props[propName], shapeTypes);
+            for (var key in allKeys) {
+              var checker = shapeTypes[key];
+              if (has(shapeTypes, key) && typeof checker !== "function") {
+                return invalidValidatorError(componentName, location, propFullName, key, getPreciseType(checker));
+              }
+              if (!checker) {
+                return new PropTypeError(
+                  "Invalid " + location + " `" + propFullName + "` key `" + key + "` supplied to `" + componentName + "`.\nBad object: " + JSON.stringify(props[propName], null, "  ") + "\nValid keys: " + JSON.stringify(Object.keys(shapeTypes), null, "  ")
+                );
+              }
+              var error = checker(propValue, key, componentName, location, propFullName + "." + key, ReactPropTypesSecret);
+              if (error) {
+                return error;
+              }
+            }
+            return null;
+          }
+          return createChainableTypeChecker(validate);
+        }
+        function isNode(propValue) {
+          switch (typeof propValue) {
+            case "number":
+            case "string":
+            case "undefined":
+              return true;
+            case "boolean":
+              return !propValue;
+            case "object":
+              if (Array.isArray(propValue)) {
+                return propValue.every(isNode);
+              }
+              if (propValue === null || isValidElement(propValue)) {
+                return true;
+              }
+              var iteratorFn = getIteratorFn(propValue);
+              if (iteratorFn) {
+                var iterator = iteratorFn.call(propValue);
+                var step;
+                if (iteratorFn !== propValue.entries) {
+                  while (!(step = iterator.next()).done) {
+                    if (!isNode(step.value)) {
+                      return false;
+                    }
+                  }
+                } else {
+                  while (!(step = iterator.next()).done) {
+                    var entry = step.value;
+                    if (entry) {
+                      if (!isNode(entry[1])) {
+                        return false;
+                      }
+                    }
+                  }
+                }
+              } else {
+                return false;
+              }
+              return true;
+            default:
+              return false;
+          }
+        }
+        function isSymbol(propType, propValue) {
+          if (propType === "symbol") {
+            return true;
+          }
+          if (!propValue) {
+            return false;
+          }
+          if (propValue["@@toStringTag"] === "Symbol") {
+            return true;
+          }
+          if (typeof Symbol === "function" && propValue instanceof Symbol) {
+            return true;
+          }
+          return false;
+        }
+        function getPropType(propValue) {
+          var propType = typeof propValue;
+          if (Array.isArray(propValue)) {
+            return "array";
+          }
+          if (propValue instanceof RegExp) {
+            return "object";
+          }
+          if (isSymbol(propType, propValue)) {
+            return "symbol";
+          }
+          return propType;
+        }
+        function getPreciseType(propValue) {
+          if (typeof propValue === "undefined" || propValue === null) {
+            return "" + propValue;
+          }
+          var propType = getPropType(propValue);
+          if (propType === "object") {
+            if (propValue instanceof Date) {
+              return "date";
+            } else if (propValue instanceof RegExp) {
+              return "regexp";
+            }
+          }
+          return propType;
+        }
+        function getPostfixForTypeWarning(value) {
+          var type = getPreciseType(value);
+          switch (type) {
+            case "array":
+            case "object":
+              return "an " + type;
+            case "boolean":
+            case "date":
+            case "regexp":
+              return "a " + type;
+            default:
+              return type;
+          }
+        }
+        function getClassName(propValue) {
+          if (!propValue.constructor || !propValue.constructor.name) {
+            return ANONYMOUS;
+          }
+          return propValue.constructor.name;
+        }
+        ReactPropTypes.checkPropTypes = checkPropTypes;
+        ReactPropTypes.resetWarningCache = checkPropTypes.resetWarningCache;
+        ReactPropTypes.PropTypes = ReactPropTypes;
+        return ReactPropTypes;
+      };
+    }
+  });
+
+  // node_modules/prop-types/index.js
+  var require_prop_types = __commonJS({
+    "node_modules/prop-types/index.js"(exports, module2) {
+      if (true) {
+        ReactIs = require_react_is();
+        throwOnDirectAccess = true;
+        module2.exports = require_factoryWithTypeCheckers()(ReactIs.isElement, throwOnDirectAccess);
+      } else {
+        module2.exports = null();
+      }
+      var ReactIs;
+      var throwOnDirectAccess;
+    }
+  });
+
+  // node_modules/react-display-name/lib/getDisplayName.js
+  var require_getDisplayName = __commonJS({
+    "node_modules/react-display-name/lib/getDisplayName.js"(exports) {
+      "use strict";
+      Object.defineProperty(exports, "__esModule", {
+        value: true
+      });
+      exports.default = getDisplayName2;
+      function getDisplayName2(Component) {
+        return Component.displayName || Component.name || (typeof Component === "string" && Component.length > 0 ? Component : "Unknown");
+      }
+    }
+  });
+
+  // node_modules/motion-ux/dist/index.browser.js
+  var require_index_browser = __commonJS({
+    "node_modules/motion-ux/dist/index.browser.js"(exports, module2) {
+      (function(global2, factory) {
+        typeof exports === "object" && typeof module2 !== "undefined" ? factory(exports) : typeof define === "function" && define.amd ? define(["exports"], factory) : (global2 = typeof globalThis !== "undefined" ? globalThis : global2 || self, factory(global2.motionUX = {}));
+      })(exports, function(exports2) {
+        "use strict";
+        function simpsonsRule(lowerBound, upperBound, f, n = 4) {
+          let stripAmount = f(lowerBound);
+          const stepAmount = (upperBound - lowerBound) / n;
+          let currentX = lowerBound;
+          for (let x2 = 0; x2 < n - 1; x2++) {
+            currentX += stepAmount;
+            let coefficient = 4;
+            if (x2 % 2 !== 0) {
+              coefficient = 2;
+            }
+            stripAmount += coefficient * f(currentX);
+          }
+          stripAmount += f(upperBound);
+          return stepAmount / 3 * stripAmount;
+        }
+        function bernsteinPolynomial(v2, n, x2) {
+          if (v2 > n || v2 < 0) {
+            return 0;
+          }
+          const binomialCoefficient = nChooseK(n, v2);
+          let tValue = x2;
+          for (let i = 1; i < v2; i++) {
+            tValue *= x2;
+          }
+          tValue = v2 <= 0 ? 1 : tValue;
+          const remainder = 1 - x2;
+          let remainingT = remainder;
+          for (let i = 1; i < n - v2; i++) {
+            remainingT *= remainder;
+          }
+          remainingT = n - v2 <= 0 ? 1 : remainingT;
+          return binomialCoefficient * tValue * remainingT;
+        }
+        function factorial(num) {
+          let rval = 1;
+          for (let i = 2; i <= num; i++)
+            rval = rval * i;
+          return rval;
+        }
+        const nChooseKCache = /* @__PURE__ */ new Map();
+        function nChooseK(n, k) {
+          const key = `${n}|${k}`;
+          const cache3 = nChooseKCache.get(key);
+          if (cache3 != null) {
+            return cache3;
+          }
+          const result2 = factorial(n) / (factorial(k) * factorial(n - k));
+          nChooseKCache.set(key, result2);
+          return result2;
+        }
+        function newtonsMethod(fn, deltaFn, startAt, maxIterations = Infinity, tolerance = 1e-3) {
+          let x2 = startAt;
+          let lastX = Infinity;
+          let difference = Math.abs(x2 - lastX);
+          let count = 0;
+          while (difference > tolerance) {
+            if (count >= maxIterations) {
+              return Infinity;
+            }
+            x2 = x2 - fn(x2) / deltaFn(x2);
+            difference = Math.abs(x2 - lastX);
+            lastX = x2;
+            count++;
+          }
+          return x2;
+        }
+        const defaultPoints = [];
+        function valueAt(x2, points) {
+          const pointCoefficients = points;
+          const n = pointCoefficients.length - 1;
+          let result2 = 0;
+          for (let v2 = 0; v2 <= n; v2++) {
+            const pointCoefficient = pointCoefficients[v2];
+            result2 += bernsteinPolynomial(v2, n, x2) * pointCoefficient;
+          }
+          return result2;
+        }
+        function deltaAt(x2, points) {
+          const pointCoefficients = points;
+          const n = pointCoefficients.length - 1;
+          let result2 = 0;
+          for (let v2 = 0; v2 <= n; v2++) {
+            const pointCoefficient = pointCoefficients[v2];
+            result2 += n * (bernsteinPolynomial(v2 - 1, n - 1, x2) - bernsteinPolynomial(v2, n - 1, x2)) * pointCoefficient;
+          }
+          return result2;
+        }
+        class BezierCurve {
+          constructor(points) {
+            this.points = defaultPoints;
+            this.normalizedPoints = defaultPoints;
+            this.setPoints(points);
+          }
+          setPoints(coefficients) {
+            this.points = coefficients;
+            const root3 = this.points[0];
+            this.normalizedPoints = this.points.map((point) => {
+              return point - root3;
+            });
+            Object.freeze(this.points);
+            Object.freeze(this.normalizedPoints);
+          }
+          valueAt(x2) {
+            return valueAt(x2, this.points);
+          }
+          normalizedValueAt(x2) {
+            return valueAt(x2, this.normalizedPoints);
+          }
+          deltaAt(x2) {
+            return deltaAt(x2, this.points);
+          }
+          normalizedDeltaAt(x2) {
+            return deltaAt(x2, this.normalizedPoints);
+          }
+          sumAt(x2) {
+            const pointCoefficients = this.normalizedPoints;
+            const n = pointCoefficients.length - 1;
+            let result2 = 0;
+            for (let v2 = 0; v2 <= n; v2++) {
+              const pointCoefficient = pointCoefficients[v2];
+              let innerSum = 0;
+              for (let j = v2 + 1; j <= n + 1; j++) {
+                innerSum += bernsteinPolynomial(j, n + 1, x2);
+              }
+              result2 += 1 / (n + 1) * innerSum * pointCoefficient;
+            }
+            return result2;
+          }
+          area(lowerBound, upperBound) {
+            return this.sumAt(upperBound) - this.sumAt(lowerBound);
+          }
+          clone() {
+            return new BezierCurve(this.points.slice());
+          }
+        }
+        const emptyArray = [];
+        class Animator {
+          constructor(keyframe) {
+            this.keyframe = keyframe;
+            this.time = 0;
+            this.bezierCurve = new BezierCurve([]);
+          }
+          getNumberValue(from, controls = emptyArray, to) {
+            const elapsedTime = this.time - this.keyframe.startAt;
+            const animationDuration = this.keyframe.endAt - this.keyframe.startAt;
+            const timeWithEasing = this.keyframe.easing(elapsedTime / animationDuration);
+            const points = [from, ...controls, to];
+            this.bezierCurve.setPoints(points);
+            return this.bezierCurve.valueAt(timeWithEasing);
+          }
+          getStringValue(from, to) {
+            if (this.time >= this.keyframe.startAt) {
+              return to;
+            } else {
+              return from;
+            }
+          }
+          traverse(fromObject, controlsObject, toObject, resultObject) {
+            for (let key in fromObject) {
+              const from = fromObject[key];
+              const to = toObject[key];
+              const controls = controlsObject.map((c2) => c2[key]);
+              if (typeof from === "number") {
+                resultObject[key] = this.getNumberValue(from, controls, to);
+              } else if (typeof from === "string") {
+                resultObject[key] = this.getStringValue(from, to);
+              } else if (typeof from === "object" && from != null) {
+                this.traverse(fromObject[key], controls || emptyArray, toObject[key], resultObject[key]);
+              }
+            }
+          }
+          update(time) {
+            this.time = time;
+            if (typeof this.keyframe.from === "string") {
+              this.keyframe.result = this.getStringValue(this.keyframe.from, this.keyframe.to);
+            } else if (typeof this.keyframe.from === "number") {
+              this.keyframe.result = this.getNumberValue(this.keyframe.from, this.keyframe.controls, this.keyframe.to);
+            } else if (typeof this.keyframe.from === "object" && this.keyframe.from != null) {
+              this.traverse(this.keyframe.from, this.keyframe.controls, this.keyframe.to, this.keyframe.result);
+            }
+            return this.keyframe.result;
+          }
+        }
+        const sortTime = (animatorA, animatorB) => {
+          return animatorA.keyframe.startAt - animatorB.keyframe.startAt;
+        };
+        class Animation {
+          constructor(name2, keyframes) {
+            this.animators = [];
+            this.time = 0;
+            this.name = name2;
+            this.currentValues = {};
+            this.keyframes = keyframes;
+          }
+          set keyframes(keyframes) {
+            this.animators = keyframes.map((keyframe) => new Animator(keyframe));
+            this._createCurrentValues();
+            this.animators.sort(sortTime);
+          }
+          get keyframes() {
+            return this.animators.map((a) => a.keyframe);
+          }
+          _createCurrentValues() {
+            this.currentValues = this.animators.reduce((results, animator) => {
+              const keyframe = animator.keyframe;
+              const property = keyframe.property;
+              results[property] = keyframe.result;
+              return results;
+            }, {});
+          }
+          _saveCurrentValues() {
+            const visitedMap = /* @__PURE__ */ new Map();
+            const animators = this.animators;
+            const length = animators.length;
+            for (let x2 = 0; x2 < length; x2++) {
+              const keyframe = animators[x2].keyframe;
+              const key = keyframe.property;
+              if (!visitedMap.has(key)) {
+                visitedMap.set(key, true);
+                this.currentValues[keyframe.property] = keyframe.from;
+              }
+            }
+            for (let x2 = 0; x2 < length; x2++) {
+              const keyframe = animators[x2].keyframe;
+              if (keyframe.startAt <= this.time) {
+                this.currentValues[keyframe.property] = keyframe.result;
+              }
+            }
+          }
+          update(time) {
+            this.time = time;
+            this.animators.forEach((animator) => {
+              animator.update(this.time);
+            });
+            this._saveCurrentValues();
+            return this;
+          }
+          clone() {
+            const keyframes = this.animators.map((a) => a.keyframe.clone());
+            return new Animation(this.name, keyframes);
+          }
+        }
+        const states = {
+          ACTIVE: 1,
+          STOPPED: 0,
+          DISPOSED: -1
+        };
+        class Observer {
+          constructor(type, callback, unbind) {
+            this.type = type;
+            this.callback = callback;
+            this.unbind = unbind;
+            this.state = states.ACTIVE;
+          }
+          notify(event) {
+            if (event.type === this.type) {
+              this.callback(event);
+            }
+          }
+          stop() {
+            if (this.state === states.ACTIVE) {
+              this.state = states.STOPPED;
+            }
+          }
+          start() {
+            if (this.state !== states.DISPOSED) {
+              this.state = states.ACTIVE;
+            }
+          }
+          dispose() {
+            this.state = states.DISPOSED;
+            this.unbind();
+          }
+        }
+        class TimeObserver extends Observer {
+          constructor(time, callback, unbind) {
+            super("TIME_OBSERVER", callback, unbind);
+            this.time = time;
+          }
+          notify(event) {
+            if (typeof event.lastTime === "number" && typeof event.time === "number") {
+              const high = Math.max(event.time, event.lastTime);
+              const low = Math.min(event.time, event.lastTime);
+              if (this.time >= low && this.time <= high) {
+                this.callback(event);
+              }
+            }
+          }
+        }
+        class Observable {
+          constructor() {
+            this.observers = [];
+          }
+          observeTimeOnce(time, callback) {
+            const observer = this.observeTime(time, (event) => {
+              callback(event);
+              observer.dispose();
+            });
+            return observer;
+          }
+          observeTime(time, callback) {
+            const observer = new TimeObserver(time, callback, () => {
+              const index4 = this.observers.indexOf(observer);
+              if (index4 > -1) {
+                this.observers.splice(index4, 1);
+              }
+            });
+            this.observers.push(observer);
+            return observer;
+          }
+          observeOnce(type, callback) {
+            const observer = this.observe(type, (event) => {
+              callback(event);
+              observer.dispose();
+            });
+            return observer;
+          }
+          observe(type, callback) {
+            const observer = new Observer(type, callback, () => {
+              const index4 = this.observers.indexOf(observer);
+              if (index4 > -1) {
+                this.observers.splice(index4, 1);
+              }
+            });
+            this.observers.push(observer);
+            return observer;
+          }
+          notify(event) {
+            this.observers.forEach((observer) => {
+              observer.notify(event);
+            });
+          }
+          clearObservers() {
+            this.observers = [];
+          }
+          dispose() {
+            this.clearObservers();
+          }
+        }
+        class DefaultClock {
+          constructor() {
+            this.registeredCallbacks = /* @__PURE__ */ new Map();
+            this._tick = this._tick.bind(this);
+            this.animationFrame = null;
+          }
+          _tick() {
+            this.registeredCallbacks.forEach((callback) => {
+              callback();
+            });
+            if (this.registeredCallbacks.size > 0) {
+              this.animationFrame = window.requestAnimationFrame(this._tick);
+            } else {
+              this.animationFrame = null;
+            }
+          }
+          register(callback) {
+            this.registeredCallbacks.set(callback, callback);
+            if (this.animationFrame == null) {
+              this._tick();
+            }
+          }
+          unregister(callback) {
+            this.registeredCallbacks.delete(callback);
+          }
+          now() {
+            return performance.now();
+          }
+        }
+        const defaultClock = new DefaultClock();
+        function defaultRender() {
+        }
+        exports2.PlayerState = void 0;
+        (function(PlayerState) {
+          PlayerState[PlayerState["REVERSE"] = -1] = "REVERSE";
+          PlayerState[PlayerState["STOPPED"] = 0] = "STOPPED";
+          PlayerState[PlayerState["FORWARD"] = 1] = "FORWARD";
+        })(exports2.PlayerState || (exports2.PlayerState = {}));
+        exports2.RepeatDirection = void 0;
+        (function(RepeatDirection) {
+          RepeatDirection[RepeatDirection["DEFAULT"] = 0] = "DEFAULT";
+          RepeatDirection[RepeatDirection["ALTERNATE"] = 1] = "ALTERNATE";
+        })(exports2.RepeatDirection || (exports2.RepeatDirection = {}));
+        class Player extends Observable {
+          constructor(clock) {
+            super();
+            this._timeScale = 1;
+            this._time = 0;
+            this._step = 0;
+            this._duration = 0;
+            this._lastTimestamp = 0;
+            this._iterations = 0;
+            this._repeat = 1;
+            this._repeatDirection = exports2.RepeatDirection.DEFAULT;
+            this._clock = clock || defaultClock;
+            this._state = exports2.PlayerState.STOPPED;
+            this._render = defaultRender;
+            this.tick = this.tick.bind(this);
+          }
+          get time() {
+            return this._time;
+          }
+          set time(value2) {
+            this._time = value2;
+          }
+          get timeScale() {
+            return this._timeScale;
+          }
+          set timeScale(value2) {
+            if (value2 > 0) {
+              this._timeScale = value2;
+            }
+          }
+          get duration() {
+            return this._duration;
+          }
+          set duration(value2) {
+            if (typeof value2 !== "number") {
+              value2 = 0;
+            }
+            if (value2 <= 0) {
+              value2 = 1e-5;
+            }
+            this._duration = value2;
+          }
+          get repeat() {
+            return this._repeat;
+          }
+          set repeat(value2) {
+            if (typeof value2 !== "number" && value2 > 0) {
+              return;
+            }
+            this._repeat = value2;
+          }
+          get repeatDirection() {
+            return this._repeatDirection;
+          }
+          set repeatDirection(value2) {
+            if (value2 !== 0 && value2 !== 1) {
+              return;
+            }
+            this._repeatDirection = value2;
+          }
+          get state() {
+            return this._state;
+          }
+          get render() {
+            return this._render;
+          }
+          set render(render) {
+            this._render = render;
+          }
+          get iterations() {
+            return this._iterations;
+          }
+          set iterations(value2) {
+            if (value2 >= 0) {
+              this._iterations = value2;
+            }
+          }
+          get clock() {
+            return this._clock;
+          }
+          set clock(value2) {
+            this._clock = value2;
+          }
+          tick() {
+            const timestamp = this._clock.now();
+            const deltaTime = timestamp - this._lastTimestamp;
+            this._step = deltaTime / this._duration * this._timeScale;
+            if (this._step > 1) {
+              this._step = 1;
+            }
+            if (deltaTime <= 0) {
+              return;
+            }
+            if (this._state === exports2.PlayerState.REVERSE) {
+              this.stepBackward();
+            } else if (this._state === exports2.PlayerState.FORWARD) {
+              this.stepForward();
+            }
+            this._lastTimestamp = timestamp;
+          }
+          stepForward() {
+            let time = this._time + this._step;
+            let lastTime = this._time;
+            const repeatDirection = this._repeatDirection;
+            if (time >= 1) {
+              this._iterations++;
+              this.notify({
+                type: "TICK",
+                time: 1,
+                lastTime
+              });
+              if (this._iterations >= this._repeat) {
+                this.seek(1);
+                this.stop();
+                return;
+              }
+              if (repeatDirection === exports2.RepeatDirection.ALTERNATE) {
+                const adjustedTime = 1 - (time - 1);
+                this._time = 1;
+                this.seek(adjustedTime);
+                this._state = exports2.PlayerState.REVERSE;
+              } else {
+                const adjustedTime = time - 1;
+                this.notify({
+                  type: "TICK",
+                  time: 0,
+                  lastTime
+                });
+                this._time = 0;
+                this.seek(adjustedTime);
+                this._state = exports2.PlayerState.FORWARD;
+              }
+            } else {
+              this.seek(time);
+            }
+          }
+          stepBackward() {
+            let time = this._time - this._step;
+            let lastTime = this._time;
+            const repeatDirection = this._repeatDirection;
+            if (time <= 0) {
+              this._iterations++;
+              this.notify({
+                type: "TICK",
+                time: 0,
+                lastTime
+              });
+              if (this._iterations >= this._repeat) {
+                this.seek(0);
+                this.stop();
+                return;
+              }
+              if (repeatDirection === exports2.RepeatDirection.ALTERNATE) {
+                const adjustedTime = time * -1;
+                this._time = 0;
+                this.seek(adjustedTime);
+                this._state = exports2.PlayerState.FORWARD;
+              } else {
+                const adjustedTime = 1 + time;
+                this.notify({
+                  type: "TICK",
+                  time: 1,
+                  lastTime
+                });
+                this._time = 1;
+                this.seek(adjustedTime);
+                this._state = exports2.PlayerState.REVERSE;
+              }
+            } else {
+              this.seek(time);
+            }
+          }
+          seek(time) {
+            const lastTime = this._time;
+            this._time = time;
+            this._render(this._time);
+            this.notify({
+              type: "TICK",
+              time,
+              lastTime
+            });
+            return this;
+          }
+          stop() {
+            if (this._state !== exports2.PlayerState.STOPPED) {
+              this._state = exports2.PlayerState.STOPPED;
+              this._clock.unregister(this.tick);
+              this.notify({
+                type: "STOPPED"
+              });
+            }
+            return this;
+          }
+          play() {
+            if (this._state !== exports2.PlayerState.FORWARD) {
+              this._lastTimestamp = this._clock.now();
+              this._state = exports2.PlayerState.FORWARD;
+              this._clock.register(this.tick);
+              this.notify({
+                type: "PLAYED"
+              });
+            }
+            return this;
+          }
+          reverse() {
+            if (this._state !== exports2.PlayerState.REVERSE) {
+              this._lastTimestamp = this._clock.now();
+              this._state = exports2.PlayerState.REVERSE;
+              this._clock.register(this.tick);
+              this.notify({
+                type: "REVERSED"
+              });
+            }
+            return this;
+          }
+          dispose() {
+            this.stop();
+            super.dispose();
+          }
+        }
+        var easeInQuad = (percentage) => {
+          return percentage * percentage;
+        };
+        var easeOutQuad = (percentage) => {
+          return -percentage * (percentage - 2);
+        };
+        var easeInOutQuad = (percentage) => {
+          if ((percentage /= 1 / 2) < 1)
+            return 1 / 2 * percentage * percentage;
+          return -1 / 2 * (--percentage * (percentage - 2) - 1);
+        };
+        var easeInElastic = (percentage) => {
+          const p = 0.3 / 1;
+          const s = p / 4;
+          const a = 1;
+          if (percentage <= 0)
+            return 0;
+          if (percentage >= 1)
+            return 1;
+          return -(a * Math.pow(2, 10 * (percentage -= 1)) * Math.sin((percentage - s) * (2 * Math.PI) / p));
+        };
+        var easeInOutElastic = (t) => {
+          var b = 0;
+          var c2 = 1;
+          var d = 1;
+          var s = 1.70158;
+          var p = 0;
+          var a = c2;
+          if (t == 0)
+            return b;
+          if ((t /= d / 2) == 2)
+            return b + c2;
+          if (!p)
+            p = d * (0.3 / 1);
+          if (a < Math.abs(c2)) {
+            a = c2;
+            var s = p / 4;
+          } else
+            var s = p / (2 * Math.PI) * Math.asin(c2 / a);
+          if (t < 1)
+            return -0.5 * (a * Math.pow(2, 10 * (t -= 1)) * Math.sin((t * d - s) * (2 * Math.PI) / p)) + b;
+          return a * Math.pow(2, -10 * (t -= 1)) * Math.sin((t * d - s) * (2 * Math.PI) / p) * 0.5 + c2 + b;
+        };
+        var easeOutElastic = (percentage) => {
+          const p = 0.3 / 1;
+          const s = p / 4;
+          const a = 1;
+          if (percentage <= 0)
+            return 0;
+          if (percentage >= 1)
+            return 1;
+          return a * Math.pow(2, -10 * percentage) * Math.sin((percentage - s) * (2 * Math.PI) / p) + 1;
+        };
+        var easeInOutBack = (percentage) => {
+          const s = 1.70158 * 1.525;
+          if ((percentage /= 1 / 2) < 1) {
+            return 1 / 2 * (percentage * percentage * ((s + 1) * percentage - s));
+          }
+          return 1 / 2 * ((percentage -= 2) * percentage * ((s + 1) * percentage + s) + 2);
+        };
+        var easeOutBounce = (percentage) => {
+          let t = percentage;
+          if ((t /= 1) < 1 / 2.75) {
+            return 7.5625 * t * t;
+          } else if (t < 2 / 2.75) {
+            return 7.5625 * (t -= 1.5 / 2.75) * t + 0.75;
+          } else if (t < 2.5 / 2.75) {
+            return 7.5625 * (t -= 2.25 / 2.75) * t + 0.9375;
+          } else {
+            return 7.5625 * (t -= 2.625 / 2.75) * t + 0.984375;
+          }
+        };
+        var easeInBounce = (percentage) => {
+          return 1 - easeOutBounce(1 - percentage);
+        };
+        var easeInOutBounce = (percentage) => {
+          if (percentage < 0.5) {
+            return easeInBounce(percentage * 2) * 0.5;
+          } else {
+            return easeOutBounce(percentage * 2 - 1) * 0.5 + 0.5;
+          }
+        };
+        var easeInCubic = (percentage) => {
+          return percentage * percentage * percentage;
+        };
+        var easeOutCubic = (percentage) => {
+          return 1 * ((percentage = percentage / 1 - 1) * percentage * percentage + 1);
+        };
+        var easeInOutCubic = (percentage) => {
+          if ((percentage /= 1 / 2) < 1)
+            return 1 / 2 * percentage * percentage * percentage;
+          return 1 / 2 * ((percentage -= 2) * percentage * percentage + 2);
+        };
+        var easeInQuart = (percentage) => {
+          return 1 * (percentage /= 1) * percentage * percentage * percentage;
+        };
+        var easeOutQuart = (percentage) => {
+          return -1 * ((percentage = percentage / 1 - 1) * percentage * percentage * percentage - 1);
+        };
+        var easeInOutQuart = (percentage) => {
+          if ((percentage /= 1 / 2) < 1)
+            return 1 / 2 * percentage * percentage * percentage * percentage;
+          return -1 / 2 * ((percentage -= 2) * percentage * percentage * percentage - 2);
+        };
+        var easeInQuint = (percentage) => {
+          return 1 * (percentage /= 1) * percentage * percentage * percentage * percentage;
+        };
+        var easeOutQuint = (percentage) => {
+          return 1 * ((percentage = percentage / 1 - 1) * percentage * percentage * percentage * percentage + 1);
+        };
+        var easeInOutQuint = (percentage) => {
+          if ((percentage /= 1 / 2) < 1)
+            return 1 / 2 * percentage * percentage * percentage * percentage * percentage;
+          return 1 / 2 * ((percentage -= 2) * percentage * percentage * percentage * percentage + 2);
+        };
+        var easeInSine = (percentage) => {
+          return -Math.cos(percentage * (Math.PI / 2)) + 1;
+        };
+        var easeOutSine = (percentage) => {
+          return 1 * Math.sin(percentage / 1 * (Math.PI / 2));
+        };
+        var easeInOutSine = (percentage) => {
+          return -1 / 2 * (Math.cos(Math.PI * percentage / 1) - 1);
+        };
+        var easeInExpo = (percentage) => {
+          return percentage == 0 ? 0 : Math.pow(2, 10 * (percentage - 1));
+        };
+        var easeOutExpo = (percentage) => {
+          return percentage == 1 ? 1 : 1 * (-Math.pow(2, -10 * percentage / 1) + 1);
+        };
+        var easeInOutExpo = (percentage) => {
+          if (percentage == 0)
+            return 0;
+          if (percentage == 1)
+            return 1;
+          if ((percentage /= 1 / 2) < 1)
+            return 1 / 2 * Math.pow(2, 10 * (percentage - 1));
+          return 1 / 2 * (-Math.pow(2, -10 * --percentage) + 2);
+        };
+        var easeInCirc = (percentage) => {
+          return -(Math.sqrt(1 - percentage * percentage) - 1);
+        };
+        var easeOutCirc = (percentage) => {
+          return 1 * Math.sqrt(1 - (percentage = percentage / 1 - 1) * percentage);
+        };
+        var easeInOutCirc = (percentage) => {
+          if ((percentage /= 1 / 2) < 1)
+            return -1 / 2 * (Math.sqrt(1 - percentage * percentage) - 1);
+          return 1 / 2 * (Math.sqrt(1 - (percentage -= 2) * percentage) + 1);
+        };
+        var easeInBack = (percentage) => {
+          const s = 1.70158;
+          return percentage * percentage * ((s + 1) * percentage - s);
+        };
+        var easeOutBack = (percentage) => {
+          const s = 1.70158;
+          return 1 * ((percentage = percentage / 1 - 1) * percentage * ((s + 1) * percentage + s) + 1);
+        };
+        var easeLinear = (percentage) => {
+          return percentage;
+        };
+        const easings2 = {
+          easeInQuad,
+          easeOutQuad,
+          easeInOutQuad,
+          easeInCubic,
+          easeOutCubic,
+          easeInOutCubic,
+          easeInQuart,
+          easeOutQuart,
+          easeInOutQuart,
+          easeInQuint,
+          easeOutQuint,
+          easeInOutQuint,
+          easeInSine,
+          easeOutSine,
+          easeInOutSine,
+          easeInExpo,
+          easeOutExpo,
+          easeInOutExpo,
+          easeInCirc,
+          easeOutCirc,
+          easeInOutCirc,
+          easeInElastic,
+          easeOutElastic,
+          easeInOutElastic,
+          easeInBack,
+          easeOutBack,
+          easeInOutBack,
+          easeInBounce,
+          easeOutBounce,
+          easeInOutBounce,
+          linear: easeLinear
+        };
+        function deepClone(value2) {
+          return JSON.parse(JSON.stringify(value2));
+        }
+        class Keyframe {
+          constructor(config) {
+            this.property = config.property;
+            this.to = config.to;
+            this.from = config.from;
+            this.result = deepClone(config.from);
+            this.startAt = typeof config.startAt === "number" ? config.startAt : 0;
+            this.endAt = typeof config.endAt === "number" ? config.endAt : 1;
+            this.controls = Array.isArray(config.controls) ? config.controls : [];
+            this.easing = typeof config.easing === "function" ? config.easing : easings2.linear;
+          }
+          clone() {
+            return new Keyframe({
+              property: this.property,
+              to: deepClone(this.to),
+              from: deepClone(this.from),
+              startAt: this.startAt,
+              endAt: this.endAt,
+              controls: this.controls.map((c2) => deepClone(c2)),
+              easing: this.easing
+            });
+          }
+        }
+        function __rest(s, e) {
+          var t = {};
+          for (var p in s)
+            if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
+              t[p] = s[p];
+          if (s != null && typeof Object.getOwnPropertySymbols === "function")
+            for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
+              if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
+                t[p[i]] = s[p[i]];
+            }
+          return t;
+        }
+        class Node {
+          constructor(type, name2, startIndex, endIndex, isComposite = false) {
+            this.children = [];
+            this.value = "";
+            this.type = type;
+            this.name = name2;
+            this.startIndex = startIndex;
+            this.endIndex = endIndex;
+            this.isComposite = isComposite;
+            if (typeof this.startIndex !== "number" || typeof this.endIndex !== "number") {
+              throw new Error("Invalid Arguments: startIndex and endIndex need to be number.");
+            }
+          }
+        }
+        class CompositeNode extends Node {
+          constructor(type, name2, startIndex = 0, endIndex = 0) {
+            super(type, name2, startIndex, endIndex, true);
+          }
+          clone() {
+            const node = new CompositeNode(this.type, this.name, this.startIndex, this.endIndex);
+            node.children = this.children.map((child) => {
+              return child.clone();
+            });
+            return node;
+          }
+          toString() {
+            return this.children.map((child) => child.toString()).join("");
+          }
+        }
+        class ValueNode extends Node {
+          constructor(type, name2, value2, startIndex = 0, endIndex = 0) {
+            super(type, name2, startIndex, endIndex);
+            this.value = value2;
+          }
+          clone() {
+            return new ValueNode(this.type, this.name, this.value, this.startIndex, this.endIndex);
+          }
+          toString() {
+            return this.value;
+          }
+        }
+        class CursorHistory {
+          constructor() {
+            this.isRecording = false;
+            this.furthestMatch = {
+              pattern: null,
+              astNode: null
+            };
+            this.furthestError = null;
+            this.patterns = [];
+            this.astNodes = [];
+            this.errors = [];
+          }
+          addMatch(pattern, astNode) {
+            if (this.isRecording) {
+              this.patterns.push(pattern);
+              this.astNodes.push(astNode);
+            }
+            if (this.furthestMatch.astNode == null || astNode.endIndex >= this.furthestMatch.astNode.endIndex) {
+              this.furthestMatch.pattern = pattern;
+              this.furthestMatch.astNode = astNode;
+            }
+          }
+          addError(error) {
+            if (this.isRecording) {
+              this.errors.push(error);
+            }
+            if (this.furthestError == null || error.index >= this.furthestError.index) {
+              this.furthestError = error;
+            }
+          }
+          startRecording() {
+            this.isRecording = true;
+          }
+          stopRecording() {
+            this.isRecording = false;
+            this.clear();
+          }
+          clear() {
+            this.patterns.length = 0;
+            this.astNodes.length = 0;
+            this.errors.length = 0;
+          }
+          getFurthestError() {
+            return this.furthestError;
+          }
+          getFurthestMatch() {
+            return this.furthestMatch;
+          }
+          getLastMatch() {
+            if (this.isRecording) {
+              return {
+                pattern: this.patterns[this.patterns.length - 1] || null,
+                astNode: this.astNodes[this.astNodes.length - 1] || null
+              };
+            } else {
+              return this.furthestMatch;
+            }
+          }
+          getLastError() {
+            return this.errors[this.errors.length - 1] || null;
+          }
+          getAllParseStacks() {
+            const stacks = this.astNodes.reduce((acc, node) => {
+              let container = acc[acc.length - 1];
+              if (node.startIndex === 0) {
+                container = [];
+                acc.push(container);
+              }
+              container.push(node);
+              return acc;
+            }, []);
+            const cleanedStack = stacks.map((stack) => {
+              const cleanedStack2 = [];
+              for (let x2 = stack.length - 1; x2 >= 0; x2--) {
+                const currentNode = stack[x2];
+                const previousNode = stack[x2 + 1];
+                if (previousNode == null) {
+                  cleanedStack2.unshift(currentNode);
+                } else {
+                  const left = Math.max(currentNode.startIndex, previousNode.startIndex);
+                  const right = Math.min(currentNode.endIndex, previousNode.endIndex);
+                  const isOverlapping = left <= right;
+                  if (!isOverlapping) {
+                    cleanedStack2.unshift(currentNode);
+                  }
+                }
+              }
+              return cleanedStack2;
+            });
+            return cleanedStack;
+          }
+          getLastParseStack() {
+            const stacks = this.getAllParseStacks();
+            return stacks[stacks.length - 1] || [];
+          }
+        }
+        class Cursor {
+          constructor(text) {
+            this.text = text;
+            this.assertValidity();
+            this.index = 0;
+            this.length = text.length;
+            this.history = new CursorHistory();
+            this.isInErrorState = false;
+          }
+          assertValidity() {
+            if (this.isNullOrEmpty(this.text)) {
+              throw new Error("Illegal Argument: Cursor needs to have a string that has a length greater than 0.");
+            }
+          }
+          startRecording() {
+            this.history.startRecording();
+          }
+          stopRecording() {
+            this.history.stopRecording();
+          }
+          get parseError() {
+            return this.history.getFurthestError();
+          }
+          get lastMatch() {
+            return this.history.getFurthestMatch();
+          }
+          throwError(parseError) {
+            this.isInErrorState = true;
+            this.history.addError(parseError);
+          }
+          addMatch(pattern, astNode) {
+            this.history.addMatch(pattern, astNode);
+          }
+          resolveError() {
+            this.isInErrorState = false;
+          }
+          hasUnresolvedError() {
+            return this.isInErrorState;
+          }
+          isNullOrEmpty(value2) {
+            return value2 == null || typeof value2 === "string" && value2.length === 0;
+          }
+          hasNext() {
+            return this.index + 1 < this.text.length;
+          }
+          hasPrevious() {
+            return this.index - 1 >= 0;
+          }
+          next() {
+            if (this.hasNext()) {
+              this.index++;
+            } else {
+              throw new Error("Cursor: Out of Bounds Exception.");
+            }
+          }
+          previous() {
+            if (this.hasPrevious()) {
+              this.index--;
+            } else {
+              throw new Error("Cursor: Out of Bounds Exception.");
+            }
+          }
+          mark() {
+            return this.index;
+          }
+          moveToMark(mark) {
+            this.index = mark;
+          }
+          moveToBeginning() {
+            this.index = 0;
+          }
+          moveToEnd() {
+            this.index = this.text.length - 1;
+          }
+          getChar() {
+            return this.text.charAt(this.index);
+          }
+          getIndex() {
+            return this.index;
+          }
+          setIndex(index4) {
+            if (typeof index4 === "number") {
+              if (index4 < 0 || index4 > this.lastIndex()) {
+                throw new Error("Cursor: Out of Bounds Exception.");
+              }
+              this.index = index4;
+            }
+          }
+          isAtBeginning() {
+            return this.index === 0;
+          }
+          isAtEnd() {
+            return this.index === this.text.length - 1;
+          }
+          lastIndex() {
+            return this.length - 1;
+          }
+          didSuccessfullyParse() {
+            return !this.hasUnresolvedError() && this.isAtEnd();
+          }
+        }
+        class ParseError {
+          constructor(message, index4, pattern) {
+            this.name = "ParseError";
+            this.message = message;
+            this.index = index4;
+            this.pattern = pattern;
+          }
+        }
+        class Pattern {
+          constructor(type = "", name2, children = []) {
+            this._type = type;
+            this._name = name2;
+            this._children = [];
+            this._parent = null;
+            this.isSequence = false;
+            this._assertName();
+            this.children = children;
+          }
+          _assertName() {
+            if (typeof this.name !== "string") {
+              throw new Error("Invalid Argument: Patterns needs to have a name that's a string.");
+            }
+          }
+          exec(text) {
+            const cursor = new Cursor(text);
+            const node = this.parse(cursor);
+            if (cursor.didSuccessfullyParse()) {
+              return node;
+            } else {
+              return null;
+            }
+          }
+          test(text) {
+            return this.exec(text) != null;
+          }
+          get name() {
+            return this._name;
+          }
+          get type() {
+            return this._type;
+          }
+          get parent() {
+            return this._parent;
+          }
+          set parent(value2) {
+            if (value2 instanceof Pattern) {
+              this._parent = value2;
+            }
+          }
+          get children() {
+            return this._children;
+          }
+          set children(value2) {
+            this._children = value2;
+            this._cloneChildren();
+            this._assertChildren();
+            this._assignAsParent();
+          }
+          _assertChildren() {
+          }
+          _cloneChildren() {
+            this._children = this._children.map((pattern) => {
+              if (!(pattern instanceof Pattern)) {
+                throw new Error(`The ${this.name} pattern has an invalid child pattern.`);
+              }
+              return pattern.clone();
+            });
+            Object.freeze(this._children);
+          }
+          _assignAsParent() {
+            this._children.forEach((child) => child.parent = this);
+          }
+          getNextTokens() {
+            var _a, _b, _c;
+            const parent = this._parent;
+            if (parent != null) {
+              const siblings = parent.children;
+              const index4 = siblings.findIndex((c2) => c2 === this);
+              const nextSibling = siblings[index4 + 1];
+              if (parent.type.indexOf("repeat") === 0) {
+                const tokens = parent.getNextTokens();
+                if (index4 === 0 && siblings.length > 1) {
+                  return nextSibling.getTokens().concat(tokens);
+                } else if (index4 === 1) {
+                  return siblings[0].getTokens().concat(tokens);
+                } else {
+                  return this.getTokens().concat(tokens);
+                }
+              }
+              if (((_b = (_a = this._parent) === null || _a === void 0 ? void 0 : _a.type) === null || _b === void 0 ? void 0 : _b.indexOf("and")) === 0 && nextSibling != null && ((_c = nextSibling === null || nextSibling === void 0 ? void 0 : nextSibling.type) === null || _c === void 0 ? void 0 : _c.indexOf("optional")) === 0) {
+                let tokens = [];
+                for (let x2 = index4 + 1; x2 < siblings.length; x2++) {
+                  const child = siblings[x2];
+                  if (child.type.indexOf("optional") === 0) {
+                    tokens = tokens.concat(child.getTokens());
+                  } else {
+                    tokens = tokens.concat(child.getTokens());
+                    break;
+                  }
+                  if (x2 === siblings.length - 1) {
+                    tokens = tokens.concat(this._parent.getNextTokens());
+                  }
+                }
+                return tokens;
+              }
+              if (parent.type.indexOf("or") === 0) {
+                return parent.getNextTokens();
+              }
+              if (nextSibling != null) {
+                return nextSibling.getTokens();
+              } else {
+                return parent.getNextTokens();
+              }
+            }
+            return [];
+          }
+          getTokenValue() {
+            return null;
+          }
+        }
+        class ValuePattern extends Pattern {
+          constructor(type, name2, children = []) {
+            super(type, name2, children);
+          }
+        }
+        class RegexValue extends ValuePattern {
+          constructor(name2, regex) {
+            super("regex-value", name2);
+            this.node = null;
+            this.substring = "";
+            this.regexString = regex;
+            this.regex = new RegExp(`^${regex}`, "g");
+            this._assertArguments();
+          }
+          _assertArguments() {
+            if (typeof this.regexString !== "string") {
+              throw new Error("Invalid Arguments: The regex argument needs to be a string of regex.");
+            }
+            if (this.regexString.length < 1) {
+              throw new Error("Invalid Arguments: The regex string argument needs to be at least one character long.");
+            }
+            if (this.regexString.charAt(0) === "^") {
+              throw new Error("Invalid Arguments: The regex string cannot start with a '^' because it is expected to be in the middle of a string.");
+            }
+            if (this.regexString.charAt(this.regexString.length - 1) === "$") {
+              throw new Error("Invalid Arguments: The regex string cannot end with a '$' because it is expected to be in the middle of a string.");
+            }
+          }
+          parse(cursor) {
+            this._reset(cursor);
+            this._tryPattern();
+            return this.node;
+          }
+          _reset(cursor) {
+            this.cursor = cursor;
+            this.regex.lastIndex = 0;
+            this.substring = this.cursor.text.substr(this.cursor.getIndex());
+            this.node = null;
+          }
+          _tryPattern() {
+            const result2 = this.regex.exec(this.substring);
+            if (result2 != null && result2.index === 0) {
+              const currentIndex = this.cursor.getIndex();
+              const newIndex = currentIndex + result2[0].length - 1;
+              this.node = new ValueNode("regex-value", this.name, result2[0], currentIndex, newIndex);
+              this.cursor.index = newIndex;
+              this.cursor.addMatch(this, this.node);
+            } else {
+              this._processError();
+            }
+          }
+          _processError() {
+            const message = `ParseError: Expected regex pattern of '${this.regexString}' but found '${this.substring}'.`;
+            const parseError = new ParseError(message, this.cursor.getIndex(), this);
+            this.cursor.throwError(parseError);
+          }
+          clone(name2) {
+            if (typeof name2 !== "string") {
+              name2 = this.name;
+            }
+            return new RegexValue(name2, this.regexString);
+          }
+          getTokenValue() {
+            return this.name;
+          }
+          getTokens() {
+            return [this.name];
+          }
+        }
+        class OptionalValue extends ValuePattern {
+          constructor(pattern) {
+            super("optional-value", "optional-value", [pattern]);
+            this._assertArguments();
+          }
+          _assertArguments() {
+            if (!(this.children[0] instanceof ValuePattern)) {
+              throw new Error("Invalid Arguments: Expected a ValuePattern.");
+            }
+          }
+          parse(cursor) {
+            const mark = cursor.mark();
+            const node = this.children[0].parse(cursor);
+            if (cursor.hasUnresolvedError() || node == null) {
+              cursor.resolveError();
+              cursor.moveToMark(mark);
+              return null;
+            } else {
+              cursor.addMatch(this, node);
+              return node;
+            }
+          }
+          clone() {
+            return new OptionalValue(this.children[0]);
+          }
+          getTokens() {
+            return this._children[0].getTokens();
+          }
+        }
+        class Literal extends ValuePattern {
+          constructor(name2, literal) {
+            super("literal", name2);
+            this.node = null;
+            this.mark = 0;
+            this.substring = "";
+            this.literal = literal;
+            this._assertArguments();
+          }
+          _assertArguments() {
+            if (typeof this.literal !== "string") {
+              throw new Error("Invalid Arguments: The literal argument needs to be a string of characters.");
+            }
+            if (this.literal.length < 1) {
+              throw new Error("Invalid Arguments: The literalString argument needs to be at least one character long.");
+            }
+          }
+          parse(cursor) {
+            this._reset(cursor);
+            this._tryPattern();
+            return this.node;
+          }
+          _reset(cursor) {
+            this.cursor = cursor;
+            this.mark = this.cursor.mark();
+            this.substring = this.cursor.text.substring(this.mark, this.mark + this.literal.length);
+            this.node = null;
+          }
+          _tryPattern() {
+            if (this.substring === this.literal) {
+              this._processMatch();
+            } else {
+              this._processError();
+            }
+          }
+          _processError() {
+            const message = `ParseError: Expected '${this.literal}' but found '${this.substring}'.`;
+            const parseError = new ParseError(message, this.cursor.getIndex(), this);
+            this.cursor.throwError(parseError);
+          }
+          _processMatch() {
+            this.node = new ValueNode("literal", this.name, this.substring, this.mark, this.mark + this.literal.length - 1);
+            this.cursor.index = this.node.endIndex;
+            this.cursor.addMatch(this, this.node);
+          }
+          clone(name2) {
+            if (typeof name2 !== "string") {
+              name2 = this.name;
+            }
+            return new Literal(name2, this.literal);
+          }
+          getTokenValue() {
+            return this.literal;
+          }
+          getTokens() {
+            return [this.getTokenValue()];
+          }
+        }
+        class RepeatValue extends ValuePattern {
+          constructor(name2, pattern, divider2) {
+            super("repeat-value", name2, divider2 != null ? [pattern, divider2] : [pattern]);
+            this.nodes = [];
+            this.mark = 0;
+            this.node = null;
+            this._pattern = this.children[0];
+            this._divider = this.children[1];
+            this._assertArguments();
+          }
+          _assertArguments() {
+            if (this._pattern instanceof OptionalValue) {
+              throw new Error("Invalid Arguments: The pattern cannot be a optional pattern.");
+            }
+          }
+          _reset(cursor) {
+            this.nodes = [];
+            this.cursor = cursor;
+            this.mark = this.cursor.mark();
+          }
+          parse(cursor) {
+            this._reset(cursor);
+            this._tryPattern();
+            return this.node;
+          }
+          _tryPattern() {
+            while (true) {
+              const node = this._pattern.parse(this.cursor);
+              if (this.cursor.hasUnresolvedError()) {
+                this._processMatch();
+                break;
+              } else {
+                this.nodes.push(node);
+                if (node.endIndex === this.cursor.lastIndex()) {
+                  this._processMatch();
+                  break;
+                }
+                this.cursor.next();
+                if (this._divider != null) {
+                  const mark = this.cursor.mark();
+                  const node2 = this._divider.parse(this.cursor);
+                  if (this.cursor.hasUnresolvedError()) {
+                    this.cursor.moveToMark(mark);
+                    this._processMatch();
+                    break;
+                  } else {
+                    this.nodes.push(node2);
+                    this.cursor.next();
+                  }
+                }
+              }
+            }
+          }
+          _processMatch() {
+            this.cursor.resolveError();
+            if (this.nodes.length === 0) {
+              const parseError = new ParseError(`Did not find a repeating match of ${this.name}.`, this.mark, this);
+              this.cursor.throwError(parseError);
+              this.node = null;
+            } else {
+              const value2 = this.nodes.map((node) => node.value).join("");
+              this.node = new ValueNode("repeat-value", this.name, value2, this.nodes[0].startIndex, this.nodes[this.nodes.length - 1].endIndex);
+              this.cursor.index = this.node.endIndex;
+              this.cursor.addMatch(this, this.node);
+            }
+          }
+          clone(name2) {
+            if (typeof name2 !== "string") {
+              name2 = this.name;
+            }
+            return new RepeatValue(name2, this._pattern, this._divider);
+          }
+          getTokens() {
+            return this._pattern.getTokens();
+          }
+        }
+        class CompositePattern extends Pattern {
+          constructor(type, name2, children = []) {
+            super(type, name2, children);
+          }
+        }
+        class OptionalComposite extends CompositePattern {
+          constructor(pattern) {
+            super("optional-composite", "optional-composite", [pattern]);
+          }
+          parse(cursor) {
+            const mark = cursor.mark();
+            this.mark = mark;
+            const node = this.children[0].parse(cursor);
+            if (cursor.hasUnresolvedError()) {
+              cursor.resolveError();
+              cursor.moveToMark(mark);
+              return null;
+            } else {
+              if (node != null) {
+                cursor.addMatch(this, node);
+              }
+              return node;
+            }
+          }
+          clone() {
+            return new OptionalComposite(this.children[0]);
+          }
+          getTokens() {
+            return this._children[0].getTokens();
+          }
+        }
+        class AndComposite extends CompositePattern {
+          constructor(name2, patterns = []) {
+            super("and-composite", name2, patterns);
+            this._assertArguments();
+          }
+          _assertArguments() {
+            if (this._children.length < 2) {
+              throw new Error("Invalid Argument: AndValue needs to have more than one value pattern.");
+            }
+          }
+          _reset(cursor) {
+            this.index = 0;
+            this.nodes = [];
+            this.node = null;
+            this.cursor = cursor;
+            this.mark = this.cursor.mark();
+          }
+          parse(cursor) {
+            this._reset(cursor);
+            this._tryPatterns();
+            return this.node;
+          }
+          _tryPatterns() {
+            while (true) {
+              const pattern = this._children[this.index];
+              const node = pattern.parse(this.cursor);
+              if (this.cursor.hasUnresolvedError()) {
+                this.cursor.moveToMark(this.mark);
+                break;
+              } else {
+                this.nodes.push(node);
+              }
+              if (!this._next()) {
+                this._processValue();
+                break;
+              }
+            }
+          }
+          _next() {
+            if (this._hasMorePatterns()) {
+              if (this.cursor.hasNext()) {
+                if (this.nodes[this.nodes.length - 1] != null) {
+                  this.cursor.next();
+                }
+                this.index++;
+                return true;
+              } else if (this.nodes[this.nodes.length - 1] == null) {
+                this.index++;
+                return true;
+              }
+              this._assertRestOfPatternsAreOptional();
+              return false;
+            } else {
+              return false;
+            }
+          }
+          _hasMorePatterns() {
+            return this.index + 1 < this._children.length;
+          }
+          _assertRestOfPatternsAreOptional() {
+            const areTheRestOptional = this.children.every((pattern, index4) => {
+              return index4 <= this.index || pattern instanceof OptionalValue || pattern instanceof OptionalComposite;
+            });
+            if (!areTheRestOptional) {
+              const parseError = new ParseError(`Could not match ${this.name} before string ran out.`, this.index, this);
+              this.cursor.throwError(parseError);
+            }
+          }
+          _processValue() {
+            if (!this.cursor.hasUnresolvedError()) {
+              this.nodes = this.nodes.filter((node) => node != null);
+              const lastNode = this.nodes[this.nodes.length - 1];
+              const startIndex = this.mark;
+              const endIndex = lastNode.endIndex;
+              this.node = new CompositeNode("and-composite", this.name, startIndex, endIndex);
+              this.node.children = this.nodes;
+              this.cursor.index = this.node.endIndex;
+              this.cursor.addMatch(this, this.node);
+            } else {
+              this.node = null;
+            }
+          }
+          clone(name2) {
+            if (typeof name2 !== "string") {
+              name2 = this.name;
+            }
+            return new AndComposite(name2, this._children);
+          }
+          getTokens() {
+            let tokens = [];
+            for (let x2 = 0; x2 < this._children.length; x2++) {
+              const child = this._children[x2];
+              if (child instanceof OptionalValue || child instanceof OptionalComposite) {
+                tokens = tokens.concat(child.getTokens());
+              } else {
+                tokens = tokens.concat(child.getTokens());
+                break;
+              }
+            }
+            return tokens;
+          }
+        }
+        class OrComposite extends CompositePattern {
+          constructor(name2, patterns) {
+            super("or-composite", name2, patterns);
+            this._assertArguments();
+          }
+          _assertArguments() {
+            if (this._children.length < 2) {
+              throw new Error("Invalid Argument: OrValue needs to have more than one value pattern.");
+            }
+            const hasOptionalChildren = this._children.some((pattern) => pattern instanceof OptionalValue || pattern instanceof OptionalComposite);
+            if (hasOptionalChildren) {
+              throw new Error("OrComposite cannot have optional values.");
+            }
+          }
+          _reset(cursor) {
+            this.cursor = cursor;
+            this.mark = null;
+            this.index = 0;
+            this.node = null;
+            this.mark = cursor.mark();
+          }
+          parse(cursor) {
+            this._reset(cursor);
+            this._tryPattern();
+            if (this.node != null) {
+              this.cursor.addMatch(this, this.node);
+            }
+            return this.node;
+          }
+          _tryPattern() {
+            while (true) {
+              const pattern = this._children[this.index];
+              this.node = pattern.parse(this.cursor);
+              if (this.cursor.hasUnresolvedError()) {
+                if (this.index + 1 < this._children.length) {
+                  this.cursor.resolveError();
+                  this.index++;
+                  this.cursor.moveToMark(this.mark);
+                } else {
+                  this.node = null;
+                  break;
+                }
+              } else {
+                this.cursor.index = this.node.endIndex;
+                break;
+              }
+            }
+          }
+          clone(name2) {
+            if (typeof name2 !== "string") {
+              name2 = this.name;
+            }
+            return new OrComposite(name2, this._children);
+          }
+          getTokens() {
+            const tokens = this._children.map((c2) => c2.getTokens());
+            const hasPrimitiveTokens = tokens.every((t) => t.every((value2) => typeof value2 === "string"));
+            if (hasPrimitiveTokens && tokens.length > 0) {
+              return tokens.reduce((acc, t) => acc.concat(t), []);
+            }
+            return this._children[0].getTokens();
+          }
+        }
+        class RepeatComposite extends CompositePattern {
+          constructor(name2, pattern, divider2) {
+            super("repeat-composite", name2, divider2 != null ? [pattern, divider2] : [pattern]);
+            this.nodes = [];
+            this.mark = 0;
+            this.node = null;
+            this._pattern = this.children[0];
+            this._divider = this.children[1];
+            this._assertArguments();
+          }
+          _assertArguments() {
+            if (this._pattern instanceof OptionalComposite) {
+              throw new Error("Invalid Arguments: The pattern cannot be a optional pattern.");
+            }
+          }
+          _reset(cursor) {
+            this.nodes = [];
+            this.cursor = cursor;
+            this.mark = this.cursor.mark();
+          }
+          parse(cursor) {
+            this._reset(cursor);
+            this._tryPattern();
+            return this.node;
+          }
+          _tryPattern() {
+            while (true) {
+              const node = this._pattern.parse(this.cursor);
+              if (this.cursor.hasUnresolvedError() || node == null) {
+                this._processMatch();
+                break;
+              } else {
+                this.nodes.push(node);
+                if (node.endIndex === this.cursor.lastIndex()) {
+                  this._processMatch();
+                  break;
+                }
+                this.cursor.next();
+                if (this._divider != null) {
+                  const mark = this.cursor.mark();
+                  const node2 = this._divider.parse(this.cursor);
+                  if (this.cursor.hasUnresolvedError() || node2 == null) {
+                    this.cursor.moveToMark(mark);
+                    this._processMatch();
+                    break;
+                  } else {
+                    this.nodes.push(node2);
+                    this.cursor.next();
+                  }
+                }
+              }
+            }
+          }
+          _processMatch() {
+            this.cursor.resolveError();
+            if (this.nodes.length === 0) {
+              this.cursor.throwError(new ParseError(`Did not find a repeating match of ${this.name}.`, this.mark, this));
+              this.node = null;
+            } else {
+              this.node = new CompositeNode("repeat-composite", this.name, this.nodes[0].startIndex, this.nodes[this.nodes.length - 1].endIndex);
+              this.node.children = this.nodes;
+              this.cursor.index = this.node.endIndex;
+              this.cursor.addMatch(this, this.node);
+            }
+          }
+          clone(name2) {
+            if (typeof name2 !== "string") {
+              name2 = this.name;
+            }
+            return new RepeatComposite(name2, this._pattern, this._divider);
+          }
+          getTokens() {
+            return this._pattern.getTokens();
+          }
+        }
+        class RecursivePattern extends Pattern {
+          constructor(name2) {
+            super("recursive", name2);
+            this.pattern = null;
+            this.isRecursing = false;
+          }
+          getPattern() {
+            return this._climb(this.parent, (pattern) => {
+              if (pattern == null) {
+                return false;
+              }
+              return pattern.name === this.name;
+            });
+          }
+          _climb(pattern, isMatch) {
+            if (isMatch(pattern)) {
+              return pattern;
+            } else {
+              if (pattern && pattern.parent != null) {
+                return this._climb(pattern.parent, isMatch);
+              }
+              return null;
+            }
+          }
+          parse(cursor) {
+            if (this.pattern == null) {
+              const pattern = this.getPattern();
+              if (pattern == null) {
+                cursor.throwError(new ParseError(`Couldn't find parent pattern to recursively parse, with the name ${this.name}.`, cursor.index, this));
+                return null;
+              }
+              this.pattern = pattern.clone();
+              this.pattern.parent = this;
+            }
+            const node = this.pattern.parse(cursor);
+            if (!cursor.hasUnresolvedError() && node != null) {
+              cursor.addMatch(this, node);
+            }
+            return node;
+          }
+          clone(name2) {
+            if (typeof name2 !== "string") {
+              name2 = this.name;
+            }
+            return new RecursivePattern(name2);
+          }
+          getTokenValue() {
+            var _a;
+            return ((_a = this.getPattern()) === null || _a === void 0 ? void 0 : _a.getTokenValue()) || null;
+          }
+          getTokens() {
+            var _a;
+            if (!this.isRecursing) {
+              this.isRecursing = true;
+              const tokens = ((_a = this.getPattern()) === null || _a === void 0 ? void 0 : _a.getTokens()) || [];
+              this.isRecursing = false;
+              return tokens;
+            }
+            return [];
+          }
+        }
+        class Visitor {
+          constructor(root3 = null, selectedNodes = []) {
+            this.root = root3;
+            this.selectedNodes = selectedNodes;
+          }
+          flatten() {
+            this.selectedNodes.forEach((node) => {
+              if (node.isComposite) {
+                const children = [];
+                Visitor.walkUp(node, (descendant) => {
+                  if (!descendant.isComposite) {
+                    children.push(descendant);
+                  }
+                });
+                node.children = children;
+              }
+            });
+            return this;
+          }
+          remove() {
+            if (this.root == null) {
+              return this;
+            }
+            this.recursiveRemove(this.root);
+            return this;
+          }
+          recursiveRemove(node) {
+            const nodesToRemove = this.selectedNodes;
+            if (node.isComposite && Array.isArray(node.children)) {
+              for (let x2 = 0; x2 < node.children.length; x2++) {
+                if (nodesToRemove.indexOf(node.children[x2]) > -1) {
+                  node.children.splice(x2, 1);
+                  x2--;
+                } else {
+                  this.recursiveRemove(node.children[x2]);
+                }
+              }
+            }
+          }
+          wrap(callback) {
+            const visitor2 = new Visitor(this.root);
+            visitor2.selectRoot().transform((node) => {
+              if (this.selectedNodes.includes(node)) {
+                return callback(node);
+              }
+              return node;
+            });
+            return this;
+          }
+          unwrap() {
+            if (this.root == null) {
+              return this;
+            }
+            Visitor.walkDown(this.root, (node, stack) => {
+              if (this.selectedNodes.includes(node)) {
+                const parent = stack[stack.length - 1];
+                const grandParent = stack[stack.length - 2];
+                if (parent != null && grandParent != null) {
+                  const index4 = grandParent.children.indexOf(parent);
+                  if (index4 > -1) {
+                    grandParent.children.splice(index4, 1, ...parent.children);
+                  }
+                }
+              }
+            });
+            return this;
+          }
+          prepend(callback) {
+            if (this.root == null) {
+              return this;
+            }
+            Visitor.walkUp(this.root, (node, stack) => {
+              if (this.selectedNodes.includes(node)) {
+                const parent = stack[stack.length - 1];
+                if (parent != null) {
+                  const index4 = parent.children.indexOf(node);
+                  if (index4 > -1) {
+                    parent.children.splice(index4, 0, callback(node));
+                  }
+                }
+              }
+            });
+            return this;
+          }
+          append(callback) {
+            if (this.root == null) {
+              return this;
+            }
+            Visitor.walkDown(this.root, (node, stack) => {
+              if (this.selectedNodes.includes(node)) {
+                const parent = stack[stack.length - 1];
+                if (parent != null) {
+                  const index4 = parent.children.indexOf(node);
+                  if (index4 > -1) {
+                    parent.children.splice(index4 + 1, 0, callback(node));
+                  }
+                }
+              }
+            });
+            return this;
+          }
+          transform(callback) {
+            this.selectedNodes.forEach((node) => {
+              return this.recursiveTransform(node, callback);
+            });
+            return this;
+          }
+          recursiveTransform(node, callback) {
+            if (node.isComposite && Array.isArray(node.children)) {
+              const length = node.children.length;
+              for (let x2 = 0; x2 < length; x2++) {
+                node.children[x2] = this.recursiveTransform(node.children[x2], callback);
+              }
+            }
+            return callback(node);
+          }
+          selectAll() {
+            return this.select((n) => true);
+          }
+          selectNode(node) {
+            return new Visitor(this.root, [...this.selectedNodes, node]);
+          }
+          deselectNode(node) {
+            const visitor2 = new Visitor(this.root, this.selectedNodes.slice());
+            return visitor2.filter((n) => n !== node);
+          }
+          select(callback) {
+            if (this.root == null) {
+              return this;
+            }
+            const node = this.root;
+            const selectedNodes = [];
+            if (node.isComposite) {
+              Visitor.walkDown(node, (descendant) => {
+                if (callback(descendant)) {
+                  selectedNodes.push(descendant);
+                }
+              });
+            }
+            return new Visitor(this.root, selectedNodes);
+          }
+          forEach(callback) {
+            this.selectedNodes.forEach(callback);
+            return this;
+          }
+          filter(callback) {
+            return new Visitor(this.root, this.selectedNodes.filter(callback));
+          }
+          map(callback) {
+            return new Visitor(this.root, this.selectedNodes.map(callback));
+          }
+          selectRoot() {
+            if (this.root == null) {
+              return this;
+            }
+            return new Visitor(this.root, [this.root]);
+          }
+          first() {
+            return this.get(0);
+          }
+          last() {
+            return this.get(this.selectedNodes.length - 1);
+          }
+          get(index4) {
+            const node = this.selectedNodes[index4];
+            if (node == null) {
+              throw new Error(`Couldn't find node at index: ${index4}, out of ${this.selectedNodes.length}.`);
+            }
+            return new Visitor(node, []);
+          }
+          clear() {
+            this.selectedNodes = [];
+            return this;
+          }
+          setRoot(root3) {
+            this.root = root3;
+            return this;
+          }
+          static select(root3, callback) {
+            if (callback != null) {
+              return new Visitor(root3).select(callback);
+            } else {
+              return new Visitor(root3);
+            }
+          }
+          static walkUp(node, callback, ancestors = []) {
+            ancestors.push(node);
+            if (node.isComposite && Array.isArray(node.children)) {
+              const children = node.children.slice();
+              children.forEach((c2) => this.walkUp(c2, callback, ancestors));
+            }
+            ancestors.pop();
+            callback(node, ancestors);
+            return this;
+          }
+          static walkDown(node, callback, ancestors = []) {
+            callback(node, ancestors);
+            ancestors.push(node);
+            if (node.isComposite && Array.isArray(node.children)) {
+              const children = node.children.slice();
+              children.forEach((c2) => this.walkDown(c2, callback, ancestors));
+            }
+            ancestors.pop();
+            return this;
+          }
+        }
+        const divider = new RegexValue("divider", "\\s*[,]\\s*");
+        const number = new RegexValue("number", "[-+]?[0-9]*[.]?[0-9]+([eE][-+]?[0-9]+)?");
+        const unitType = new RegexValue("unit-type", "[a-zA-Z%]+");
+        const unit = new AndComposite("unit", [number, unitType]);
+        const hex = new RegexValue("hex", "#[0-9a-fA-F]{6}|#[0-9a-fA-F]{3}");
+        const name = new RegexValue("name", "[a-zA-Z]+[a-zA-Z0-9_-]*");
+        const space$1 = new Literal("optional-space", " ");
+        const spaces$1 = new RepeatValue("optional-spaces", space$1);
+        const optionalSpaces = new OptionalValue(spaces$1);
+        const openParen = new Literal("open-paren", "(");
+        const closeParen = new Literal("close-paren", ")");
+        const values$1 = new RecursivePattern("values");
+        const args = new RepeatComposite("arguments", values$1, divider);
+        const optionalArgs = new OptionalComposite(args);
+        const method = new AndComposite("method", [
+          name,
+          openParen,
+          optionalSpaces,
+          optionalArgs,
+          optionalSpaces,
+          closeParen
+        ]);
+        const openBracket = new Literal("open-square-bracket", "[");
+        const closeBracket = new Literal("close-square-bracket", "]");
+        const items = new RepeatComposite("items", number, divider);
+        const array = new AndComposite("array", [
+          openBracket,
+          optionalSpaces,
+          items,
+          optionalSpaces,
+          closeBracket
+        ]);
+        const space = new Literal("space", " ");
+        const spaces = new RepeatValue("spaces", space);
+        const operator = new RegexValue("operator", "[\\+\\-\\*\\/]");
+        const value$1 = new OrComposite("value", [unit, method]);
+        const expression = new AndComposite("expression", [
+          value$1,
+          spaces,
+          operator,
+          spaces,
+          value$1
+        ]);
+        const value = new OrComposite("value", [
+          array,
+          hex,
+          expression,
+          method,
+          unit,
+          number,
+          name
+        ]);
+        const values = new RepeatComposite("values", value, spaces);
+        const cssValue = new RepeatComposite("css-value", values, divider);
+        const visitor$2 = new Visitor();
+        const convertValue = (value2) => {
+          const node = cssValue.exec(String(value2));
+          if (node == null) {
+            return [];
+          }
+          visitor$2.setRoot(node).selectRoot().flatten().clear().select((n) => n.name === "optional-spaces").remove().clear().select((n) => n.name === "spaces").transform((n) => {
+            n.value = " ";
+            return n;
+          });
+          return node.children.map((n) => {
+            if (n.name === "number") {
+              return parseFloat(n.value);
+            } else {
+              return n.value;
+            }
+          });
+        };
+        class CssKeyframe extends Keyframe {
+          constructor(_a) {
+            var { from, to, easing = easings2.linear, controls = [] } = _a, config = __rest(_a, ["from", "to", "easing", "controls"]);
+            const toValue = convertValue(to);
+            const fromValue = convertValue(from);
+            const controlsValues = controls.map((c2) => convertValue(c2));
+            super(Object.assign(Object.assign({}, config), { from: fromValue, to: toValue, controls: controlsValues, easing }));
+          }
+        }
+        const easingOutMap = {
+          linear: [1],
+          quad: [1, 1],
+          cubic: [1, 1, 1],
+          quart: [1, 1, 1, 1],
+          back: [2, 1, 1],
+          quint: [1, 1, 1, 1, 1],
+          expo: [1, 1, 1, 1, 1, 1],
+          circ: [0.65, 0.75, 0.85, 0.95, 1, 1, 1, 1],
+          elastic: [2, 2, -1, 1.5, 1.5, 0.75, 1.25, 0.85, 1, 1, 1]
+        };
+        const easingInMap = {
+          linear: [0],
+          quad: [0, 0],
+          cubic: [0, 0, 0],
+          quart: [0, 0, 0, 0],
+          back: [0, 0, -1],
+          quint: [0, 0, 0, 0, 0],
+          expo: [0, 0, 0, 0, 0, 0],
+          circ: [0, 0, 0, 0, 0.05, 0.15, 0.25, 0.35],
+          elastic: [0, 0, 0, 0.15, -0.25, 0.25, -0.5, -0.5, 2, -1, -1]
+        };
+        function createDynamicEasing(easingIn, easingOut) {
+          const points = [...easingInMap[easingIn], ...easingOutMap[easingOut]];
+          const bezierCurve = new BezierCurve(points);
+          return (percentage) => {
+            return bezierCurve.valueAt(percentage);
+          };
+        }
+        class CSSKeyframesGenerator {
+          constructor() {
+            this.transformValue = (value2) => value2;
+            this.sortPercentages = (keyA, keyB) => {
+              if (keyA === "from") {
+                return -1;
+              }
+              if (keyB === "from") {
+                return 1;
+              }
+              if (keyA === "to") {
+                return 1;
+              }
+              if (keyB === "to") {
+                return -1;
+              }
+              const keyAParts = keyA.split("%");
+              const keyBParts = keyB.split("%");
+              const keyANumber = parseFloat(keyAParts[0]);
+              const keyBNumber = parseFloat(keyBParts[0]);
+              if (keyANumber < keyBNumber) {
+                return -1;
+              } else if (keyANumber > keyBNumber) {
+                return 1;
+              }
+              return 0;
+            };
+          }
+          setTransformValue(transformValue) {
+            this.transformValue = transformValue;
+          }
+          isComplexKeyframe(value2) {
+            return value2.hasOwnProperty("value");
+          }
+          getDecimalFromPercentage(percentage) {
+            if (percentage === "to") {
+              return 1;
+            }
+            if (percentage === "from") {
+              return 0;
+            }
+            const percentageParts = percentage.split("%");
+            let decimal = parseFloat(percentageParts[0]) / 100;
+            if (isNaN(decimal)) {
+              throw new Error(`Unknown keyframe step: ${decimal}. Expected format 10% or 10.01% etc`);
+            }
+            decimal = Math.max(0, decimal);
+            decimal = Math.min(1, decimal);
+            return decimal;
+          }
+          getEaseIn(currentValue) {
+            if (this.isComplexKeyframe(currentValue) && currentValue.easeOut != null) {
+              return currentValue.easeOut || "linear";
+            } else {
+              return "linear";
+            }
+          }
+          getEaseOut(nextValue) {
+            if (this.isComplexKeyframe(nextValue) && nextValue.easeIn != null) {
+              return nextValue.easeIn || "linear";
+            } else {
+              return "linear";
+            }
+          }
+          getControlsIn(currentValue) {
+            if (this.isComplexKeyframe(currentValue) && Array.isArray(currentValue.controlsOut)) {
+              return currentValue.controlsOut.map((v2) => this.transformValue(v2));
+            } else {
+              return [];
+            }
+          }
+          getControlsOut(nextValue) {
+            if (this.isComplexKeyframe(nextValue) && Array.isArray(nextValue.controlsIn)) {
+              return nextValue.controlsIn.map((v2) => this.transformValue(v2));
+            } else {
+              return [];
+            }
+          }
+          getFrom(currentValue) {
+            if (this.isComplexKeyframe(currentValue)) {
+              return this.transformValue(currentValue.value);
+            } else if (typeof currentValue === "string") {
+              return this.transformValue(currentValue);
+            } else {
+              if (typeof (currentValue === null || currentValue === void 0 ? void 0 : currentValue.value) === "string") {
+                throw new Error("Invalid complex value, only found a value with no other complex settings.");
+              }
+              throw new Error(`Unknown from value: ${JSON.stringify(currentValue)}`);
+            }
+          }
+          getTo(nextValue) {
+            if (this.isComplexKeyframe(nextValue)) {
+              return this.transformValue(nextValue.value);
+            } else if (typeof nextValue === "string") {
+              return this.transformValue(nextValue);
+            } else {
+              if (typeof (nextValue === null || nextValue === void 0 ? void 0 : nextValue.value) === "string") {
+                throw new Error("Invalid complex value, only found a value with no other complex settings.");
+              }
+              throw new Error(`Unknown to value: ${JSON.stringify(nextValue)}`);
+            }
+          }
+          normalizePrimitiveValue(value2) {
+            return {
+              value: value2
+            };
+          }
+          normalizeValue(value2) {
+            if (typeof value2 === "string" || typeof value2 === "number") {
+              return this.normalizePrimitiveValue(value2);
+            } else {
+              return value2;
+            }
+          }
+          normalizeKeyframeValue(value2) {
+            if (typeof value2 === "string" || typeof value2 === "number") {
+              return {
+                from: this.normalizePrimitiveValue(value2),
+                to: this.normalizePrimitiveValue(value2)
+              };
+            } else if (typeof value2 === "object" && value2 != null) {
+              const keyframes = value2;
+              const keys = Object.keys(keyframes);
+              keys.forEach((key) => {
+                this.normalizeValue(keyframes[key]);
+              });
+              return value2;
+            } else {
+              throw new Error("Unknown value type.");
+            }
+          }
+          generate(animatedProperties) {
+            const animatedPropertyNames = Object.keys(animatedProperties);
+            const keyframes = [];
+            for (let x2 = 0; x2 < animatedPropertyNames.length; x2++) {
+              const property = animatedPropertyNames[x2];
+              let lastKeyFramePercentage = 0;
+              const keyframeValue = this.normalizeKeyframeValue(animatedProperties[property]);
+              const timeKeys = Object.keys(keyframeValue);
+              timeKeys.sort(this.sortPercentages);
+              for (let index4 = 0; index4 < timeKeys.length - 1; index4++) {
+                const key = timeKeys[index4];
+                const nextKey = timeKeys[index4 + 1];
+                const currentValue = this.normalizeValue(keyframeValue[key]);
+                const nextValue = this.normalizeValue(keyframeValue[nextKey]);
+                const startAt = lastKeyFramePercentage;
+                const endAt = this.getDecimalFromPercentage(timeKeys[index4 + 1]);
+                lastKeyFramePercentage = endAt;
+                const easingIn = this.getEaseIn(currentValue);
+                const easingOut = this.getEaseOut(nextValue);
+                const easing = createDynamicEasing(easingIn, easingOut);
+                const controlsIn = this.getControlsIn(currentValue);
+                const controlsOut = this.getControlsOut(nextValue);
+                const controls = [...controlsIn, ...controlsOut];
+                const from = this.getFrom(currentValue);
+                const to = this.getTo(nextValue);
+                const keyframe = new CssKeyframe({
+                  property: property.toString(),
+                  from,
+                  to,
+                  controls,
+                  easing,
+                  startAt,
+                  endAt
+                });
+                keyframes.push(keyframe);
+              }
+            }
+            return keyframes;
+          }
+        }
+        const emptyFn$1 = () => 0;
+        class ObjectVisitor {
+          constructor(callback = emptyFn$1) {
+            this.visitor = emptyFn$1;
+            this.setVisitor(callback);
+          }
+          visit(object) {
+            this.walk(object);
+          }
+          walk(object) {
+            if (typeof object === "object" && object != null) {
+              for (let key in object) {
+                if (typeof object[key] === "number") {
+                  object[key] = this.visitor(object[key]);
+                } else if (typeof object[key] === "object") {
+                  this.walk(object[key]);
+                }
+              }
+            }
+          }
+          setVisitor(visitor2) {
+            if (typeof visitor2 === "function") {
+              this.visitor = visitor2;
+            } else {
+              this.visitor = emptyFn$1;
+            }
+            this.visitor = visitor2;
+          }
+        }
+        const emptyFn = () => 0;
+        class ObjectsVisitor {
+          constructor(callback = emptyFn) {
+            this.visitor = emptyFn;
+            this.setVisitor(callback);
+          }
+          visit(left, right, output) {
+            this.walk(left, right, output);
+          }
+          walk(left, right, output) {
+            if (typeof left === "object" && left != null) {
+              for (let key in left) {
+                if (typeof left[key] === "number" && typeof right[key] === "number" && typeof output[key] === "number") {
+                  output[key] = this.visitor(left[key], right[key]);
+                } else if (typeof left[key] === "object") {
+                  this.walk(left[key], right[key], output[key]);
+                }
+              }
+            }
+          }
+          setVisitor(visitor2) {
+            if (typeof visitor2 === "function") {
+              this.visitor = visitor2;
+            } else {
+              this.visitor = emptyFn;
+            }
+            this.visitor = visitor2;
+          }
+        }
+        const add = (left, right) => {
+          return left + right;
+        };
+        const subtract = (left, right) => {
+          return left - right;
+        };
+        const multiply = (left, right) => {
+          return left * right;
+        };
+        const divide = (left, right) => {
+          return left / right;
+        };
+        class ObjectOperator {
+          constructor() {
+            this.objectsVisitor = new ObjectsVisitor();
+            this.visitor = new ObjectVisitor();
+          }
+          assign(object, number2) {
+            this.visitor.setVisitor(() => {
+              return number2;
+            });
+            this.visitor.visit(object);
+          }
+          add(left, right, output) {
+            this.objectsVisitor.setVisitor(add);
+            this.objectsVisitor.visit(left, right, output);
+          }
+          subtract(left, right, output) {
+            this.objectsVisitor.setVisitor(subtract);
+            this.objectsVisitor.visit(left, right, output);
+          }
+          multiply(left, right, output) {
+            this.objectsVisitor.setVisitor(multiply);
+            this.objectsVisitor.visit(left, right, output);
+          }
+          divide(left, right, output) {
+            this.objectsVisitor.setVisitor(divide);
+            this.objectsVisitor.visit(left, right, output);
+          }
+        }
+        const nullableAnimation = new Animation("null", [
+          new Keyframe({ from: 0, to: 0, property: "null" })
+        ]);
+        const objectOperator = new ObjectOperator();
+        const FORWARD = 1;
+        class SlopeAnimationBuilder {
+          constructor() {
+            this.direction = 0;
+            this.newDuration = 0;
+            this.duration = 0;
+            this.offset = 0;
+            this.delta = 0.01;
+            this.animation = nullableAnimation;
+          }
+          cloneValues(values2) {
+            return deepClone(values2);
+          }
+          build(animation, duration, offset, extendDurationBy, direction = 0) {
+            this.animation = animation;
+            this.offset = offset;
+            this.duration = duration;
+            this.newDuration = extendDurationBy;
+            this.direction = direction;
+            if (this.offset + this.delta > 1) {
+              this.offset -= this.delta;
+            }
+            this.calculate();
+            this.createSlopeTimeline();
+            return this.slopeAnimation;
+          }
+          cacheValues() {
+            this.deltaStepValues = this.cloneValues(this.nowValues);
+            this.scaleValues = this.cloneValues(this.nowValues);
+            this.dynamicValues = this.cloneValues(this.nowValues);
+            this.cacheDeltaStepValues();
+            this.cacheScaleValues();
+          }
+          cacheDeltaStepValues() {
+            Object.keys(this.deltaStepValues).forEach((property) => {
+              objectOperator.assign(this.deltaStepValues[property], this.delta);
+            });
+          }
+          cacheScaleValues() {
+            const scale = this.newDuration / this.duration;
+            Object.keys(this.scaleValues).forEach((property) => {
+              objectOperator.assign(this.scaleValues[property], scale);
+            });
+          }
+          cacheDeltaValueForward() {
+            this.animation.update(this.offset + this.delta);
+            this.deltaValues = this.cloneValues(this.animation.currentValues);
+          }
+          cacheDeltaValueStopped() {
+            this.animation.update(this.offset);
+            this.deltaValues = this.cloneValues(this.animation.currentValues);
+          }
+          calculate() {
+            this.animation.update(this.offset);
+            this.nowValues = this.cloneValues(this.animation.currentValues);
+            this.toValues = this.cloneValues(this.nowValues);
+            if (this.direction === FORWARD) {
+              this.cacheDeltaValueForward();
+            } else {
+              this.cacheDeltaValueStopped();
+            }
+            Object.keys(this.nowValues).forEach((property) => {
+              const value2 = this.nowValues[property];
+              if (typeof value2 === "object" && value2 != null) {
+                this.cacheValues();
+                this.calculateObject(property);
+              } else {
+                this.calculatePrimitive(property);
+              }
+            });
+          }
+          calculatePrimitive(property) {
+            const now2 = this.nowValues[property];
+            const dxNow = this.deltaValues[property];
+            const scale = this.newDuration / this.duration;
+            const diff = dxNow - now2;
+            const derivative = diff / this.delta;
+            const scaled = derivative * scale;
+            const to = now2 + scaled;
+            this.toValues[property] = to;
+          }
+          calculateObject(property) {
+            const now2 = this.nowValues[property];
+            const delta = this.deltaValues[property];
+            const deltaStep = this.deltaStepValues[property];
+            const scale = this.scaleValues[property];
+            const dynamicValue = this.dynamicValues[property];
+            const to = this.toValues[property];
+            objectOperator.subtract(delta, now2, dynamicValue);
+            objectOperator.divide(dynamicValue, deltaStep, dynamicValue);
+            objectOperator.multiply(dynamicValue, scale, dynamicValue);
+            objectOperator.add(now2, dynamicValue, to);
+            this.toValues[property] = to;
+          }
+          createSlopeTimeline() {
+            const keyframes = Object.keys(this.nowValues).map((property) => {
+              return new Keyframe({
+                property,
+                from: this.nowValues[property],
+                controls: [],
+                to: this.toValues[property],
+                startAt: 0,
+                endAt: 1,
+                easing: easings2.linear
+              });
+            }).flat();
+            this.slopeAnimation = new Animation("slope", keyframes);
+          }
+        }
+        const slopeAnimationBuilder = new SlopeAnimationBuilder();
+        class ExtendedAnimation {
+          constructor(animation, duration, offset, extendDurationBy = 0) {
+            this.time = 0;
+            this.duration = duration;
+            this.offset = offset;
+            this.extendDurationBy = extendDurationBy;
+            this.animation = animation;
+            this.currentValues = this.animation.currentValues;
+            this.name = this.animation.name;
+            this.slopeAnimation = slopeAnimationBuilder.build(this.animation, duration, 1, extendDurationBy, 1);
+          }
+          update(time) {
+            this.time = time;
+            const offsetTime = this.offset + time;
+            if (offsetTime + slopeAnimationBuilder.delta > 1) {
+              if (this.slopeAnimation == null) {
+                return this;
+              }
+              const overflowTime = offsetTime + slopeAnimationBuilder.delta - 1;
+              this.slopeAnimation.update(overflowTime);
+              this.currentValues = this.slopeAnimation.currentValues;
+            } else {
+              if (this.animation == null) {
+                return this;
+              }
+              this.animation.update(offsetTime);
+              this.currentValues = this.animation.currentValues;
+            }
+            return this;
+          }
+          clone() {
+            return new ExtendedAnimation(this.animation.clone(), this.duration, this.offset, this.extendDurationBy);
+          }
+        }
+        class BlendedAnimation extends Animation {
+          constructor(fromAnimation, toAnimation, easing = easings2.easeOutExpo) {
+            const fromValues = fromAnimation.currentValues;
+            const toValues = toAnimation.currentValues;
+            const properties = Object.keys(fromValues);
+            const keyframes = properties.map((name2) => {
+              const from = fromValues[name2];
+              const to = toValues[name2];
+              if (to == null) {
+                throw new Error(`Blended animations need to have the same properties to animate.  From Animation: ${JSON.stringify(Object.keys(from))}, To Animation: ${JSON.stringify(Object.keys(to))}`);
+              }
+              return new Keyframe({
+                property: name2,
+                startAt: 0,
+                endAt: 1,
+                from,
+                to,
+                controls: [],
+                easing: easing || easings2.linear
+              });
+            }).flat();
+            super(`${fromAnimation.name}-${toAnimation.name}-blended`, keyframes);
+            this.easing = easing;
+            this.properties = properties;
+            this.fromAnimation = fromAnimation;
+            this.toAnimation = toAnimation;
+          }
+          updateKeyframes() {
+            const length = this.properties.length;
+            for (let x2 = 0; x2 < length; x2++) {
+              const animator = this.animators[x2];
+              const property = animator.keyframe.property;
+              const keyframe = animator.keyframe;
+              keyframe.to = this.toAnimation.currentValues[property];
+              keyframe.from = this.fromAnimation.currentValues[property];
+            }
+          }
+          update(time) {
+            this.fromAnimation.update(time);
+            this.toAnimation.update(time);
+            this.updateKeyframes();
+            super.update(time);
+            return this;
+          }
+          clone() {
+            return new BlendedAnimation(this.fromAnimation.clone(), this.toAnimation.clone(), this.easing);
+          }
+        }
+        class KeyframesGenerator {
+          constructor() {
+            this.transformValue = (value2) => value2;
+            this.sortPercentages = (keyA, keyB) => {
+              if (keyA === "from") {
+                return -1;
+              }
+              if (keyB === "from") {
+                return 1;
+              }
+              if (keyA === "to") {
+                return 1;
+              }
+              if (keyB === "to") {
+                return -1;
+              }
+              const keyAParts = keyA.split("%");
+              const keyBParts = keyB.split("%");
+              const keyANumber = parseFloat(keyAParts[0]);
+              const keyBNumber = parseFloat(keyBParts[0]);
+              if (keyANumber < keyBNumber) {
+                return -1;
+              } else if (keyANumber > keyBNumber) {
+                return 1;
+              }
+              return 0;
+            };
+          }
+          setTransformValue(transformValue) {
+            this.transformValue = transformValue;
+          }
+          isComplexKeyframe(value2) {
+            return value2.hasOwnProperty("value");
+          }
+          isPercentageKeyframe(value2) {
+            return value2.hasOwnProperty("from") && value2.hasOwnProperty("to");
+          }
+          isObject(value2) {
+            return typeof value2 === "object" && value2 != null;
+          }
+          getDecimalFromPercentage(percentage) {
+            if (percentage === "to") {
+              return 1;
+            }
+            if (percentage === "from") {
+              return 0;
+            }
+            const percentageParts = percentage.split("%");
+            let decimal = parseFloat(percentageParts[0]) / 100;
+            if (isNaN(decimal)) {
+              throw new Error(`Unknown keyframe step: ${decimal}. Expected format 10% or 10.01% etc`);
+            }
+            decimal = Math.max(0, decimal);
+            decimal = Math.min(1, decimal);
+            return decimal;
+          }
+          getEaseIn(currentValue) {
+            if (this.isComplexKeyframe(currentValue) && currentValue.easeOut != null) {
+              return currentValue.easeOut || "linear";
+            } else {
+              return "linear";
+            }
+          }
+          getEaseOut(nextValue) {
+            if (this.isComplexKeyframe(nextValue) && nextValue.easeIn != null) {
+              return nextValue.easeIn || "linear";
+            } else {
+              return "linear";
+            }
+          }
+          getControlsIn(currentValue) {
+            if (this.isComplexKeyframe(currentValue) && Array.isArray(currentValue.controlsOut)) {
+              return currentValue.controlsOut.map((v2) => this.transformValue(v2));
+            } else {
+              return [];
+            }
+          }
+          getControlsOut(nextValue) {
+            if (this.isComplexKeyframe(nextValue) && Array.isArray(nextValue.controlsIn)) {
+              return nextValue.controlsIn.map((v2) => this.transformValue(v2));
+            } else {
+              return [];
+            }
+          }
+          getFrom(currentValue) {
+            if (this.isComplexKeyframe(currentValue)) {
+              return this.transformValue(currentValue.value);
+            } else if (typeof currentValue === "string") {
+              return this.transformValue(currentValue);
+            } else {
+              if (typeof (currentValue === null || currentValue === void 0 ? void 0 : currentValue.value) === "string") {
+                throw new Error("Invalid complex value, only found a value with no other complex settings.");
+              }
+              throw new Error(`Unknown "from" value: ${JSON.stringify(currentValue)}`);
+            }
+          }
+          getTo(nextValue) {
+            const isComplexKeyframe = this.isComplexKeyframe(nextValue);
+            if (isComplexKeyframe) {
+              return this.transformValue(nextValue.value);
+            } else if (!isComplexKeyframe && this.isObject(nextValue)) {
+              return this.transformValue(nextValue);
+            } else if (typeof nextValue === "string") {
+              return this.transformValue(nextValue);
+            } else {
+              if (typeof (nextValue === null || nextValue === void 0 ? void 0 : nextValue.value) === "string") {
+                throw new Error("Invalid complex value, only found a value with no other complex settings.");
+              }
+              throw new Error(`Unknown "to" value: ${JSON.stringify(nextValue)}`);
+            }
+          }
+          wrapValue(value2) {
+            return {
+              value: value2
+            };
+          }
+          normalizeValue(value2) {
+            if (typeof value2 === "string" || typeof value2 === "number") {
+              return this.wrapValue(value2);
+            } else if (this.isObject(value2) && !this.isComplexKeyframe(value2)) {
+              return this.wrapValue(value2);
+            } else {
+              return value2;
+            }
+          }
+          normalizeKeyframeValue(value2) {
+            if (typeof value2 === "string" || typeof value2 === "number") {
+              return {
+                from: this.wrapValue(value2),
+                to: this.wrapValue(value2)
+              };
+            } else if (this.isObject(value2) && this.isPercentageKeyframe(value2)) {
+              const keyframes = value2;
+              const keys = Object.keys(keyframes);
+              keys.forEach((key) => {
+                this.normalizeValue(keyframes[key]);
+              });
+              return value2;
+            } else if (this.isObject(value2)) {
+              return {
+                from: this.wrapValue(value2),
+                to: this.wrapValue(value2)
+              };
+            } else {
+              throw new Error("Unknown value type.");
+            }
+          }
+          generate(animatedProperties) {
+            const animatedPropertyNames = Object.keys(animatedProperties);
+            const keyframes = [];
+            for (let x2 = 0; x2 < animatedPropertyNames.length; x2++) {
+              const property = animatedPropertyNames[x2];
+              let lastKeyFramePercentage = 0;
+              const keyframeValue = this.normalizeKeyframeValue(animatedProperties[property]);
+              const timeKeys = Object.keys(keyframeValue);
+              timeKeys.sort(this.sortPercentages);
+              for (let index4 = 0; index4 < timeKeys.length - 1; index4++) {
+                const key = timeKeys[index4];
+                const nextKey = timeKeys[index4 + 1];
+                const currentValue = this.normalizeValue(keyframeValue[key]);
+                const nextValue = this.normalizeValue(keyframeValue[nextKey]);
+                const startAt = lastKeyFramePercentage;
+                const endAt = this.getDecimalFromPercentage(timeKeys[index4 + 1]);
+                lastKeyFramePercentage = endAt;
+                const easingIn = this.getEaseIn(currentValue);
+                const easingOut = this.getEaseOut(nextValue);
+                const easing = createDynamicEasing(easingIn, easingOut);
+                const controlsIn = this.getControlsIn(currentValue);
+                const controlsOut = this.getControlsOut(nextValue);
+                const controls = [...controlsIn, ...controlsOut];
+                const from = this.getFrom(currentValue);
+                const to = this.getTo(nextValue);
+                const keyframe = new Keyframe({
+                  property: property.toString(),
+                  from,
+                  to,
+                  controls,
+                  easing,
+                  startAt,
+                  endAt
+                });
+                keyframes.push(keyframe);
+              }
+            }
+            return keyframes;
+          }
+        }
+        class Motion2 {
+          constructor(render, setOnFirst = false, player) {
+            this.currentDuration = 0;
+            this.keyframeGenerator = new KeyframesGenerator();
+            this.observer = null;
+            this.animation = null;
+            this.player = player || new Player();
+            this.player.render = (time) => {
+              if (this.animation != null) {
+                this.animation.update(time);
+                render(this.animation);
+              }
+            };
+            this.setOnFirst = setOnFirst;
+          }
+          segueTo(animation, duration = 1e-3, easing) {
+            var _a;
+            const currentDuration = this.currentDuration;
+            const currentAnimation = this.animation;
+            const currentTime = this.player.time;
+            this.player.duration = this.currentDuration = duration;
+            this.player.iterations = 0;
+            this.player.repeat = 1;
+            if (currentAnimation == null) {
+              if (this.setOnFirst) {
+                const finishedAnimation = animation.clone();
+                this.player.duration = 1e-3;
+                this.animation = finishedAnimation;
+              } else {
+                this.animation = animation;
+              }
+            } else {
+              const extendDurationBy = duration - currentDuration * currentTime;
+              let fromAnimation;
+              if (extendDurationBy > 0) {
+                fromAnimation = new ExtendedAnimation(currentAnimation, currentDuration, currentTime, extendDurationBy);
+              } else {
+                const values2 = currentAnimation.currentValues;
+                const animation2 = this.makeAnimationFromLastValues(values2);
+                fromAnimation = animation2;
+              }
+              const newAnimation = new BlendedAnimation(fromAnimation, animation, easing);
+              this.animation = newAnimation;
+              (_a = this.observer) === null || _a === void 0 ? void 0 : _a.dispose();
+              this.observer = this.player.observeTimeOnce(1, () => {
+                newAnimation.update(1);
+                const values2 = newAnimation.currentValues;
+                const animation2 = this.makeAnimationFromLastValues(values2);
+                this.animation = animation2;
+              });
+            }
+            this.player.time = 0;
+            this.player.play();
+          }
+          segueToLoop(animation, duration = 0, easing) {
+            var _a;
+            const currentDuration = this.currentDuration;
+            const currentAnimation = this.animation;
+            const currentTime = this.player.time;
+            this.player.duration = this.currentDuration = duration;
+            this.player.iterations = 0;
+            this.player.repeat = 1;
+            this.player.repeat = Infinity;
+            this.player.repeatDirection = exports2.RepeatDirection.DEFAULT;
+            if (currentAnimation == null) {
+              this.animation = animation;
+            } else {
+              const extendDurationBy = duration - currentDuration * currentTime;
+              let fromAnimation;
+              if (extendDurationBy > 0) {
+                fromAnimation = new ExtendedAnimation(currentAnimation, currentDuration, currentTime, extendDurationBy);
+              } else {
+                fromAnimation = currentAnimation;
+              }
+              this.animation = new BlendedAnimation(fromAnimation, animation, easing);
+              (_a = this.observer) === null || _a === void 0 ? void 0 : _a.dispose();
+              this.observer = this.player.observeTimeOnce(1, () => {
+                this.animation = animation;
+              });
+            }
+            this.player.time = 0;
+            this.player.play();
+          }
+          makeAnimationFromLastValues(values2) {
+            const keyframes = Object.keys(values2).reduce((acc, key) => {
+              acc[key] = {
+                from: JSON.parse(JSON.stringify(values2[key])),
+                to: JSON.parse(JSON.stringify(values2[key]))
+              };
+              return acc;
+            }, {});
+            return new Animation("last-animation", this.keyframeGenerator.generate(keyframes));
+          }
+        }
+        const m = new Literal("M", "M");
+        const v = new Literal("v", "v");
+        const V = new Literal("V", "V");
+        const h = new Literal("h", "h");
+        const H = new Literal("H", "H");
+        const c = new Literal("c", "c");
+        const C = new Literal("C", "C");
+        const x = number.clone("x");
+        const y = number.clone("y");
+        const dx = number.clone("dx");
+        const dy = number.clone("dy");
+        const moveTo = new AndComposite("moveTo", [
+          m,
+          optionalSpaces,
+          x,
+          spaces,
+          y
+        ]);
+        const absoluteVerticalLine = new AndComposite("absoluteVerticalLine", [
+          V,
+          optionalSpaces,
+          y
+        ]);
+        const relativeVerticalLine = new AndComposite("relativeVerticalLine", [
+          v,
+          optionalSpaces,
+          dy
+        ]);
+        const absoluteHorizontalLine = new AndComposite("absoluteHorizontalLine", [H, optionalSpaces, x]);
+        const relativeHorizontalLine = new AndComposite("relativeHorizontalLine", [h, optionalSpaces, dx]);
+        const absoluteCurvedLine = new AndComposite("absoluteCurvedLine", [
+          C,
+          optionalSpaces,
+          x,
+          spaces,
+          y,
+          divider,
+          x,
+          spaces,
+          y,
+          divider,
+          x,
+          spaces,
+          y
+        ]);
+        const relativeCurvedLine = new AndComposite("relativeCurvedLine", [
+          c,
+          optionalSpaces,
+          dx,
+          spaces,
+          dy,
+          divider,
+          dx,
+          spaces,
+          dy,
+          divider,
+          dx,
+          spaces,
+          dy
+        ]);
+        const pathCommands = new OrComposite("pathCommands", [
+          moveTo,
+          absoluteVerticalLine,
+          relativeVerticalLine,
+          absoluteHorizontalLine,
+          relativeHorizontalLine,
+          absoluteCurvedLine,
+          relativeCurvedLine
+        ]);
+        const path = new RepeatComposite("path", pathCommands, spaces);
+        const visitor$1 = new Visitor();
+        class PathAnimation {
+          constructor(pathString, easing = easings2.linear) {
+            this.position = { x: 0, y: 0 };
+            this._currentValues = {
+              x: 0,
+              y: 0
+            };
+            this._deltaValues = {
+              x: 0,
+              y: 0
+            };
+            this.xBezierCurves = [];
+            this.yBezierCurves = [];
+            this.name = "";
+            const tree = path.parse(new Cursor(pathString));
+            this.pathString = pathString;
+            visitor$1.setRoot(tree).selectRoot().clear().select((n) => n.name === "optional-spaces").remove().clear().select((n) => n.name === "spaces").remove().clear().select((n) => n.name === "divider").remove();
+            if (tree == null) {
+              throw new Error("Invalid path.");
+            }
+            this.easing = easing;
+            tree.children.forEach((n, index4) => {
+              this[n.name](n);
+            });
+          }
+          get curveCount() {
+            return this.xBezierCurves.length;
+          }
+          get currentValues() {
+            return this._currentValues;
+          }
+          get deltaValues() {
+            return this._deltaValues;
+          }
+          moveTo(n) {
+            const xValue = Number(n.children[1].value);
+            const yValue = Number(n.children[2].value);
+            this.position.x = xValue;
+            this.position.y = yValue;
+          }
+          absoluteVerticalLine(n) {
+            const yValue = Number(n.children[1].value);
+            const y2 = new BezierCurve([this.position.y, yValue]);
+            const x2 = new BezierCurve([this.position.x, this.position.x]);
+            this.position.y = yValue;
+            this.xBezierCurves.push(x2);
+            this.yBezierCurves.push(y2);
+          }
+          relativeVerticalLine(n) {
+            const yValue = Number(n.children[1].value) + this.position.y;
+            const y2 = new BezierCurve([this.position.y, yValue]);
+            const x2 = new BezierCurve([this.position.x, this.position.x]);
+            this.position.y = yValue;
+            this.xBezierCurves.push(x2);
+            this.yBezierCurves.push(y2);
+          }
+          absoluteHorizontalLine(n) {
+            const xValue = Number(n.children[1].value);
+            const x2 = new BezierCurve([this.position.x, xValue]);
+            const y2 = new BezierCurve([this.position.y, this.position.y]);
+            this.position.x = xValue;
+            this.xBezierCurves.push(x2);
+            this.yBezierCurves.push(y2);
+          }
+          relativeHorizontalLine(n) {
+            const xValue = Number(n.children[1].value) + this.position.x;
+            const x2 = new BezierCurve([this.position.x, xValue]);
+            const y2 = new BezierCurve([this.position.y, this.position.y]);
+            this.position.x = xValue;
+            this.xBezierCurves.push(x2);
+            this.yBezierCurves.push(y2);
+          }
+          absoluteCurvedLine(n, startAt, endAt) {
+            const startXValue = this.position.x;
+            const startYValue = this.position.y;
+            const xControl1 = Number(n.children[1].value);
+            const yControl1 = Number(n.children[2].value);
+            const xControl2 = Number(n.children[3].value);
+            const yControl2 = Number(n.children[4].value);
+            const endXValue = Number(n.children[5].value);
+            const endYValue = Number(n.children[6].value);
+            const x2 = new BezierCurve([startXValue, xControl1, xControl2, endXValue]);
+            const y2 = new BezierCurve([startYValue, yControl1, yControl2, endYValue]);
+            this.position.x = endXValue;
+            this.position.y = endYValue;
+            this.xBezierCurves.push(x2);
+            this.yBezierCurves.push(y2);
+          }
+          relativeCurvedLine(n, startAt, endAt) {
+            const startXValue = this.position.x;
+            const startYValue = this.position.y;
+            const xControl1 = Number(n.children[1].value + startXValue);
+            const yControl1 = Number(n.children[2].value + startYValue);
+            const xControl2 = Number(n.children[3].value + startXValue);
+            const yControl2 = Number(n.children[4].value + startYValue);
+            const endXValue = Number(n.children[5].value + startXValue);
+            const endYValue = Number(n.children[6].value + startYValue);
+            const x2 = new BezierCurve([startXValue, xControl1, xControl2, endXValue]);
+            const y2 = new BezierCurve([startYValue, yControl1, yControl2, endYValue]);
+            this.position.x = endXValue;
+            this.position.y = endYValue;
+            this.xBezierCurves.push(x2);
+            this.yBezierCurves.push(y2);
+          }
+          update(time) {
+            const length = this.xBezierCurves.length;
+            const parts = 1 / length;
+            const adjustedTime = this.easing(time);
+            const index4 = Math.max(Math.min(Math.floor(adjustedTime / parts), length - 1), 0);
+            const indexTime = adjustedTime % parts / parts;
+            const x2 = this.xBezierCurves[index4].valueAt(indexTime);
+            const y2 = this.yBezierCurves[index4].valueAt(indexTime);
+            const deltaX = this.xBezierCurves[index4].deltaAt(indexTime);
+            const deltaY = this.yBezierCurves[index4].deltaAt(indexTime);
+            this._currentValues.x = x2;
+            this._currentValues.y = y2;
+            this._deltaValues.x = deltaX;
+            this._deltaValues.y = deltaY;
+            return this;
+          }
+          clone() {
+            return new PathAnimation(this.pathString, this.easing);
+          }
+        }
+        class UniformPathAnimation {
+          constructor(path2, easing = easings2.linear) {
+            this.name = "";
+            this.currentValues = {
+              x: 0,
+              y: 0
+            };
+            this.easing = easing;
+            this._path = path2;
+            this._curveData = this._path.xCurves.map((xCurve, index4) => {
+              const yCurve = this._path.yCurves[index4];
+              const distance2 = simpsonsRule(0, 1, (t) => {
+                const x2 = xCurve.deltaAt(t);
+                const y2 = yCurve.deltaAt(t);
+                return Math.sqrt(x2 * x2 + y2 * y2);
+              }, 4);
+              return {
+                x: xCurve,
+                y: yCurve,
+                distance: distance2,
+                offsetDistance: 0,
+                startAt: 0,
+                endAt: 0
+              };
+            });
+            this._distance = this._curveData.map((curve) => curve.distance).reduce((acc, next) => acc += next, 0);
+            let lastTo = 0;
+            let distance = 0;
+            this._curveData.forEach((curve) => {
+              const percentage = curve.distance / this._distance;
+              curve.startAt = lastTo;
+              lastTo = curve.endAt = lastTo + percentage;
+              curve.offsetDistance = distance;
+              distance += curve.distance;
+            });
+          }
+          get distance() {
+            return this._distance;
+          }
+          update(time) {
+            const easingTime = this.easing(time);
+            const curve = this._curveData.find((curve2, index4) => {
+              const isLowerBounds = easingTime < 0 && index4 === 1;
+              const isOverBounds = easingTime > 1 && index4 === this._curveData.length - 1;
+              return isLowerBounds || isOverBounds || easingTime >= curve2.startAt && easingTime < curve2.endAt;
+            });
+            if (curve == null) {
+              return this;
+            }
+            const distance = easingTime * this._distance;
+            const adjustedDistance = distance - curve.offsetDistance;
+            const remainder = easingTime - curve.startAt;
+            const adjustedTime = remainder / (curve.endAt - curve.startAt);
+            const integrand = (t) => {
+              const x2 = curve.x.normalizedDeltaAt(t);
+              const y2 = curve.y.normalizedDeltaAt(t);
+              return Math.sqrt(x2 * x2 + y2 * y2);
+            };
+            const uniformTime = newtonsMethod((t) => {
+              return simpsonsRule(0, t, integrand, 4) - adjustedDistance;
+            }, integrand, adjustedTime, 10);
+            this.currentValues.x = curve.x.valueAt(uniformTime);
+            this.currentValues.y = curve.y.valueAt(uniformTime);
+            return this;
+          }
+          clone() {
+            return new UniformPathAnimation(this._path, this.easing);
+          }
+        }
+        const keyframesGenerator = new KeyframesGenerator();
+        function createAnimation2(animatedProperties) {
+          const keyframes = keyframesGenerator.generate(animatedProperties);
+          const animation = new Animation("", keyframes);
+          return animation;
+        }
+        const cssKeyframesGenerator = new CSSKeyframesGenerator();
+        function createCssAnimation(animatedProperties) {
+          const keyframes = cssKeyframesGenerator.generate(animatedProperties);
+          const animation = new Animation("", keyframes);
+          return animation;
+        }
+        const visitor = new Visitor();
+        class SvgPath {
+          constructor(pathString) {
+            this.position = { x: 0, y: 0 };
+            this._xBezierCurves = [];
+            this._yBezierCurves = [];
+            const tree = path.parse(new Cursor(pathString));
+            this.pathString = pathString;
+            visitor.setRoot(tree).selectRoot().clear().select((n) => n.name === "optional-spaces").remove().clear().select((n) => n.name === "spaces").remove().clear().select((n) => n.name === "divider").remove();
+            if (tree == null) {
+              throw new Error("Invalid path.");
+            }
+            tree.children.forEach((n, index4) => {
+              this[n.name](n);
+            });
+          }
+          get xCurves() {
+            return this._xBezierCurves;
+          }
+          get yCurves() {
+            return this._yBezierCurves;
+          }
+          get curveCount() {
+            return this._xBezierCurves.length;
+          }
+          moveTo(n) {
+            const xValue = Number(n.children[1].value);
+            const yValue = Number(n.children[2].value);
+            this.position.x = xValue;
+            this.position.y = yValue;
+          }
+          absoluteVerticalLine(n) {
+            const yValue = Number(n.children[1].value);
+            const y2 = new BezierCurve([this.position.y, yValue]);
+            const x2 = new BezierCurve([this.position.x, this.position.x]);
+            this.position.y = yValue;
+            this._xBezierCurves.push(x2);
+            this._yBezierCurves.push(y2);
+          }
+          relativeVerticalLine(n) {
+            const yValue = Number(n.children[1].value) + this.position.y;
+            const y2 = new BezierCurve([this.position.y, yValue]);
+            const x2 = new BezierCurve([this.position.x, this.position.x]);
+            this.position.y = yValue;
+            this._xBezierCurves.push(x2);
+            this._yBezierCurves.push(y2);
+          }
+          absoluteHorizontalLine(n) {
+            const xValue = Number(n.children[1].value);
+            const x2 = new BezierCurve([this.position.x, xValue]);
+            const y2 = new BezierCurve([this.position.y, this.position.y]);
+            this.position.x = xValue;
+            this._xBezierCurves.push(x2);
+            this._yBezierCurves.push(y2);
+          }
+          relativeHorizontalLine(n) {
+            const xValue = Number(n.children[1].value) + this.position.x;
+            const x2 = new BezierCurve([this.position.x, xValue]);
+            const y2 = new BezierCurve([this.position.y, this.position.y]);
+            this.position.x = xValue;
+            this._xBezierCurves.push(x2);
+            this._yBezierCurves.push(y2);
+          }
+          absoluteCurvedLine(n, startAt, endAt) {
+            const startXValue = this.position.x;
+            const startYValue = this.position.y;
+            const xControl1 = Number(n.children[1].value);
+            const yControl1 = Number(n.children[2].value);
+            const xControl2 = Number(n.children[3].value);
+            const yControl2 = Number(n.children[4].value);
+            const endXValue = Number(n.children[5].value);
+            const endYValue = Number(n.children[6].value);
+            const x2 = new BezierCurve([startXValue, xControl1, xControl2, endXValue]);
+            const y2 = new BezierCurve([startYValue, yControl1, yControl2, endYValue]);
+            this.position.x = endXValue;
+            this.position.y = endYValue;
+            this._xBezierCurves.push(x2);
+            this._yBezierCurves.push(y2);
+          }
+          relativeCurvedLine(n, startAt, endAt) {
+            const startXValue = this.position.x;
+            const startYValue = this.position.y;
+            const xControl1 = Number(n.children[1].value + startXValue);
+            const yControl1 = Number(n.children[2].value + startYValue);
+            const xControl2 = Number(n.children[3].value + startXValue);
+            const yControl2 = Number(n.children[4].value + startYValue);
+            const endXValue = Number(n.children[5].value + startXValue);
+            const endYValue = Number(n.children[6].value + startYValue);
+            const x2 = new BezierCurve([startXValue, xControl1, xControl2, endXValue]);
+            const y2 = new BezierCurve([startYValue, yControl1, yControl2, endYValue]);
+            this.position.x = endXValue;
+            this.position.y = endYValue;
+            this._xBezierCurves.push(x2);
+            this._yBezierCurves.push(y2);
+          }
+        }
+        class PointPath {
+          constructor(points) {
+            this._xCurves = [];
+            this._yCurves = [];
+            const position = [points[0], points[1]];
+            if ((points.length - 2) % 6 !== 0) {
+              throw new Error("Needs to be two more than a factor of six.");
+            }
+            for (let i = 2; i < points.length; i += 6) {
+              this._xCurves.push(new BezierCurve([position[0], points[i], points[i + 2], points[i + 4]]));
+              this._yCurves.push(new BezierCurve([
+                position[1],
+                points[i + 1],
+                points[i + 3],
+                points[i + 5]
+              ]));
+              position[0] = points[i + 4];
+              position[1] = points[i + 5];
+            }
+          }
+          get xCurves() {
+            return this._xCurves;
+          }
+          get yCurves() {
+            return this._yCurves;
+          }
+          get curveCount() {
+            return this._xCurves.length;
+          }
+        }
+        exports2.Animation = Animation;
+        exports2.Animator = Animator;
+        exports2.BezierCurve = BezierCurve;
+        exports2.CssKeyframe = CssKeyframe;
+        exports2.CssKeyframesGenerator = CSSKeyframesGenerator;
+        exports2.Keyframe = Keyframe;
+        exports2.Motion = Motion2;
+        exports2.PathAnimation = PathAnimation;
+        exports2.Player = Player;
+        exports2.PointPath = PointPath;
+        exports2.SvgPath = SvgPath;
+        exports2.UniformPathAnimation = UniformPathAnimation;
+        exports2.createAnimation = createAnimation2;
+        exports2.createCssAnimation = createCssAnimation;
+        exports2.createDynamicEasing = createDynamicEasing;
+        exports2.easingInMap = easingInMap;
+        exports2.easingOutMap = easingOutMap;
+        exports2.easings = easings2;
+        Object.defineProperty(exports2, "__esModule", { value: true });
+      });
+    }
+  });
+
   // src/index.tsx
-  var import_react = __toESM(require_react());
+  var import_react8 = __toESM(require_react());
   var import_react_dom = __toESM(require_react_dom());
-  var root = import_react_dom.default.createRoot(document.getElementById("root"));
-  root.render(/* @__PURE__ */ import_react.default.createElement("h1", null, "Hello, world!"));
+
+  // src/app.tsx
+  var import_react7 = __toESM(require_react());
+
+  // node_modules/@babel/runtime/helpers/esm/extends.js
+  function _extends() {
+    _extends = Object.assign ? Object.assign.bind() : function(target) {
+      for (var i = 1; i < arguments.length; i++) {
+        var source = arguments[i];
+        for (var key in source) {
+          if (Object.prototype.hasOwnProperty.call(source, key)) {
+            target[key] = source[key];
+          }
+        }
+      }
+      return target;
+    };
+    return _extends.apply(this, arguments);
+  }
+
+  // node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js
+  function _objectWithoutPropertiesLoose(source, excluded) {
+    if (source == null)
+      return {};
+    var target = {};
+    var sourceKeys = Object.keys(source);
+    var key, i;
+    for (i = 0; i < sourceKeys.length; i++) {
+      key = sourceKeys[i];
+      if (excluded.indexOf(key) >= 0)
+        continue;
+      target[key] = source[key];
+    }
+    return target;
+  }
+
+  // node_modules/react-jss/dist/react-jss.esm.js
+  var import_react2 = __toESM(require_react());
+  var import_hoist_non_react_statics2 = __toESM(require_hoist_non_react_statics_cjs());
+
+  // node_modules/theming/dist/theming.esm.js
+  var import_react = __toESM(require_react());
+
+  // node_modules/tiny-warning/dist/tiny-warning.esm.js
+  var isProduction = false;
+  function warning(condition, message) {
+    if (!isProduction) {
+      if (condition) {
+        return;
+      }
+      var text = "Warning: " + message;
+      if (typeof console !== "undefined") {
+        console.warn(text);
+      }
+      try {
+        throw Error(text);
+      } catch (x) {
+      }
+    }
+  }
+  var tiny_warning_esm_default = warning;
+
+  // node_modules/theming/dist/theming.esm.js
+  var import_prop_types = __toESM(require_prop_types());
+  var import_hoist_non_react_statics = __toESM(require_hoist_non_react_statics_cjs());
+  var import_react_display_name = __toESM(require_getDisplayName());
+  function _defineProperty(obj, key, value) {
+    if (key in obj) {
+      Object.defineProperty(obj, key, {
+        value,
+        enumerable: true,
+        configurable: true,
+        writable: true
+      });
+    } else {
+      obj[key] = value;
+    }
+    return obj;
+  }
+  function _extends2() {
+    _extends2 = Object.assign || function(target) {
+      for (var i = 1; i < arguments.length; i++) {
+        var source = arguments[i];
+        for (var key in source) {
+          if (Object.prototype.hasOwnProperty.call(source, key)) {
+            target[key] = source[key];
+          }
+        }
+      }
+      return target;
+    };
+    return _extends2.apply(this, arguments);
+  }
+  function _inheritsLoose(subClass, superClass) {
+    subClass.prototype = Object.create(superClass.prototype);
+    subClass.prototype.constructor = subClass;
+    subClass.__proto__ = superClass;
+  }
+  function _assertThisInitialized(self2) {
+    if (self2 === void 0) {
+      throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+    }
+    return self2;
+  }
+  function isObject(obj) {
+    return obj !== null && typeof obj === "object" && !Array.isArray(obj);
+  }
+  function createThemeProvider(context) {
+    var ThemeProvider2 = /* @__PURE__ */ function(_React$Component) {
+      _inheritsLoose(ThemeProvider3, _React$Component);
+      function ThemeProvider3() {
+        var _this;
+        for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+          args[_key] = arguments[_key];
+        }
+        _this = _React$Component.call.apply(_React$Component, [this].concat(args)) || this;
+        _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "cachedTheme", void 0);
+        _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "lastOuterTheme", void 0);
+        _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "lastTheme", void 0);
+        _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "renderProvider", function(outerTheme) {
+          var children = _this.props.children;
+          return import_react.default.createElement(context.Provider, {
+            value: _this.getTheme(outerTheme)
+          }, children);
+        });
+        return _this;
+      }
+      var _proto = ThemeProvider3.prototype;
+      _proto.getTheme = function getTheme(outerTheme) {
+        if (this.props.theme !== this.lastTheme || outerTheme !== this.lastOuterTheme || !this.cachedTheme) {
+          this.lastOuterTheme = outerTheme;
+          this.lastTheme = this.props.theme;
+          if (typeof this.lastTheme === "function") {
+            var theme = this.props.theme;
+            this.cachedTheme = theme(outerTheme);
+            true ? tiny_warning_esm_default(isObject(this.cachedTheme), "[ThemeProvider] Please return an object from your theme function") : void 0;
+          } else {
+            var _theme = this.props.theme;
+            true ? tiny_warning_esm_default(isObject(_theme), "[ThemeProvider] Please make your theme prop a plain object") : void 0;
+            this.cachedTheme = outerTheme ? _extends2({}, outerTheme, _theme) : _theme;
+          }
+        }
+        return this.cachedTheme;
+      };
+      _proto.render = function render() {
+        var children = this.props.children;
+        if (!children) {
+          return null;
+        }
+        return import_react.default.createElement(context.Consumer, null, this.renderProvider);
+      };
+      return ThemeProvider3;
+    }(import_react.default.Component);
+    if (true) {
+      ThemeProvider2.propTypes = {
+        children: import_prop_types.default.node,
+        theme: import_prop_types.default.oneOfType([import_prop_types.default.shape({}), import_prop_types.default.func]).isRequired
+      };
+    }
+    return ThemeProvider2;
+  }
+  function createWithTheme(context) {
+    return function hoc(Component) {
+      var withTheme2 = import_react.default.forwardRef(function(props, ref) {
+        return import_react.default.createElement(context.Consumer, null, function(theme) {
+          true ? tiny_warning_esm_default(isObject(theme), "[theming] Please use withTheme only with the ThemeProvider") : void 0;
+          return import_react.default.createElement(Component, _extends2({
+            theme,
+            ref
+          }, props));
+        });
+      });
+      if (true) {
+        withTheme2.displayName = "WithTheme(" + (0, import_react_display_name.default)(Component) + ")";
+      }
+      (0, import_hoist_non_react_statics.default)(withTheme2, Component);
+      return withTheme2;
+    };
+  }
+  function createUseTheme(context) {
+    var useTheme2 = function useTheme3() {
+      var theme = import_react.default.useContext(context);
+      true ? tiny_warning_esm_default(isObject(theme), "[theming] Please use useTheme only with the ThemeProvider") : void 0;
+      return theme;
+    };
+    return useTheme2;
+  }
+  function createTheming(context) {
+    return {
+      context,
+      withTheme: createWithTheme(context),
+      useTheme: createUseTheme(context),
+      ThemeProvider: createThemeProvider(context)
+    };
+  }
+  var ThemeContext = (0, import_react.createContext)();
+  var _createTheming = createTheming(ThemeContext);
+  var withTheme = _createTheming.withTheme;
+  var ThemeProvider = _createTheming.ThemeProvider;
+  var useTheme = _createTheming.useTheme;
+
+  // node_modules/is-in-browser/dist/module.js
+  var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function(obj) {
+    return typeof obj;
+  } : function(obj) {
+    return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
+  };
+  var isBrowser = (typeof window === "undefined" ? "undefined" : _typeof(window)) === "object" && (typeof document === "undefined" ? "undefined" : _typeof(document)) === "object" && document.nodeType === 9;
+  var module_default = isBrowser;
+
+  // node_modules/@babel/runtime/helpers/esm/createClass.js
+  function _defineProperties(target, props) {
+    for (var i = 0; i < props.length; i++) {
+      var descriptor = props[i];
+      descriptor.enumerable = descriptor.enumerable || false;
+      descriptor.configurable = true;
+      if ("value" in descriptor)
+        descriptor.writable = true;
+      Object.defineProperty(target, descriptor.key, descriptor);
+    }
+  }
+  function _createClass(Constructor, protoProps, staticProps) {
+    if (protoProps)
+      _defineProperties(Constructor.prototype, protoProps);
+    if (staticProps)
+      _defineProperties(Constructor, staticProps);
+    Object.defineProperty(Constructor, "prototype", {
+      writable: false
+    });
+    return Constructor;
+  }
+
+  // node_modules/@babel/runtime/helpers/esm/setPrototypeOf.js
+  function _setPrototypeOf(o, p) {
+    _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf2(o2, p2) {
+      o2.__proto__ = p2;
+      return o2;
+    };
+    return _setPrototypeOf(o, p);
+  }
+
+  // node_modules/@babel/runtime/helpers/esm/inheritsLoose.js
+  function _inheritsLoose2(subClass, superClass) {
+    subClass.prototype = Object.create(superClass.prototype);
+    subClass.prototype.constructor = subClass;
+    _setPrototypeOf(subClass, superClass);
+  }
+
+  // node_modules/@babel/runtime/helpers/esm/assertThisInitialized.js
+  function _assertThisInitialized2(self2) {
+    if (self2 === void 0) {
+      throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+    }
+    return self2;
+  }
+
+  // node_modules/jss/dist/jss.esm.js
+  var plainObjectConstrurctor = {}.constructor;
+  function cloneStyle(style) {
+    if (style == null || typeof style !== "object")
+      return style;
+    if (Array.isArray(style))
+      return style.map(cloneStyle);
+    if (style.constructor !== plainObjectConstrurctor)
+      return style;
+    var newStyle = {};
+    for (var name in style) {
+      newStyle[name] = cloneStyle(style[name]);
+    }
+    return newStyle;
+  }
+  function createRule(name, decl, options) {
+    if (name === void 0) {
+      name = "unnamed";
+    }
+    var jss = options.jss;
+    var declCopy = cloneStyle(decl);
+    var rule = jss.plugins.onCreateRule(name, declCopy, options);
+    if (rule)
+      return rule;
+    if (name[0] === "@") {
+      true ? tiny_warning_esm_default(false, "[JSS] Unknown rule " + name) : void 0;
+    }
+    return null;
+  }
+  var join = function join2(value, by) {
+    var result2 = "";
+    for (var i = 0; i < value.length; i++) {
+      if (value[i] === "!important")
+        break;
+      if (result2)
+        result2 += by;
+      result2 += value[i];
+    }
+    return result2;
+  };
+  var toCssValue = function toCssValue2(value) {
+    if (!Array.isArray(value))
+      return value;
+    var cssValue = "";
+    if (Array.isArray(value[0])) {
+      for (var i = 0; i < value.length; i++) {
+        if (value[i] === "!important")
+          break;
+        if (cssValue)
+          cssValue += ", ";
+        cssValue += join(value[i], " ");
+      }
+    } else
+      cssValue = join(value, ", ");
+    if (value[value.length - 1] === "!important") {
+      cssValue += " !important";
+    }
+    return cssValue;
+  };
+  function getWhitespaceSymbols(options) {
+    if (options && options.format === false) {
+      return {
+        linebreak: "",
+        space: ""
+      };
+    }
+    return {
+      linebreak: "\n",
+      space: " "
+    };
+  }
+  function indentStr(str, indent) {
+    var result2 = "";
+    for (var index4 = 0; index4 < indent; index4++) {
+      result2 += "  ";
+    }
+    return result2 + str;
+  }
+  function toCss(selector, style, options) {
+    if (options === void 0) {
+      options = {};
+    }
+    var result2 = "";
+    if (!style)
+      return result2;
+    var _options = options, _options$indent = _options.indent, indent = _options$indent === void 0 ? 0 : _options$indent;
+    var fallbacks = style.fallbacks;
+    if (options.format === false) {
+      indent = -Infinity;
+    }
+    var _getWhitespaceSymbols = getWhitespaceSymbols(options), linebreak = _getWhitespaceSymbols.linebreak, space = _getWhitespaceSymbols.space;
+    if (selector)
+      indent++;
+    if (fallbacks) {
+      if (Array.isArray(fallbacks)) {
+        for (var index4 = 0; index4 < fallbacks.length; index4++) {
+          var fallback = fallbacks[index4];
+          for (var prop in fallback) {
+            var value = fallback[prop];
+            if (value != null) {
+              if (result2)
+                result2 += linebreak;
+              result2 += indentStr(prop + ":" + space + toCssValue(value) + ";", indent);
+            }
+          }
+        }
+      } else {
+        for (var _prop in fallbacks) {
+          var _value = fallbacks[_prop];
+          if (_value != null) {
+            if (result2)
+              result2 += linebreak;
+            result2 += indentStr(_prop + ":" + space + toCssValue(_value) + ";", indent);
+          }
+        }
+      }
+    }
+    for (var _prop2 in style) {
+      var _value2 = style[_prop2];
+      if (_value2 != null && _prop2 !== "fallbacks") {
+        if (result2)
+          result2 += linebreak;
+        result2 += indentStr(_prop2 + ":" + space + toCssValue(_value2) + ";", indent);
+      }
+    }
+    if (!result2 && !options.allowEmpty)
+      return result2;
+    if (!selector)
+      return result2;
+    indent--;
+    if (result2)
+      result2 = "" + linebreak + result2 + linebreak;
+    return indentStr("" + selector + space + "{" + result2, indent) + indentStr("}", indent);
+  }
+  var escapeRegex = /([[\].#*$><+~=|^:(),"'`\s])/g;
+  var nativeEscape = typeof CSS !== "undefined" && CSS.escape;
+  var escape = function(str) {
+    return nativeEscape ? nativeEscape(str) : str.replace(escapeRegex, "\\$1");
+  };
+  var BaseStyleRule = /* @__PURE__ */ function() {
+    function BaseStyleRule2(key, style, options) {
+      this.type = "style";
+      this.isProcessed = false;
+      var sheet = options.sheet, Renderer = options.Renderer;
+      this.key = key;
+      this.options = options;
+      this.style = style;
+      if (sheet)
+        this.renderer = sheet.renderer;
+      else if (Renderer)
+        this.renderer = new Renderer();
+    }
+    var _proto = BaseStyleRule2.prototype;
+    _proto.prop = function prop(name, value, options) {
+      if (value === void 0)
+        return this.style[name];
+      var force = options ? options.force : false;
+      if (!force && this.style[name] === value)
+        return this;
+      var newValue = value;
+      if (!options || options.process !== false) {
+        newValue = this.options.jss.plugins.onChangeValue(value, name, this);
+      }
+      var isEmpty = newValue == null || newValue === false;
+      var isDefined = name in this.style;
+      if (isEmpty && !isDefined && !force)
+        return this;
+      var remove = isEmpty && isDefined;
+      if (remove)
+        delete this.style[name];
+      else
+        this.style[name] = newValue;
+      if (this.renderable && this.renderer) {
+        if (remove)
+          this.renderer.removeProperty(this.renderable, name);
+        else
+          this.renderer.setProperty(this.renderable, name, newValue);
+        return this;
+      }
+      var sheet = this.options.sheet;
+      if (sheet && sheet.attached) {
+        true ? tiny_warning_esm_default(false, '[JSS] Rule is not linked. Missing sheet option "link: true".') : void 0;
+      }
+      return this;
+    };
+    return BaseStyleRule2;
+  }();
+  var StyleRule = /* @__PURE__ */ function(_BaseStyleRule) {
+    _inheritsLoose2(StyleRule2, _BaseStyleRule);
+    function StyleRule2(key, style, options) {
+      var _this;
+      _this = _BaseStyleRule.call(this, key, style, options) || this;
+      var selector = options.selector, scoped = options.scoped, sheet = options.sheet, generateId = options.generateId;
+      if (selector) {
+        _this.selectorText = selector;
+      } else if (scoped !== false) {
+        _this.id = generateId(_assertThisInitialized2(_assertThisInitialized2(_this)), sheet);
+        _this.selectorText = "." + escape(_this.id);
+      }
+      return _this;
+    }
+    var _proto2 = StyleRule2.prototype;
+    _proto2.applyTo = function applyTo(renderable) {
+      var renderer = this.renderer;
+      if (renderer) {
+        var json = this.toJSON();
+        for (var prop in json) {
+          renderer.setProperty(renderable, prop, json[prop]);
+        }
+      }
+      return this;
+    };
+    _proto2.toJSON = function toJSON() {
+      var json = {};
+      for (var prop in this.style) {
+        var value = this.style[prop];
+        if (typeof value !== "object")
+          json[prop] = value;
+        else if (Array.isArray(value))
+          json[prop] = toCssValue(value);
+      }
+      return json;
+    };
+    _proto2.toString = function toString(options) {
+      var sheet = this.options.sheet;
+      var link = sheet ? sheet.options.link : false;
+      var opts = link ? _extends({}, options, {
+        allowEmpty: true
+      }) : options;
+      return toCss(this.selectorText, this.style, opts);
+    };
+    _createClass(StyleRule2, [{
+      key: "selector",
+      set: function set(selector) {
+        if (selector === this.selectorText)
+          return;
+        this.selectorText = selector;
+        var renderer = this.renderer, renderable = this.renderable;
+        if (!renderable || !renderer)
+          return;
+        var hasChanged = renderer.setSelector(renderable, selector);
+        if (!hasChanged) {
+          renderer.replaceRule(renderable, this);
+        }
+      },
+      get: function get() {
+        return this.selectorText;
+      }
+    }]);
+    return StyleRule2;
+  }(BaseStyleRule);
+  var pluginStyleRule = {
+    onCreateRule: function onCreateRule(key, style, options) {
+      if (key[0] === "@" || options.parent && options.parent.type === "keyframes") {
+        return null;
+      }
+      return new StyleRule(key, style, options);
+    }
+  };
+  var defaultToStringOptions = {
+    indent: 1,
+    children: true
+  };
+  var atRegExp = /@([\w-]+)/;
+  var ConditionalRule = /* @__PURE__ */ function() {
+    function ConditionalRule2(key, styles, options) {
+      this.type = "conditional";
+      this.isProcessed = false;
+      this.key = key;
+      var atMatch = key.match(atRegExp);
+      this.at = atMatch ? atMatch[1] : "unknown";
+      this.query = options.name || "@" + this.at;
+      this.options = options;
+      this.rules = new RuleList(_extends({}, options, {
+        parent: this
+      }));
+      for (var name in styles) {
+        this.rules.add(name, styles[name]);
+      }
+      this.rules.process();
+    }
+    var _proto = ConditionalRule2.prototype;
+    _proto.getRule = function getRule(name) {
+      return this.rules.get(name);
+    };
+    _proto.indexOf = function indexOf(rule) {
+      return this.rules.indexOf(rule);
+    };
+    _proto.addRule = function addRule(name, style, options) {
+      var rule = this.rules.add(name, style, options);
+      if (!rule)
+        return null;
+      this.options.jss.plugins.onProcessRule(rule);
+      return rule;
+    };
+    _proto.replaceRule = function replaceRule(name, style, options) {
+      var newRule = this.rules.replace(name, style, options);
+      if (newRule)
+        this.options.jss.plugins.onProcessRule(newRule);
+      return newRule;
+    };
+    _proto.toString = function toString(options) {
+      if (options === void 0) {
+        options = defaultToStringOptions;
+      }
+      var _getWhitespaceSymbols = getWhitespaceSymbols(options), linebreak = _getWhitespaceSymbols.linebreak;
+      if (options.indent == null)
+        options.indent = defaultToStringOptions.indent;
+      if (options.children == null)
+        options.children = defaultToStringOptions.children;
+      if (options.children === false) {
+        return this.query + " {}";
+      }
+      var children = this.rules.toString(options);
+      return children ? this.query + " {" + linebreak + children + linebreak + "}" : "";
+    };
+    return ConditionalRule2;
+  }();
+  var keyRegExp = /@media|@supports\s+/;
+  var pluginConditionalRule = {
+    onCreateRule: function onCreateRule2(key, styles, options) {
+      return keyRegExp.test(key) ? new ConditionalRule(key, styles, options) : null;
+    }
+  };
+  var defaultToStringOptions$1 = {
+    indent: 1,
+    children: true
+  };
+  var nameRegExp = /@keyframes\s+([\w-]+)/;
+  var KeyframesRule = /* @__PURE__ */ function() {
+    function KeyframesRule2(key, frames, options) {
+      this.type = "keyframes";
+      this.at = "@keyframes";
+      this.isProcessed = false;
+      var nameMatch = key.match(nameRegExp);
+      if (nameMatch && nameMatch[1]) {
+        this.name = nameMatch[1];
+      } else {
+        this.name = "noname";
+        true ? tiny_warning_esm_default(false, "[JSS] Bad keyframes name " + key) : void 0;
+      }
+      this.key = this.type + "-" + this.name;
+      this.options = options;
+      var scoped = options.scoped, sheet = options.sheet, generateId = options.generateId;
+      this.id = scoped === false ? this.name : escape(generateId(this, sheet));
+      this.rules = new RuleList(_extends({}, options, {
+        parent: this
+      }));
+      for (var name in frames) {
+        this.rules.add(name, frames[name], _extends({}, options, {
+          parent: this
+        }));
+      }
+      this.rules.process();
+    }
+    var _proto = KeyframesRule2.prototype;
+    _proto.toString = function toString(options) {
+      if (options === void 0) {
+        options = defaultToStringOptions$1;
+      }
+      var _getWhitespaceSymbols = getWhitespaceSymbols(options), linebreak = _getWhitespaceSymbols.linebreak;
+      if (options.indent == null)
+        options.indent = defaultToStringOptions$1.indent;
+      if (options.children == null)
+        options.children = defaultToStringOptions$1.children;
+      if (options.children === false) {
+        return this.at + " " + this.id + " {}";
+      }
+      var children = this.rules.toString(options);
+      if (children)
+        children = "" + linebreak + children + linebreak;
+      return this.at + " " + this.id + " {" + children + "}";
+    };
+    return KeyframesRule2;
+  }();
+  var keyRegExp$1 = /@keyframes\s+/;
+  var refRegExp = /\$([\w-]+)/g;
+  var findReferencedKeyframe = function findReferencedKeyframe2(val, keyframes) {
+    if (typeof val === "string") {
+      return val.replace(refRegExp, function(match, name) {
+        if (name in keyframes) {
+          return keyframes[name];
+        }
+        true ? tiny_warning_esm_default(false, '[JSS] Referenced keyframes rule "' + name + '" is not defined.') : void 0;
+        return match;
+      });
+    }
+    return val;
+  };
+  var replaceRef = function replaceRef2(style, prop, keyframes) {
+    var value = style[prop];
+    var refKeyframe = findReferencedKeyframe(value, keyframes);
+    if (refKeyframe !== value) {
+      style[prop] = refKeyframe;
+    }
+  };
+  var pluginKeyframesRule = {
+    onCreateRule: function onCreateRule3(key, frames, options) {
+      return typeof key === "string" && keyRegExp$1.test(key) ? new KeyframesRule(key, frames, options) : null;
+    },
+    onProcessStyle: function onProcessStyle(style, rule, sheet) {
+      if (rule.type !== "style" || !sheet)
+        return style;
+      if ("animation-name" in style)
+        replaceRef(style, "animation-name", sheet.keyframes);
+      if ("animation" in style)
+        replaceRef(style, "animation", sheet.keyframes);
+      return style;
+    },
+    onChangeValue: function onChangeValue(val, prop, rule) {
+      var sheet = rule.options.sheet;
+      if (!sheet) {
+        return val;
+      }
+      switch (prop) {
+        case "animation":
+          return findReferencedKeyframe(val, sheet.keyframes);
+        case "animation-name":
+          return findReferencedKeyframe(val, sheet.keyframes);
+        default:
+          return val;
+      }
+    }
+  };
+  var KeyframeRule = /* @__PURE__ */ function(_BaseStyleRule) {
+    _inheritsLoose2(KeyframeRule2, _BaseStyleRule);
+    function KeyframeRule2() {
+      return _BaseStyleRule.apply(this, arguments) || this;
+    }
+    var _proto = KeyframeRule2.prototype;
+    _proto.toString = function toString(options) {
+      var sheet = this.options.sheet;
+      var link = sheet ? sheet.options.link : false;
+      var opts = link ? _extends({}, options, {
+        allowEmpty: true
+      }) : options;
+      return toCss(this.key, this.style, opts);
+    };
+    return KeyframeRule2;
+  }(BaseStyleRule);
+  var pluginKeyframeRule = {
+    onCreateRule: function onCreateRule4(key, style, options) {
+      if (options.parent && options.parent.type === "keyframes") {
+        return new KeyframeRule(key, style, options);
+      }
+      return null;
+    }
+  };
+  var FontFaceRule = /* @__PURE__ */ function() {
+    function FontFaceRule2(key, style, options) {
+      this.type = "font-face";
+      this.at = "@font-face";
+      this.isProcessed = false;
+      this.key = key;
+      this.style = style;
+      this.options = options;
+    }
+    var _proto = FontFaceRule2.prototype;
+    _proto.toString = function toString(options) {
+      var _getWhitespaceSymbols = getWhitespaceSymbols(options), linebreak = _getWhitespaceSymbols.linebreak;
+      if (Array.isArray(this.style)) {
+        var str = "";
+        for (var index4 = 0; index4 < this.style.length; index4++) {
+          str += toCss(this.at, this.style[index4]);
+          if (this.style[index4 + 1])
+            str += linebreak;
+        }
+        return str;
+      }
+      return toCss(this.at, this.style, options);
+    };
+    return FontFaceRule2;
+  }();
+  var keyRegExp$2 = /@font-face/;
+  var pluginFontFaceRule = {
+    onCreateRule: function onCreateRule5(key, style, options) {
+      return keyRegExp$2.test(key) ? new FontFaceRule(key, style, options) : null;
+    }
+  };
+  var ViewportRule = /* @__PURE__ */ function() {
+    function ViewportRule2(key, style, options) {
+      this.type = "viewport";
+      this.at = "@viewport";
+      this.isProcessed = false;
+      this.key = key;
+      this.style = style;
+      this.options = options;
+    }
+    var _proto = ViewportRule2.prototype;
+    _proto.toString = function toString(options) {
+      return toCss(this.key, this.style, options);
+    };
+    return ViewportRule2;
+  }();
+  var pluginViewportRule = {
+    onCreateRule: function onCreateRule6(key, style, options) {
+      return key === "@viewport" || key === "@-ms-viewport" ? new ViewportRule(key, style, options) : null;
+    }
+  };
+  var SimpleRule = /* @__PURE__ */ function() {
+    function SimpleRule2(key, value, options) {
+      this.type = "simple";
+      this.isProcessed = false;
+      this.key = key;
+      this.value = value;
+      this.options = options;
+    }
+    var _proto = SimpleRule2.prototype;
+    _proto.toString = function toString(options) {
+      if (Array.isArray(this.value)) {
+        var str = "";
+        for (var index4 = 0; index4 < this.value.length; index4++) {
+          str += this.key + " " + this.value[index4] + ";";
+          if (this.value[index4 + 1])
+            str += "\n";
+        }
+        return str;
+      }
+      return this.key + " " + this.value + ";";
+    };
+    return SimpleRule2;
+  }();
+  var keysMap = {
+    "@charset": true,
+    "@import": true,
+    "@namespace": true
+  };
+  var pluginSimpleRule = {
+    onCreateRule: function onCreateRule7(key, value, options) {
+      return key in keysMap ? new SimpleRule(key, value, options) : null;
+    }
+  };
+  var plugins = [pluginStyleRule, pluginConditionalRule, pluginKeyframesRule, pluginKeyframeRule, pluginFontFaceRule, pluginViewportRule, pluginSimpleRule];
+  var defaultUpdateOptions = {
+    process: true
+  };
+  var forceUpdateOptions = {
+    force: true,
+    process: true
+  };
+  var RuleList = /* @__PURE__ */ function() {
+    function RuleList2(options) {
+      this.map = {};
+      this.raw = {};
+      this.index = [];
+      this.counter = 0;
+      this.options = options;
+      this.classes = options.classes;
+      this.keyframes = options.keyframes;
+    }
+    var _proto = RuleList2.prototype;
+    _proto.add = function add(name, decl, ruleOptions) {
+      var _this$options = this.options, parent = _this$options.parent, sheet = _this$options.sheet, jss = _this$options.jss, Renderer = _this$options.Renderer, generateId = _this$options.generateId, scoped = _this$options.scoped;
+      var options = _extends({
+        classes: this.classes,
+        parent,
+        sheet,
+        jss,
+        Renderer,
+        generateId,
+        scoped,
+        name,
+        keyframes: this.keyframes,
+        selector: void 0
+      }, ruleOptions);
+      var key = name;
+      if (name in this.raw) {
+        key = name + "-d" + this.counter++;
+      }
+      this.raw[key] = decl;
+      if (key in this.classes) {
+        options.selector = "." + escape(this.classes[key]);
+      }
+      var rule = createRule(key, decl, options);
+      if (!rule)
+        return null;
+      this.register(rule);
+      var index4 = options.index === void 0 ? this.index.length : options.index;
+      this.index.splice(index4, 0, rule);
+      return rule;
+    };
+    _proto.replace = function replace(name, decl, ruleOptions) {
+      var oldRule = this.get(name);
+      var oldIndex = this.index.indexOf(oldRule);
+      if (oldRule) {
+        this.remove(oldRule);
+      }
+      var options = ruleOptions;
+      if (oldIndex !== -1)
+        options = _extends({}, ruleOptions, {
+          index: oldIndex
+        });
+      return this.add(name, decl, options);
+    };
+    _proto.get = function get(nameOrSelector) {
+      return this.map[nameOrSelector];
+    };
+    _proto.remove = function remove(rule) {
+      this.unregister(rule);
+      delete this.raw[rule.key];
+      this.index.splice(this.index.indexOf(rule), 1);
+    };
+    _proto.indexOf = function indexOf(rule) {
+      return this.index.indexOf(rule);
+    };
+    _proto.process = function process2() {
+      var plugins3 = this.options.jss.plugins;
+      this.index.slice(0).forEach(plugins3.onProcessRule, plugins3);
+    };
+    _proto.register = function register(rule) {
+      this.map[rule.key] = rule;
+      if (rule instanceof StyleRule) {
+        this.map[rule.selector] = rule;
+        if (rule.id)
+          this.classes[rule.key] = rule.id;
+      } else if (rule instanceof KeyframesRule && this.keyframes) {
+        this.keyframes[rule.name] = rule.id;
+      }
+    };
+    _proto.unregister = function unregister(rule) {
+      delete this.map[rule.key];
+      if (rule instanceof StyleRule) {
+        delete this.map[rule.selector];
+        delete this.classes[rule.key];
+      } else if (rule instanceof KeyframesRule) {
+        delete this.keyframes[rule.name];
+      }
+    };
+    _proto.update = function update() {
+      var name;
+      var data;
+      var options;
+      if (typeof (arguments.length <= 0 ? void 0 : arguments[0]) === "string") {
+        name = arguments.length <= 0 ? void 0 : arguments[0];
+        data = arguments.length <= 1 ? void 0 : arguments[1];
+        options = arguments.length <= 2 ? void 0 : arguments[2];
+      } else {
+        data = arguments.length <= 0 ? void 0 : arguments[0];
+        options = arguments.length <= 1 ? void 0 : arguments[1];
+        name = null;
+      }
+      if (name) {
+        this.updateOne(this.get(name), data, options);
+      } else {
+        for (var index4 = 0; index4 < this.index.length; index4++) {
+          this.updateOne(this.index[index4], data, options);
+        }
+      }
+    };
+    _proto.updateOne = function updateOne(rule, data, options) {
+      if (options === void 0) {
+        options = defaultUpdateOptions;
+      }
+      var _this$options2 = this.options, plugins3 = _this$options2.jss.plugins, sheet = _this$options2.sheet;
+      if (rule.rules instanceof RuleList2) {
+        rule.rules.update(data, options);
+        return;
+      }
+      var style = rule.style;
+      plugins3.onUpdate(data, rule, sheet, options);
+      if (options.process && style && style !== rule.style) {
+        plugins3.onProcessStyle(rule.style, rule, sheet);
+        for (var prop in rule.style) {
+          var nextValue = rule.style[prop];
+          var prevValue = style[prop];
+          if (nextValue !== prevValue) {
+            rule.prop(prop, nextValue, forceUpdateOptions);
+          }
+        }
+        for (var _prop in style) {
+          var _nextValue = rule.style[_prop];
+          var _prevValue = style[_prop];
+          if (_nextValue == null && _nextValue !== _prevValue) {
+            rule.prop(_prop, null, forceUpdateOptions);
+          }
+        }
+      }
+    };
+    _proto.toString = function toString(options) {
+      var str = "";
+      var sheet = this.options.sheet;
+      var link = sheet ? sheet.options.link : false;
+      var _getWhitespaceSymbols = getWhitespaceSymbols(options), linebreak = _getWhitespaceSymbols.linebreak;
+      for (var index4 = 0; index4 < this.index.length; index4++) {
+        var rule = this.index[index4];
+        var css3 = rule.toString(options);
+        if (!css3 && !link)
+          continue;
+        if (str)
+          str += linebreak;
+        str += css3;
+      }
+      return str;
+    };
+    return RuleList2;
+  }();
+  var StyleSheet = /* @__PURE__ */ function() {
+    function StyleSheet2(styles, options) {
+      this.attached = false;
+      this.deployed = false;
+      this.classes = {};
+      this.keyframes = {};
+      this.options = _extends({}, options, {
+        sheet: this,
+        parent: this,
+        classes: this.classes,
+        keyframes: this.keyframes
+      });
+      if (options.Renderer) {
+        this.renderer = new options.Renderer(this);
+      }
+      this.rules = new RuleList(this.options);
+      for (var name in styles) {
+        this.rules.add(name, styles[name]);
+      }
+      this.rules.process();
+    }
+    var _proto = StyleSheet2.prototype;
+    _proto.attach = function attach() {
+      if (this.attached)
+        return this;
+      if (this.renderer)
+        this.renderer.attach();
+      this.attached = true;
+      if (!this.deployed)
+        this.deploy();
+      return this;
+    };
+    _proto.detach = function detach() {
+      if (!this.attached)
+        return this;
+      if (this.renderer)
+        this.renderer.detach();
+      this.attached = false;
+      return this;
+    };
+    _proto.addRule = function addRule(name, decl, options) {
+      var queue = this.queue;
+      if (this.attached && !queue)
+        this.queue = [];
+      var rule = this.rules.add(name, decl, options);
+      if (!rule)
+        return null;
+      this.options.jss.plugins.onProcessRule(rule);
+      if (this.attached) {
+        if (!this.deployed)
+          return rule;
+        if (queue)
+          queue.push(rule);
+        else {
+          this.insertRule(rule);
+          if (this.queue) {
+            this.queue.forEach(this.insertRule, this);
+            this.queue = void 0;
+          }
+        }
+        return rule;
+      }
+      this.deployed = false;
+      return rule;
+    };
+    _proto.replaceRule = function replaceRule(nameOrSelector, decl, options) {
+      var oldRule = this.rules.get(nameOrSelector);
+      if (!oldRule)
+        return this.addRule(nameOrSelector, decl, options);
+      var newRule = this.rules.replace(nameOrSelector, decl, options);
+      if (newRule) {
+        this.options.jss.plugins.onProcessRule(newRule);
+      }
+      if (this.attached) {
+        if (!this.deployed)
+          return newRule;
+        if (this.renderer) {
+          if (!newRule) {
+            this.renderer.deleteRule(oldRule);
+          } else if (oldRule.renderable) {
+            this.renderer.replaceRule(oldRule.renderable, newRule);
+          }
+        }
+        return newRule;
+      }
+      this.deployed = false;
+      return newRule;
+    };
+    _proto.insertRule = function insertRule2(rule) {
+      if (this.renderer) {
+        this.renderer.insertRule(rule);
+      }
+    };
+    _proto.addRules = function addRules(styles, options) {
+      var added = [];
+      for (var name in styles) {
+        var rule = this.addRule(name, styles[name], options);
+        if (rule)
+          added.push(rule);
+      }
+      return added;
+    };
+    _proto.getRule = function getRule(nameOrSelector) {
+      return this.rules.get(nameOrSelector);
+    };
+    _proto.deleteRule = function deleteRule(name) {
+      var rule = typeof name === "object" ? name : this.rules.get(name);
+      if (!rule || this.attached && !rule.renderable) {
+        return false;
+      }
+      this.rules.remove(rule);
+      if (this.attached && rule.renderable && this.renderer) {
+        return this.renderer.deleteRule(rule.renderable);
+      }
+      return true;
+    };
+    _proto.indexOf = function indexOf(rule) {
+      return this.rules.indexOf(rule);
+    };
+    _proto.deploy = function deploy() {
+      if (this.renderer)
+        this.renderer.deploy();
+      this.deployed = true;
+      return this;
+    };
+    _proto.update = function update() {
+      var _this$rules;
+      (_this$rules = this.rules).update.apply(_this$rules, arguments);
+      return this;
+    };
+    _proto.updateOne = function updateOne(rule, data, options) {
+      this.rules.updateOne(rule, data, options);
+      return this;
+    };
+    _proto.toString = function toString(options) {
+      return this.rules.toString(options);
+    };
+    return StyleSheet2;
+  }();
+  var PluginsRegistry = /* @__PURE__ */ function() {
+    function PluginsRegistry2() {
+      this.plugins = {
+        internal: [],
+        external: []
+      };
+      this.registry = {};
+    }
+    var _proto = PluginsRegistry2.prototype;
+    _proto.onCreateRule = function onCreateRule8(name, decl, options) {
+      for (var i = 0; i < this.registry.onCreateRule.length; i++) {
+        var rule = this.registry.onCreateRule[i](name, decl, options);
+        if (rule)
+          return rule;
+      }
+      return null;
+    };
+    _proto.onProcessRule = function onProcessRule3(rule) {
+      if (rule.isProcessed)
+        return;
+      var sheet = rule.options.sheet;
+      for (var i = 0; i < this.registry.onProcessRule.length; i++) {
+        this.registry.onProcessRule[i](rule, sheet);
+      }
+      if (rule.style)
+        this.onProcessStyle(rule.style, rule, sheet);
+      rule.isProcessed = true;
+    };
+    _proto.onProcessStyle = function onProcessStyle2(style, rule, sheet) {
+      for (var i = 0; i < this.registry.onProcessStyle.length; i++) {
+        rule.style = this.registry.onProcessStyle[i](rule.style, rule, sheet);
+      }
+    };
+    _proto.onProcessSheet = function onProcessSheet(sheet) {
+      for (var i = 0; i < this.registry.onProcessSheet.length; i++) {
+        this.registry.onProcessSheet[i](sheet);
+      }
+    };
+    _proto.onUpdate = function onUpdate(data, rule, sheet, options) {
+      for (var i = 0; i < this.registry.onUpdate.length; i++) {
+        this.registry.onUpdate[i](data, rule, sheet, options);
+      }
+    };
+    _proto.onChangeValue = function onChangeValue2(value, prop, rule) {
+      var processedValue = value;
+      for (var i = 0; i < this.registry.onChangeValue.length; i++) {
+        processedValue = this.registry.onChangeValue[i](processedValue, prop, rule);
+      }
+      return processedValue;
+    };
+    _proto.use = function use(newPlugin, options) {
+      if (options === void 0) {
+        options = {
+          queue: "external"
+        };
+      }
+      var plugins3 = this.plugins[options.queue];
+      if (plugins3.indexOf(newPlugin) !== -1) {
+        return;
+      }
+      plugins3.push(newPlugin);
+      this.registry = [].concat(this.plugins.external, this.plugins.internal).reduce(function(registry, plugin) {
+        for (var name in plugin) {
+          if (name in registry) {
+            registry[name].push(plugin[name]);
+          } else {
+            true ? tiny_warning_esm_default(false, '[JSS] Unknown hook "' + name + '".') : void 0;
+          }
+        }
+        return registry;
+      }, {
+        onCreateRule: [],
+        onProcessRule: [],
+        onProcessStyle: [],
+        onProcessSheet: [],
+        onChangeValue: [],
+        onUpdate: []
+      });
+    };
+    return PluginsRegistry2;
+  }();
+  var SheetsRegistry = /* @__PURE__ */ function() {
+    function SheetsRegistry2() {
+      this.registry = [];
+    }
+    var _proto = SheetsRegistry2.prototype;
+    _proto.add = function add(sheet) {
+      var registry = this.registry;
+      var index4 = sheet.options.index;
+      if (registry.indexOf(sheet) !== -1)
+        return;
+      if (registry.length === 0 || index4 >= this.index) {
+        registry.push(sheet);
+        return;
+      }
+      for (var i = 0; i < registry.length; i++) {
+        if (registry[i].options.index > index4) {
+          registry.splice(i, 0, sheet);
+          return;
+        }
+      }
+    };
+    _proto.reset = function reset() {
+      this.registry = [];
+    };
+    _proto.remove = function remove(sheet) {
+      var index4 = this.registry.indexOf(sheet);
+      this.registry.splice(index4, 1);
+    };
+    _proto.toString = function toString(_temp) {
+      var _ref = _temp === void 0 ? {} : _temp, attached = _ref.attached, options = _objectWithoutPropertiesLoose(_ref, ["attached"]);
+      var _getWhitespaceSymbols = getWhitespaceSymbols(options), linebreak = _getWhitespaceSymbols.linebreak;
+      var css3 = "";
+      for (var i = 0; i < this.registry.length; i++) {
+        var sheet = this.registry[i];
+        if (attached != null && sheet.attached !== attached) {
+          continue;
+        }
+        if (css3)
+          css3 += linebreak;
+        css3 += sheet.toString(options);
+      }
+      return css3;
+    };
+    _createClass(SheetsRegistry2, [{
+      key: "index",
+      get: function get() {
+        return this.registry.length === 0 ? 0 : this.registry[this.registry.length - 1].options.index;
+      }
+    }]);
+    return SheetsRegistry2;
+  }();
+  var sheets = new SheetsRegistry();
+  var globalThis$1 = typeof globalThis !== "undefined" ? globalThis : typeof window !== "undefined" && window.Math === Math ? window : typeof self !== "undefined" && self.Math === Math ? self : Function("return this")();
+  var ns = "2f1acc6c3a606b082e5eef5e54414ffb";
+  if (globalThis$1[ns] == null)
+    globalThis$1[ns] = 0;
+  var moduleId = globalThis$1[ns]++;
+  var maxRules = 1e10;
+  var createGenerateId = function createGenerateId2(options) {
+    if (options === void 0) {
+      options = {};
+    }
+    var ruleCounter = 0;
+    var generateId = function generateId2(rule, sheet) {
+      ruleCounter += 1;
+      if (ruleCounter > maxRules) {
+        true ? tiny_warning_esm_default(false, "[JSS] You might have a memory leak. Rule counter is at " + ruleCounter + ".") : void 0;
+      }
+      var jssId = "";
+      var prefix2 = "";
+      if (sheet) {
+        if (sheet.options.classNamePrefix) {
+          prefix2 = sheet.options.classNamePrefix;
+        }
+        if (sheet.options.jss.id != null) {
+          jssId = String(sheet.options.jss.id);
+        }
+      }
+      if (options.minify) {
+        return "" + (prefix2 || "c") + moduleId + jssId + ruleCounter;
+      }
+      return prefix2 + rule.key + "-" + moduleId + (jssId ? "-" + jssId : "") + "-" + ruleCounter;
+    };
+    return generateId;
+  };
+  var memoize = function memoize2(fn) {
+    var value;
+    return function() {
+      if (!value)
+        value = fn();
+      return value;
+    };
+  };
+  var getPropertyValue = function getPropertyValue2(cssRule, prop) {
+    try {
+      if (cssRule.attributeStyleMap) {
+        return cssRule.attributeStyleMap.get(prop);
+      }
+      return cssRule.style.getPropertyValue(prop);
+    } catch (err) {
+      return "";
+    }
+  };
+  var setProperty = function setProperty2(cssRule, prop, value) {
+    try {
+      var cssValue = value;
+      if (Array.isArray(value)) {
+        cssValue = toCssValue(value);
+      }
+      if (cssRule.attributeStyleMap) {
+        cssRule.attributeStyleMap.set(prop, cssValue);
+      } else {
+        var indexOfImportantFlag = cssValue ? cssValue.indexOf("!important") : -1;
+        var cssValueWithoutImportantFlag = indexOfImportantFlag > -1 ? cssValue.substr(0, indexOfImportantFlag - 1) : cssValue;
+        cssRule.style.setProperty(prop, cssValueWithoutImportantFlag, indexOfImportantFlag > -1 ? "important" : "");
+      }
+    } catch (err) {
+      return false;
+    }
+    return true;
+  };
+  var removeProperty = function removeProperty2(cssRule, prop) {
+    try {
+      if (cssRule.attributeStyleMap) {
+        cssRule.attributeStyleMap.delete(prop);
+      } else {
+        cssRule.style.removeProperty(prop);
+      }
+    } catch (err) {
+      true ? tiny_warning_esm_default(false, '[JSS] DOMException "' + err.message + '" was thrown. Tried to remove property "' + prop + '".') : void 0;
+    }
+  };
+  var setSelector = function setSelector2(cssRule, selectorText) {
+    cssRule.selectorText = selectorText;
+    return cssRule.selectorText === selectorText;
+  };
+  var getHead = memoize(function() {
+    return document.querySelector("head");
+  });
+  function findHigherSheet(registry, options) {
+    for (var i = 0; i < registry.length; i++) {
+      var sheet = registry[i];
+      if (sheet.attached && sheet.options.index > options.index && sheet.options.insertionPoint === options.insertionPoint) {
+        return sheet;
+      }
+    }
+    return null;
+  }
+  function findHighestSheet(registry, options) {
+    for (var i = registry.length - 1; i >= 0; i--) {
+      var sheet = registry[i];
+      if (sheet.attached && sheet.options.insertionPoint === options.insertionPoint) {
+        return sheet;
+      }
+    }
+    return null;
+  }
+  function findCommentNode(text) {
+    var head = getHead();
+    for (var i = 0; i < head.childNodes.length; i++) {
+      var node = head.childNodes[i];
+      if (node.nodeType === 8 && node.nodeValue.trim() === text) {
+        return node;
+      }
+    }
+    return null;
+  }
+  function findPrevNode(options) {
+    var registry = sheets.registry;
+    if (registry.length > 0) {
+      var sheet = findHigherSheet(registry, options);
+      if (sheet && sheet.renderer) {
+        return {
+          parent: sheet.renderer.element.parentNode,
+          node: sheet.renderer.element
+        };
+      }
+      sheet = findHighestSheet(registry, options);
+      if (sheet && sheet.renderer) {
+        return {
+          parent: sheet.renderer.element.parentNode,
+          node: sheet.renderer.element.nextSibling
+        };
+      }
+    }
+    var insertionPoint = options.insertionPoint;
+    if (insertionPoint && typeof insertionPoint === "string") {
+      var comment = findCommentNode(insertionPoint);
+      if (comment) {
+        return {
+          parent: comment.parentNode,
+          node: comment.nextSibling
+        };
+      }
+      true ? tiny_warning_esm_default(false, '[JSS] Insertion point "' + insertionPoint + '" not found.') : void 0;
+    }
+    return false;
+  }
+  function insertStyle(style, options) {
+    var insertionPoint = options.insertionPoint;
+    var nextNode = findPrevNode(options);
+    if (nextNode !== false && nextNode.parent) {
+      nextNode.parent.insertBefore(style, nextNode.node);
+      return;
+    }
+    if (insertionPoint && typeof insertionPoint.nodeType === "number") {
+      var insertionPointElement = insertionPoint;
+      var parentNode = insertionPointElement.parentNode;
+      if (parentNode)
+        parentNode.insertBefore(style, insertionPointElement.nextSibling);
+      else
+        true ? tiny_warning_esm_default(false, "[JSS] Insertion point is not in the DOM.") : void 0;
+      return;
+    }
+    getHead().appendChild(style);
+  }
+  var getNonce = memoize(function() {
+    var node = document.querySelector('meta[property="csp-nonce"]');
+    return node ? node.getAttribute("content") : null;
+  });
+  var _insertRule = function insertRule(container, rule, index4) {
+    try {
+      if ("insertRule" in container) {
+        container.insertRule(rule, index4);
+      } else if ("appendRule" in container) {
+        container.appendRule(rule);
+      }
+    } catch (err) {
+      true ? tiny_warning_esm_default(false, "[JSS] " + err.message) : void 0;
+      return false;
+    }
+    return container.cssRules[index4];
+  };
+  var getValidRuleInsertionIndex = function getValidRuleInsertionIndex2(container, index4) {
+    var maxIndex = container.cssRules.length;
+    if (index4 === void 0 || index4 > maxIndex) {
+      return maxIndex;
+    }
+    return index4;
+  };
+  var createStyle = function createStyle2() {
+    var el2 = document.createElement("style");
+    el2.textContent = "\n";
+    return el2;
+  };
+  var DomRenderer = /* @__PURE__ */ function() {
+    function DomRenderer2(sheet) {
+      this.getPropertyValue = getPropertyValue;
+      this.setProperty = setProperty;
+      this.removeProperty = removeProperty;
+      this.setSelector = setSelector;
+      this.hasInsertedRules = false;
+      this.cssRules = [];
+      if (sheet)
+        sheets.add(sheet);
+      this.sheet = sheet;
+      var _ref = this.sheet ? this.sheet.options : {}, media = _ref.media, meta = _ref.meta, element = _ref.element;
+      this.element = element || createStyle();
+      this.element.setAttribute("data-jss", "");
+      if (media)
+        this.element.setAttribute("media", media);
+      if (meta)
+        this.element.setAttribute("data-meta", meta);
+      var nonce = getNonce();
+      if (nonce)
+        this.element.setAttribute("nonce", nonce);
+    }
+    var _proto = DomRenderer2.prototype;
+    _proto.attach = function attach() {
+      if (this.element.parentNode || !this.sheet)
+        return;
+      insertStyle(this.element, this.sheet.options);
+      var deployed = Boolean(this.sheet && this.sheet.deployed);
+      if (this.hasInsertedRules && deployed) {
+        this.hasInsertedRules = false;
+        this.deploy();
+      }
+    };
+    _proto.detach = function detach() {
+      if (!this.sheet)
+        return;
+      var parentNode = this.element.parentNode;
+      if (parentNode)
+        parentNode.removeChild(this.element);
+      if (this.sheet.options.link) {
+        this.cssRules = [];
+        this.element.textContent = "\n";
+      }
+    };
+    _proto.deploy = function deploy() {
+      var sheet = this.sheet;
+      if (!sheet)
+        return;
+      if (sheet.options.link) {
+        this.insertRules(sheet.rules);
+        return;
+      }
+      this.element.textContent = "\n" + sheet.toString() + "\n";
+    };
+    _proto.insertRules = function insertRules(rules, nativeParent) {
+      for (var i = 0; i < rules.index.length; i++) {
+        this.insertRule(rules.index[i], i, nativeParent);
+      }
+    };
+    _proto.insertRule = function insertRule2(rule, index4, nativeParent) {
+      if (nativeParent === void 0) {
+        nativeParent = this.element.sheet;
+      }
+      if (rule.rules) {
+        var parent = rule;
+        var latestNativeParent = nativeParent;
+        if (rule.type === "conditional" || rule.type === "keyframes") {
+          var _insertionIndex = getValidRuleInsertionIndex(nativeParent, index4);
+          latestNativeParent = _insertRule(nativeParent, parent.toString({
+            children: false
+          }), _insertionIndex);
+          if (latestNativeParent === false) {
+            return false;
+          }
+          this.refCssRule(rule, _insertionIndex, latestNativeParent);
+        }
+        this.insertRules(parent.rules, latestNativeParent);
+        return latestNativeParent;
+      }
+      var ruleStr = rule.toString();
+      if (!ruleStr)
+        return false;
+      var insertionIndex = getValidRuleInsertionIndex(nativeParent, index4);
+      var nativeRule = _insertRule(nativeParent, ruleStr, insertionIndex);
+      if (nativeRule === false) {
+        return false;
+      }
+      this.hasInsertedRules = true;
+      this.refCssRule(rule, insertionIndex, nativeRule);
+      return nativeRule;
+    };
+    _proto.refCssRule = function refCssRule(rule, index4, cssRule) {
+      rule.renderable = cssRule;
+      if (rule.options.parent instanceof StyleSheet) {
+        this.cssRules.splice(index4, 0, cssRule);
+      }
+    };
+    _proto.deleteRule = function deleteRule(cssRule) {
+      var sheet = this.element.sheet;
+      var index4 = this.indexOf(cssRule);
+      if (index4 === -1)
+        return false;
+      sheet.deleteRule(index4);
+      this.cssRules.splice(index4, 1);
+      return true;
+    };
+    _proto.indexOf = function indexOf(cssRule) {
+      return this.cssRules.indexOf(cssRule);
+    };
+    _proto.replaceRule = function replaceRule(cssRule, rule) {
+      var index4 = this.indexOf(cssRule);
+      if (index4 === -1)
+        return false;
+      this.element.sheet.deleteRule(index4);
+      this.cssRules.splice(index4, 1);
+      return this.insertRule(rule, index4);
+    };
+    _proto.getRules = function getRules() {
+      return this.element.sheet.cssRules;
+    };
+    return DomRenderer2;
+  }();
+  var instanceCounter = 0;
+  var Jss = /* @__PURE__ */ function() {
+    function Jss2(options) {
+      this.id = instanceCounter++;
+      this.version = "10.9.1";
+      this.plugins = new PluginsRegistry();
+      this.options = {
+        id: {
+          minify: false
+        },
+        createGenerateId,
+        Renderer: module_default ? DomRenderer : null,
+        plugins: []
+      };
+      this.generateId = createGenerateId({
+        minify: false
+      });
+      for (var i = 0; i < plugins.length; i++) {
+        this.plugins.use(plugins[i], {
+          queue: "internal"
+        });
+      }
+      this.setup(options);
+    }
+    var _proto = Jss2.prototype;
+    _proto.setup = function setup(options) {
+      if (options === void 0) {
+        options = {};
+      }
+      if (options.createGenerateId) {
+        this.options.createGenerateId = options.createGenerateId;
+      }
+      if (options.id) {
+        this.options.id = _extends({}, this.options.id, options.id);
+      }
+      if (options.createGenerateId || options.id) {
+        this.generateId = this.options.createGenerateId(this.options.id);
+      }
+      if (options.insertionPoint != null)
+        this.options.insertionPoint = options.insertionPoint;
+      if ("Renderer" in options) {
+        this.options.Renderer = options.Renderer;
+      }
+      if (options.plugins)
+        this.use.apply(this, options.plugins);
+      return this;
+    };
+    _proto.createStyleSheet = function createStyleSheet3(styles, options) {
+      if (options === void 0) {
+        options = {};
+      }
+      var _options = options, index4 = _options.index;
+      if (typeof index4 !== "number") {
+        index4 = sheets.index === 0 ? 0 : sheets.index + 1;
+      }
+      var sheet = new StyleSheet(styles, _extends({}, options, {
+        jss: this,
+        generateId: options.generateId || this.generateId,
+        insertionPoint: this.options.insertionPoint,
+        Renderer: this.options.Renderer,
+        index: index4
+      }));
+      this.plugins.onProcessSheet(sheet);
+      return sheet;
+    };
+    _proto.removeStyleSheet = function removeStyleSheet(sheet) {
+      sheet.detach();
+      sheets.remove(sheet);
+      return this;
+    };
+    _proto.createRule = function createRule$1(name, style, options) {
+      if (style === void 0) {
+        style = {};
+      }
+      if (options === void 0) {
+        options = {};
+      }
+      if (typeof name === "object") {
+        return this.createRule(void 0, name, style);
+      }
+      var ruleOptions = _extends({}, options, {
+        name,
+        jss: this,
+        Renderer: this.options.Renderer
+      });
+      if (!ruleOptions.generateId)
+        ruleOptions.generateId = this.generateId;
+      if (!ruleOptions.classes)
+        ruleOptions.classes = {};
+      if (!ruleOptions.keyframes)
+        ruleOptions.keyframes = {};
+      var rule = createRule(name, style, ruleOptions);
+      if (rule)
+        this.plugins.onProcessRule(rule);
+      return rule;
+    };
+    _proto.use = function use() {
+      var _this = this;
+      for (var _len = arguments.length, plugins3 = new Array(_len), _key = 0; _key < _len; _key++) {
+        plugins3[_key] = arguments[_key];
+      }
+      plugins3.forEach(function(plugin) {
+        _this.plugins.use(plugin);
+      });
+      return this;
+    };
+    return Jss2;
+  }();
+  var createJss = function createJss2(options) {
+    return new Jss(options);
+  };
+  var SheetsManager = /* @__PURE__ */ function() {
+    function SheetsManager2() {
+      this.length = 0;
+      this.sheets = /* @__PURE__ */ new WeakMap();
+    }
+    var _proto = SheetsManager2.prototype;
+    _proto.get = function get(key) {
+      var entry = this.sheets.get(key);
+      return entry && entry.sheet;
+    };
+    _proto.add = function add(key, sheet) {
+      if (this.sheets.has(key))
+        return;
+      this.length++;
+      this.sheets.set(key, {
+        sheet,
+        refs: 0
+      });
+    };
+    _proto.manage = function manage(key) {
+      var entry = this.sheets.get(key);
+      if (entry) {
+        if (entry.refs === 0) {
+          entry.sheet.attach();
+        }
+        entry.refs++;
+        return entry.sheet;
+      }
+      tiny_warning_esm_default(false, "[JSS] SheetsManager: can't find sheet to manage");
+      return void 0;
+    };
+    _proto.unmanage = function unmanage(key) {
+      var entry = this.sheets.get(key);
+      if (entry) {
+        if (entry.refs > 0) {
+          entry.refs--;
+          if (entry.refs === 0)
+            entry.sheet.detach();
+        }
+      } else {
+        tiny_warning_esm_default(false, "SheetsManager: can't find sheet to unmanage");
+      }
+    };
+    _createClass(SheetsManager2, [{
+      key: "size",
+      get: function get() {
+        return this.length;
+      }
+    }]);
+    return SheetsManager2;
+  }();
+  var hasCSSTOMSupport = typeof CSS === "object" && CSS != null && "number" in CSS;
+  function getDynamicStyles(styles) {
+    var to = null;
+    for (var key in styles) {
+      var value = styles[key];
+      var type = typeof value;
+      if (type === "function") {
+        if (!to)
+          to = {};
+        to[key] = value;
+      } else if (type === "object" && value !== null && !Array.isArray(value)) {
+        var extracted = getDynamicStyles(value);
+        if (extracted) {
+          if (!to)
+            to = {};
+          to[key] = extracted;
+        }
+      }
+    }
+    return to;
+  }
+  var index = createJss();
+
+  // node_modules/jss-plugin-rule-value-function/dist/jss-plugin-rule-value-function.esm.js
+  var now = Date.now();
+  var fnValuesNs = "fnValues" + now;
+  var fnRuleNs = "fnStyle" + ++now;
+  var functionPlugin = function functionPlugin2() {
+    return {
+      onCreateRule: function onCreateRule8(name, decl, options) {
+        if (typeof decl !== "function")
+          return null;
+        var rule = createRule(name, {}, options);
+        rule[fnRuleNs] = decl;
+        return rule;
+      },
+      onProcessStyle: function onProcessStyle2(style, rule) {
+        if (fnValuesNs in rule || fnRuleNs in rule)
+          return style;
+        var fnValues = {};
+        for (var prop in style) {
+          var value = style[prop];
+          if (typeof value !== "function")
+            continue;
+          delete style[prop];
+          fnValues[prop] = value;
+        }
+        rule[fnValuesNs] = fnValues;
+        return style;
+      },
+      onUpdate: function onUpdate(data, rule, sheet, options) {
+        var styleRule = rule;
+        var fnRule = styleRule[fnRuleNs];
+        if (fnRule) {
+          styleRule.style = fnRule(data) || {};
+          if (true) {
+            for (var prop in styleRule.style) {
+              if (typeof styleRule.style[prop] === "function") {
+                true ? tiny_warning_esm_default(false, "[JSS] Function values inside function rules are not supported.") : void 0;
+                break;
+              }
+            }
+          }
+        }
+        var fnValues = styleRule[fnValuesNs];
+        if (fnValues) {
+          for (var _prop in fnValues) {
+            styleRule.prop(_prop, fnValues[_prop](data), options);
+          }
+        }
+      }
+    };
+  };
+  var jss_plugin_rule_value_function_esm_default = functionPlugin;
+
+  // node_modules/symbol-observable/es/ponyfill.js
+  function symbolObservablePonyfill(root3) {
+    var result2;
+    var Symbol2 = root3.Symbol;
+    if (typeof Symbol2 === "function") {
+      if (Symbol2.observable) {
+        result2 = Symbol2.observable;
+      } else {
+        result2 = Symbol2("observable");
+        Symbol2.observable = result2;
+      }
+    } else {
+      result2 = "@@observable";
+    }
+    return result2;
+  }
+
+  // node_modules/symbol-observable/es/index.js
+  var root;
+  if (typeof self !== "undefined") {
+    root = self;
+  } else if (typeof window !== "undefined") {
+    root = window;
+  } else if (typeof global !== "undefined") {
+    root = global;
+  } else if (typeof module !== "undefined") {
+    root = module;
+  } else {
+    root = Function("return this")();
+  }
+  var result = symbolObservablePonyfill(root);
+  var es_default = result;
+
+  // node_modules/jss-plugin-rule-value-observable/dist/jss-plugin-rule-value-observable.esm.js
+  var isObservable = function isObservable2(value) {
+    return value && value[es_default] && value === value[es_default]();
+  };
+  var observablePlugin = function observablePlugin2(updateOptions) {
+    return {
+      onCreateRule: function onCreateRule8(name, decl, options) {
+        if (!isObservable(decl))
+          return null;
+        var style$ = decl;
+        var rule = createRule(name, {}, options);
+        style$.subscribe(function(style) {
+          for (var prop in style) {
+            rule.prop(prop, style[prop], updateOptions);
+          }
+        });
+        return rule;
+      },
+      onProcessRule: function onProcessRule3(rule) {
+        if (rule && rule.type !== "style")
+          return;
+        var styleRule = rule;
+        var style = styleRule.style;
+        var _loop = function _loop2(prop2) {
+          var value = style[prop2];
+          if (!isObservable(value))
+            return "continue";
+          delete style[prop2];
+          value.subscribe({
+            next: function next(nextValue) {
+              styleRule.prop(prop2, nextValue, updateOptions);
+            }
+          });
+        };
+        for (var prop in style) {
+          var _ret = _loop(prop);
+          if (_ret === "continue")
+            continue;
+        }
+      }
+    };
+  };
+  var jss_plugin_rule_value_observable_esm_default = observablePlugin;
+
+  // node_modules/jss-plugin-template/dist/jss-plugin-template.esm.js
+  var semiWithNl = /;\n/;
+  var parse = function parse2(cssText) {
+    var style = {};
+    var split = cssText.split(semiWithNl);
+    for (var i = 0; i < split.length; i++) {
+      var decl = (split[i] || "").trim();
+      if (!decl)
+        continue;
+      var colonIndex = decl.indexOf(":");
+      if (colonIndex === -1) {
+        true ? tiny_warning_esm_default(false, '[JSS] Malformed CSS string "' + decl + '"') : void 0;
+        continue;
+      }
+      var prop = decl.substr(0, colonIndex).trim();
+      var value = decl.substr(colonIndex + 1).trim();
+      style[prop] = value;
+    }
+    return style;
+  };
+  var onProcessRule = function onProcessRule2(rule) {
+    if (typeof rule.style === "string") {
+      rule.style = parse(rule.style);
+    }
+  };
+  function templatePlugin() {
+    return {
+      onProcessRule
+    };
+  }
+  var jss_plugin_template_esm_default = templatePlugin;
+
+  // node_modules/jss-plugin-global/dist/jss-plugin-global.esm.js
+  var at = "@global";
+  var atPrefix = "@global ";
+  var GlobalContainerRule = /* @__PURE__ */ function() {
+    function GlobalContainerRule2(key, styles, options) {
+      this.type = "global";
+      this.at = at;
+      this.isProcessed = false;
+      this.key = key;
+      this.options = options;
+      this.rules = new RuleList(_extends({}, options, {
+        parent: this
+      }));
+      for (var selector in styles) {
+        this.rules.add(selector, styles[selector]);
+      }
+      this.rules.process();
+    }
+    var _proto = GlobalContainerRule2.prototype;
+    _proto.getRule = function getRule(name) {
+      return this.rules.get(name);
+    };
+    _proto.addRule = function addRule(name, style, options) {
+      var rule = this.rules.add(name, style, options);
+      if (rule)
+        this.options.jss.plugins.onProcessRule(rule);
+      return rule;
+    };
+    _proto.replaceRule = function replaceRule(name, style, options) {
+      var newRule = this.rules.replace(name, style, options);
+      if (newRule)
+        this.options.jss.plugins.onProcessRule(newRule);
+      return newRule;
+    };
+    _proto.indexOf = function indexOf(rule) {
+      return this.rules.indexOf(rule);
+    };
+    _proto.toString = function toString(options) {
+      return this.rules.toString(options);
+    };
+    return GlobalContainerRule2;
+  }();
+  var GlobalPrefixedRule = /* @__PURE__ */ function() {
+    function GlobalPrefixedRule2(key, style, options) {
+      this.type = "global";
+      this.at = at;
+      this.isProcessed = false;
+      this.key = key;
+      this.options = options;
+      var selector = key.substr(atPrefix.length);
+      this.rule = options.jss.createRule(selector, style, _extends({}, options, {
+        parent: this
+      }));
+    }
+    var _proto2 = GlobalPrefixedRule2.prototype;
+    _proto2.toString = function toString(options) {
+      return this.rule ? this.rule.toString(options) : "";
+    };
+    return GlobalPrefixedRule2;
+  }();
+  var separatorRegExp = /\s*,\s*/g;
+  function addScope(selector, scope) {
+    var parts = selector.split(separatorRegExp);
+    var scoped = "";
+    for (var i = 0; i < parts.length; i++) {
+      scoped += scope + " " + parts[i].trim();
+      if (parts[i + 1])
+        scoped += ", ";
+    }
+    return scoped;
+  }
+  function handleNestedGlobalContainerRule(rule, sheet) {
+    var options = rule.options, style = rule.style;
+    var rules = style ? style[at] : null;
+    if (!rules)
+      return;
+    for (var name in rules) {
+      sheet.addRule(name, rules[name], _extends({}, options, {
+        selector: addScope(name, rule.selector)
+      }));
+    }
+    delete style[at];
+  }
+  function handlePrefixedGlobalRule(rule, sheet) {
+    var options = rule.options, style = rule.style;
+    for (var prop in style) {
+      if (prop[0] !== "@" || prop.substr(0, at.length) !== at)
+        continue;
+      var selector = addScope(prop.substr(at.length), rule.selector);
+      sheet.addRule(selector, style[prop], _extends({}, options, {
+        selector
+      }));
+      delete style[prop];
+    }
+  }
+  function jssGlobal() {
+    function onCreateRule8(name, styles, options) {
+      if (!name)
+        return null;
+      if (name === at) {
+        return new GlobalContainerRule(name, styles, options);
+      }
+      if (name[0] === "@" && name.substr(0, atPrefix.length) === atPrefix) {
+        return new GlobalPrefixedRule(name, styles, options);
+      }
+      var parent = options.parent;
+      if (parent) {
+        if (parent.type === "global" || parent.options.parent && parent.options.parent.type === "global") {
+          options.scoped = false;
+        }
+      }
+      if (!options.selector && options.scoped === false) {
+        options.selector = name;
+      }
+      return null;
+    }
+    function onProcessRule3(rule, sheet) {
+      if (rule.type !== "style" || !sheet)
+        return;
+      handleNestedGlobalContainerRule(rule, sheet);
+      handlePrefixedGlobalRule(rule, sheet);
+    }
+    return {
+      onCreateRule: onCreateRule8,
+      onProcessRule: onProcessRule3
+    };
+  }
+  var jss_plugin_global_esm_default = jssGlobal;
+
+  // node_modules/jss-plugin-extend/dist/jss-plugin-extend.esm.js
+  var isObject2 = function isObject3(obj) {
+    return obj && typeof obj === "object" && !Array.isArray(obj);
+  };
+  var valueNs = "extendCurrValue" + Date.now();
+  function mergeExtend(style, rule, sheet, newStyle) {
+    var extendType = typeof style.extend;
+    if (extendType === "string") {
+      if (!sheet)
+        return;
+      var refRule = sheet.getRule(style.extend);
+      if (!refRule)
+        return;
+      if (refRule === rule) {
+        true ? tiny_warning_esm_default(false, "[JSS] A rule tries to extend itself \n" + rule.toString()) : void 0;
+        return;
+      }
+      var parent = refRule.options.parent;
+      if (parent) {
+        var originalStyle = parent.rules.raw[style.extend];
+        extend(originalStyle, rule, sheet, newStyle);
+      }
+      return;
+    }
+    if (Array.isArray(style.extend)) {
+      for (var index4 = 0; index4 < style.extend.length; index4++) {
+        var singleExtend = style.extend[index4];
+        var singleStyle = typeof singleExtend === "string" ? _extends({}, style, {
+          extend: singleExtend
+        }) : style.extend[index4];
+        extend(singleStyle, rule, sheet, newStyle);
+      }
+      return;
+    }
+    for (var prop in style.extend) {
+      if (prop === "extend") {
+        extend(style.extend.extend, rule, sheet, newStyle);
+        continue;
+      }
+      if (isObject2(style.extend[prop])) {
+        if (!(prop in newStyle))
+          newStyle[prop] = {};
+        extend(style.extend[prop], rule, sheet, newStyle[prop]);
+        continue;
+      }
+      newStyle[prop] = style.extend[prop];
+    }
+  }
+  function mergeRest(style, rule, sheet, newStyle) {
+    for (var prop in style) {
+      if (prop === "extend")
+        continue;
+      if (isObject2(newStyle[prop]) && isObject2(style[prop])) {
+        extend(style[prop], rule, sheet, newStyle[prop]);
+        continue;
+      }
+      if (isObject2(style[prop])) {
+        newStyle[prop] = extend(style[prop], rule, sheet);
+        continue;
+      }
+      newStyle[prop] = style[prop];
+    }
+  }
+  function extend(style, rule, sheet, newStyle) {
+    if (newStyle === void 0) {
+      newStyle = {};
+    }
+    mergeExtend(style, rule, sheet, newStyle);
+    mergeRest(style, rule, sheet, newStyle);
+    return newStyle;
+  }
+  function jssExtend() {
+    function onProcessStyle2(style, rule, sheet) {
+      if ("extend" in style)
+        return extend(style, rule, sheet);
+      return style;
+    }
+    function onChangeValue2(value, prop, rule) {
+      if (prop !== "extend")
+        return value;
+      if (value == null || value === false) {
+        for (var key in rule[valueNs]) {
+          rule.prop(key, null);
+        }
+        rule[valueNs] = null;
+        return null;
+      }
+      if (typeof value === "object") {
+        for (var _key in value) {
+          rule.prop(_key, value[_key]);
+        }
+        rule[valueNs] = value;
+      }
+      return null;
+    }
+    return {
+      onProcessStyle: onProcessStyle2,
+      onChangeValue: onChangeValue2
+    };
+  }
+  var jss_plugin_extend_esm_default = jssExtend;
+
+  // node_modules/jss-plugin-nested/dist/jss-plugin-nested.esm.js
+  var separatorRegExp2 = /\s*,\s*/g;
+  var parentRegExp = /&/g;
+  var refRegExp2 = /\$([\w-]+)/g;
+  function jssNested() {
+    function getReplaceRef(container, sheet) {
+      return function(match, key) {
+        var rule = container.getRule(key) || sheet && sheet.getRule(key);
+        if (rule) {
+          return rule.selector;
+        }
+        true ? tiny_warning_esm_default(false, '[JSS] Could not find the referenced rule "' + key + '" in "' + (container.options.meta || container.toString()) + '".') : void 0;
+        return key;
+      };
+    }
+    function replaceParentRefs(nestedProp, parentProp) {
+      var parentSelectors = parentProp.split(separatorRegExp2);
+      var nestedSelectors = nestedProp.split(separatorRegExp2);
+      var result2 = "";
+      for (var i = 0; i < parentSelectors.length; i++) {
+        var parent = parentSelectors[i];
+        for (var j = 0; j < nestedSelectors.length; j++) {
+          var nested = nestedSelectors[j];
+          if (result2)
+            result2 += ", ";
+          result2 += nested.indexOf("&") !== -1 ? nested.replace(parentRegExp, parent) : parent + " " + nested;
+        }
+      }
+      return result2;
+    }
+    function getOptions(rule, container, prevOptions) {
+      if (prevOptions)
+        return _extends({}, prevOptions, {
+          index: prevOptions.index + 1
+        });
+      var nestingLevel = rule.options.nestingLevel;
+      nestingLevel = nestingLevel === void 0 ? 1 : nestingLevel + 1;
+      var options = _extends({}, rule.options, {
+        nestingLevel,
+        index: container.indexOf(rule) + 1
+      });
+      delete options.name;
+      return options;
+    }
+    function onProcessStyle2(style, rule, sheet) {
+      if (rule.type !== "style")
+        return style;
+      var styleRule = rule;
+      var container = styleRule.options.parent;
+      var options;
+      var replaceRef3;
+      for (var prop in style) {
+        var isNested = prop.indexOf("&") !== -1;
+        var isNestedConditional = prop[0] === "@";
+        if (!isNested && !isNestedConditional)
+          continue;
+        options = getOptions(styleRule, container, options);
+        if (isNested) {
+          var selector = replaceParentRefs(prop, styleRule.selector);
+          if (!replaceRef3)
+            replaceRef3 = getReplaceRef(container, sheet);
+          selector = selector.replace(refRegExp2, replaceRef3);
+          var name = styleRule.key + "-" + prop;
+          if ("replaceRule" in container) {
+            container.replaceRule(name, style[prop], _extends({}, options, {
+              selector
+            }));
+          } else {
+            container.addRule(name, style[prop], _extends({}, options, {
+              selector
+            }));
+          }
+        } else if (isNestedConditional) {
+          container.addRule(prop, {}, options).addRule(styleRule.key, style[prop], {
+            selector: styleRule.selector
+          });
+        }
+        delete style[prop];
+      }
+      return style;
+    }
+    return {
+      onProcessStyle: onProcessStyle2
+    };
+  }
+  var jss_plugin_nested_esm_default = jssNested;
+
+  // node_modules/jss-plugin-compose/dist/jss-plugin-compose.esm.js
+  function registerClass(rule, className) {
+    if (!className)
+      return true;
+    if (Array.isArray(className)) {
+      for (var index4 = 0; index4 < className.length; index4++) {
+        var isSetted = registerClass(rule, className[index4]);
+        if (!isSetted)
+          return false;
+      }
+      return true;
+    }
+    if (className.indexOf(" ") > -1) {
+      return registerClass(rule, className.split(" "));
+    }
+    var parent = rule.options.parent;
+    if (className[0] === "$") {
+      var refRule = parent.getRule(className.substr(1));
+      if (!refRule) {
+        true ? tiny_warning_esm_default(false, "[JSS] Referenced rule is not defined. \n" + rule.toString()) : void 0;
+        return false;
+      }
+      if (refRule === rule) {
+        true ? tiny_warning_esm_default(false, "[JSS] Cyclic composition detected. \n" + rule.toString()) : void 0;
+        return false;
+      }
+      parent.classes[rule.key] += " " + parent.classes[refRule.key];
+      return true;
+    }
+    parent.classes[rule.key] += " " + className;
+    return true;
+  }
+  function jssCompose() {
+    function onProcessStyle2(style, rule) {
+      if (!("composes" in style))
+        return style;
+      registerClass(rule, style.composes);
+      delete style.composes;
+      return style;
+    }
+    return {
+      onProcessStyle: onProcessStyle2
+    };
+  }
+  var jss_plugin_compose_esm_default = jssCompose;
+
+  // node_modules/hyphenate-style-name/index.js
+  var uppercasePattern = /[A-Z]/g;
+  var msPattern = /^ms-/;
+  var cache = {};
+  function toHyphenLower(match) {
+    return "-" + match.toLowerCase();
+  }
+  function hyphenateStyleName(name) {
+    if (cache.hasOwnProperty(name)) {
+      return cache[name];
+    }
+    var hName = name.replace(uppercasePattern, toHyphenLower);
+    return cache[name] = msPattern.test(hName) ? "-" + hName : hName;
+  }
+  var hyphenate_style_name_default = hyphenateStyleName;
+
+  // node_modules/jss-plugin-camel-case/dist/jss-plugin-camel-case.esm.js
+  function convertCase(style) {
+    var converted = {};
+    for (var prop in style) {
+      var key = prop.indexOf("--") === 0 ? prop : hyphenate_style_name_default(prop);
+      converted[key] = style[prop];
+    }
+    if (style.fallbacks) {
+      if (Array.isArray(style.fallbacks))
+        converted.fallbacks = style.fallbacks.map(convertCase);
+      else
+        converted.fallbacks = convertCase(style.fallbacks);
+    }
+    return converted;
+  }
+  function camelCase() {
+    function onProcessStyle2(style) {
+      if (Array.isArray(style)) {
+        for (var index4 = 0; index4 < style.length; index4++) {
+          style[index4] = convertCase(style[index4]);
+        }
+        return style;
+      }
+      return convertCase(style);
+    }
+    function onChangeValue2(value, prop, rule) {
+      if (prop.indexOf("--") === 0) {
+        return value;
+      }
+      var hyphenatedProp = hyphenate_style_name_default(prop);
+      if (prop === hyphenatedProp)
+        return value;
+      rule.prop(hyphenatedProp, value);
+      return null;
+    }
+    return {
+      onProcessStyle: onProcessStyle2,
+      onChangeValue: onChangeValue2
+    };
+  }
+  var jss_plugin_camel_case_esm_default = camelCase;
+
+  // node_modules/jss-plugin-default-unit/dist/jss-plugin-default-unit.esm.js
+  var px = hasCSSTOMSupport && CSS ? CSS.px : "px";
+  var ms = hasCSSTOMSupport && CSS ? CSS.ms : "ms";
+  var percent = hasCSSTOMSupport && CSS ? CSS.percent : "%";
+  var defaultUnits = {
+    "animation-delay": ms,
+    "animation-duration": ms,
+    "background-position": px,
+    "background-position-x": px,
+    "background-position-y": px,
+    "background-size": px,
+    border: px,
+    "border-bottom": px,
+    "border-bottom-left-radius": px,
+    "border-bottom-right-radius": px,
+    "border-bottom-width": px,
+    "border-left": px,
+    "border-left-width": px,
+    "border-radius": px,
+    "border-right": px,
+    "border-right-width": px,
+    "border-top": px,
+    "border-top-left-radius": px,
+    "border-top-right-radius": px,
+    "border-top-width": px,
+    "border-width": px,
+    "border-block": px,
+    "border-block-end": px,
+    "border-block-end-width": px,
+    "border-block-start": px,
+    "border-block-start-width": px,
+    "border-block-width": px,
+    "border-inline": px,
+    "border-inline-end": px,
+    "border-inline-end-width": px,
+    "border-inline-start": px,
+    "border-inline-start-width": px,
+    "border-inline-width": px,
+    "border-start-start-radius": px,
+    "border-start-end-radius": px,
+    "border-end-start-radius": px,
+    "border-end-end-radius": px,
+    margin: px,
+    "margin-bottom": px,
+    "margin-left": px,
+    "margin-right": px,
+    "margin-top": px,
+    "margin-block": px,
+    "margin-block-end": px,
+    "margin-block-start": px,
+    "margin-inline": px,
+    "margin-inline-end": px,
+    "margin-inline-start": px,
+    padding: px,
+    "padding-bottom": px,
+    "padding-left": px,
+    "padding-right": px,
+    "padding-top": px,
+    "padding-block": px,
+    "padding-block-end": px,
+    "padding-block-start": px,
+    "padding-inline": px,
+    "padding-inline-end": px,
+    "padding-inline-start": px,
+    "mask-position-x": px,
+    "mask-position-y": px,
+    "mask-size": px,
+    height: px,
+    width: px,
+    "min-height": px,
+    "max-height": px,
+    "min-width": px,
+    "max-width": px,
+    bottom: px,
+    left: px,
+    top: px,
+    right: px,
+    inset: px,
+    "inset-block": px,
+    "inset-block-end": px,
+    "inset-block-start": px,
+    "inset-inline": px,
+    "inset-inline-end": px,
+    "inset-inline-start": px,
+    "box-shadow": px,
+    "text-shadow": px,
+    "column-gap": px,
+    "column-rule": px,
+    "column-rule-width": px,
+    "column-width": px,
+    "font-size": px,
+    "font-size-delta": px,
+    "letter-spacing": px,
+    "text-decoration-thickness": px,
+    "text-indent": px,
+    "text-stroke": px,
+    "text-stroke-width": px,
+    "word-spacing": px,
+    motion: px,
+    "motion-offset": px,
+    outline: px,
+    "outline-offset": px,
+    "outline-width": px,
+    perspective: px,
+    "perspective-origin-x": percent,
+    "perspective-origin-y": percent,
+    "transform-origin": percent,
+    "transform-origin-x": percent,
+    "transform-origin-y": percent,
+    "transform-origin-z": percent,
+    "transition-delay": ms,
+    "transition-duration": ms,
+    "vertical-align": px,
+    "flex-basis": px,
+    "shape-margin": px,
+    size: px,
+    gap: px,
+    grid: px,
+    "grid-gap": px,
+    "row-gap": px,
+    "grid-row-gap": px,
+    "grid-column-gap": px,
+    "grid-template-rows": px,
+    "grid-template-columns": px,
+    "grid-auto-rows": px,
+    "grid-auto-columns": px,
+    "box-shadow-x": px,
+    "box-shadow-y": px,
+    "box-shadow-blur": px,
+    "box-shadow-spread": px,
+    "font-line-height": px,
+    "text-shadow-x": px,
+    "text-shadow-y": px,
+    "text-shadow-blur": px
+  };
+  function addCamelCasedVersion(obj) {
+    var regExp2 = /(-[a-z])/g;
+    var replace = function replace2(str) {
+      return str[1].toUpperCase();
+    };
+    var newObj = {};
+    for (var key in obj) {
+      newObj[key] = obj[key];
+      newObj[key.replace(regExp2, replace)] = obj[key];
+    }
+    return newObj;
+  }
+  var units = addCamelCasedVersion(defaultUnits);
+  function iterate(prop, value, options) {
+    if (value == null)
+      return value;
+    if (Array.isArray(value)) {
+      for (var i = 0; i < value.length; i++) {
+        value[i] = iterate(prop, value[i], options);
+      }
+    } else if (typeof value === "object") {
+      if (prop === "fallbacks") {
+        for (var innerProp in value) {
+          value[innerProp] = iterate(innerProp, value[innerProp], options);
+        }
+      } else {
+        for (var _innerProp in value) {
+          value[_innerProp] = iterate(prop + "-" + _innerProp, value[_innerProp], options);
+        }
+      }
+    } else if (typeof value === "number" && isNaN(value) === false) {
+      var unit = options[prop] || units[prop];
+      if (unit && !(value === 0 && unit === px)) {
+        return typeof unit === "function" ? unit(value).toString() : "" + value + unit;
+      }
+      return value.toString();
+    }
+    return value;
+  }
+  function defaultUnit(options) {
+    if (options === void 0) {
+      options = {};
+    }
+    var camelCasedOptions = addCamelCasedVersion(options);
+    function onProcessStyle2(style, rule) {
+      if (rule.type !== "style")
+        return style;
+      for (var prop in style) {
+        style[prop] = iterate(prop, style[prop], camelCasedOptions);
+      }
+      return style;
+    }
+    function onChangeValue2(value, prop) {
+      return iterate(prop, value, camelCasedOptions);
+    }
+    return {
+      onProcessStyle: onProcessStyle2,
+      onChangeValue: onChangeValue2
+    };
+  }
+  var jss_plugin_default_unit_esm_default = defaultUnit;
+
+  // node_modules/jss-plugin-expand/dist/jss-plugin-expand.esm.js
+  var propArray = {
+    "background-size": true,
+    "background-position": true,
+    border: true,
+    "border-bottom": true,
+    "border-left": true,
+    "border-top": true,
+    "border-right": true,
+    "border-radius": true,
+    "border-image": true,
+    "border-width": true,
+    "border-style": true,
+    "border-color": true,
+    "box-shadow": true,
+    flex: true,
+    margin: true,
+    padding: true,
+    outline: true,
+    "transform-origin": true,
+    transform: true,
+    transition: true
+  };
+  var propArrayInObj = {
+    position: true,
+    size: true
+  };
+  var propObj = {
+    padding: {
+      top: 0,
+      right: 0,
+      bottom: 0,
+      left: 0
+    },
+    margin: {
+      top: 0,
+      right: 0,
+      bottom: 0,
+      left: 0
+    },
+    background: {
+      attachment: null,
+      color: null,
+      image: null,
+      position: null,
+      repeat: null
+    },
+    border: {
+      width: null,
+      style: null,
+      color: null
+    },
+    "border-top": {
+      width: null,
+      style: null,
+      color: null
+    },
+    "border-right": {
+      width: null,
+      style: null,
+      color: null
+    },
+    "border-bottom": {
+      width: null,
+      style: null,
+      color: null
+    },
+    "border-left": {
+      width: null,
+      style: null,
+      color: null
+    },
+    outline: {
+      width: null,
+      style: null,
+      color: null
+    },
+    "list-style": {
+      type: null,
+      position: null,
+      image: null
+    },
+    transition: {
+      property: null,
+      duration: null,
+      "timing-function": null,
+      timingFunction: null,
+      delay: null
+    },
+    animation: {
+      name: null,
+      duration: null,
+      "timing-function": null,
+      timingFunction: null,
+      delay: null,
+      "iteration-count": null,
+      iterationCount: null,
+      direction: null,
+      "fill-mode": null,
+      fillMode: null,
+      "play-state": null,
+      playState: null
+    },
+    "box-shadow": {
+      x: 0,
+      y: 0,
+      blur: 0,
+      spread: 0,
+      color: null,
+      inset: null
+    },
+    "text-shadow": {
+      x: 0,
+      y: 0,
+      blur: null,
+      color: null
+    }
+  };
+  var customPropObj = {
+    border: {
+      radius: "border-radius",
+      image: "border-image",
+      width: "border-width",
+      style: "border-style",
+      color: "border-color"
+    },
+    "border-bottom": {
+      width: "border-bottom-width",
+      style: "border-bottom-style",
+      color: "border-bottom-color"
+    },
+    "border-top": {
+      width: "border-top-width",
+      style: "border-top-style",
+      color: "border-top-color"
+    },
+    "border-left": {
+      width: "border-left-width",
+      style: "border-left-style",
+      color: "border-left-color"
+    },
+    "border-right": {
+      width: "border-right-width",
+      style: "border-right-style",
+      color: "border-right-color"
+    },
+    background: {
+      size: "background-size",
+      image: "background-image"
+    },
+    font: {
+      style: "font-style",
+      variant: "font-variant",
+      weight: "font-weight",
+      stretch: "font-stretch",
+      size: "font-size",
+      family: "font-family",
+      lineHeight: "line-height",
+      "line-height": "line-height"
+    },
+    flex: {
+      grow: "flex-grow",
+      basis: "flex-basis",
+      direction: "flex-direction",
+      wrap: "flex-wrap",
+      flow: "flex-flow",
+      shrink: "flex-shrink"
+    },
+    align: {
+      self: "align-self",
+      items: "align-items",
+      content: "align-content"
+    },
+    grid: {
+      "template-columns": "grid-template-columns",
+      templateColumns: "grid-template-columns",
+      "template-rows": "grid-template-rows",
+      templateRows: "grid-template-rows",
+      "template-areas": "grid-template-areas",
+      templateAreas: "grid-template-areas",
+      template: "grid-template",
+      "auto-columns": "grid-auto-columns",
+      autoColumns: "grid-auto-columns",
+      "auto-rows": "grid-auto-rows",
+      autoRows: "grid-auto-rows",
+      "auto-flow": "grid-auto-flow",
+      autoFlow: "grid-auto-flow",
+      row: "grid-row",
+      column: "grid-column",
+      "row-start": "grid-row-start",
+      rowStart: "grid-row-start",
+      "row-end": "grid-row-end",
+      rowEnd: "grid-row-end",
+      "column-start": "grid-column-start",
+      columnStart: "grid-column-start",
+      "column-end": "grid-column-end",
+      columnEnd: "grid-column-end",
+      area: "grid-area",
+      gap: "grid-gap",
+      "row-gap": "grid-row-gap",
+      rowGap: "grid-row-gap",
+      "column-gap": "grid-column-gap",
+      columnGap: "grid-column-gap"
+    }
+  };
+  function mapValuesByProp(value, prop, rule) {
+    return value.map(function(item) {
+      return objectToArray(item, prop, rule, false, true);
+    });
+  }
+  function processArray(value, prop, scheme, rule) {
+    if (scheme[prop] == null)
+      return value;
+    if (value.length === 0)
+      return [];
+    if (Array.isArray(value[0]))
+      return processArray(value[0], prop, scheme, rule);
+    if (typeof value[0] === "object") {
+      return mapValuesByProp(value, prop, rule);
+    }
+    return [value];
+  }
+  function objectToArray(value, prop, rule, isFallback, isInArray) {
+    if (!(propObj[prop] || customPropObj[prop]))
+      return [];
+    var result2 = [];
+    if (customPropObj[prop]) {
+      value = customPropsToStyle(value, rule, customPropObj[prop], isFallback);
+    }
+    if (Object.keys(value).length) {
+      for (var baseProp in propObj[prop]) {
+        if (value[baseProp]) {
+          if (Array.isArray(value[baseProp])) {
+            result2.push(propArrayInObj[baseProp] === null ? value[baseProp] : value[baseProp].join(" "));
+          } else
+            result2.push(value[baseProp]);
+          continue;
+        }
+        if (propObj[prop][baseProp] != null) {
+          result2.push(propObj[prop][baseProp]);
+        }
+      }
+    }
+    if (!result2.length || isInArray)
+      return result2;
+    return [result2];
+  }
+  function customPropsToStyle(value, rule, customProps, isFallback) {
+    for (var prop in customProps) {
+      var propName = customProps[prop];
+      if (typeof value[prop] !== "undefined" && (isFallback || !rule.prop(propName))) {
+        var _styleDetector;
+        var appendedValue = styleDetector((_styleDetector = {}, _styleDetector[propName] = value[prop], _styleDetector), rule)[propName];
+        if (isFallback)
+          rule.style.fallbacks[propName] = appendedValue;
+        else
+          rule.style[propName] = appendedValue;
+      }
+      delete value[prop];
+    }
+    return value;
+  }
+  function styleDetector(style, rule, isFallback) {
+    for (var prop in style) {
+      var value = style[prop];
+      if (Array.isArray(value)) {
+        if (!Array.isArray(value[0])) {
+          if (prop === "fallbacks") {
+            for (var index4 = 0; index4 < style.fallbacks.length; index4++) {
+              style.fallbacks[index4] = styleDetector(style.fallbacks[index4], rule, true);
+            }
+            continue;
+          }
+          style[prop] = processArray(value, prop, propArray, rule);
+          if (!style[prop].length)
+            delete style[prop];
+        }
+      } else if (typeof value === "object") {
+        if (prop === "fallbacks") {
+          style.fallbacks = styleDetector(style.fallbacks, rule, true);
+          continue;
+        }
+        style[prop] = objectToArray(value, prop, rule, isFallback);
+        if (!style[prop].length)
+          delete style[prop];
+      } else if (style[prop] === "")
+        delete style[prop];
+    }
+    return style;
+  }
+  function jssExpand() {
+    function onProcessStyle2(style, rule) {
+      if (!style || rule.type !== "style")
+        return style;
+      if (Array.isArray(style)) {
+        for (var index4 = 0; index4 < style.length; index4++) {
+          style[index4] = styleDetector(style[index4], rule);
+        }
+        return style;
+      }
+      return styleDetector(style, rule);
+    }
+    return {
+      onProcessStyle: onProcessStyle2
+    };
+  }
+  var jss_plugin_expand_esm_default = jssExpand;
+
+  // node_modules/@babel/runtime/helpers/esm/arrayLikeToArray.js
+  function _arrayLikeToArray(arr, len) {
+    if (len == null || len > arr.length)
+      len = arr.length;
+    for (var i = 0, arr2 = new Array(len); i < len; i++) {
+      arr2[i] = arr[i];
+    }
+    return arr2;
+  }
+
+  // node_modules/@babel/runtime/helpers/esm/arrayWithoutHoles.js
+  function _arrayWithoutHoles(arr) {
+    if (Array.isArray(arr))
+      return _arrayLikeToArray(arr);
+  }
+
+  // node_modules/@babel/runtime/helpers/esm/iterableToArray.js
+  function _iterableToArray(iter) {
+    if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null)
+      return Array.from(iter);
+  }
+
+  // node_modules/@babel/runtime/helpers/esm/unsupportedIterableToArray.js
+  function _unsupportedIterableToArray(o, minLen) {
+    if (!o)
+      return;
+    if (typeof o === "string")
+      return _arrayLikeToArray(o, minLen);
+    var n = Object.prototype.toString.call(o).slice(8, -1);
+    if (n === "Object" && o.constructor)
+      n = o.constructor.name;
+    if (n === "Map" || n === "Set")
+      return Array.from(o);
+    if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n))
+      return _arrayLikeToArray(o, minLen);
+  }
+
+  // node_modules/@babel/runtime/helpers/esm/nonIterableSpread.js
+  function _nonIterableSpread() {
+    throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+  }
+
+  // node_modules/@babel/runtime/helpers/esm/toConsumableArray.js
+  function _toConsumableArray(arr) {
+    return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread();
+  }
+
+  // node_modules/css-vendor/dist/css-vendor.esm.js
+  var js = "";
+  var css = "";
+  var vendor = "";
+  var browser = "";
+  var isTouch = module_default && "ontouchstart" in document.documentElement;
+  if (module_default) {
+    jsCssMap = {
+      Moz: "-moz-",
+      ms: "-ms-",
+      O: "-o-",
+      Webkit: "-webkit-"
+    };
+    _document$createEleme = document.createElement("p"), style = _document$createEleme.style;
+    testProp = "Transform";
+    for (key in jsCssMap) {
+      if (key + testProp in style) {
+        js = key;
+        css = jsCssMap[key];
+        break;
+      }
+    }
+    if (js === "Webkit" && "msHyphens" in style) {
+      js = "ms";
+      css = jsCssMap.ms;
+      browser = "edge";
+    }
+    if (js === "Webkit" && "-apple-trailing-word" in style) {
+      vendor = "apple";
+    }
+  }
+  var jsCssMap;
+  var _document$createEleme;
+  var style;
+  var testProp;
+  var key;
+  var prefix = {
+    js,
+    css,
+    vendor,
+    browser,
+    isTouch
+  };
+  function supportedKeyframes(key) {
+    if (key[1] === "-")
+      return key;
+    if (prefix.js === "ms")
+      return key;
+    return "@" + prefix.css + "keyframes" + key.substr(10);
+  }
+  var appearence = {
+    noPrefill: ["appearance"],
+    supportedProperty: function supportedProperty(prop) {
+      if (prop !== "appearance")
+        return false;
+      if (prefix.js === "ms")
+        return "-webkit-" + prop;
+      return prefix.css + prop;
+    }
+  };
+  var colorAdjust = {
+    noPrefill: ["color-adjust"],
+    supportedProperty: function supportedProperty2(prop) {
+      if (prop !== "color-adjust")
+        return false;
+      if (prefix.js === "Webkit")
+        return prefix.css + "print-" + prop;
+      return prop;
+    }
+  };
+  var regExp = /[-\s]+(.)?/g;
+  function toUpper(match, c) {
+    return c ? c.toUpperCase() : "";
+  }
+  function camelize(str) {
+    return str.replace(regExp, toUpper);
+  }
+  function pascalize(str) {
+    return camelize("-" + str);
+  }
+  var mask = {
+    noPrefill: ["mask"],
+    supportedProperty: function supportedProperty3(prop, style) {
+      if (!/^mask/.test(prop))
+        return false;
+      if (prefix.js === "Webkit") {
+        var longhand = "mask-image";
+        if (camelize(longhand) in style) {
+          return prop;
+        }
+        if (prefix.js + pascalize(longhand) in style) {
+          return prefix.css + prop;
+        }
+      }
+      return prop;
+    }
+  };
+  var textOrientation = {
+    noPrefill: ["text-orientation"],
+    supportedProperty: function supportedProperty4(prop) {
+      if (prop !== "text-orientation")
+        return false;
+      if (prefix.vendor === "apple" && !prefix.isTouch) {
+        return prefix.css + prop;
+      }
+      return prop;
+    }
+  };
+  var transform = {
+    noPrefill: ["transform"],
+    supportedProperty: function supportedProperty5(prop, style, options) {
+      if (prop !== "transform")
+        return false;
+      if (options.transform) {
+        return prop;
+      }
+      return prefix.css + prop;
+    }
+  };
+  var transition = {
+    noPrefill: ["transition"],
+    supportedProperty: function supportedProperty6(prop, style, options) {
+      if (prop !== "transition")
+        return false;
+      if (options.transition) {
+        return prop;
+      }
+      return prefix.css + prop;
+    }
+  };
+  var writingMode = {
+    noPrefill: ["writing-mode"],
+    supportedProperty: function supportedProperty7(prop) {
+      if (prop !== "writing-mode")
+        return false;
+      if (prefix.js === "Webkit" || prefix.js === "ms" && prefix.browser !== "edge") {
+        return prefix.css + prop;
+      }
+      return prop;
+    }
+  };
+  var userSelect = {
+    noPrefill: ["user-select"],
+    supportedProperty: function supportedProperty8(prop) {
+      if (prop !== "user-select")
+        return false;
+      if (prefix.js === "Moz" || prefix.js === "ms" || prefix.vendor === "apple") {
+        return prefix.css + prop;
+      }
+      return prop;
+    }
+  };
+  var breakPropsOld = {
+    supportedProperty: function supportedProperty9(prop, style) {
+      if (!/^break-/.test(prop))
+        return false;
+      if (prefix.js === "Webkit") {
+        var jsProp = "WebkitColumn" + pascalize(prop);
+        return jsProp in style ? prefix.css + "column-" + prop : false;
+      }
+      if (prefix.js === "Moz") {
+        var _jsProp = "page" + pascalize(prop);
+        return _jsProp in style ? "page-" + prop : false;
+      }
+      return false;
+    }
+  };
+  var inlineLogicalOld = {
+    supportedProperty: function supportedProperty10(prop, style) {
+      if (!/^(border|margin|padding)-inline/.test(prop))
+        return false;
+      if (prefix.js === "Moz")
+        return prop;
+      var newProp = prop.replace("-inline", "");
+      return prefix.js + pascalize(newProp) in style ? prefix.css + newProp : false;
+    }
+  };
+  var unprefixed = {
+    supportedProperty: function supportedProperty11(prop, style) {
+      return camelize(prop) in style ? prop : false;
+    }
+  };
+  var prefixed = {
+    supportedProperty: function supportedProperty12(prop, style) {
+      var pascalized = pascalize(prop);
+      if (prop[0] === "-")
+        return prop;
+      if (prop[0] === "-" && prop[1] === "-")
+        return prop;
+      if (prefix.js + pascalized in style)
+        return prefix.css + prop;
+      if (prefix.js !== "Webkit" && "Webkit" + pascalized in style)
+        return "-webkit-" + prop;
+      return false;
+    }
+  };
+  var scrollSnap = {
+    supportedProperty: function supportedProperty13(prop) {
+      if (prop.substring(0, 11) !== "scroll-snap")
+        return false;
+      if (prefix.js === "ms") {
+        return "" + prefix.css + prop;
+      }
+      return prop;
+    }
+  };
+  var overscrollBehavior = {
+    supportedProperty: function supportedProperty14(prop) {
+      if (prop !== "overscroll-behavior")
+        return false;
+      if (prefix.js === "ms") {
+        return prefix.css + "scroll-chaining";
+      }
+      return prop;
+    }
+  };
+  var propMap = {
+    "flex-grow": "flex-positive",
+    "flex-shrink": "flex-negative",
+    "flex-basis": "flex-preferred-size",
+    "justify-content": "flex-pack",
+    order: "flex-order",
+    "align-items": "flex-align",
+    "align-content": "flex-line-pack"
+  };
+  var flex2012 = {
+    supportedProperty: function supportedProperty15(prop, style) {
+      var newProp = propMap[prop];
+      if (!newProp)
+        return false;
+      return prefix.js + pascalize(newProp) in style ? prefix.css + newProp : false;
+    }
+  };
+  var propMap$1 = {
+    flex: "box-flex",
+    "flex-grow": "box-flex",
+    "flex-direction": ["box-orient", "box-direction"],
+    order: "box-ordinal-group",
+    "align-items": "box-align",
+    "flex-flow": ["box-orient", "box-direction"],
+    "justify-content": "box-pack"
+  };
+  var propKeys = Object.keys(propMap$1);
+  var prefixCss = function prefixCss2(p) {
+    return prefix.css + p;
+  };
+  var flex2009 = {
+    supportedProperty: function supportedProperty16(prop, style, _ref) {
+      var multiple = _ref.multiple;
+      if (propKeys.indexOf(prop) > -1) {
+        var newProp = propMap$1[prop];
+        if (!Array.isArray(newProp)) {
+          return prefix.js + pascalize(newProp) in style ? prefix.css + newProp : false;
+        }
+        if (!multiple)
+          return false;
+        for (var i = 0; i < newProp.length; i++) {
+          if (!(prefix.js + pascalize(newProp[0]) in style)) {
+            return false;
+          }
+        }
+        return newProp.map(prefixCss);
+      }
+      return false;
+    }
+  };
+  var plugins2 = [appearence, colorAdjust, mask, textOrientation, transform, transition, writingMode, userSelect, breakPropsOld, inlineLogicalOld, unprefixed, prefixed, scrollSnap, overscrollBehavior, flex2012, flex2009];
+  var propertyDetectors = plugins2.filter(function(p) {
+    return p.supportedProperty;
+  }).map(function(p) {
+    return p.supportedProperty;
+  });
+  var noPrefill = plugins2.filter(function(p) {
+    return p.noPrefill;
+  }).reduce(function(a, p) {
+    a.push.apply(a, _toConsumableArray(p.noPrefill));
+    return a;
+  }, []);
+  var el;
+  var cache2 = {};
+  if (module_default) {
+    el = document.createElement("p");
+    computed = window.getComputedStyle(document.documentElement, "");
+    for (key$1 in computed) {
+      if (!isNaN(key$1))
+        cache2[computed[key$1]] = computed[key$1];
+    }
+    noPrefill.forEach(function(x) {
+      return delete cache2[x];
+    });
+  }
+  var computed;
+  var key$1;
+  function supportedProperty17(prop, options) {
+    if (options === void 0) {
+      options = {};
+    }
+    if (!el)
+      return prop;
+    if (cache2[prop] != null) {
+      return cache2[prop];
+    }
+    if (prop === "transition" || prop === "transform") {
+      options[prop] = prop in el.style;
+    }
+    for (var i = 0; i < propertyDetectors.length; i++) {
+      cache2[prop] = propertyDetectors[i](prop, el.style, options);
+      if (cache2[prop])
+        break;
+    }
+    try {
+      el.style[prop] = "";
+    } catch (err) {
+      return false;
+    }
+    return cache2[prop];
+  }
+  var cache$1 = {};
+  var transitionProperties = {
+    transition: 1,
+    "transition-property": 1,
+    "-webkit-transition": 1,
+    "-webkit-transition-property": 1
+  };
+  var transPropsRegExp = /(^\s*[\w-]+)|, (\s*[\w-]+)(?![^()]*\))/g;
+  var el$1;
+  function prefixTransitionCallback(match, p1, p2) {
+    if (p1 === "var")
+      return "var";
+    if (p1 === "all")
+      return "all";
+    if (p2 === "all")
+      return ", all";
+    var prefixedValue = p1 ? supportedProperty17(p1) : ", " + supportedProperty17(p2);
+    if (!prefixedValue)
+      return p1 || p2;
+    return prefixedValue;
+  }
+  if (module_default)
+    el$1 = document.createElement("p");
+  function supportedValue(property, value) {
+    var prefixedValue = value;
+    if (!el$1 || property === "content")
+      return value;
+    if (typeof prefixedValue !== "string" || !isNaN(parseInt(prefixedValue, 10))) {
+      return prefixedValue;
+    }
+    var cacheKey = property + prefixedValue;
+    if (cache$1[cacheKey] != null) {
+      return cache$1[cacheKey];
+    }
+    try {
+      el$1.style[property] = prefixedValue;
+    } catch (err) {
+      cache$1[cacheKey] = false;
+      return false;
+    }
+    if (transitionProperties[property]) {
+      prefixedValue = prefixedValue.replace(transPropsRegExp, prefixTransitionCallback);
+    } else if (el$1.style[property] === "") {
+      prefixedValue = prefix.css + prefixedValue;
+      if (prefixedValue === "-ms-flex")
+        el$1.style[property] = "-ms-flexbox";
+      el$1.style[property] = prefixedValue;
+      if (el$1.style[property] === "") {
+        cache$1[cacheKey] = false;
+        return false;
+      }
+    }
+    el$1.style[property] = "";
+    cache$1[cacheKey] = prefixedValue;
+    return cache$1[cacheKey];
+  }
+
+  // node_modules/jss-plugin-vendor-prefixer/dist/jss-plugin-vendor-prefixer.esm.js
+  function jssVendorPrefixer() {
+    function onProcessRule3(rule) {
+      if (rule.type === "keyframes") {
+        var atRule = rule;
+        atRule.at = supportedKeyframes(atRule.at);
+      }
+    }
+    function prefixStyle(style) {
+      for (var prop in style) {
+        var value = style[prop];
+        if (prop === "fallbacks" && Array.isArray(value)) {
+          style[prop] = value.map(prefixStyle);
+          continue;
+        }
+        var changeProp = false;
+        var supportedProp = supportedProperty17(prop);
+        if (supportedProp && supportedProp !== prop)
+          changeProp = true;
+        var changeValue = false;
+        var supportedValue$1 = supportedValue(supportedProp, toCssValue(value));
+        if (supportedValue$1 && supportedValue$1 !== value)
+          changeValue = true;
+        if (changeProp || changeValue) {
+          if (changeProp)
+            delete style[prop];
+          style[supportedProp || prop] = supportedValue$1 || value;
+        }
+      }
+      return style;
+    }
+    function onProcessStyle2(style, rule) {
+      if (rule.type !== "style")
+        return style;
+      return prefixStyle(style);
+    }
+    function onChangeValue2(value, prop) {
+      return supportedValue(prop, toCssValue(value)) || value;
+    }
+    return {
+      onProcessRule: onProcessRule3,
+      onProcessStyle: onProcessStyle2,
+      onChangeValue: onChangeValue2
+    };
+  }
+  var jss_plugin_vendor_prefixer_esm_default = jssVendorPrefixer;
+
+  // node_modules/jss-plugin-props-sort/dist/jss-plugin-props-sort.esm.js
+  function jssPropsSort() {
+    var sort = function sort2(prop0, prop1) {
+      if (prop0.length === prop1.length) {
+        return prop0 > prop1 ? 1 : -1;
+      }
+      return prop0.length - prop1.length;
+    };
+    return {
+      onProcessStyle: function onProcessStyle2(style, rule) {
+        if (rule.type !== "style")
+          return style;
+        var newStyle = {};
+        var props = Object.keys(style).sort(sort);
+        for (var i = 0; i < props.length; i++) {
+          newStyle[props[i]] = style[props[i]];
+        }
+        return newStyle;
+      }
+    };
+  }
+  var jss_plugin_props_sort_esm_default = jssPropsSort;
+
+  // node_modules/jss-preset-default/dist/jss-preset-default.esm.js
+  var create = function create2(options) {
+    if (options === void 0) {
+      options = {};
+    }
+    return {
+      plugins: [jss_plugin_rule_value_function_esm_default(), jss_plugin_rule_value_observable_esm_default(options.observable), jss_plugin_template_esm_default(), jss_plugin_global_esm_default(), jss_plugin_extend_esm_default(), jss_plugin_nested_esm_default(), jss_plugin_compose_esm_default(), jss_plugin_camel_case_esm_default(), jss_plugin_default_unit_esm_default(options.defaultUnit), jss_plugin_expand_esm_default(), jss_plugin_vendor_prefixer_esm_default(), jss_plugin_props_sort_esm_default()]
+    };
+  };
+  var jss_preset_default_esm_default = create;
+
+  // node_modules/@emotion/memoize/dist/memoize.browser.esm.js
+  function memoize3(fn) {
+    var cache3 = {};
+    return function(arg) {
+      if (cache3[arg] === void 0)
+        cache3[arg] = fn(arg);
+      return cache3[arg];
+    };
+  }
+  var memoize_browser_esm_default = memoize3;
+
+  // node_modules/@emotion/is-prop-valid/dist/is-prop-valid.browser.esm.js
+  var reactPropsRegex = /^((children|dangerouslySetInnerHTML|key|ref|autoFocus|defaultValue|defaultChecked|innerHTML|suppressContentEditableWarning|suppressHydrationWarning|valueLink|accept|acceptCharset|accessKey|action|allow|allowUserMedia|allowPaymentRequest|allowFullScreen|allowTransparency|alt|async|autoComplete|autoPlay|capture|cellPadding|cellSpacing|challenge|charSet|checked|cite|classID|className|cols|colSpan|content|contentEditable|contextMenu|controls|controlsList|coords|crossOrigin|data|dateTime|default|defer|dir|disabled|download|draggable|encType|form|formAction|formEncType|formMethod|formNoValidate|formTarget|frameBorder|headers|height|hidden|high|href|hrefLang|htmlFor|httpEquiv|id|inputMode|integrity|is|keyParams|keyType|kind|label|lang|list|loop|low|marginHeight|marginWidth|max|maxLength|media|mediaGroup|method|min|minLength|multiple|muted|name|nonce|noValidate|open|optimum|pattern|placeholder|playsInline|poster|preload|profile|radioGroup|readOnly|referrerPolicy|rel|required|reversed|role|rows|rowSpan|sandbox|scope|scoped|scrolling|seamless|selected|shape|size|sizes|slot|span|spellCheck|src|srcDoc|srcLang|srcSet|start|step|style|summary|tabIndex|target|title|type|useMap|value|width|wmode|wrap|about|datatype|inlist|prefix|property|resource|typeof|vocab|autoCapitalize|autoCorrect|autoSave|color|itemProp|itemScope|itemType|itemID|itemRef|results|security|unselectable|accentHeight|accumulate|additive|alignmentBaseline|allowReorder|alphabetic|amplitude|arabicForm|ascent|attributeName|attributeType|autoReverse|azimuth|baseFrequency|baselineShift|baseProfile|bbox|begin|bias|by|calcMode|capHeight|clip|clipPathUnits|clipPath|clipRule|colorInterpolation|colorInterpolationFilters|colorProfile|colorRendering|contentScriptType|contentStyleType|cursor|cx|cy|d|decelerate|descent|diffuseConstant|direction|display|divisor|dominantBaseline|dur|dx|dy|edgeMode|elevation|enableBackground|end|exponent|externalResourcesRequired|fill|fillOpacity|fillRule|filter|filterRes|filterUnits|floodColor|floodOpacity|focusable|fontFamily|fontSize|fontSizeAdjust|fontStretch|fontStyle|fontVariant|fontWeight|format|from|fr|fx|fy|g1|g2|glyphName|glyphOrientationHorizontal|glyphOrientationVertical|glyphRef|gradientTransform|gradientUnits|hanging|horizAdvX|horizOriginX|ideographic|imageRendering|in|in2|intercept|k|k1|k2|k3|k4|kernelMatrix|kernelUnitLength|kerning|keyPoints|keySplines|keyTimes|lengthAdjust|letterSpacing|lightingColor|limitingConeAngle|local|markerEnd|markerMid|markerStart|markerHeight|markerUnits|markerWidth|mask|maskContentUnits|maskUnits|mathematical|mode|numOctaves|offset|opacity|operator|order|orient|orientation|origin|overflow|overlinePosition|overlineThickness|panose1|paintOrder|pathLength|patternContentUnits|patternTransform|patternUnits|pointerEvents|points|pointsAtX|pointsAtY|pointsAtZ|preserveAlpha|preserveAspectRatio|primitiveUnits|r|radius|refX|refY|renderingIntent|repeatCount|repeatDur|requiredExtensions|requiredFeatures|restart|result|rotate|rx|ry|scale|seed|shapeRendering|slope|spacing|specularConstant|specularExponent|speed|spreadMethod|startOffset|stdDeviation|stemh|stemv|stitchTiles|stopColor|stopOpacity|strikethroughPosition|strikethroughThickness|string|stroke|strokeDasharray|strokeDashoffset|strokeLinecap|strokeLinejoin|strokeMiterlimit|strokeOpacity|strokeWidth|surfaceScale|systemLanguage|tableValues|targetX|targetY|textAnchor|textDecoration|textRendering|textLength|to|transform|u1|u2|underlinePosition|underlineThickness|unicode|unicodeBidi|unicodeRange|unitsPerEm|vAlphabetic|vHanging|vIdeographic|vMathematical|values|vectorEffect|version|vertAdvY|vertOriginX|vertOriginY|viewBox|viewTarget|visibility|widths|wordSpacing|writingMode|x|xHeight|x1|x2|xChannelSelector|xlinkActuate|xlinkArcrole|xlinkHref|xlinkRole|xlinkShow|xlinkTitle|xlinkType|xmlBase|xmlns|xmlnsXlink|xmlLang|xmlSpace|y|y1|y2|yChannelSelector|z|zoomAndPan|for|class|autofocus)|(([Dd][Aa][Tt][Aa]|[Aa][Rr][Ii][Aa]|x)-.*))$/;
+  var index2 = memoize_browser_esm_default(
+    function(prop) {
+      return reactPropsRegex.test(prop) || prop.charCodeAt(0) === 111 && prop.charCodeAt(1) === 110 && prop.charCodeAt(2) < 91;
+    }
+  );
+
+  // node_modules/css-jss/dist/css-jss.esm.js
+  var MAX_RULES_PER_SHEET = 1e4;
+  var defaultJss = createJss(jss_preset_default_esm_default());
+  var createCss = function createCss2(jss) {
+    if (jss === void 0) {
+      jss = defaultJss;
+    }
+    var cache3 = /* @__PURE__ */ new Map();
+    var ruleIndex = 0;
+    var sheet;
+    var getSheet = function getSheet2() {
+      if (!sheet || sheet.rules.index.length > MAX_RULES_PER_SHEET) {
+        sheet = jss.createStyleSheet().attach();
+      }
+      return sheet;
+    };
+    function css3() {
+      var args = arguments;
+      var argsStr = JSON.stringify(args);
+      var cached = cache3.get(argsStr);
+      if (cached)
+        return cached.className;
+      var flatArgs = [];
+      for (var argIndex in args) {
+        var arg = args[argIndex];
+        if (!Array.isArray(arg)) {
+          flatArgs.push(arg);
+          continue;
+        }
+        for (var innerArgIndex = 0; innerArgIndex < arg.length; innerArgIndex++) {
+          flatArgs.push(arg[innerArgIndex]);
+        }
+      }
+      var mergedStyle = {};
+      var labels = [];
+      for (var i = 0; i < flatArgs.length; i++) {
+        var style = flatArgs[i];
+        if (!style)
+          continue;
+        var styleObject = style;
+        if (typeof style === "string") {
+          var _cached = cache3.get(style);
+          if (_cached) {
+            if (_cached.labels.length)
+              labels.push.apply(labels, _cached.labels);
+            styleObject = _cached.style;
+          }
+        }
+        if (styleObject.label && labels.indexOf(styleObject.label) === -1)
+          labels.push(styleObject.label);
+        Object.assign(mergedStyle, styleObject);
+      }
+      delete mergedStyle.label;
+      var label = labels.length === 0 ? "css" : labels.join("-");
+      var key = label + "-" + ruleIndex++;
+      getSheet().addRule(key, mergedStyle);
+      var className = getSheet().classes[key];
+      var cacheValue = {
+        style: mergedStyle,
+        labels,
+        className
+      };
+      cache3.set(argsStr, cacheValue);
+      cache3.set(className, cacheValue);
+      return className;
+    }
+    css3.getSheet = getSheet;
+    return css3;
+  };
+  var css2 = createCss();
+  var css_jss_esm_default = css2;
+
+  // node_modules/react-jss/dist/react-jss.esm.js
+  var index3 = Number.MIN_SAFE_INTEGER || -1e9;
+  var getSheetIndex = function getSheetIndex2() {
+    return index3++;
+  };
+  var JssContext = (0, import_react2.createContext)({
+    classNamePrefix: "",
+    disableStylesGeneration: false,
+    isSSR: !module_default
+  });
+  var defaultManagers = /* @__PURE__ */ new Map();
+  var getManager = function getManager2(context, managerId) {
+    var managers = context.managers;
+    if (managers) {
+      if (!managers[managerId]) {
+        managers[managerId] = new SheetsManager();
+      }
+      return managers[managerId];
+    }
+    var manager = defaultManagers.get(managerId);
+    if (!manager) {
+      manager = new SheetsManager();
+      defaultManagers.set(managerId, manager);
+    }
+    return manager;
+  };
+  var manageSheet = function manageSheet2(options) {
+    var sheet = options.sheet, context = options.context, index4 = options.index, theme = options.theme;
+    if (!sheet) {
+      return;
+    }
+    var manager = getManager(context, index4);
+    manager.manage(theme);
+    if (context.registry) {
+      context.registry.add(sheet);
+    }
+  };
+  var unmanageSheet = function unmanageSheet2(options) {
+    if (!options.sheet) {
+      return;
+    }
+    var manager = getManager(options.context, options.index);
+    manager.unmanage(options.theme);
+  };
+  var defaultJss2 = createJss(jss_preset_default_esm_default());
+  var sheetsMeta = /* @__PURE__ */ new WeakMap();
+  var getMeta = function getMeta2(sheet) {
+    return sheetsMeta.get(sheet);
+  };
+  var addMeta = function addMeta2(sheet, meta) {
+    sheetsMeta.set(sheet, meta);
+  };
+  var getStyles = function getStyles2(options) {
+    var styles = options.styles;
+    if (typeof styles !== "function") {
+      return styles;
+    }
+    true ? tiny_warning_esm_default(styles.length !== 0, "[JSS] <" + (options.name || "Hook") + ` />'s styles function doesn't rely on the "theme" argument. We recommend declaring styles as an object instead.`) : void 0;
+    return styles(options.theme);
+  };
+  function getSheetOptions(options, link) {
+    var minify;
+    if (options.context.id && options.context.id.minify != null) {
+      minify = options.context.id.minify;
+    }
+    var classNamePrefix = options.context.classNamePrefix || "";
+    if (options.name && !minify) {
+      classNamePrefix += options.name.replace(/\s/g, "-") + "-";
+    }
+    var meta = "";
+    if (options.name)
+      meta = options.name + ", ";
+    meta += typeof options.styles === "function" ? "Themed" : "Unthemed";
+    return _extends({}, options.sheetOptions, {
+      index: options.index,
+      meta,
+      classNamePrefix,
+      link,
+      generateId: options.sheetOptions && options.sheetOptions.generateId ? options.sheetOptions.generateId : options.context.generateId
+    });
+  }
+  var createStyleSheet = function createStyleSheet2(options) {
+    if (options.context.disableStylesGeneration) {
+      return void 0;
+    }
+    var manager = getManager(options.context, options.index);
+    var existingSheet = manager.get(options.theme);
+    if (existingSheet) {
+      return existingSheet;
+    }
+    var jss = options.context.jss || defaultJss2;
+    var styles = getStyles(options);
+    var dynamicStyles = getDynamicStyles(styles);
+    var sheet = jss.createStyleSheet(styles, getSheetOptions(options, dynamicStyles !== null));
+    addMeta(sheet, {
+      dynamicStyles,
+      styles
+    });
+    manager.add(options.theme, sheet);
+    return sheet;
+  };
+  var removeDynamicRules = function removeDynamicRules2(sheet, rules) {
+    for (var key in rules) {
+      sheet.deleteRule(rules[key]);
+    }
+  };
+  var updateDynamicRules = function updateDynamicRules2(data, sheet, rules) {
+    for (var key in rules) {
+      sheet.updateOne(rules[key], data);
+    }
+  };
+  var addDynamicRules = function addDynamicRules2(sheet, data) {
+    var meta = getMeta(sheet);
+    if (!meta) {
+      return void 0;
+    }
+    var rules = {};
+    for (var key in meta.dynamicStyles) {
+      var initialRuleCount = sheet.rules.index.length;
+      var originalRule = sheet.addRule(key, meta.dynamicStyles[key]);
+      for (var i = initialRuleCount; i < sheet.rules.index.length; i++) {
+        var rule = sheet.rules.index[i];
+        sheet.updateOne(rule, data);
+        rules[originalRule === rule ? key : rule.key] = rule;
+      }
+    }
+    return rules;
+  };
+  var getSheetClasses = function getSheetClasses2(sheet, dynamicRules) {
+    if (!dynamicRules) {
+      return sheet.classes;
+    }
+    var meta = getMeta(sheet);
+    if (!meta) {
+      return sheet.classes;
+    }
+    var classes = {};
+    for (var key in meta.styles) {
+      classes[key] = sheet.classes[key];
+      if (key in dynamicRules) {
+        classes[key] += " " + sheet.classes[dynamicRules[key].key];
+      }
+    }
+    return classes;
+  };
+  function getUseInsertionEffect(isSSR) {
+    return isSSR ? import_react2.useEffect : import_react2.useInsertionEffect || import_react2.useLayoutEffect;
+  }
+  var noTheme = {};
+  var createUseStyles = function createUseStyles2(styles, options) {
+    if (options === void 0) {
+      options = {};
+    }
+    var _options = options, _options$index = _options.index, index4 = _options$index === void 0 ? getSheetIndex() : _options$index, theming = _options.theming, name = _options.name, sheetOptions = _objectWithoutPropertiesLoose(_options, ["index", "theming", "name"]);
+    var ThemeContext$1 = theming && theming.context || ThemeContext;
+    var useTheme2 = function useTheme3(theme) {
+      if (typeof styles === "function") {
+        return theme || (0, import_react2.useContext)(ThemeContext$1) || noTheme;
+      }
+      return noTheme;
+    };
+    var emptyObject = {};
+    return function useStyles2(data) {
+      var isFirstMount = (0, import_react2.useRef)(true);
+      var context = (0, import_react2.useContext)(JssContext);
+      var theme = useTheme2(data && data.theme);
+      var _React$useMemo = (0, import_react2.useMemo)(function() {
+        var newSheet = createStyleSheet({
+          context,
+          styles,
+          name,
+          theme,
+          index: index4,
+          sheetOptions
+        });
+        if (newSheet && context.isSSR) {
+          manageSheet({
+            index: index4,
+            context,
+            sheet: newSheet,
+            theme
+          });
+        }
+        return [newSheet, newSheet ? addDynamicRules(newSheet, data) : null];
+      }, [context, theme]), sheet = _React$useMemo[0], dynamicRules = _React$useMemo[1];
+      getUseInsertionEffect(context.isSSR)(function() {
+        if (sheet && dynamicRules && !isFirstMount.current) {
+          updateDynamicRules(data, sheet, dynamicRules);
+        }
+      }, [data]);
+      getUseInsertionEffect(context.isSSR)(function() {
+        if (sheet) {
+          manageSheet({
+            index: index4,
+            context,
+            sheet,
+            theme
+          });
+        }
+        return function() {
+          if (sheet) {
+            unmanageSheet({
+              index: index4,
+              context,
+              sheet,
+              theme
+            });
+            if (dynamicRules) {
+              removeDynamicRules(sheet, dynamicRules);
+            }
+          }
+        };
+      }, [sheet]);
+      var classes = (0, import_react2.useMemo)(function() {
+        return sheet && dynamicRules ? getSheetClasses(sheet, dynamicRules) : emptyObject;
+      }, [sheet, dynamicRules]);
+      (0, import_react2.useDebugValue)(classes);
+      (0, import_react2.useDebugValue)(theme === noTheme ? "No theme" : theme);
+      (0, import_react2.useEffect)(function() {
+        isFirstMount.current = false;
+      });
+      return classes;
+    };
+  };
+  var shouldForwardPropSymbol = Symbol("react-jss-styled");
+  var create3 = function create4(css3) {
+    if (css3 === void 0) {
+      css3 = css_jss_esm_default;
+    }
+    return function createElement$1(type, props) {
+      var args = arguments;
+      if (props && props.css) {
+        var className = css3(props.css);
+        var newProps = Object.assign({}, props);
+        newProps.className = props.className ? props.className + " " + className : className;
+        delete newProps.css;
+        args[1] = newProps;
+      }
+      return import_react2.createElement.apply(void 0, args);
+    };
+  };
+  var jsx = create3();
+
+  // node_modules/ergo-hex/dist/index.esm.js
+  var import_react3 = __toESM(require_react());
+  function noop() {
+  }
+  var WeakPromise = class extends Promise {
+    constructor(callback) {
+      let onCancel = noop;
+      let _reject = noop;
+      let clean = noop;
+      super((resolve, reject) => {
+        _reject = reject;
+        onCancel = callback((value) => {
+          clean();
+          resolve(value);
+        }, reject);
+      });
+      clean = () => {
+        this._onCancel = noop;
+        this._reject = noop;
+      };
+      this._onCancel = onCancel;
+      this._reject = _reject;
+    }
+    cancel(reason) {
+      this._onCancel(reason);
+      this._reject(reason);
+    }
+    static resolve(value) {
+      const isPromiseLike = value && typeof value.then === "function";
+      if (isPromiseLike) {
+        return new WeakPromise((resolve, reject) => {
+          value.then(resolve, reject);
+          return () => {
+          };
+        });
+      }
+      return new WeakPromise((resolve) => {
+        resolve(value);
+        return noop;
+      });
+    }
+    static reject(reason) {
+      return new WeakPromise((_resolve, reject) => {
+        reject(reason);
+        return noop;
+      });
+    }
+    static from(promise) {
+      return new WeakPromise((resolve, reject) => {
+        promise.then(resolve).catch(reject);
+        return noop;
+      });
+    }
+  };
+  var ObservableValue = class {
+    constructor(initialState) {
+      this._valueVersion = 0;
+      this._errorVersion = 0;
+      this._error = null;
+      this.valueCallbacks = [];
+      this.errorCallbacks = [];
+      this._value = initialState;
+    }
+    get valueVersion() {
+      return this._valueVersion;
+    }
+    get errorVersion() {
+      return this._errorVersion;
+    }
+    getValue() {
+      return this._value;
+    }
+    setValue(value) {
+      try {
+        this._value = value;
+        this._valueVersion++;
+        this.notify(value);
+      } catch (e) {
+        this.setError(e);
+      }
+    }
+    transformValue(cb) {
+      const value = cb(this._value);
+      this.setValue(value);
+    }
+    onChange(callback) {
+      const unsubscribe = () => {
+        const index4 = this.valueCallbacks.indexOf(callback);
+        if (index4 > -1) {
+          this.valueCallbacks.splice(index4, 1);
+        }
+      };
+      this.valueCallbacks.push(callback);
+      return unsubscribe;
+    }
+    setError(e) {
+      try {
+        this._error = e;
+        this._errorVersion++;
+        this.notifyError(e);
+      } catch (e2) {
+      }
+    }
+    getError() {
+      return this._error;
+    }
+    onError(callback) {
+      const unsubscribe = () => {
+        const index4 = this.errorCallbacks.indexOf(callback);
+        if (index4 > -1) {
+          this.errorCallbacks.splice(index4, 1);
+        }
+      };
+      this.errorCallbacks.push(callback);
+      return unsubscribe;
+    }
+    dispose() {
+      this.disposeCallbacks();
+    }
+    notify(value) {
+      this.valueCallbacks.forEach((c) => c(value));
+    }
+    notifyError(error) {
+      this.errorCallbacks.forEach((c) => c(error));
+    }
+    disposeCallbacks() {
+      this.valueCallbacks.length = 0;
+      this.errorCallbacks.length = 0;
+    }
+  };
+  var Status;
+  (function(Status2) {
+    Status2["INITIAL"] = "initial";
+    Status2["PENDING"] = "pending";
+    Status2["ERROR"] = "error";
+    Status2["SUCCESS"] = "success";
+  })(Status || (Status = {}));
+  function useAsyncValueEffect(callback, observableValue) {
+    const callbackRef = (0, import_react3.useRef)(callback);
+    const version = (0, import_react3.useRef)(observableValue.valueVersion);
+    (0, import_react3.useLayoutEffect)(() => {
+      callbackRef.current = callback;
+    }, [callback]);
+    (0, import_react3.useLayoutEffect)(() => {
+      const unsubscribe = observableValue.onChange((value) => {
+        callbackRef.current(value);
+      });
+      if (version.current !== observableValue.valueVersion) {
+        callbackRef.current(observableValue.getValue());
+      }
+      return () => {
+        unsubscribe();
+      };
+    }, [observableValue]);
+    (0, import_react3.useLayoutEffect)(() => {
+      callbackRef.current(observableValue.getValue());
+    }, [observableValue]);
+  }
+
+  // src/utils.ts
+  function delay(time) {
+    return new WeakPromise((resolve) => {
+      const id = setTimeout(resolve, time);
+      return () => {
+        clearTimeout(id);
+      };
+    });
+  }
+
+  // src/text/character_domain.ts
+  var import_motion_ux = __toESM(require_index_browser());
+  var CharacterDomain = class {
+    constructor(character, showDelay = 0, hideDelay = 0) {
+      this._delayedPromise = WeakPromise.resolve();
+      this._style = new ObservableValue({
+        display: "inline-block",
+        position: "relative",
+        left: "0px",
+        top: "0px",
+        transform: "scale(0.25) translate(0,0)",
+        opacity: 0,
+        transformOrigin: "center bottom",
+        fontSize: "50px",
+        fontFamily: "Arial"
+      });
+      this._character = character;
+      this._showDelay = showDelay;
+      this._hideDelay = hideDelay;
+      this._motion = new import_motion_ux.Motion((animation) => {
+        this._style.transformValue((style) => {
+          const { scale, opacity } = animation.currentValues;
+          style.transform = `scale(${scale})`;
+          style.opacity = String(opacity);
+          return style;
+        });
+      });
+      this._motion.segueTo(
+        (0, import_motion_ux.createAnimation)({
+          opacity: 0,
+          scale: 0.25
+        })
+      );
+    }
+    get character() {
+      return this._character;
+    }
+    get style() {
+      return this._style;
+    }
+    async show() {
+      try {
+        this._delayedPromise.cancel(0);
+        this._delayedPromise = delay(this._showDelay);
+        await this._delayedPromise;
+        this._motion.segueTo(
+          (0, import_motion_ux.createAnimation)({
+            opacity: 1,
+            scale: {
+              from: 0,
+              "40%": {
+                value: 1.25,
+                easeIn: "quad",
+                easeOut: "quad"
+              },
+              to: {
+                value: 1,
+                easeIn: "expo"
+              }
+            }
+          }),
+          400
+        );
+      } catch (error) {
+      }
+    }
+    async hide() {
+      try {
+        this._delayedPromise.cancel(0);
+        this._delayedPromise = delay(this._hideDelay);
+        await this._delayedPromise;
+        this._motion.segueTo(
+          (0, import_motion_ux.createAnimation)({
+            opacity: {
+              from: 1,
+              to: { value: 0, easeOut: "quad" }
+            },
+            scale: {
+              from: 1,
+              "40%": {
+                value: 1.25,
+                easeIn: "quad",
+                easeOut: "quad"
+              },
+              to: {
+                value: 0,
+                easeIn: "expo"
+              }
+            }
+          }),
+          400
+        );
+      } catch (error) {
+      }
+    }
+  };
+
+  // src/text/word_domain.ts
+  var WordDomain = class {
+    get characters() {
+      return this._characters;
+    }
+    constructor(text) {
+      const parts = text.trim().split("");
+      const length = parts.length;
+      const partDelay = 30;
+      const maxTime = length * partDelay;
+      this._characters = parts.map(
+        (c, index4) => new CharacterDomain(c, index4 * partDelay, maxTime - index4 * partDelay)
+      );
+    }
+    show() {
+      this._characters.forEach((c) => c.show());
+    }
+    hide() {
+      this._characters.forEach((c) => c.hide());
+    }
+  };
+
+  // src/text/text_domain.ts
+  var TextDomain = class {
+    get words() {
+      return this._words;
+    }
+    constructor(text) {
+      const parts = text.trim().split("\n");
+      this._words = parts.map((w) => new WordDomain(w));
+    }
+    show() {
+      this._words.forEach((c) => c.show());
+    }
+    hide() {
+      this._words.forEach((c) => c.hide());
+    }
+  };
+
+  // src/text/text.tsx
+  var import_react6 = __toESM(require_react());
+
+  // src/text/word.tsx
+  var import_react5 = __toESM(require_react());
+
+  // src/text/character.tsx
+  var import_react4 = __toESM(require_react());
+  function Character({ domain }) {
+    const ref = (0, import_react4.useRef)(null);
+    useAsyncValueEffect((value) => {
+      const div = ref.current;
+      if (div != null) {
+        Object.keys(value).forEach((key) => {
+          div.style[key] = value[key];
+        });
+      }
+    }, domain.style);
+    return /* @__PURE__ */ import_react4.default.createElement("div", {
+      ref
+    }, domain.character);
+  }
+
+  // src/text/word.tsx
+  function Word({ domain }) {
+    const characters = domain.characters;
+    return /* @__PURE__ */ import_react5.default.createElement("div", null, characters.map((c, index4) => {
+      return /* @__PURE__ */ import_react5.default.createElement(Character, {
+        key: index4,
+        domain: c
+      });
+    }));
+  }
+
+  // src/text/text.tsx
+  function Text({ domain }) {
+    const words = domain.words;
+    return /* @__PURE__ */ import_react6.default.createElement("div", null, words.map((w) => /* @__PURE__ */ import_react6.default.createElement(Word, {
+      domain: w
+    })));
+  }
+
+  // src/app.tsx
+  var useStyles = createUseStyles({
+    root: {
+      position: "relative",
+      width: "100%",
+      height: "100%"
+    }
+  });
+  function App() {
+    const classes = useStyles();
+    const [textDomain] = (0, import_react7.useState)(() => {
+      return new TextDomain("Florin");
+    });
+    return /* @__PURE__ */ import_react7.default.createElement("div", {
+      className: classes.root
+    }, /* @__PURE__ */ import_react7.default.createElement(Text, {
+      domain: textDomain
+    }), /* @__PURE__ */ import_react7.default.createElement("button", {
+      onClick: () => {
+        textDomain.show();
+      }
+    }, "Show"), /* @__PURE__ */ import_react7.default.createElement("button", {
+      onClick: () => {
+        textDomain.hide();
+      }
+    }, "Hide"));
+  }
+
+  // src/index.tsx
+  var root2 = import_react_dom.default.createRoot(document.getElementById("root"));
+  root2.render(/* @__PURE__ */ import_react8.default.createElement(App, null));
 })();
+/*
+object-assign
+(c) Sindre Sorhus
+@license MIT
+*/
+/*! *****************************************************************************
+  Copyright (c) Microsoft Corporation.
+
+  Permission to use, copy, modify, and/or distribute this software for any
+  purpose with or without fee is hereby granted.
+
+  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
+  REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY
+  AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
+  INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
+  LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
+  OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
+  PERFORMANCE OF THIS SOFTWARE.
+  ***************************************************************************** */
+/*! *****************************************************************************
+Copyright (c) Microsoft Corporation.
+
+Permission to use, copy, modify, and/or distribute this software for any
+purpose with or without fee is hereby granted.
+
+THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
+REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY
+AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
+INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
+LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
+OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
+PERFORMANCE OF THIS SOFTWARE.
+***************************************************************************** */
 /**
  * @license React
  * react-dom.development.js
@@ -22899,6 +31083,13 @@
  * LICENSE file in the root directory of this source tree.
  */
 /**
+ * A better abstraction over CSS.
+ *
+ * @copyright Oleg Isonen (Slobodskoi) / Isonen 2014-present
+ * @website https://github.com/cssinjs/jss
+ * @license MIT
+ */
+/**
  * Checks if an event is supported in the current execution environment.
  *
  * NOTE: This will not work correctly for non-generic events such as `change`,
@@ -22910,4 +31101,12 @@
  * @return {boolean} True if the event is supported.
  * @internal
  * @license Modernizr 3.0.0pre (Custom Build) | MIT
+ */
+/** @license React v16.13.1
+ * react-is.development.js
+ *
+ * Copyright (c) Facebook, Inc. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  */

@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import { createUseStyles } from "react-jss";
+import { TextDomain } from "./text/text_domain";
+import { Text } from "./text/text";
 
 const useStyles = createUseStyles({
   root: {
@@ -11,6 +13,15 @@ const useStyles = createUseStyles({
 
 export function App() {
   const classes = useStyles();
+  const [textDomain] = useState(() => {
+    return new TextDomain("Florin");
+  });
 
-  return <div className={classes.root}></div>;
+  return (
+    <div className={classes.root}>
+      <Text domain={textDomain} />
+      <button onClick={()=>{textDomain.show()}}>Show</button>
+      <button onClick={()=>{textDomain.hide()}}>Hide</button>
+    </div>
+  );
 }

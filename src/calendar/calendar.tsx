@@ -17,6 +17,7 @@ export function Calendar({ domain, className, style }: CalendarProps) {
       domain={domain.scrollerDomain}
       className={className}
       style={style}
+      movementThreshold={60}
     >
       {(scrollDomain) => {
         const startIndex = Math.floor(scrollDomain.top / height) - 1;
