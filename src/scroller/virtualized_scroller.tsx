@@ -140,22 +140,6 @@ export function VirtualizedScroller({
   useEffect(() => {
     const div = divRef.current;
 
-    if (div != null) {
-      function cancel(e) {
-        e.preventDefault();
-        e.stopPropagation();
-      }
-      div.addEventListener("touchstart", cancel, { passive: false });
-
-      return () => {
-        div.removeEventListener("touchstart", cancel);
-      };
-    }
-  }, []);
-
-  useEffect(() => {
-    const div = divRef.current;
-
     if (div == null) {
       return;
     }
@@ -191,6 +175,7 @@ export function VirtualizedScroller({
         ...style,
         position: "relative",
         userSelect: "none",
+        touchAction: "pan-x pan-y",
         overflow,
       }}
       className={className}
