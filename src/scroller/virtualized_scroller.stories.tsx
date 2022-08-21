@@ -7,7 +7,7 @@ export default {
   component: VirtualizedScroller,
 };
 
-const HEIGHT = 300;
+const HEIGHT = 600;
 const PADDING = 0;
 
 export function Baseline() {
@@ -75,8 +75,8 @@ export function Snap() {
       }}
     >
       {(domain) => {
-        const startIndex = Math.floor(domain.top / HEIGHT) - 2;
-        const endIndex = Math.ceil(domain.bottom / HEIGHT) + 2;
+        const startIndex = Math.floor(domain.top / HEIGHT) - 1;
+        const endIndex = Math.ceil(domain.bottom / HEIGHT) + 1;
         const children: React.ReactNode[] = [];
 
         for (let x = startIndex; x < endIndex; x++) {

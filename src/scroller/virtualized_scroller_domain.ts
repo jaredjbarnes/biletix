@@ -299,8 +299,6 @@ export class VirtualizedScrollerDomain {
         ? y + directionY * (step - remainderY)
         : y - directionY * remainderY;
 
-    console.log(y, step, remainderY, step - remainderY, remainderY > halfStep);
-
     this._motion.segueTo(
       createAnimation({
         x: this._isXDisabled ? offset.x : x,

@@ -17,6 +17,7 @@ export function Calendar({ domain, className, style }: CalendarProps) {
       className={className}
       style={style}
       disableX
+      settleStep={60}
       renderThreshold={60}
     >
       {(scrollDomain) => {
