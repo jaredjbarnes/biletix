@@ -256,6 +256,7 @@ export class VirtualizedScrollerDomain {
   }
 
   private settle(step: number) {
+    const halfStep = step / 2;
     const offset = this._offset.getValue();
     const delta = this._deltaOffset;
 
@@ -284,8 +285,21 @@ export class VirtualizedScrollerDomain {
     let x = offset.x + distanceX;
     let y = offset.y + distanceY;
 
-    x = x - (x % step);
-    y = y - (y % step);
+    const remainderX = Math.abs(x % step);
+    const remainderY = Math.abs(y % step);
+    const directionX = Math.sign(x);
+    const directionY = Math.sign(y);
+
+    x =
+      remainderX > halfStep
+        ? x + directionX * (step - remainderX)
+        : x - directionX * remainderX;
+    y =
+      remainderY > halfStep
+        ? y + directionY * (step - remainderY)
+        : y - directionY * remainderY;
+
+    console.log(y, step, remainderY, step - remainderY, remainderY > halfStep);
 
     this._motion.segueTo(
       createAnimation({

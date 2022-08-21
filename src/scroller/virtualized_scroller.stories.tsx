@@ -9,12 +9,12 @@ export default {
 
 const HEIGHT = 300;
 const PADDING = 0;
-const HEIGHT_AND_PADDING = PADDING + 100 + PADDING;
 
 export function Baseline() {
   return (
     <VirtualizedScroller
       style={{ width: "300px", height: "600px", border: "3px solid black" }}
+      renderThreshold={300}
       disableX
       onTap={(e) => {
         const target = e.target as HTMLElement | null;
@@ -61,6 +61,7 @@ export function Snap() {
       style={{ width: "300px", height: "600px", border: "3px solid black" }}
       disableX
       settleStep={HEIGHT}
+      renderThreshold={300}
       onTap={(e) => {
         const target = e.target as HTMLElement | null;
 

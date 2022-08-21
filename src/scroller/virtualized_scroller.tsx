@@ -1,4 +1,4 @@
-import { useAsyncValue, useAsyncValueEffect } from "ergo-hex";
+import { useAsyncValueEffect } from "ergo-hex";
 import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { VirtualizedScrollerDomain } from "./virtualized_scroller_domain";
 import "hammerjs";
@@ -77,8 +77,21 @@ export function VirtualizedScroller({
 
   const divRef = useRef<HTMLDivElement | null>(null);
   const contentRef = useRef<HTMLDivElement | null>(null);
-  const offset = useAsyncValue(domain.offsetBroadcast);
-  useAsyncValue(domain.sizeBroadcast);
+  const [, setLastYIndex] = useState(-1);
+  const [, setLastXIndex] = useState(-1);
+
+  useAsyncValueEffect((offset) => {
+    const content = contentRef.current;
+    const yIndex = Math.floor(offset.y / renderThreshold);
+    const xIndex = Math.floor(offset.x / renderThreshold);
+
+    setLastXIndex(xIndex);
+    setLastYIndex(yIndex);
+
+    if (content != null) {
+      content.style.transform = `translate(${offset.x}px, ${offset.y}px)`;
+    }
+  }, domain.offsetBroadcast);
 
   useLayoutEffect(() => {
     const stage = divRef.current;
@@ -185,7 +198,6 @@ export function VirtualizedScroller({
       <div
         ref={contentRef}
         style={{
-          transform: `translate(${offset.x}px, ${offset.y}px)`,
           position: "absolute",
           width: "100%",
           height: "1px",
