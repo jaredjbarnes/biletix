@@ -14,9 +14,9 @@ export function Calendar({ domain, className, style }: CalendarProps) {
 
   return (
     <VirtualizedScroller
-      domain={domain.scrollerDomain}
       className={className}
       style={style}
+      disableX
       renderThreshold={60}
     >
       {(scrollDomain) => {

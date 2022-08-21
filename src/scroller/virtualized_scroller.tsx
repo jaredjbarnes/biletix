@@ -1,4 +1,4 @@
-import { useAsyncValueEffect } from "ergo-hex";
+import { useAsyncValue, useAsyncValueEffect } from "ergo-hex";
 import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { VirtualizedScrollerDomain } from "./virtualized_scroller_domain";
 import "hammerjs";
@@ -7,26 +7,30 @@ declare var Hammer: any;
 
 export interface VirtualizedScrollerProps {
   children: (domain: VirtualizedScrollerDomain) => React.ReactNode;
+  domainRef?: (domain: VirtualizedScrollerDomain) => void;
+  style?: React.CSSProperties;
+  className?: string;
   overflow?: "visible" | "hidden";
-  enableXScrolling?: boolean;
-  enableYScrolling?: boolean;
+  disableX?: boolean;
+  disableY?: boolean;
   onTap?: (event: PointerEvent) => void;
+  settleStep?: number | null | undefined;
   onScrollStart?: (domain: VirtualizedScrollerDomain) => void;
   onScroll?: (domain: VirtualizedScrollerDomain) => void;
   onScrollEnd?: (domain: VirtualizedScrollerDomain) => void;
   renderThreshold?: number;
-  style?: React.CSSProperties;
-  className?: string;
 }
 
 export function VirtualizedScroller({
+  domainRef,
+  children,
   style,
   className,
-  children,
   overflow = "hidden",
-  enableXScrolling = true,
-  enableYScrolling = true,
+  disableX = false,
+  disableY = false,
   renderThreshold = 1,
+  settleStep = null,
   onScrollStart,
   onScroll,
   onScrollEnd,
@@ -52,38 +56,29 @@ export function VirtualizedScroller({
   }, [domain, onScrollEnd]);
 
   useLayoutEffect(() => {
-    if (enableXScrolling) {
-      domain.enableX();
-    } else {
+    if (disableX) {
       domain.disableX();
+    } else {
+      domain.enableX();
     }
-  }, [domain, enableXScrolling]);
+  }, [domain, disableX]);
 
   useLayoutEffect(() => {
-    if (enableYScrolling) {
-      domain.enableY();
-    } else {
+    if (disableY) {
       domain.disableY();
+    } else {
+      domain.enableY();
     }
-  }, [domain, enableYScrolling]);
+  }, [domain, disableY]);
+
+  useLayoutEffect(() => {
+    domain.settleStep = settleStep;
+  }, [domain, settleStep]);
 
   const divRef = useRef<HTMLDivElement | null>(null);
   const contentRef = useRef<HTMLDivElement | null>(null);
-  const [, setLastYIndex] = useState(-1);
-  const [, setLastXIndex] = useState(-1);
-
-  useAsyncValueEffect((offset) => {
-    const content = contentRef.current;
-    const yIndex = Math.floor(offset.y / renderThreshold);
-    const xIndex = Math.floor(offset.x / renderThreshold);
-
-    setLastXIndex(xIndex);
-    setLastYIndex(yIndex);
-
-    if (content != null) {
-      content.style.transform = `translate(${offset.x}px, ${offset.y}px)`;
-    }
-  }, domain.offsetBroadcast);
+  const offset = useAsyncValue(domain.offsetBroadcast);
+  useAsyncValue(domain.sizeBroadcast);
 
   useLayoutEffect(() => {
     const stage = divRef.current;
@@ -169,6 +164,10 @@ export function VirtualizedScroller({
     };
   }, []);
 
+  useLayoutEffect(() => {
+    domainRef && domainRef(domain);
+  }, [domain]);
+
   return (
     <div
       ref={divRef}
@@ -186,6 +185,7 @@ export function VirtualizedScroller({
       <div
         ref={contentRef}
         style={{
+          transform: `translate(${offset.x}px, ${offset.y}px)`,
           position: "absolute",
           width: "100%",
           height: "1px",

@@ -1,4 +1,5 @@
 import { ObservableValue, ReadonlyObservableValue } from "ergo-hex";
+import { createAnimation, Motion } from "motion-ux";
 
 interface Position {
   x: number;
@@ -24,6 +25,9 @@ export class VirtualizedScrollerDomain {
     width: 0,
     height: 0,
   });
+  private _settleStep: number | null = null;
+  private _motion: Motion<Position>;
+  private _isPanning = false;
   private _isScrolling = false;
   private _isXDisabled = false;
   private _isYDisabled = false;
@@ -73,6 +77,18 @@ export class VirtualizedScrollerDomain {
     return this._lastInteraction;
   }
 
+  get settleStep() {
+    return this._settleStep;
+  }
+
+  set settleStep(value: number | null | undefined) {
+    if (value == null) {
+      this._settleStep = null;
+    } else {
+      this._settleStep = Math.max(value, 0);
+    }
+  }
+
   onScrollStart: ScrollHandler;
   onScroll: ScrollHandler;
   onScrollEnd: ScrollHandler;
@@ -83,14 +99,27 @@ export class VirtualizedScrollerDomain {
   ) {
     this._requestAnimationFrame = requestAnimationFrame;
     this._cancelAnimationFrame = cancelAnimationFrame;
-
+    let isFirst = true;
+    this._motion = new Motion(({ currentValues }) => {
+      if (isFirst || this._isPanning) {
+        isFirst = false;
+      } else {
+        this._offset.transformValue((o) => {
+          o.x = this._isXDisabled ? 0 : currentValues.x;
+          o.y = this._isYDisabled ? 0 : currentValues.y;
+          return o;
+        });
+      }
+    }, true);
     this._deltaOffsetHistory.fill({ x: 0, y: 0 });
+    this._motion.segueTo(createAnimation({ x: 0, y: 0 }), 1000);
   }
 
   pointerStart(x: number, y: number) {
     const cancelAnimationFrame = this._cancelAnimationFrame;
     cancelAnimationFrame(this._requestAnimationId);
 
+    this._isPanning = true;
     this._lastTime = Date.now();
     this._lastInteraction = Date.now();
     this._lastOffset.x = x;
@@ -103,6 +132,7 @@ export class VirtualizedScrollerDomain {
       p.y = 0;
     });
 
+    (this._motion as any).player.stop();
     this._isScrolling = true;
     this.onScrollStart && this.onScrollStart(this);
   }
@@ -144,27 +174,37 @@ export class VirtualizedScrollerDomain {
 
     this._deltaOffset.x = averageX;
     this._deltaOffset.y = averageY;
-    this._offset.transformValue((v) => {
-      v.x += this._isXDisabled ? 0 : averageX;
-      v.y += this._isYDisabled ? 0 : averageY;
-      return v;
+    this._offset.transformValue((o) => {
+      o.x = this._isXDisabled ? 0 : o.x + averageX;
+      o.y = this._isYDisabled ? 0 : o.y + averageY;
+      return o;
     });
 
     onScroll && onScroll(this);
   }
 
   pointerEnd() {
+    this._isPanning = false;
     this._lastInteraction = Date.now();
     const deltaX = this._deltaOffset.x;
     const deltaY = this._deltaOffset.y;
     const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
+    const step = this._settleStep;
 
     if (distance > 6) {
       this._requestAnimationId = requestAnimationFrame(() => {
-        this.settle();
+        if (step == null) {
+          this.finishMomentum();
+        } else {
+          this.settle(step);
+        }
       });
     } else {
-      this.stop();
+      if (step == null) {
+        this.stop();
+      } else {
+        this.settle(step);
+      }
     }
   }
 
@@ -193,8 +233,8 @@ export class VirtualizedScrollerDomain {
     }
 
     this._size.transformValue((s) => {
-      s.width = width;
-      s.height = height;
+      s.width = Math.floor(width);
+      s.height = Math.floor(height);
       return s;
     });
   }
@@ -215,7 +255,48 @@ export class VirtualizedScrollerDomain {
     this._isYDisabled = false;
   }
 
-  private settle() {
+  private settle(step: number) {
+    const offset = this._offset.getValue();
+    const delta = this._deltaOffset;
+
+    const animation = createAnimation({
+      x: {
+        from: offset.x - delta.x,
+        to: offset.x,
+      },
+      y: {
+        from: offset.y - delta.y,
+        to: offset.y,
+      },
+    });
+
+    this._motion.animation = animation;
+
+    (this._motion as any).player.duration = 16.66;
+    (this._motion as any).player.time = 0.999;
+    (this._motion as any).player.play();
+
+    const stepX = Math.round(delta.x / (1 - 0.97) / step);
+    const stepY = Math.round(delta.y / (1 - 0.97) / step);
+    const distanceX = stepX * step;
+    const distanceY = stepY * step;
+
+    let x = offset.x + distanceX;
+    let y = offset.y + distanceY;
+
+    x = x - (x % step);
+    y = y - (y % step);
+
+    this._motion.segueTo(
+      createAnimation({
+        x: this._isXDisabled ? offset.x : x,
+        y: this._isYDisabled ? offset.y : y,
+      }),
+      1000
+    );
+  }
+
+  private finishMomentum() {
     this._lastInteraction = Date.now();
     this._deltaOffset.y = this._deltaOffset.y * 0.97;
     this._deltaOffset.x = this._deltaOffset.x * 0.97;
@@ -227,16 +308,16 @@ export class VirtualizedScrollerDomain {
     );
 
     if (distanceTraveled > 0.1) {
-      this._offset.transformValue((v) => {
-        v.x += this._isXDisabled ? 0 : this._deltaOffset.x;
-        v.y += this._isYDisabled ? 0 : this._deltaOffset.y;
-        return v;
+      this._offset.transformValue((o) => {
+        o.x = this._isXDisabled ? 0 : o.x + this._deltaOffset.x;
+        o.y = this._isYDisabled ? 0 : o.y + this._deltaOffset.y;
+        return o;
       });
 
       this.onScroll && this.onScroll(this);
 
       this._requestAnimationId = requestAnimationFrame(() => {
-        this.settle();
+        this.finishMomentum();
       });
     } else {
       this.stop();
