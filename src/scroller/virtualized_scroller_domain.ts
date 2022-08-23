@@ -112,7 +112,7 @@ export class VirtualizedScrollerDomain {
       }
     }, true);
     this._deltaOffsetHistory.fill({ x: 0, y: 0 });
-    this._motion.segueTo(createAnimation({ x: 0, y: 0 }), 1000);
+    this._motion.segueTo(createAnimation({ x: 0, y: 0 }), 2000);
   }
 
   pointerStart(x: number, y: number) {
@@ -304,7 +304,7 @@ export class VirtualizedScrollerDomain {
         x: this._isXDisabled ? offset.x : x,
         y: this._isYDisabled ? offset.y : y,
       }),
-      1000
+      2000
     );
   }
 
