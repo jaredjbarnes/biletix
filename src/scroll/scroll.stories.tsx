@@ -7,7 +7,7 @@ export default {
   component: Scroll,
 };
 
-const HEIGHT = 100;
+const HEIGHT = 500;
 const PADDING = 0;
 
 export function Baseline() {
@@ -24,9 +24,10 @@ export function Baseline() {
     <Scroll
       domain={domain}
       style={{
-        width: "300px",
-        height: `600px`,
+        width: "100%",
+        height: `100%`,
         border: "3px solid black",
+        boxSizing: "border-box"
       }}
       onTap={(e) => {
         const target = e.target as HTMLElement | null;
@@ -84,8 +85,8 @@ export function Snap() {
     <Scroll
       domain={domain}
       style={{
-        width: "300px",
-        height: `600px`,
+        width: "100%",
+        height: `100%`,
         border: "3px solid black",
       }}
       onTap={(e) => {

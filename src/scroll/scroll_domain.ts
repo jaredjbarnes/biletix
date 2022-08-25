@@ -1,5 +1,5 @@
 import { ObservableValue, ReadonlyObservableValue } from "ergo-hex";
-import { createAnimation, Motion } from "motion-ux";
+import { createAnimation, easings, Motion } from "motion-ux";
 
 interface Position {
   x: number;
@@ -270,7 +270,7 @@ export class ScrollDomain {
 
     this._motion.animation = animation;
 
-    (this._motion as any).player.duration = 16.66;
+    (this._motion as any).player.duration = 16.666;
     (this._motion as any).player.time = 0.999;
     (this._motion as any).player.play();
 
@@ -301,7 +301,8 @@ export class ScrollDomain {
         x: this._isXDisabled ? offset.x : x,
         y: this._isYDisabled ? offset.y : y,
       }),
-      2000
+      2000,
+      easings.easeOutQuint
     );
   }
 
