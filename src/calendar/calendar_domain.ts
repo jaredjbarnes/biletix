@@ -1,5 +1,5 @@
 import { ObservableValue, ReadonlyObservableValue } from "ergo-hex";
-import { VirtualizedScrollerDomain } from "../scroller/virtualized_scroller_domain";
+import { ScrollDomain } from "../scroll/scroll_domain";
 
 interface DateRange {
   start: Date;
@@ -30,9 +30,10 @@ export class CalendarDomain {
     this._dateHeight = dateHeight;
 
     this.scrollerDomain.disableX();
+    this.scrollerDomain.snapInterval = 60;
   }
 
-  scrollerDomain = new VirtualizedScrollerDomain(
+  scrollerDomain = new ScrollDomain(
     requestAnimationFrame,
     cancelAnimationFrame
   );

@@ -1,21 +1,33 @@
 import React, { useState } from "react";
-import { VirtualizedScroller } from "./virtualized_scroller";
-import { VirtualizedScrollerDomain } from "./virtualized_scroller_domain";
+import { Scroll } from "./scroll";
+import { ScrollDomain } from "./scroll_domain";
 
 export default {
   title: "Example/VirtualizedScroller",
-  component: VirtualizedScroller,
+  component: Scroll,
 };
 
-const HEIGHT = 600;
+const HEIGHT = 100;
 const PADDING = 0;
 
 export function Baseline() {
+  const [domain] = useState(() => {
+    const domain = new ScrollDomain(
+      requestAnimationFrame,
+      cancelAnimationFrame
+    );
+    domain.disableX();
+    return domain;
+  });
+
   return (
-    <VirtualizedScroller
-      style={{ width: "300px", height: "600px", border: "3px solid black" }}
-      renderThreshold={300}
-      disableX
+    <Scroll
+      domain={domain}
+      style={{
+        width: "300px",
+        height: `600px`,
+        border: "3px solid black",
+      }}
       onTap={(e) => {
         const target = e.target as HTMLElement | null;
 
@@ -40,6 +52,8 @@ export function Baseline() {
             height: `${HEIGHT}px`,
             width: "100%",
             backgroundColor: "red",
+            boxSizing: "border-box",
+            border: "3px solid black",
           };
 
           children.push(
@@ -51,17 +65,29 @@ export function Baseline() {
 
         return children;
       }}
-    </VirtualizedScroller>
+    </Scroll>
   );
 }
 
 export function Snap() {
+  const [domain] = useState(() => {
+    const domain = new ScrollDomain(
+      requestAnimationFrame,
+      cancelAnimationFrame
+    );
+    domain.disableX();
+    domain.snapInterval = HEIGHT;
+    return domain;
+  });
+
   return (
-    <VirtualizedScroller
-      style={{ width: "300px", height: "600px", border: "3px solid black" }}
-      disableX
-      settleStep={HEIGHT}
-      renderThreshold={300}
+    <Scroll
+      domain={domain}
+      style={{
+        width: "300px",
+        height: `600px`,
+        border: "3px solid black",
+      }}
       onTap={(e) => {
         const target = e.target as HTMLElement | null;
 
@@ -99,6 +125,6 @@ export function Snap() {
 
         return children;
       }}
-    </VirtualizedScroller>
+    </Scroll>
   );
 }

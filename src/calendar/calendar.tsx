@@ -1,5 +1,5 @@
 import React from "react";
-import { VirtualizedScroller } from "../scroller/virtualized_scroller";
+import { Scroll } from "../scroll/scroll";
 import { SideDate } from "../side_date";
 import { CalendarDomain } from "./calendar_domain";
 
@@ -13,12 +13,10 @@ export function Calendar({ domain, className, style }: CalendarProps) {
   const height = domain.dateHeight;
 
   return (
-    <VirtualizedScroller
+    <Scroll
+      domain={domain.scrollerDomain}
       className={className}
       style={style}
-      disableX
-      settleStep={60}
-      renderThreshold={60}
     >
       {(scrollDomain) => {
         const startIndex = Math.floor(scrollDomain.top / height) - 1;
@@ -39,6 +37,6 @@ export function Calendar({ domain, className, style }: CalendarProps) {
 
         return children;
       }}
-    </VirtualizedScroller>
+    </Scroll>
   );
 }

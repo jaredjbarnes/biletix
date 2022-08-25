@@ -11,12 +11,9 @@ interface Size {
   height: number;
 }
 
-type ScrollHandler =
-  | ((domain: VirtualizedScrollerDomain) => void)
-  | null
-  | undefined;
+type ScrollHandler = ((domain: ScrollDomain) => void) | null | undefined;
 
-export class VirtualizedScrollerDomain {
+export class ScrollDomain {
   private _offset = new ObservableValue<Position>({
     x: 0,
     y: 0,
@@ -25,7 +22,7 @@ export class VirtualizedScrollerDomain {
     width: 0,
     height: 0,
   });
-  private _settleStep: number | null = null;
+  private _snapInterval: number | null = null;
   private _motion: Motion<Position>;
   private _isPanning = false;
   private _isScrolling = false;
@@ -33,7 +30,7 @@ export class VirtualizedScrollerDomain {
   private _isYDisabled = false;
   private _requestAnimationId = 0;
   private _lastTime = 0;
-  private _lastInteraction;
+  private _lastInteraction = Date.now();
   private _lastOffset: Position = { x: 0, y: 0 };
   private _startOffset: Position = { x: 0, y: 0 };
   private _deltaOffset: Position = { x: 0, y: 0 };
@@ -77,15 +74,15 @@ export class VirtualizedScrollerDomain {
     return this._lastInteraction;
   }
 
-  get settleStep() {
-    return this._settleStep;
+  get snapInterval() {
+    return this._snapInterval;
   }
 
-  set settleStep(value: number | null | undefined) {
+  set snapInterval(value: number | null | undefined) {
     if (value == null) {
-      this._settleStep = null;
+      this._snapInterval = null;
     } else {
-      this._settleStep = Math.max(value, 0);
+      this._snapInterval = Math.max(value, 0);
     }
   }
 
@@ -189,21 +186,21 @@ export class VirtualizedScrollerDomain {
     const deltaX = this._deltaOffset.x;
     const deltaY = this._deltaOffset.y;
     const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
-    const step = this._settleStep;
+    const snapInterval = this._snapInterval;
 
     if (distance > 6) {
       this._requestAnimationId = requestAnimationFrame(() => {
-        if (step == null) {
+        if (snapInterval == null) {
           this.finishMomentum();
         } else {
-          this.settle(step);
+          this.settle(snapInterval);
         }
       });
     } else {
-      if (step == null) {
+      if (snapInterval == null) {
         this.stop();
       } else {
-        this.settle(step);
+        this.settle(snapInterval);
       }
     }
   }
