@@ -27,7 +27,7 @@ export function Baseline() {
         width: "100%",
         height: `100%`,
         border: "3px solid black",
-        boxSizing: "border-box"
+        boxSizing: "border-box",
       }}
       onTap={(e) => {
         const target = e.target as HTMLElement | null;
@@ -88,6 +88,7 @@ export function Snap() {
         width: "100%",
         height: `100%`,
         border: "3px solid black",
+        boxSizing: "border-box",
       }}
       onTap={(e) => {
         const target = e.target as HTMLElement | null;

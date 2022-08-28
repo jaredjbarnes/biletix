@@ -101,6 +101,7 @@ export class ScrollDomain {
       if (isFirst || this._isPanning) {
         isFirst = false;
       } else {
+        this._lastInteraction = Date.now();
         this._offset.transformValue((o) => {
           o.x = this._isXDisabled ? 0 : currentValues.x;
           o.y = this._isYDisabled ? 0 : currentValues.y;
@@ -115,6 +116,7 @@ export class ScrollDomain {
   pointerStart(x: number, y: number) {
     const cancelAnimationFrame = this._cancelAnimationFrame;
     cancelAnimationFrame(this._requestAnimationId);
+    this._motion.stop();
 
     this._isPanning = true;
     this._lastTime = Date.now();
@@ -129,7 +131,6 @@ export class ScrollDomain {
       p.y = 0;
     });
 
-    (this._motion as any).player.stop();
     this._isScrolling = true;
     this.onScrollStart && this.onScrollStart(this);
   }
@@ -206,18 +207,25 @@ export class ScrollDomain {
   }
 
   stop() {
+    const snapInterval = this._snapInterval;
+
     if (this._isScrolling) {
       this._isScrolling = false;
       this.onScrollEnd && this.onScrollEnd(this);
     }
 
+    if (snapInterval != null) {
+      this._deltaOffset = { x: 0, y: 0 };
+      this._deltaOffsetHistory.forEach((p) => {
+        p.x = 0;
+        p.y = 0;
+      });
+      this._motion.stop();
+      this.settle(snapInterval);
+    }
+
     const cancelAnimationFrame = this._cancelAnimationFrame;
     cancelAnimationFrame(this._requestAnimationId);
-    this._deltaOffset = { x: 0, y: 0 };
-    this._deltaOffsetHistory.forEach((p) => {
-      p.x = 0;
-      p.y = 0;
-    });
   }
 
   scrollTo() {
@@ -268,12 +276,6 @@ export class ScrollDomain {
       },
     });
 
-    this._motion.animation = animation;
-
-    (this._motion as any).player.duration = 16.666;
-    (this._motion as any).player.time = 0.999;
-    (this._motion as any).player.play();
-
     const stepX = Math.round(delta.x / (1 - 0.97) / step);
     const stepY = Math.round(delta.y / (1 - 0.97) / step);
     const distanceX = stepX * step;
@@ -296,7 +298,14 @@ export class ScrollDomain {
         ? y + directionY * (step - remainderY)
         : y - directionY * remainderY;
 
-    this._motion.segueTo(
+    if (
+      (Math.abs(x - offset.x) < 1 || this._isXDisabled) &&
+      (Math.abs(y - offset.y) < 1 || this._isYDisabled)
+    ) {
+      return;
+    }
+
+    this._motion.inject(animation).segueTo(
       createAnimation({
         x: this._isXDisabled ? offset.x : x,
         y: this._isYDisabled ? offset.y : y,
