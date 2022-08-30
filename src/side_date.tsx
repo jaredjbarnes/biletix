@@ -11,6 +11,8 @@ const useStyles = createUseStyles({
     width: "50px",
     fontFamily: "Arial",
     color: "#666",
+    boxSizing: "border-box",
+    border: "1px solid #ccc"
   },
   month: {
     display: "grid",

@@ -30,7 +30,7 @@ export class CalendarDomain {
     this._dateHeight = dateHeight;
 
     this.scrollerDomain.disableX();
-    this.scrollerDomain.snapInterval = 60;
+    this.scrollerDomain.snapInterval = dateHeight;
   }
 
   scrollerDomain = new ScrollDomain(

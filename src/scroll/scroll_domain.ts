@@ -29,8 +29,7 @@ export class ScrollDomain {
   private _isXDisabled = false;
   private _isYDisabled = false;
   private _requestAnimationId = 0;
-  private _lastTime = 0;
-  private _lastInteraction = Date.now();
+  private _lastTime = Date.now();
   private _lastOffset: Position = { x: 0, y: 0 };
   private _startOffset: Position = { x: 0, y: 0 };
   private _deltaOffset: Position = { x: 0, y: 0 };
@@ -71,7 +70,7 @@ export class ScrollDomain {
   }
 
   get lastInteraction() {
-    return this._lastInteraction;
+    return this._lastTime;
   }
 
   get snapInterval() {
@@ -101,8 +100,8 @@ export class ScrollDomain {
       if (isFirst || this._isPanning) {
         isFirst = false;
       } else {
-        this._lastInteraction = Date.now();
         this._offset.transformValue((o) => {
+          this._lastTime = Date.now();
           o.x = this._isXDisabled ? 0 : currentValues.x;
           o.y = this._isYDisabled ? 0 : currentValues.y;
           return o;
@@ -120,7 +119,6 @@ export class ScrollDomain {
 
     this._isPanning = true;
     this._lastTime = Date.now();
-    this._lastInteraction = Date.now();
     this._lastOffset.x = x;
     this._startOffset.x = x;
     this._lastOffset.y = y;
@@ -138,6 +136,7 @@ export class ScrollDomain {
   pointerMove(x: number, y: number) {
     const now = Date.now();
     const deltaTime = now - this._lastTime;
+    const frames = Math.floor(deltaTime / 16);
 
     // Throttle to 60 frames a second
     if (deltaTime < 16) {
@@ -145,8 +144,8 @@ export class ScrollDomain {
     }
 
     const onScroll = this.onScroll;
-    const deltaY = y - this._lastOffset.y;
-    const deltaX = x - this._lastOffset.x;
+    const deltaY = (y - this._lastOffset.y) / frames;
+    const deltaX = (x - this._lastOffset.x) / frames;
     this._lastTime = now;
     this._lastOffset.y = y;
     this._lastOffset.x = x;
@@ -183,7 +182,7 @@ export class ScrollDomain {
 
   pointerEnd() {
     this._isPanning = false;
-    this._lastInteraction = Date.now();
+    this._lastTime = Date.now();
     const deltaX = this._deltaOffset.x;
     const deltaY = this._deltaOffset.y;
     const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
@@ -228,10 +227,6 @@ export class ScrollDomain {
     cancelAnimationFrame(this._requestAnimationId);
   }
 
-  scrollTo() {
-    // TODO
-  }
-
   setSize(width: number, height: number) {
     if (this.width == width && this.height === height) {
       return;
@@ -259,6 +254,8 @@ export class ScrollDomain {
   enableY() {
     this._isYDisabled = false;
   }
+
+  scrollTo() {}
 
   private settle(step: number) {
     const halfStep = step / 2;
@@ -316,7 +313,6 @@ export class ScrollDomain {
   }
 
   private finishMomentum() {
-    this._lastInteraction = Date.now();
     this._deltaOffset.y = this._deltaOffset.y * 0.97;
     this._deltaOffset.x = this._deltaOffset.x * 0.97;
     const requestAnimationFrame = this._requestAnimationFrame;
