@@ -24,7 +24,6 @@ export class ScrollDomain {
   });
   private _snapInterval: number | null = null;
   private _motion: Motion<Position>;
-  private _isPanning = false;
   private _isScrolling = false;
   private _isXDisabled = false;
   private _isYDisabled = false;
@@ -101,11 +100,10 @@ export class ScrollDomain {
     this._cancelAnimationFrame = cancelAnimationFrame;
     let isFirst = true;
     this._motion = new Motion(({ currentValues }) => {
-      if (isFirst || this._isPanning) {
+      if (isFirst) {
         isFirst = false;
       } else {
         this._offset.transformValue((o) => {
-          this._lastTime = Date.now();
           this._lastOffset.x = o.x;
           this._lastOffset.y = o.y;
 
@@ -114,6 +112,12 @@ export class ScrollDomain {
 
           this._deltaOffset.x = o.x - this._lastOffset.x;
           this._deltaOffset.y = o.y - this._lastOffset.y;
+
+          this._deltaOffsetHistory.forEach((d) => {
+            d.x = this._deltaOffset.x;
+            d.y = this._deltaOffset.y;
+          });
+
           return o;
         });
 
@@ -121,18 +125,19 @@ export class ScrollDomain {
       }
     }, true);
     this._deltaOffsetHistory.fill({ x: 0, y: 0 });
+  }
 
-    this._motion.segueTo(createAnimation({ x: 0, y: 0 }), 2000);
+  initialize(x: number, y: number) {
+    this._motion.segueTo(createAnimation({ x, y }), 2000);
   }
 
   pointerStart(x: number, y: number) {
-    this.stop();
+    this.reset();
 
-    this._isPanning = true;
     this._lastTime = Date.now();
     this._lastOffset.x = x;
-    this._startOffset.x = x;
     this._lastOffset.y = y;
+    this._startOffset.x = x;
     this._startOffset.y = y;
     this._deltaOffset = { x: 0, y: 0 };
     this._deltaOffsetHistory.forEach((p) => {
@@ -181,6 +186,7 @@ export class ScrollDomain {
 
     this._deltaOffset.x = averageX;
     this._deltaOffset.y = averageY;
+
     this._offset.transformValue((o) => {
       o.x = this._isXDisabled ? 0 : o.x + averageX;
       o.y = this._isYDisabled ? 0 : o.y + averageY;
@@ -191,7 +197,6 @@ export class ScrollDomain {
   }
 
   pointerEnd() {
-    this._isPanning = false;
     this._lastTime = Date.now();
     const deltaX = this._deltaOffset.x;
     const deltaY = this._deltaOffset.y;
@@ -199,13 +204,13 @@ export class ScrollDomain {
     const snapInterval = this._snapInterval;
 
     if (distance > 6) {
-      this._requestAnimationId = requestAnimationFrame(() => {
-        if (snapInterval == null) {
+      if (snapInterval == null) {
+        this._requestAnimationId = requestAnimationFrame(() => {
           this.finishMomentum();
-        } else {
-          this.settle(snapInterval);
-        }
-      });
+        });
+      } else {
+        this.settle(snapInterval);
+      }
     } else {
       if (snapInterval == null) {
         this.stop();
@@ -215,8 +220,7 @@ export class ScrollDomain {
     }
   }
 
-  stop() {
-    const snapInterval = this._snapInterval;
+  reset() {
     this._motion.stop();
     this.cancelMomentum();
 
@@ -225,12 +229,23 @@ export class ScrollDomain {
       this.onScrollEnd && this.onScrollEnd(this);
     }
 
+    const offset = this._offset.getValue();
+
+    this._lastTime = Date.now();
+    this._lastOffset.x = offset.x;
+    this._lastOffset.y = offset.y;
+    this._deltaOffset.x = 0;
+    this._deltaOffset.y = 0;
+    this._deltaOffsetHistory.forEach((p) => {
+      p.x = 0;
+      p.y = 0;
+    });
+  }
+
+  stop() {
+    this.reset();
+    const snapInterval = this._snapInterval;
     if (snapInterval != null) {
-      this._deltaOffset = { x: 0, y: 0 };
-      this._deltaOffsetHistory.forEach((p) => {
-        p.x = 0;
-        p.y = 0;
-      });
       this.settle(snapInterval);
     }
   }
@@ -282,7 +297,7 @@ export class ScrollDomain {
       });
 
       this._motion.inject(animation);
-      this.stop();
+      this.reset();
     } else {
       const animation = createAnimation({
         x: offset.x,
@@ -389,7 +404,7 @@ export class ScrollDomain {
         this.finishMomentum();
       });
     } else {
-      this.stop();
+      this.reset();
     }
   }
 }

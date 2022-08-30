@@ -95,6 +95,10 @@ export function Scroll({
     };
   }, []);
 
+  useEffect(() => {
+    domain.initialize(0, 0);
+  }, [domain]);
+
   return (
     <div
       ref={divRef}
