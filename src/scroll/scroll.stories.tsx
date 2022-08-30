@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Scroll } from "./scroll";
 import { ScrollDomain } from "./scroll_domain";
 

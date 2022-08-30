@@ -28,7 +28,7 @@ export class ScrollDomain {
   private _isScrolling = false;
   private _isXDisabled = false;
   private _isYDisabled = false;
-  private _requestAnimationId = 0;
+  private _requestAnimationId = -1;
   private _lastTime = Date.now();
   private _lastOffset: Position = { x: 0, y: 0 };
   private _startOffset: Position = { x: 0, y: 0 };
@@ -77,6 +77,10 @@ export class ScrollDomain {
     return this._snapInterval;
   }
 
+  get velocity() {
+    return this._deltaOffset;
+  }
+
   set snapInterval(value: number | null | undefined) {
     if (value == null) {
       this._snapInterval = null;
@@ -102,20 +106,27 @@ export class ScrollDomain {
       } else {
         this._offset.transformValue((o) => {
           this._lastTime = Date.now();
+          this._lastOffset.x = o.x;
+          this._lastOffset.y = o.y;
+
           o.x = this._isXDisabled ? 0 : currentValues.x;
           o.y = this._isYDisabled ? 0 : currentValues.y;
+
+          this._deltaOffset.x = o.x - this._lastOffset.x;
+          this._deltaOffset.y = o.y - this._lastOffset.y;
           return o;
         });
+
+        this.onScroll && this.onScroll(this);
       }
     }, true);
     this._deltaOffsetHistory.fill({ x: 0, y: 0 });
+
     this._motion.segueTo(createAnimation({ x: 0, y: 0 }), 2000);
   }
 
   pointerStart(x: number, y: number) {
-    const cancelAnimationFrame = this._cancelAnimationFrame;
-    cancelAnimationFrame(this._requestAnimationId);
-    this._motion.stop();
+    this.stop();
 
     this._isPanning = true;
     this._lastTime = Date.now();
@@ -130,7 +141,6 @@ export class ScrollDomain {
     });
 
     this._isScrolling = true;
-    this.onScrollStart && this.onScrollStart(this);
   }
 
   pointerMove(x: number, y: number) {
@@ -207,6 +217,8 @@ export class ScrollDomain {
 
   stop() {
     const snapInterval = this._snapInterval;
+    this._motion.stop();
+    this.cancelMomentum();
 
     if (this._isScrolling) {
       this._isScrolling = false;
@@ -219,12 +231,8 @@ export class ScrollDomain {
         p.x = 0;
         p.y = 0;
       });
-      this._motion.stop();
       this.settle(snapInterval);
     }
-
-    const cancelAnimationFrame = this._cancelAnimationFrame;
-    cancelAnimationFrame(this._requestAnimationId);
   }
 
   setSize(width: number, height: number) {
@@ -255,7 +263,53 @@ export class ScrollDomain {
     this._isYDisabled = false;
   }
 
-  scrollTo() {}
+  scrollTo(x: number, y: number, duration = 2000) {
+    const offset = this._offset.getValue();
+
+    if (this._requestAnimationId !== -1) {
+      this.cancelMomentum();
+
+      const delta = this._deltaOffset;
+      const animation = createAnimation({
+        x: {
+          from: offset.x - delta.x,
+          to: offset.x,
+        },
+        y: {
+          from: offset.y - delta.y,
+          to: offset.y,
+        },
+      });
+
+      this._motion.inject(animation);
+      this.stop();
+    } else {
+      const animation = createAnimation({
+        x: offset.x,
+        y: offset.y,
+      });
+      this._motion.inject(animation);
+    }
+
+    x = this._isXDisabled ? offset.x : x;
+    y = this._isYDisabled ? offset.y : y;
+
+    // Need to constrain if disabled and well as if snapped.
+    this._motion.segueTo(
+      createAnimation({
+        x,
+        y,
+      }),
+      duration,
+      easings.easeOutQuint
+    );
+  }
+
+  private cancelMomentum() {
+    const cancelAnimationFrame = this._cancelAnimationFrame;
+    cancelAnimationFrame(this._requestAnimationId);
+    this._requestAnimationId = -1;
+  }
 
   private settle(step: number) {
     const halfStep = step / 2;
