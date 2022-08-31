@@ -278,7 +278,17 @@ export class ScrollDomain {
     this._isYDisabled = false;
   }
 
-  scrollTo(x: number, y: number, duration = 2000) {
+  scrollTo(x: number, y: number) {
+    this._offset.transformValue((o) => {
+      o.x = x;
+      o.y = y;
+      return o;
+    });
+    
+    this.stop();
+  }
+
+  animateTo(x: number, y: number, duration = 2000) {
     const offset = this._offset.getValue();
 
     if (this._requestAnimationId !== -1) {
