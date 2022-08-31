@@ -43,8 +43,8 @@ export function Baseline() {
       }}
     >
       {(domain) => {
-        const startIndex = Math.floor(domain.top / HEIGHT) - 2;
-        const endIndex = Math.ceil(domain.bottom / HEIGHT) + 2;
+        const startIndex = Math.floor(domain.top / HEIGHT);
+        const endIndex = Math.ceil(domain.bottom / HEIGHT);
         const children: React.ReactNode[] = [];
 
         for (let x = startIndex; x < endIndex; x++) {
@@ -100,8 +100,8 @@ export function Snap() {
       }}
     >
       {(domain) => {
-        const startIndex = Math.floor(domain.top / HEIGHT) - 1;
-        const endIndex = Math.ceil(domain.bottom / HEIGHT) + 1;
+        const startIndex = Math.floor(domain.top / HEIGHT);
+        const endIndex = Math.ceil(domain.bottom / HEIGHT);
         const children: React.ReactNode[] = [];
 
         for (let x = startIndex; x < endIndex; x++) {
