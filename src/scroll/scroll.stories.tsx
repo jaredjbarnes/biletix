@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Scroll } from "./scroll";
 import { ScrollDomain } from "./scroll_domain";
+import { SnapScrollDomain } from "./snap_scroll_domain";
 
 export default {
   title: "Example/VirtualizedScroller",
@@ -72,12 +73,8 @@ export function Baseline() {
 
 export function Snap() {
   const [domain] = useState(() => {
-    const domain = new ScrollDomain(
-      requestAnimationFrame,
-      cancelAnimationFrame
-    );
+    const domain = new SnapScrollDomain(HEIGHT);
     domain.disableX();
-    domain.snapInterval = HEIGHT;
     return domain;
   });
 

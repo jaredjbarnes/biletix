@@ -1,13 +1,13 @@
-import { useAsyncValue, useAsyncValueEffect } from "ergo-hex";
-import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
-import { ScrollDomain } from "./scroll_domain";
+import { useAsyncValue } from "ergo-hex";
+import React, { useEffect, useLayoutEffect, useRef } from "react";
 import "hammerjs";
+import { Scrollable } from "./scrollable";
 
 declare var Hammer: any;
 
 export interface ScrollProps {
-  children: (domain: ScrollDomain) => React.ReactNode;
-  domain: ScrollDomain;
+  children: (domain: Scrollable) => React.ReactNode;
+  domain: Scrollable;
   style?: React.CSSProperties;
   className?: string;
   onTap?: (event: PointerEvent) => void;
@@ -102,7 +102,7 @@ export function Scroll({
   return (
     <div
       ref={divRef}
-      onPointerDown={(e) => {
+      onPointerDown={() => {
         domain.stop();
       }}
       style={{
