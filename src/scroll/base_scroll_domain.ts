@@ -70,23 +70,9 @@ export abstract class BaseScrollDomain implements Scrollable {
 
   constructor() {
     this._motion = new Motion(({ currentValues }) => {
-      this._offset.transformValue((o) => {
-        this._lastOffset.x = o.x;
-        this._lastOffset.y = o.y;
-
-        o.x = this._isXDisabled ? 0 : currentValues.x;
-        o.y = this._isYDisabled ? 0 : currentValues.y;
-
-        this._deltaOffset.x = o.x - this._lastOffset.x;
-        this._deltaOffset.y = o.y - this._lastOffset.y;
-
-        this._deltaOffsetHistory.forEach((d) => {
-          d.x = this._deltaOffset.x;
-          d.y = this._deltaOffset.y;
-        });
-
-        return o;
-      });
+      this._offset.transformValue((o) =>
+        this.updateFromAnimation(o, currentValues)
+      );
 
       this.onScroll && this.onScroll(this);
     }, true);
@@ -94,7 +80,7 @@ export abstract class BaseScrollDomain implements Scrollable {
   }
 
   initialize(x: number, y: number) {
-    this._motion.segueTo(createAnimation({ x, y }), 2000);
+    this._motion.segueTo(createAnimation({ x, y }));
   }
 
   pointerStart(x: number, y: number) {
@@ -115,51 +101,19 @@ export abstract class BaseScrollDomain implements Scrollable {
   }
 
   pointerMove(x: number, y: number) {
-    const now = Date.now();
-    const deltaTime = now - this._lastTime;
-    const frames = Math.floor(deltaTime / 16);
+    const successfullyUpdated = this.updateDeltaAverage(x, y);
 
-    // Throttle to 60 frames a second
-    if (deltaTime < 16) {
+    if (!successfullyUpdated) {
       return;
     }
 
-    const onScroll = this.onScroll;
-    const deltaY = (y - this._lastOffset.y) / frames;
-    const deltaX = (x - this._lastOffset.x) / frames;
-    this._lastTime = now;
-    this._lastOffset.y = y;
-    this._lastOffset.x = x;
-    let totalX = 0;
-    let totalY = 0;
-
-    // Its important to average the deltas or it appears janky.
-    for (let i = 0; i < 3; i++) {
-      if (i < 2) {
-        this._deltaOffsetHistory[i].x = this._deltaOffsetHistory[i + 1].x;
-        this._deltaOffsetHistory[i].y = this._deltaOffsetHistory[i + 1].y;
-      } else {
-        this._deltaOffsetHistory[i].x = deltaX;
-        this._deltaOffsetHistory[i].y = deltaY;
-      }
-
-      totalX += this._deltaOffsetHistory[i].x;
-      totalY += this._deltaOffsetHistory[i].y;
-    }
-
-    const averageX = totalX / 3;
-    const averageY = totalY / 3;
-
-    this._deltaOffset.x = averageX;
-    this._deltaOffset.y = averageY;
-
     this._offset.transformValue((o) => {
-      o.x = this._isXDisabled ? 0 : o.x + averageX;
-      o.y = this._isYDisabled ? 0 : o.y + averageY;
+      o.x = this._isXDisabled ? o.x : o.x + this._deltaOffset.x;
+      o.y = this._isYDisabled ? o.y : o.y + this._deltaOffset.y;
       return o;
     });
 
-    onScroll && onScroll(this);
+    this.onScroll && this.onScroll(this);
   }
 
   pointerEnd() {
@@ -230,4 +184,61 @@ export abstract class BaseScrollDomain implements Scrollable {
   }
 
   abstract animateTo(x: number, y: number, duration: number): void;
+
+  private updateDeltaAverage(x: number, y: number) {
+    const now = Date.now();
+    const deltaTime = now - this._lastTime;
+    const frames = Math.floor(deltaTime / 16);
+
+    if (deltaTime < 16) {
+      return false;
+    }
+
+    const deltaY = (y - this._lastOffset.y) / frames;
+    const deltaX = (x - this._lastOffset.x) / frames;
+    this._lastTime = now;
+    this._lastOffset.y = y;
+    this._lastOffset.x = x;
+    let totalX = 0;
+    let totalY = 0;
+
+    for (let i = 0; i < 3; i++) {
+      if (i < 2) {
+        this._deltaOffsetHistory[i].x = this._deltaOffsetHistory[i + 1].x;
+        this._deltaOffsetHistory[i].y = this._deltaOffsetHistory[i + 1].y;
+      } else {
+        this._deltaOffsetHistory[i].x = deltaX;
+        this._deltaOffsetHistory[i].y = deltaY;
+      }
+
+      totalX += this._deltaOffsetHistory[i].x;
+      totalY += this._deltaOffsetHistory[i].y;
+    }
+
+    const averageX = totalX / 3;
+    const averageY = totalY / 3;
+
+    this._deltaOffset.x = averageX;
+    this._deltaOffset.y = averageY;
+
+    return true;
+  }
+
+  private updateFromAnimation(offset: Position, newOffset: Position) {
+    this._lastOffset.x = offset.x;
+    this._lastOffset.y = offset.y;
+
+    offset.x = this._isXDisabled ? offset.x : newOffset.x;
+    offset.y = this._isYDisabled ? offset.y : newOffset.y;
+
+    this._deltaOffset.x = offset.x - this._lastOffset.x;
+    this._deltaOffset.y = offset.y - this._lastOffset.y;
+
+    this._deltaOffsetHistory.forEach((d) => {
+      d.x = this._deltaOffset.x;
+      d.y = this._deltaOffset.y;
+    });
+
+    return offset;
+  }
 }

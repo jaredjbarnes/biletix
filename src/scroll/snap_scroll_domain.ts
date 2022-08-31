@@ -11,12 +11,12 @@ export class SnapScrollDomain extends BaseScrollDomain {
 
   pointerEnd() {
     super.pointerEnd();
-    this.settle(this._snapInterval);
+    this.settle();
   }
 
   stop() {
     super.stop();
-    this.settle(this._snapInterval);
+    this.settle();
   }
 
   animateTo(x: number, y: number, duration = 2000) {
@@ -25,12 +25,12 @@ export class SnapScrollDomain extends BaseScrollDomain {
       x: offset.x,
       y: offset.y,
     });
+    
     this._motion.inject(animation);
 
     x = this._isXDisabled ? offset.x : x;
     y = this._isYDisabled ? offset.y : y;
 
-    // Need to constrain if disabled and well as if snapped.
     this._motion.segueTo(
       createAnimation({
         x,
@@ -41,8 +41,7 @@ export class SnapScrollDomain extends BaseScrollDomain {
     );
   }
 
-  private settle(step: number) {
-    const halfStep = step / 2;
+  private settle() {
     const offset = this._offset.getValue();
     const delta = this._deltaOffset;
 
@@ -57,34 +56,10 @@ export class SnapScrollDomain extends BaseScrollDomain {
       },
     });
 
-    const stepX = Math.round(delta.x / (1 - 0.97) / step);
-    const stepY = Math.round(delta.y / (1 - 0.97) / step);
-    const distanceX = stepX * step;
-    const distanceY = stepY * step;
-
-    let x = offset.x + distanceX;
-    let y = offset.y + distanceY;
-
-    const remainderX = Math.abs(x % step);
-    const remainderY = Math.abs(y % step);
-    const directionX = Math.sign(x);
-    const directionY = Math.sign(y);
-
-    x =
-      remainderX > halfStep
-        ? x + directionX * (step - remainderX)
-        : x - directionX * remainderX;
-    y =
-      remainderY > halfStep
-        ? y + directionY * (step - remainderY)
-        : y - directionY * remainderY;
-
-    if (
-      (Math.abs(x - offset.x) < 1 || this._isXDisabled) &&
-      (Math.abs(y - offset.y) < 1 || this._isYDisabled)
-    ) {
-      return;
-    }
+    const distanceX = this.deriveDistance(delta.x);
+    const distanceY = this.deriveDistance(delta.y);
+    const x = this.round(offset.x + distanceX);
+    const y = this.round(offset.y + distanceY);
 
     this._motion.inject(animation).segueTo(
       createAnimation({
@@ -94,5 +69,22 @@ export class SnapScrollDomain extends BaseScrollDomain {
       2000,
       easings.easeOutQuint
     );
+  }
+
+  private deriveDistance(delta: number) {
+    const interval = this._snapInterval;
+    const step = Math.round(delta / (1 - 0.97) / interval);
+    return step * interval;
+  }
+
+  private round(value: number) {
+    const interval = this._snapInterval;
+    const halfStep = interval / 2;
+    const remainder = Math.abs(value % interval);
+    const direction = Math.sign(value);
+
+    return remainder > halfStep
+      ? value + direction * (interval - remainder)
+      : value - direction * remainder;
   }
 }

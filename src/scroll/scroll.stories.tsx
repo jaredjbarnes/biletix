@@ -8,7 +8,7 @@ export default {
   component: Scroll,
 };
 
-const HEIGHT = 500;
+const HEIGHT = 100;
 const PADDING = 0;
 
 export function Baseline() {

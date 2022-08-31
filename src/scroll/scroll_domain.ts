@@ -20,7 +20,7 @@ export class ScrollDomain extends BaseScrollDomain {
     const deltaY = this._deltaOffset.y;
     const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
 
-    if (distance > 6) {
+    if (distance > 3) {
       this._requestAnimationId = requestAnimationFrame(() => {
         this.finishMomentum();
       });
