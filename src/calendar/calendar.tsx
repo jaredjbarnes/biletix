@@ -14,7 +14,7 @@ export function Calendar({ domain, className, style }: CalendarProps) {
 
   return (
     <Scroll
-      domain={domain.scrollerDomain}
+      domain={domain.scrollDomain}
       className={className}
       style={style}
     >

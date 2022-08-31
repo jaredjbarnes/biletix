@@ -1,5 +1,6 @@
 import { ObservableValue, ReadonlyObservableValue } from "ergo-hex";
 import { ScrollDomain } from "../scroll/scroll_domain";
+import { SnapScrollDomain } from "../scroll/snap_scroll_domain";
 
 interface DateRange {
   start: Date;
@@ -26,17 +27,13 @@ export class CalendarDomain {
     return this._dateHeight;
   }
 
+  scrollDomain: SnapScrollDomain;
+
   constructor(dateHeight: number) {
     this._dateHeight = dateHeight;
-
-    this.scrollerDomain.disableX();
-    this.scrollerDomain.snapInterval = dateHeight;
+    this.scrollDomain = new SnapScrollDomain(this._dateHeight);
+    this.scrollDomain.disableX();
   }
-
-  scrollerDomain = new ScrollDomain(
-    requestAnimationFrame,
-    cancelAnimationFrame
-  );
 
   selectDateRange(range: DateRange) {
     this._selection.setValue(range);
