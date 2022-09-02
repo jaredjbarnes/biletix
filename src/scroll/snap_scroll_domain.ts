@@ -9,6 +9,10 @@ export class SnapScrollDomain extends BaseScrollDomain {
     this._snapInterval = Math.max(snapInterval, 0);
   }
 
+  setSnapInterval(interval: number) {
+    this._snapInterval = interval;
+  }
+
   pointerEnd() {
     super.pointerEnd();
     this.settle();
@@ -25,7 +29,7 @@ export class SnapScrollDomain extends BaseScrollDomain {
       x: offset.x,
       y: offset.y,
     });
-    
+
     this._motion.inject(animation);
 
     x = this._isXDisabled ? offset.x : x;

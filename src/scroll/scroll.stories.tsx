@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
+import { AppleScroll } from "./apple_scroll";
 import { Scroll } from "./scroll";
 import { ScrollDomain } from "./scroll_domain";
 import { SnapScrollDomain } from "./snap_scroll_domain";
@@ -125,5 +126,26 @@ export function Snap() {
         return children;
       }}
     </Scroll>
+  );
+}
+
+export function AppleScrollBaseline() {
+  const [domain] = useState(() => {
+    const domain = new SnapScrollDomain(300);
+    return domain;
+  });
+
+  return (
+    <AppleScroll
+      domain={domain}
+      itemWidth={300}
+      itemHeight={500}
+      style={{
+        width: "100%",
+        height: `100%`,
+        border: "3px solid black",
+        boxSizing: "border-box",
+      }}
+    />
   );
 }

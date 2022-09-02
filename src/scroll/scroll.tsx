@@ -2,6 +2,8 @@ import { useAsyncValue } from "ergo-hex";
 import React, { useEffect, useLayoutEffect, useRef } from "react";
 import "hammerjs";
 import { Scrollable } from "./scrollable";
+import { usePanning } from "./use_panning";
+import { useResizing } from "./useResizing";
 
 declare var Hammer: any;
 
@@ -27,78 +29,15 @@ export function Scroll({
   const offset = useAsyncValue(domain.offsetBroadcast);
   useAsyncValue(domain.sizeBroadcast);
 
-  useLayoutEffect(() => {
-    const stage = divRef.current;
-    if (stage != null) {
-      const manager = new Hammer.Manager(stage);
-      manager.domEvents = true;
+  useAsyncValue(domain.offsetBroadcast);
+  useAsyncValue(domain.sizeBroadcast);
 
-      manager.add(
-        new Hammer.Pan({ direction: Hammer.DIRECTION_ALL, threshold: 0 })
-      );
-
-      if (onTap) {
-        manager.add(new Hammer.Tap());
-      }
-
-      manager.on("tap", (e) => {
-        const elapsedTime = Date.now() - domain.lastInteraction;
-        if (elapsedTime > 300) {
-          onTap && onTap(e.srcEvent);
-        }
-      });
-
-      manager.on("panstart", (e) => {
-        domain.pointerStart(e.center.x, e.center.y);
-      });
-
-      manager.on("panmove", (e) => {
-        domain.pointerMove(e.center.x, e.center.y);
-      });
-
-      manager.on("panend", (e) => {
-        domain.pointerEnd();
-      });
-
-      manager.on("pancancel", (e) => {
-        domain.pointerEnd();
-      });
-
-      return () => {
-        manager.stop();
-        manager.destroy();
-      };
-    }
-  }, [domain, onTap]);
-
-  useEffect(() => {
-    const div = divRef.current;
-
-    if (div == null) {
-      return;
-    }
-
-    const observer = new ResizeObserver((entries) => {
-      const entry = entries[0];
-      if (entry != null) {
-        domain.setSize(entry.contentRect.width, entry.contentRect.height);
-      }
-    });
-
-    observer.observe(div);
-
-    const rect = div.getBoundingClientRect();
-    domain.setSize(rect.width, rect.height);
-
-    return () => {
-      observer.disconnect();
-    };
-  }, []);
+  usePanning(divRef, domain, onTap);
+  useResizing(divRef, domain);
 
   useEffect(() => {
     domain.initialize(0, 0);
   }, [domain]);
-
   return (
     <div
       ref={divRef}
