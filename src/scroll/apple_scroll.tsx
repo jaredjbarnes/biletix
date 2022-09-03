@@ -70,13 +70,13 @@ export function AppleScroll({
     domain.setSnapInterval(interval * 2);
   }, [domain, interval]);
 
-  for (let i = -1; i <= 5; i++) {
+  for (let i = 0; i <= 5; i++) {
     const originalPosition = i * interval - (adjustedOffset % interval);
     const percentage = Math.abs(originalPosition / viewportWidth);
     const boundPercentage = Math.max(0, Math.min(percentage, 1));
     const transformedPosition = easings.easeInQuint(percentage);
     const position = transformedPosition * viewportWidth;
-    const scale = 0.9 + percentage * 0.1;
+    const scale = 0.9 + boundPercentage * 0.1;
 
     const style: React.CSSProperties = {
       position: "absolute",
@@ -98,7 +98,7 @@ export function AppleScroll({
       position: "absolute",
       top: 0,
       left: 0,
-      opacity: veilAnimation.update(percentage).currentValues.opacity,
+      opacity: veilAnimation.update(boundPercentage).currentValues.opacity,
       width: "100%",
       height: "100%",
       backgroundColor: "black",

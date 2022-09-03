@@ -10,7 +10,6 @@ export default {
 };
 
 const HEIGHT = 100;
-const PADDING = 0;
 
 export function Baseline() {
   const [domain] = useState(() => {
@@ -44,14 +43,19 @@ export function Baseline() {
       }}
     >
       {(domain) => {
-        const startIndex = Math.floor(domain.top / HEIGHT);
+        const startIndex =
+          domain.top <= 0
+            ? Math.ceil(domain.top / HEIGHT)
+            : Math.floor(domain.top / HEIGHT);
         const endIndex = Math.ceil(domain.bottom / HEIGHT);
+        const amount = endIndex - startIndex;
         const children: React.ReactNode[] = [];
 
-        for (let x = startIndex; x < endIndex; x++) {
+        for (let i = -1; i <= amount; i++) {
+          const position = i * HEIGHT - (domain.top % HEIGHT);
           const style: React.CSSProperties = {
             position: "absolute",
-            transform: `translate(${0}px, ${x * HEIGHT}px)`,
+            transform: `translate(${0}px, ${position}px)`,
             height: `${HEIGHT}px`,
             width: "100%",
             backgroundColor: "red",
@@ -60,8 +64,8 @@ export function Baseline() {
           };
 
           children.push(
-            <div key={x} style={style} data-id={x}>
-              {x}
+            <div key={i} style={style} data-id={i}>
+              {startIndex + i}
             </div>
           );
         }
@@ -90,7 +94,6 @@ export function Snap() {
       }}
       onTap={(e) => {
         const target = e.target as HTMLElement | null;
-
         if (target != null) {
           const element = target.closest("[data-id]");
 
@@ -101,14 +104,19 @@ export function Snap() {
       }}
     >
       {(domain) => {
-        const startIndex = Math.floor(domain.top / HEIGHT);
+        const startIndex =
+          domain.top <= 0
+            ? Math.ceil(domain.top / HEIGHT)
+            : Math.floor(domain.top / HEIGHT);
         const endIndex = Math.ceil(domain.bottom / HEIGHT);
+        const amount = endIndex - startIndex;
         const children: React.ReactNode[] = [];
 
-        for (let x = startIndex; x < endIndex; x++) {
+        for (let i = -1; i <= amount; i++) {
+          const position = i * HEIGHT - (domain.top % HEIGHT);
           const style: React.CSSProperties = {
             position: "absolute",
-            transform: `translate(${0}px, ${x * HEIGHT}px)`,
+            transform: `translate(${0}px, ${position}px)`,
             height: `${HEIGHT}px`,
             width: "100%",
             backgroundColor: "red",
@@ -117,8 +125,8 @@ export function Snap() {
           };
 
           children.push(
-            <div key={x} style={style} data-id={x}>
-              {x}
+            <div key={i} style={style} data-id={startIndex + i}>
+              {startIndex + i}
             </div>
           );
         }

@@ -22,6 +22,7 @@ export interface Scrollable {
   width: number;
   height: number;
   lastInteraction: number;
+  isScrolling: boolean;
   velocity: Position;
   onScrollStart: ScrollHandler;
   onScroll: ScrollHandler;

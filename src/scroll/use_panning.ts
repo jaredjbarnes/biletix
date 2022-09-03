@@ -1,4 +1,4 @@
-import React, { useLayoutEffect } from "react";
+import React, { useLayoutEffect, useMemo } from "react";
 import "hammerjs";
 import { Scrollable } from "./scrollable";
 
@@ -24,8 +24,7 @@ export function usePanning(
       }
 
       manager.on("tap", (e) => {
-        const elapsedTime = Date.now() - domain.lastInteraction;
-        if (elapsedTime > 300) {
+        if (!domain.isScrolling) {
           onTap && onTap(e.srcEvent);
         }
       });

@@ -64,6 +64,10 @@ export abstract class BaseScrollDomain implements Scrollable {
     return this._deltaOffset;
   }
 
+  get isScrolling() {
+    return this._isScrolling;
+  }
+
   onScrollStart: ScrollHandler;
   onScroll: ScrollHandler;
   onScrollEnd: ScrollHandler;

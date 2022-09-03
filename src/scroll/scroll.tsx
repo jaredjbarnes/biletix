@@ -25,10 +25,6 @@ export function Scroll({
   onTap,
 }: ScrollProps) {
   const divRef = useRef<HTMLDivElement | null>(null);
-  const contentRef = useRef<HTMLDivElement | null>(null);
-  const offset = useAsyncValue(domain.offsetBroadcast);
-  useAsyncValue(domain.sizeBroadcast);
-
   useAsyncValue(domain.offsetBroadcast);
   useAsyncValue(domain.sizeBroadcast);
 
@@ -53,19 +49,7 @@ export function Scroll({
       }}
       className={className}
     >
-      <div
-        ref={contentRef}
-        style={{
-          position: "absolute",
-          width: "100%",
-          height: "1px",
-          overflow: "visible",
-          userSelect: "none",
-          transform: `translate(${offset.x}px, ${offset.y}px)`,
-        }}
-      >
-        {children(domain)}
-      </div>
+      {children(domain)}
     </div>
   );
 }
