@@ -3,20 +3,10 @@ import React, { useEffect, useLayoutEffect, useRef } from "react";
 import "hammerjs";
 import { SnapScrollDomain } from "./snap_scroll_domain";
 import { usePanning } from "./use_panning";
-import { useResizing } from "./useResizing";
+import { useResizing } from "./use_resizing";
 import { createAnimation, easings } from "motion-ux";
 
 declare var Hammer: any;
-
-function round(value: number, interval) {
-  const halfStep = interval / 2;
-  const remainder = Math.abs(value % interval);
-  const direction = Math.sign(value);
-
-  return remainder > halfStep
-    ? value + direction * (interval - remainder)
-    : value - direction * remainder;
-}
 
 const veilAnimation = createAnimation({
   opacity: {
@@ -80,7 +70,7 @@ export function AppleScroll({
 
     const style: React.CSSProperties = {
       position: "absolute",
-      transform: `translate(${[position]}px, -50%) scale(${scale})`,
+      transform: `translate(${position}px, -50%) scale(${scale})`,
       transformOrigin: "left center",
       height: `${itemHeight}px`,
       width: `${itemWidth}px`,

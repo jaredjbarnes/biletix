@@ -3,6 +3,7 @@ import { AppleScroll } from "./apple_scroll";
 import { Scroll } from "./scroll";
 import { ScrollDomain } from "./scroll_domain";
 import { SnapScrollDomain } from "./snap_scroll_domain";
+import { StackList } from "./stack_list";
 
 export default {
   title: "Example/VirtualizedScroller",
@@ -148,6 +149,26 @@ export function AppleScrollBaseline() {
       domain={domain}
       itemWidth={300}
       itemHeight={500}
+      style={{
+        width: "100%",
+        height: `100%`,
+        border: "3px solid black",
+        boxSizing: "border-box",
+      }}
+    />
+  );
+}
+
+
+export function StackListBaseline() {
+  const [domain] = useState(() => {
+    const domain = new SnapScrollDomain(300);
+    return domain;
+  });
+
+  return (
+    <StackList
+      domain={domain}
       style={{
         width: "100%",
         height: `100%`,

@@ -3,7 +3,7 @@ import React, { useEffect, useLayoutEffect, useRef } from "react";
 import "hammerjs";
 import { Scrollable } from "./scrollable";
 import { usePanning } from "./use_panning";
-import { useResizing } from "./useResizing";
+import { useResizing } from "./use_resizing";
 
 declare var Hammer: any;
 
