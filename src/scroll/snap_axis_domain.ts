@@ -1,8 +1,7 @@
 import { createAnimation, easings } from "motion-ux";
-import { BaseScrollDomain } from "./base_scroll_domain";
-import { Position } from "./scrollable";
+import { AxisDomain } from "./axis_domain";
 
-export class SnapScrollDomain extends BaseScrollDomain {
+export class SnapAxisDomain extends AxisDomain {
   private _snapInterval: number;
 
   constructor(snapInterval: number) {
@@ -28,23 +27,16 @@ export class SnapScrollDomain extends BaseScrollDomain {
     this.settle();
   }
 
-  animateTo(x: number, y: number, duration = 2000) {
+  animateTo(value: number, duration = 2000) {
     const offset = this._offset.getValue();
-    const animation = createAnimation({
-      x: offset.x,
-      y: offset.y,
-    });
+    const animation = createAnimation({ offset: value });
 
     this._motion.inject(animation);
 
-    x = this._isXDisabled ? offset.x : x;
-    y = this._isYDisabled ? offset.y : y;
+    value = this._isDisabled ? offset : value;
 
     this._motion.segueTo(
-      createAnimation({
-        x,
-        y,
-      }),
+      createAnimation({ offset: value }),
       duration,
       easings.easeOutQuint
     );
@@ -55,25 +47,18 @@ export class SnapScrollDomain extends BaseScrollDomain {
     const delta = this._deltaOffset;
 
     const animation = createAnimation({
-      x: {
-        from: offset.x - delta.x,
-        to: offset.x,
-      },
-      y: {
-        from: offset.y - delta.y,
-        to: offset.y,
+      offset: {
+        from: offset - delta,
+        to: offset,
       },
     });
 
-    const distanceX = this.deriveDistance(delta.x);
-    const distanceY = this.deriveDistance(delta.y);
-    const x = this.round(offset.x + distanceX);
-    const y = this.round(offset.y + distanceY);
-
+    const distance = this.deriveDistance(delta);
+    const value = this.round(offset + distance);
+    
     this._motion.inject(animation).segueTo(
       createAnimation({
-        x: this._isXDisabled ? offset.x : x,
-        y: this._isYDisabled ? offset.y : y,
+        offset: this._isDisabled ? offset : value,
       }),
       2000,
       easings.easeOutQuint

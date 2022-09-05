@@ -68,6 +68,9 @@ export abstract class BaseScrollDomain implements Scrollable {
     return this._isScrolling;
   }
 
+  min: Position = { x: Infinity, y: Infinity };
+  max: Position = { x: Infinity, y: Infinity };
+  
   onScrollStart: ScrollHandler;
   onScroll: ScrollHandler;
   onScrollEnd: ScrollHandler;
@@ -178,13 +181,12 @@ export abstract class BaseScrollDomain implements Scrollable {
   }
 
   scrollTo(x: number, y: number) {
+    this.stop();
     this._offset.transformValue((o) => {
       o.x = x;
       o.y = y;
       return o;
     });
-
-    this.stop();
   }
 
   abstract animateTo(x: number, y: number, duration: number): void;

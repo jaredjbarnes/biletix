@@ -1,10 +1,10 @@
 import { useAsyncValue } from "ergo-hex";
 import React, { useEffect, useLayoutEffect, useRef } from "react";
 import "hammerjs";
-import { SnapScrollDomain } from "./snap_scroll_domain";
-import { usePanning } from "./use_panning";
-import { useResizing } from "./use_resizing";
 import { createAnimation } from "motion-ux";
+import { SnapAxisDomain } from "./snap_axis_domain";
+import { useHorizontalPanning } from "./use_horizontal_panning";
+import { useHorizontalResizing } from "./use_horizontal_resizing";
 
 declare var Hammer: any;
 
@@ -22,7 +22,7 @@ const animation = createAnimation({
 });
 
 export interface StackListProps {
-  domain: SnapScrollDomain;
+  domain: SnapAxisDomain;
   style?: React.CSSProperties;
   className?: string;
   onTap?: (event: PointerEvent) => void;
@@ -30,8 +30,8 @@ export interface StackListProps {
 
 export function StackList({ domain, style, className, onTap }: StackListProps) {
   const divRef = useRef<HTMLDivElement | null>(null);
-  const width = domain.right - domain.left;
-  const left = domain.left;
+  const width = domain.end - domain.start;
+  const left = domain.start;
   const distance = width * 2;
   const startIndex = Math.floor(left / width);
   const children: React.ReactNode[] = [];
@@ -39,11 +39,11 @@ export function StackList({ domain, style, className, onTap }: StackListProps) {
   useAsyncValue(domain.offsetBroadcast);
   useAsyncValue(domain.sizeBroadcast);
 
-  usePanning(divRef, domain, onTap);
-  useResizing(divRef, domain);
+  useHorizontalPanning(divRef, domain, onTap);
+  useHorizontalResizing(divRef, domain);
 
   useEffect(() => {
-    domain.initialize(0, 0);
+    domain.initialize(0);
   }, [domain]);
 
   useLayoutEffect(() => {

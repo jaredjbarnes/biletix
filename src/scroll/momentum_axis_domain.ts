@@ -1,9 +1,7 @@
-import { ObservableValue, ReadonlyObservableValue } from "ergo-hex";
-import { createAnimation, easings, Motion } from "motion-ux";
-import { BaseScrollDomain } from "./base_scroll_domain";
-import { Position, Scrollable, ScrollHandler, Size } from "./scrollable";
+import { createAnimation, easings } from "motion-ux";
+import { AxisDomain } from "./axis_domain";
 
-export class ScrollDomain extends BaseScrollDomain {
+export class MomentumAxisDomain extends AxisDomain {
   constructor(
     requestAnimationFrame: (callback: () => void) => number,
     cancelAnimationFrame: (id: number) => void
@@ -11,16 +9,14 @@ export class ScrollDomain extends BaseScrollDomain {
     super();
     this._requestAnimationFrame = requestAnimationFrame;
     this._cancelAnimationFrame = cancelAnimationFrame;
-    this._deltaOffsetHistory.fill({ x: 0, y: 0 });
+    this._deltaOffsetHistory.fill(0);
   }
 
   pointerEnd() {
     super.pointerEnd();
-    const deltaX = this._deltaOffset.x;
-    const deltaY = this._deltaOffset.y;
-    const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
+    const delta = this._deltaOffset;
 
-    if (distance > 3) {
+    if (delta > 3) {
       this._requestAnimationId = requestAnimationFrame(() => {
         this.finishMomentum();
       });
@@ -34,7 +30,7 @@ export class ScrollDomain extends BaseScrollDomain {
     super.reset();
   }
 
-  animateTo(x: number, y: number, duration = 2000) {
+  animateTo(value: number, duration = 2000) {
     const offset = this._offset.getValue();
 
     if (this._requestAnimationId !== -1) {
@@ -42,13 +38,9 @@ export class ScrollDomain extends BaseScrollDomain {
 
       const delta = this._deltaOffset;
       const animation = createAnimation({
-        x: {
-          from: offset.x - delta.x,
-          to: offset.x,
-        },
-        y: {
-          from: offset.y - delta.y,
-          to: offset.y,
+        offset: {
+          from: offset - delta,
+          to: offset,
         },
       });
 
@@ -56,21 +48,16 @@ export class ScrollDomain extends BaseScrollDomain {
       this.reset();
     } else {
       const animation = createAnimation({
-        x: offset.x,
-        y: offset.y,
+        offset,
       });
       this._motion.inject(animation);
     }
 
-    x = this._isXDisabled ? offset.x : x;
-    y = this._isYDisabled ? offset.y : y;
+    value = this._isDisabled ? offset : value;
 
     // Need to constrain if disabled and well as if snapped.
     this._motion.segueTo(
-      createAnimation({
-        x,
-        y,
-      }),
+      createAnimation({ offset: value }),
       duration,
       easings.easeOutQuint
     );
@@ -83,19 +70,12 @@ export class ScrollDomain extends BaseScrollDomain {
   }
 
   private finishMomentum() {
-    this._deltaOffset.y = this._deltaOffset.y * 0.97;
-    this._deltaOffset.x = this._deltaOffset.x * 0.97;
+    this._deltaOffset = this._deltaOffset * 0.97;
     const requestAnimationFrame = this._requestAnimationFrame;
 
-    const distanceTraveled = Math.sqrt(
-      this._deltaOffset.x * this._deltaOffset.x +
-        this._deltaOffset.y * this._deltaOffset.y
-    );
-
-    if (distanceTraveled > 0.1) {
+    if (this._deltaOffset > 0.1) {
       this._offset.transformValue((o) => {
-        o.x = this._isXDisabled ? 0 : o.x + this._deltaOffset.x;
-        o.y = this._isYDisabled ? 0 : o.y + this._deltaOffset.y;
+        o = this._isDisabled ? 0 : o + this._deltaOffset;
         return o;
       });
 
@@ -108,5 +88,4 @@ export class ScrollDomain extends BaseScrollDomain {
       this.reset();
     }
   }
-
 }

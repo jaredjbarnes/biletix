@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { AppleScroll } from "./apple_scroll";
 import { Scroll } from "./scroll";
 import { ScrollDomain } from "./scroll_domain";
+import { SnapAxisDomain } from "./snap_axis_domain";
 import { SnapScrollDomain } from "./snap_scroll_domain";
 import { StackList } from "./stack_list";
 
@@ -140,7 +141,7 @@ export function Snap() {
 
 export function AppleScrollBaseline() {
   const [domain] = useState(() => {
-    const domain = new SnapScrollDomain(300);
+    const domain = new SnapAxisDomain(300);
     return domain;
   });
 
@@ -162,7 +163,7 @@ export function AppleScrollBaseline() {
 
 export function StackListBaseline() {
   const [domain] = useState(() => {
-    const domain = new SnapScrollDomain(300);
+    const domain = new SnapAxisDomain(300);
     return domain;
   });
 

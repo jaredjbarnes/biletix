@@ -5,6 +5,9 @@ import { SnapScrollDomain } from "./snap_scroll_domain";
 import { usePanning } from "./use_panning";
 import { useResizing } from "./use_resizing";
 import { createAnimation, easings } from "motion-ux";
+import { SnapAxisDomain } from "./snap_axis_domain";
+import { useHorizontalResizing } from "./use_horizontal_resizing";
+import { useHorizontalPanning } from "./use_horizontal_panning";
 
 declare var Hammer: any;
 
@@ -20,7 +23,7 @@ const veilAnimation = createAnimation({
 });
 
 export interface AppleScrollProps {
-  domain: SnapScrollDomain;
+  domain: SnapAxisDomain;
   itemWidth: number;
   itemHeight: number;
   style?: React.CSSProperties;
@@ -37,9 +40,9 @@ export function AppleScroll({
   onTap,
 }: AppleScrollProps) {
   const divRef = useRef<HTMLDivElement | null>(null);
-  const viewportWidth = domain.right - domain.left - 100;
+  const viewportWidth = domain.end - domain.start - 100;
   const interval = viewportWidth / 4;
-  const adjustedOffset = domain.left / 2 - interval * 3;
+  const adjustedOffset = domain.start / 2 - interval * 3;
   const startIndex =
     adjustedOffset <= 0
       ? Math.ceil(adjustedOffset / interval)
@@ -49,11 +52,11 @@ export function AppleScroll({
   useAsyncValue(domain.offsetBroadcast);
   useAsyncValue(domain.sizeBroadcast);
 
-  usePanning(divRef, domain, onTap);
-  useResizing(divRef, domain);
+  useHorizontalPanning(divRef, domain, onTap);
+  useHorizontalResizing(divRef, domain);
 
   useEffect(() => {
-    domain.initialize(0, 0);
+    domain.initialize(0);
   }, [domain]);
 
   useLayoutEffect(() => {
