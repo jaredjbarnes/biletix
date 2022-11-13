@@ -246,7 +246,7 @@ export class AxisDomain implements Axis {
     const delta = this._deltaOffset;
 
     if (offset > this._maxOffset) {
-      if (delta >= 0.15) {
+      if (delta >= 0.90) {
         this._deltaOffset *= 1 - (offset - this._maxOffset) / 200;
       } else {
         this.reset();
@@ -254,7 +254,7 @@ export class AxisDomain implements Axis {
         return false;
       }
     } else if (offset < this.minOffset) {
-      if (delta <= -0.15) {
+      if (delta <= -0.9) {
         this._deltaOffset *= 1 - (this.minOffset - offset) / 200;
       } else {
         this.reset();
