@@ -1,5 +1,10 @@
 import React, { useRef } from "react";
-import { useAsyncValueEffect } from "ergo-hex";
+import {
+  ObservableValue,
+  ReadonlyObservableValue,
+  useAsyncValue,
+  useAsyncValueEffect,
+} from "ergo-hex";
 import { CharacterDomain } from "./character_domain";
 
 export interface CharacterProps {

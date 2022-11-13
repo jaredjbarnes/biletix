@@ -4,8 +4,12 @@ import { AxisDomain } from "./axis_domain";
 export class SnapAxisDomain extends AxisDomain {
   private _snapInterval: number;
 
-  constructor(snapInterval: number) {
-    super();
+  constructor(
+    requestAnimationFrame: (callback: () => void) => number,
+    cancelAnimationFrame: (id: number) => void,
+    snapInterval: number
+  ) {
+    super(requestAnimationFrame, cancelAnimationFrame);
     this._snapInterval = Math.max(snapInterval, 0);
   }
 
@@ -29,8 +33,15 @@ export class SnapAxisDomain extends AxisDomain {
 
   animateTo(value: number, duration = 2000) {
     const offset = this._offset.getValue();
-    const animation = createAnimation({ offset: value });
+    const delta = this._deltaOffset;
+    const animation = createAnimation({
+      offset: {
+        from: offset - delta,
+        to: offset,
+      },
+    });
 
+    this.reset();
     this._motion.inject(animation);
 
     value = this._isDisabled ? offset : value;
@@ -45,24 +56,10 @@ export class SnapAxisDomain extends AxisDomain {
   private settle() {
     const offset = this._offset.getValue();
     const delta = this._deltaOffset;
-
-    const animation = createAnimation({
-      offset: {
-        from: offset - delta,
-        to: offset,
-      },
-    });
-
     const distance = this.deriveDistance(delta);
     const value = this.round(offset + distance);
-    
-    this._motion.inject(animation).segueTo(
-      createAnimation({
-        offset: this._isDisabled ? offset : value,
-      }),
-      2000,
-      easings.easeOutQuint
-    );
+
+    this.animateTo(value);
   }
 
   private deriveDistance(delta: number) {
