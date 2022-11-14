@@ -272,7 +272,7 @@ export class AxisDomain implements Axis {
 
   animateTo(
     value: number,
-    duration = 3000,
+    duration = 2000,
     easing: EasingFunction = easings.easeOutQuint
   ) {
     const offset = this._offset.getValue();

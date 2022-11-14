@@ -31,35 +31,15 @@ export class SnapAxisDomain extends AxisDomain {
     this.settle();
   }
 
-  animateTo(value: number, duration = 2000) {
-    const offset = this._offset.getValue();
-    const delta = this._deltaOffset;
-    const animation = createAnimation({
-      offset: {
-        from: offset - delta,
-        to: offset,
-      },
-    });
-
-    this.reset();
-    this._motion.inject(animation);
-
-    value = this._isDisabled ? offset : value;
-
-    this._motion.segueTo(
-      createAnimation({ offset: value }),
-      duration,
-      easings.easeOutQuint
-    );
-  }
-
   private settle() {
     const offset = this._offset.getValue();
     const delta = this._deltaOffset;
     const distance = this.deriveDistance(delta);
     const value = this.round(offset + distance);
 
-    this.animateTo(value);
+    if (value <= this.maxOffset && value >= this.minOffset){
+      this.animateTo(value);
+    }
   }
 
   private deriveDistance(delta: number) {

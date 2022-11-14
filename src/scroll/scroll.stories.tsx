@@ -215,7 +215,7 @@ export function AppleScrollBaseline() {
       300
     );
     domain.min = 0;
-    domain.max = 150;
+    domain.max = 900;
     return domain;
   });
 
@@ -242,6 +242,7 @@ export function StackListBaseline() {
       300
     );
     domain.min = 0;
+    domain.max = 1155;
     return domain;
   });
 
